@@ -1,0 +1,131 @@
+page 96007 "Real Estate Fixed Setup"
+{
+    ApplicationArea = FixedAssets;
+    Caption = 'Fixed Asset Setup';
+    DeleteAllowed = false;
+    InsertAllowed = false;
+    PageType = Card;
+    PromotedActionCategories = 'New,Process,Report,General,Depreciation,Posting,Journal Templates';
+    SourceTable = "REF Setup";
+    UsageCategory = Administration;
+
+    layout
+    {
+        area(content)
+        {
+            group(General)
+            {
+                Caption = 'General';
+                field("Service Charge Acc."; rec."Service Charge Acc.")
+                {
+                }
+                field("Bus. Rel. Code for Visits"; rec."Bus. Rel. Code for Visits")
+                {
+                }
+                field("Bus. Rel. Code for Owner"; rec."Bus. Rel. Code for Owner")
+                {
+                }
+                field("Bus. Rel. Code for Partner"; rec."Bus. Rel. Code for Partner")
+                {
+                }
+            }
+            group(Numbering)
+            {
+                Caption = 'Numbering';
+                field("Fixed Asset Nos."; rec."Fixed Asset Nos.")
+                {
+                    ApplicationArea = FixedAssets;
+                    ToolTip = 'Specifies the code for the number series that will be used to assign numbers to fixed assets.';
+                }
+                field("Insurance Nos."; rec."Insurance Nos.")
+                {
+                    ApplicationArea = FixedAssets;
+                    ToolTip = 'Specifies the number series code that will be used to assign numbers to insurance policies.';
+                }
+                field("Lease Contract Nos."; rec."Lease Contract Nos.")
+                {
+                }
+                field("Contract Invoice Nos."; rec."Contract Invoice Nos.")
+                {
+                }
+                field("Contract Lease Invoice Nos."; rec."Contract Lease Invoice Nos.")
+                {
+                }
+            }
+            group(CRM)
+            {
+                Caption = 'CRM';
+                field("Interaction Template Filter"; rec."Interaction Template Filter")
+                {
+                }
+            }
+            group("Integration Garana")
+            {
+                Caption = 'Integration Garana';
+                field("Repository Contracts Files"; rec."Repository Contracts Files")
+                {
+                    ApplicationArea = FixedAssets;
+                    ToolTip = 'Specifies the code for the number series that will be used to assign numbers to fixed assets.';
+                }
+                field("Repository Lease Invoices"; rec."Repository Lease Invoices")
+                {
+                }
+            }
+        }
+        area(factboxes)
+        {
+            systempart(Links; Links)
+            {
+                Visible = false;
+            }
+            systempart(Notes; Notes)
+            {
+                Visible = false;
+            }
+        }
+    }
+
+    actions
+    {
+        area(processing)
+        {
+            action(FASetup)
+            {
+                ApplicationArea = FixedAssets;
+                Caption = 'Configurar FA Setup';
+                Image = Setup;
+                ToolTip = 'Configure the FA Setup';
+                trigger OnAction()
+                var
+                    InitSetup: Codeunit GeneralManagementInstall;
+                begin   
+                    InitSetup.ConfigurarREFSetup();
+                end;
+            }
+        }
+        area(navigation)
+        {
+            action("Esquema Ingresos y Gastos")
+            {
+                Image = AnalysisView;
+                RunObject = Page "REF Income & Expenses Template";
+                RunPageLink = "No. Template"=CONST('');
+            }
+            action("Descriptions Docs. Classified")
+            {
+                Image = Description;
+                RunObject = Page 96020;
+            }
+        }
+    }
+
+    trigger OnOpenPage()
+    begin
+        rec.RESET;
+        IF NOT rec.GET THEN BEGIN
+            rec.INIT;
+            rec.INSERT;
+        END;
+    end;
+}
+
