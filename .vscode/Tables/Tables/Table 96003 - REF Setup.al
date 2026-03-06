@@ -71,6 +71,22 @@ table 96003 "REF Setup"
             DataClassification = ToBeClassified;
             TableRelation = "Business Relation".Code;
         }
+        field(300; "Journal Template Name"; Code[10])
+        {
+            Caption = 'Journal Template Name';
+            TableRelation = "FRE Jnl. Template";
+        }
+        field(301; "Journal Batch Name"; Code[10])
+        {
+            Caption = 'Journal Batch Name';
+            TableRelation = "FRE Jnl. Batch".Name WHERE ("Journal Template Name"=FIELD("Journal Template Name"));
+        }
+        field(302; "Default Income Row No"; Code[10])
+        {
+            Caption = 'Default income row number';
+            TableRelation = "REF Income & Expense Template"."Row No.";
+            ValidateTableRelation =  false;
+        }
         field(60000; "Interaction Template Filter"; Text[30])
         {
         }

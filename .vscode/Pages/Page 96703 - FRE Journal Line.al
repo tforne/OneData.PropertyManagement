@@ -51,6 +51,24 @@ page 96703 "FRE Journal Line"
                     StyleExpr = LineStyleExpression;
                     ToolTip = 'Specifies the document number on the entry.';
                 }
+                field("Line Type"; rec."Line Type")
+                {
+                    ApplicationArea = Basic, Suite;
+                    StyleExpr = LineStyleExpression;
+                    ToolTip = 'Specifies the type of the item entry.';
+                }
+                field("Row No.";Rec."Row No.")
+                {
+                    ApplicationArea = Basic, Suite;
+                    StyleExpr = LineStyleExpression;
+                    ToolTip = 'Specifies the row number.';
+                }
+                field("Description Row No.";Rec."Description Row No.")
+                {
+                    ApplicationArea = Basic, Suite;
+                    StyleExpr = LineStyleExpression;
+                    ToolTip = 'Specifies the description row number.';
+                }
                 field("Source Type"; rec."Source Type")
                 {
                     ApplicationArea = Basic, Suite;

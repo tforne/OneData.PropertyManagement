@@ -7,12 +7,12 @@ table 96702 "FRE Jnl. Line"
         field(1; "Journal Template Name"; Code[10])
         {
             Caption = 'Journal Template Name';
-            TableRelation = "OneData IRPF Jnl. Template";
+            TableRelation = "FRE Jnl. Template";
         }
         field(2; "Journal Batch Name"; Code[10])
         {
             Caption = 'Journal Batch Name';
-            TableRelation = "OneData IRPF Jnl. Batch".Name WHERE ("Journal Template Name"=FIELD("Journal Template Name"));
+            TableRelation = "FRE Jnl. Batch".Name WHERE ("Journal Template Name"=FIELD("Journal Template Name"));
         }
         field(3; "Line No."; Integer)
         {
@@ -25,6 +25,15 @@ table 96702 "FRE Jnl. Line"
         field(6; "Line Type"; Enum "FRE Line Type")
         {
             Caption = 'Line Type';
+        }
+        field(7; "Fixed Real Estate No."; Code[20])
+        {
+            Caption = 'No.';
+            TableRelation = "Fixed Real Estate"."No.";
+        }
+        field(8; Description; Text[100])
+        {
+            Caption = 'Description';
         }
         field(9; "Row No."; Code[10])
         {
@@ -47,7 +56,7 @@ table 96702 "FRE Jnl. Line"
         {
             AutoFormatType = 1;
             Caption = 'Total Price';
-            Editable = false;
+            Editable = true;
         }
         field(18; "Document Type"; Enum "Gen. Journal Document Type")
         {
@@ -148,27 +157,27 @@ table 96702 "FRE Jnl. Line"
 
     trigger OnInsert()
     begin
-        IRPFJnlTemplate.GET("Journal Template Name");
-        IRPFJnlBatch.GET("Journal Template Name","Journal Batch Name");
+        FREJnlTemplate.GET("Journal Template Name");
+        FREJnlBatch.GET("Journal Template Name","Journal Batch Name");
     end;
 
     trigger OnModify()
     begin
-        IRPFJnlBatch.GET("Journal Template Name","Journal Batch Name");
+        FREJnlBatch.GET("Journal Template Name","Journal Batch Name");
     end;
 
     trigger OnRename()
     begin
-        IRPFJnlBatch.GET(xRec."Journal Template Name",xRec."Journal Batch Name");
+        FREJnlBatch.GET(xRec."Journal Template Name",xRec."Journal Batch Name");
     end;
 
     var
-        IRPFJnlTemplate: Record "OneData IRPF Jnl. Template";
-        IRPFJnlBatch: Record "OneData IRPF Jnl. Batch";
+        FREJnlTemplate: Record "FRE Jnl. Template";
+        FREJnlBatch: Record "FRE Jnl. Batch";
 
     procedure IsOpenedFromBatch(): Boolean
     var
-        IRPFJnlBatch: Record "OneData IRPF Jnl. Batch";
+        FREJnlBatch: Record "FRE Jnl. Batch";
         TemplateFilter: Text;
         BatchFilter: Text;
     begin
@@ -176,9 +185,9 @@ table 96702 "FRE Jnl. Line"
         IF BatchFilter <> '' THEN BEGIN
           TemplateFilter := GETFILTER("Journal Template Name");
           IF TemplateFilter <> '' THEN
-            IRPFJnlBatch.SETFILTER("Journal Template Name",TemplateFilter);
-          IRPFJnlBatch.SETFILTER(Name,BatchFilter);
-          IRPFJnlBatch.FINDFIRST;
+            FREJnlBatch.SETFILTER("Journal Template Name",TemplateFilter);
+          FREJnlBatch.SETFILTER(Name,BatchFilter);
+          FREJnlBatch.FINDFIRST;
         END;
 
         EXIT((("Journal Batch Name" <> '') AND ("Journal Template Name" = '')) OR (BatchFilter <> ''));

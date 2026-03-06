@@ -85,7 +85,7 @@ codeunit 96007 "Journals Management"
                     FREJnlTemplate.Name := Text000;
                     FREJnlTemplate.Description := Text001;
                     FREJnlTemplate.VALIDATE("Page ID");
-                    FREJnlTemplate.INSERT;
+                    if FREJnlTemplate.INSERT then;
                     COMMIT;
                 END;
             1:

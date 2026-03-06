@@ -28,14 +28,10 @@ table 96720 "FRE Ledger Entry"
         {
             Caption = 'Line Type';
         }
-        field(6; "No. Fixed Real Estate"; Code[20])
+        field(6; "Fixed Real Estate No."; Code[20])
         {
             Caption = 'No.';
-        }
-        field(7; "No."; Code[20])
-        {
-            Caption = 'No.';
-            TableRelation =  "G/L Account"."No.";
+            TableRelation = "Fixed Real Estate"."No.";
         }
         field(8; Description; Text[100])
         {
@@ -63,11 +59,6 @@ table 96720 "FRE Ledger Entry"
             AutoFormatType = 1;
             Caption = 'Total Price';
             Editable = false;
-        }
-        field(17; "Unit of Measure Code"; Code[10])
-        {
-            Caption = 'Unit of Measure Code';
-            TableRelation = "Item Unit of Measure".Code;
         }
         field(18; "Document Type"; Enum "Gen. Journal Document Type")
         {

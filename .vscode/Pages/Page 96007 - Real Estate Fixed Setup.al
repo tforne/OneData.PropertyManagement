@@ -52,6 +52,19 @@ page 96007 "Real Estate Fixed Setup"
                 {
                 }
             }
+            group(Journal)
+            {
+                Caption = 'Journal';
+                field("Journal Template Name"; rec."Journal Template Name")
+                {
+                }
+                field("Journal Batch Name"; rec."Journal Batch Name")
+                {
+                }   
+                field("Default Income Row No"; rec."Default Income Row No")
+                {
+                }
+            }
             group(CRM)
             {
                 Caption = 'CRM';

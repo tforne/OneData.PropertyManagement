@@ -21,11 +21,7 @@ page 96702 "FRE Jnl. Batches"
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies some information about the FRE journal.';
                 }
-                field("Periode Code"; Rec."Periode Code")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the month to report data for. Enter the period as a four-digit number, with no spaces or symbols. Depending on your country, enter either the month first and then the year, or vice versa. For example, enter either 1706 or 0617 for June, 2017.';
-                }
+
             }
         }
         area(factboxes)
