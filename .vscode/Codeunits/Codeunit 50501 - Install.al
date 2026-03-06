@@ -68,19 +68,76 @@ codeunit 50501 GeneralManagementInstall
         if REFSetup."Contract Invoice Nos." = '' then begin
             NoSeries.Code := 'PM-CTINV';
             NoSeries.Description := 'Property Management Contract Invoice';
+            NoSeries."Manual Nos." := true;
+            NoSeries."Default Nos." := true;
             NoSeries.insert;
             NoSeriesLine."Series Code" :=  'PM-CTINV';
             NoSeriesLine."Line No." := 10000;
             NoSeriesLine."Starting Date" := today;
             NoSeriesLine.Insert(true);
-            NoSeriesLine."Starting No." := 'PM-26-00001';
+            NoSeriesLine."Starting No." := StrSubstNo('PM-%1-00001',Date2DMY(today,3)-2000);
             NoSeriesLine.modify;
             REFSetup."Contract Invoice Nos." := 'PM-CTINV';
             REFSetup.MODIFY;
         end;
-            // if REFSetup."Contract Lease Invoice Nos."
-            // if REFSetup."Fixed Asset Nos."
-            // if REFSetup."Insurance Nos."
-            // if REFSetup."Lease Contract Nos."
+        if REFSetup."Contract Lease Invoice Nos." = '' then begin
+            NoSeries.Code := 'PM-CTLEASINV';
+            NoSeries.Description := 'Property Management Contract Lease Invoice';
+            NoSeries."Manual Nos." := true;
+            NoSeries."Default Nos." := true;
+            NoSeries.insert;
+            NoSeriesLine."Series Code" :=  'PM-CTLEASINV';
+            NoSeriesLine."Line No." := 10000;
+            NoSeriesLine."Starting Date" := today;
+            NoSeriesLine.Insert(true);
+            NoSeriesLine."Starting No." := StrSubstNo('CT-%1-00001',Date2DMY(today,3)-2000);
+            NoSeriesLine.modify;
+            REFSetup.MODIFY;
+        end;
+        if REFSetup."Fixed Asset Nos." = '' then begin
+            NoSeries.Code := 'PM-FA';
+            NoSeries.Description := 'Property Management Fixed Asset';
+            NoSeries."Manual Nos." := true;
+            NoSeries."Default Nos." := true;
+            NoSeries.insert;
+            NoSeriesLine."Series Code" :=  'PM-FA';
+            NoSeriesLine."Line No." := 10000;
+            NoSeriesLine."Starting Date" := today;
+            NoSeriesLine.Insert(true);
+            NoSeriesLine."Starting No." := StrSubstNo('FA-%1-00001',Date2DMY(today,3)-2000);
+            NoSeriesLine.modify;
+            REFSetup."Fixed Asset Nos." := 'PM-FA';
+            REFSetup.MODIFY;
+        end;
+        if REFSetup."Insurance Nos." = '' then begin
+            NoSeries.Code := 'PM-INS';
+            NoSeries.Description := 'Property Management Insurance';
+            NoSeries."Manual Nos." := true;
+            NoSeries."Default Nos." := true;
+            NoSeries.insert;
+            NoSeriesLine."Series Code" :=  'PM-INS';
+            NoSeriesLine."Line No." := 10000;
+            NoSeriesLine."Starting Date" := today;
+            NoSeriesLine.Insert(true);
+            NoSeriesLine."Starting No." := StrSubstNo('INS-%1-00001',Date2DMY(today,3)-2000);
+            NoSeriesLine.modify;
+            REFSetup."Insurance Nos." := 'PM-INS';
+            REFSetup.MODIFY;
+        end;
+        if REFSetup."Lease Contract Nos." = '' then begin
+            NoSeries.Code := 'PM-LEAS';
+            NoSeries.Description := 'Property Management Lease Contract';
+            NoSeries."Manual Nos." := true;
+            NoSeries."Default Nos." := true;
+            NoSeries.insert;
+            NoSeriesLine."Series Code" :=  'PM-LEAS';
+            NoSeriesLine."Line No." := 10000;
+            NoSeriesLine."Starting Date" := today;
+            NoSeriesLine.Insert(true);
+            NoSeriesLine."Starting No." := StrSubstNo('LEAS-%1-00001',Date2DMY(today,3)-2000);
+            NoSeriesLine.modify;
+            REFSetup."Lease Contract Nos." := 'PM-LEAS';
+            REFSetup.MODIFY;
+        end;
     end;          
 }

@@ -1,5 +1,5 @@
 profile "Property Management"
 {
-    Caption = 'Property Management';
+    Caption = 'Gestor de Propiedades';
     RoleCenter = "Real Estate Role Center";
 }

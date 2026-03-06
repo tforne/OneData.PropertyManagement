@@ -624,18 +624,16 @@ table 96000 "Fixed Real Estate"
         ReadyToAcquireMsg: Label 'You are ready to acquire the fixed asset.';
         AcquireActionTxt: Label 'Acquire';
         PhoneNoCannotContainLettersErr: Label 'You cannot enter letters in this field.';
+        Text004: Label 'untitled';
 
-    // procedure AssistEdit(OldREFA: Record "Fixed Real Estate"): Boolean
-    // begin
-    //     REFA := Rec;
-    //     REFASetup.GET;
-    //     REFASetup.TESTFIELD("Fixed Asset Nos.");
-    //     IF NoSeriesMgt.SelectSeries(REFASetup."Fixed Asset Nos.",OldREFA."No. Series",REFA."No. Series") THEN BEGIN
-    //     NoSeriesMgt.SetSeries(REFA."No.");
-    //     Rec := REFA;
-    //     EXIT(TRUE);
-    //     END;
-    // end;
+    procedure Caption(): Text
+    begin
+        if "No." = '' then
+            exit(Text004);
+        exit(
+          StrSubstNo(
+            '%1 %2 %3', "No.", Description, City));
+    end;
 
     procedure ValidateShortcutDimCode(FieldNumber: Integer;var ShortcutDimCode: Code[20])
     begin
@@ -701,37 +699,6 @@ table 96000 "Fixed Real Estate"
         NotificationLifecycleMgt.RecallNotificationsForRecord(RECORDID,FALSE);
     end;
 
-    // procedure SetFREDescription(NewWorkDescription: Text)
-    // var
-    //     TempBlob: Record "TempBlob" temporary;
-    // begin
-    //     CLEAR("Comercial Description");
-    //     IF NewWorkDescription = '' THEN
-    //       EXIT;
-    //     TempBlob.Blob := "Comercial Description";
-    //     TempBlob.WriteAsText(NewWorkDescription,TEXTENCODING::Windows);
-    //     "Comercial Description" := TempBlob.Blob;
-    //     MODIFY;
-    // end;
-
-    // procedure GetFREDescription(): Text
-    // begin
-    //     CALCFIELDS("Comercial Description");
-    //     EXIT(GetFREDescriptionFREDescriptionCalculated);
-    // end;
-
-    // procedure GetFREDescriptionFREDescriptionCalculated(): Text
-    // var
-    //     TempBlob: Record "TempBlob" temporary;
-    //     CR: Text[1];
-    // begin
-    //     IF NOT "Comercial Description".HASVALUE THEN
-    //       EXIT('');
-
-    //     CR[1] := 10;
-    //     TempBlob.Blob := "Comercial Description";
-    //     EXIT(TempBlob.ReadAsText(CR,TEXTENCODING::Windows));
-    // end;
     procedure SetFREDescription(NewWorkDescription: Text)
     var
         OutStream: OutStream;

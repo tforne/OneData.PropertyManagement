@@ -145,6 +145,7 @@ page 96034 "Posted Lease Invoices"
                 ApplicationArea = Basic, Suite;
                 Caption = 'Send by &Email';
                 Image = Email;
+                Promoted = true;
                 ToolTip = 'Prepare to send the document by email. The Send Email window opens prefilled for the customer where you can add or change information before you send the email.';
 
                 trigger OnAction()

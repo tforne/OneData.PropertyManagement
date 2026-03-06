@@ -165,6 +165,17 @@ page 96015 "Real Estate Role Center"
                     RunObject = Page 190;
                 }
             }
+            group(Journals)
+            {
+                Caption = 'Journals';
+                action("Journal property")
+                {
+                    Caption = 'Journal property';
+                    ApplicationArea = All;
+                    Image = Journal;
+                    RunObject = Page "FRE Journal Line";
+                }
+            }
             group(Setup)
             {
                 Caption = 'Setup';

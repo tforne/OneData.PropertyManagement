@@ -46,6 +46,7 @@ page 96032 "Lease Contract Subform"
                 field(Amount; rec.Amount)
                 {
                     ApplicationArea = All;
+                    Importance = Standard;
                     ToolTip = 'Specifies the net amount, excluding any invoice discount amount, that must be paid for products on the line.';
                 }
                 field(Cost; rec.Cost)

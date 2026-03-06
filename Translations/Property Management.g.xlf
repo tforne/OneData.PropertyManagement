@@ -203,6 +203,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - NamedType text002</note>
         </trans-unit>
+        <trans-unit id="Table 3197180930 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>untitled</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - NamedType Text004</note>
+        </trans-unit>
         <trans-unit id="Table 3197180930 - NamedType 4214926420" size-unit="char" translate="yes" xml:space="preserve">
           <source>Before you can use Online Map, you must fill in the Online Map Setup window.\See Setting Up Online Map in Help.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -842,6 +847,256 @@
           <source>Serial No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table FRE Equipment - Field Serial No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2812746253 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Jnl. Batch</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Batch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2812746253 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 must be 4 characters, for example, 9410 for October, 1994.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Batch - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Table 2812746253 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please check the month number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Batch - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Table 2812746253 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Batch - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2812746253 - Field 3684440170 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Template Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Batch - Field Journal Template Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2812746253 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Batch - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2812746253 - Field 1673226839 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Periode Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Batch - Field Periode Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Jnl. Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 3192175264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 3880825301 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description Row No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Description Row No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 2704330142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Journal Batch Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 3684440170 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Template Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Journal Template Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 3286668834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ledger Entry No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Ledger Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 158172202 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Line Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 2782707039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Row No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Row No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 1343707150 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Source Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 1882905478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 1753214751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Source Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 3996842083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Cost</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Total Cost - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 869806091 - Field 2812148497 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Line - Field Total Price - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3769494985 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Jnl. Template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Template - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3769494985 - Field 1214150128 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Checklist Report Caption</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Template - Field Checklist Report Caption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3769494985 - Field 659679865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Checklist Report ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Template - Field Checklist Report ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3769494985 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Template - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3769494985 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Template - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3769494985 - Field 875965287 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page Caption</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Template - Field Page Caption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3769494985 - Field 894914730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Jnl. Template - Field Page ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Ledger Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 3880825301 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description Row No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Description Row No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 2704330142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Journal Batch Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 3684440170 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Template Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Journal Template Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 3286668834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ledger Entry No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Ledger Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 158172202 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Line Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 3009654443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field No. Fixed Real Estate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 3710982960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Posting Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 2782707039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Row No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Row No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 1343707150 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Source Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 1882905478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 1753214751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Source Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 3996842083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Cost</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Total Cost - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 2812148497 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Total Price - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3126863468 - Field 2385270358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Ledger Entry - Field Unit of Measure Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2775144828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Credit Transfer Register</source>
@@ -3988,6 +4243,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text005</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2625322547 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Journals Management - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2625322547 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Diario FRE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Journals Management - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2625322547 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GENERICO</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Journals Management - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2625322547 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Diario genérico</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Journals Management - NamedType Text003</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1987266316 - NamedType 1156462942" size-unit="char" translate="yes" xml:space="preserve">
           <source>Choose the file to upload.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4197,6 +4472,106 @@
           <source>Cargar atibutos por tipo de activo</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Attribute Value Edit. - Action Load attributes by asset type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Property 1064389655" size-unit="char" translate="yes" xml:space="preserve">
+          <source>About Fixed Real Estate Statistics</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Property 247559172" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Here you overview the total acquisition cost, depreciation, and book value for the asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Real Estate Statistics</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 2159872013 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Flujo de Caja</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control FlujoCaja - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 2691587029 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the minimum rental sale price for the fixed asset including tax.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Minimum Rental Sales Price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 1157678069 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the minimum sale price for the fixed asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Minimum Sales Price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 2243515271 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total LCY amount for custom 2 entries for the fixed asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Sales Price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 3550991128 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total LCY amount of write-down entries for the fixed asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Val. Castastral Const. Activo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 486121392 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total LCY amount for custom 1 entries for the fixed asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Val. Catastral Activo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 3743738981 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ocupación y Estabilidad</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control OcupaciónEstabilidad - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 2007606137 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Proyecciones</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Proyecciones - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 4031336865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rentability</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentability - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 2741936714 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the monthly cash flow for the fixed asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Flujo Caja Mensual - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 2741936714 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monthly Cash Flow</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Flujo Caja Mensual - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 514059213 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the gross rentability for the fixed asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentabilidad Bruta - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 514059213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gross Rentability</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentabilidad Bruta - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 1577853311 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the net rentability for the fixed asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentabilidad Neta - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 1577853311 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Rentability</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentabilidad Neta - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 831155605 - Control 76693112 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Publicación</source>
@@ -4488,6 +4863,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Equipamientos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4166615366 - Action 2647537922 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View the posted lease invoices</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action FacturasAlquiler - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4166615366 - Action 2647537922 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Facturas alquiler</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action FacturasAlquiler - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4166615366 - Action 3588991647 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View service request cases associated with this fixed real estate.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4528,16 +4913,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Statistics - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4166615366 - Action 699116535 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the amounts that you posted to each insurance policy for the fixed asset. The amounts shown can be more or less than the actual insurance policy coverage. The amounts shown can differ from the actual book value of the asset.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Total Value Ins&amp;ured - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4166615366 - Action 699116535 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Total Value Ins&amp;ured</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Total Value Ins&amp;ured - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 4166615366 - Action 3233977138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Calcular sumatorio</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4549,7 +4924,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Publish - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Action 367086139 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export Bill Group to File</source>
+          <source>Publish</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Publish - Property Caption</note>
         </trans-unit>
@@ -4578,6 +4953,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Maintenance Vendor No. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3848461472 - Control 2691587029 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the minimum rental sale price of the fixed asset including tax.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Minimum Rental Sales Price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3848461472 - Control 2691587029 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Minimum Rental Sale Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Minimum Rental Sales Price - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3848461472 - Control 1157678069 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the minimum sale price of the fixed asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Minimum Sales Price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3848461472 - Control 1157678069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Minimum Sale Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Minimum Sales Price - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3848461472 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4587,6 +4982,16 @@
           <source>Specifies which employee is responsible for the fixed asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Responsible Employee - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3848461472 - Control 3378917543 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the sale price of the fixed asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Sales price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3848461472 - Control 3378917543 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sale Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Sales price - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 1527594213 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of the vendor from which you purchased this fixed asset.</source>
@@ -4717,6 +5122,201 @@
           <source>Specifies the value of the Serial No. field.</source>
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Equipments - Control Serial No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3912197647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Jnl. Batches</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Jnl. Batches - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3912197647 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies some information about the FRE journal.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Jnl. Batches - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3912197647 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the FRE journal.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Jnl. Batches - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3912197647 - Control 1673226839 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the month to report data for. Enter the period as a four-digit number, with no spaces or symbols. Depending on your country, enter either the month first and then the year, or vice versa. For example, enter either 1706 or 0617 for June, 2017.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Jnl. Batches - Control Periode Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3912197647 - Action 210935239 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a journal based on the journal batch.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Jnl. Batches - Action EditJournal - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3912197647 - Action 210935239 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Edit Journal</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Jnl. Batches - Action EditJournal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2679814847 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Jnl. Template List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Jnl. Template List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2679814847 - Control 659679865 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the checklist that can be printed if you click Actions, Print in the FRE journal window and then select Checklist Report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Jnl. Template List - Control Checklist Report ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2679814847 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a description of the FRE journal template.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Jnl. Template List - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2679814847 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the FRE journal template.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Jnl. Template List - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2679814847 - Control 894914730 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the page that is used to show the journal or worksheet that uses the template.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Jnl. Template List - Control Page ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Bank,Application,Payroll,Approve,Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Property PromotedActionCategories</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Journals</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - NamedType 2658168242" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No hay líneas en el diario para generar el modelo. ¿ Quieres que te las sugiramos ?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - NamedType NoLinesLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Control 874212758 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the journal batch.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control CurrentJnlBatchName - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Control 874212758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Batch Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control CurrentJnlBatchName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Control 3192175264 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date the item entry was posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document number on the entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Control 1882905478 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number that the item entry had in the table it came from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Control 1753214751 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry type.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Action 2648300550 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Validate the FRE journal lines.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Action ChecklistReport - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Action 2648300550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Checklist Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Action ChecklistReport - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Action 2246317104 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggests FRE Ledger Entries transactions to be reported and fills in FRE journal.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Action GetEntries - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Action 2246317104 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggest Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Action GetEntries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Action 438909893 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Action Page - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Action 158382408 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the data in the journal to an Excel file for analysis or editing.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Action EditInExcel - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Action 158382408 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Edit in Excel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Action EditInExcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Action 1577525998 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show or hide FRE journal lines that do not have errors.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Action Toggle Error Filter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Action 1577525998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filter Error Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Action Toggle Error Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3153671453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Journal Templates</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Templates - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3153671453 - Control 1214150128 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the test report that you can print.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Templates - Control Checklist Report Caption - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3153671453 - Control 659679865 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the checklist that can be printed if you click Actions, Print in the FRE journal window and then select Checklist Report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Templates - Control Checklist Report ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3153671453 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a description of the FRE journal template.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Templates - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3153671453 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the FRE journal template.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Templates - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3153671453 - Control 875965287 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the displayed name of the journal or worksheet that uses the template.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Templates - Control Page Caption - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3153671453 - Control 894914730 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the page that is used to show the journal or worksheet that uses the template.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Templates - Control Page ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3153671453 - Action 45445610 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Te&amp;mplate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Templates - Action Te&amp;mplate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3153671453 - Action 2243748878 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit multiple journals for a specific template. You can use batches when you need multiple journals of a certain type.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Templates - Action Batches - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3153671453 - Action 2243748878 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Batches</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Templates - Action Batches - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 822738190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Headline</source>
@@ -5683,6 +6283,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page List Tax Amount Line - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1719084420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Movs. FRE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Movs. FRE - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1719084420 - Action 1405007275 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Find entries and documents that exist for the document number and posting date on the selected document. (Formerly this action was named Navigate.)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Movs. FRE - Action &amp;Navigate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1719084420 - Action 1405007275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Find entries...</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Movs. FRE - Action &amp;Navigate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 372864922 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachment Picture</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6279,7 +6894,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Fixed Setup - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 2422034571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fixed Asset Setup</source>
+          <source>Real Estate Fixed Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Fixed Setup - Property Caption</note>
         </trans-unit>
@@ -6377,6 +6992,16 @@
           <source>Documentos entrantes</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Documentos entrantes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 1074715950 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journals</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Journals - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 4054370938 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal property</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Journal property - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 586345089 - Action 4137051400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>New</source>
@@ -6533,6 +7158,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page REF Income &amp; Expenses Subform - Control Type - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Page 1309920287 - Control 3461615370 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page REF Income &amp; Expenses Subform - Control Group1 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1309920287 - Control 1877710544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Income</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6577,6 +7207,11 @@
           <source>Specifies the value of the Description field.</source>
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Rentals Deposit - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 266587721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ventas por mes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales by Month Chart - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3072371513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contratación y Ventas</source>
@@ -7519,7 +8154,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension NewFieldTable79 - Field IBAN 2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Profile 3305561352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Property Management</source>
+          <source>Gestor de Propiedades</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Profile Property Management - Property Caption</note>
         </trans-unit>
@@ -7527,6 +8162,26 @@
           <source>Lease Contract</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Enum_DocsPropertyManagement - EnumValue Lease Contract - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1493932097 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Line Type - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1493932097 - EnumValue 2070807507 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Billable</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Line Type - EnumValue Billable - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1493932097 - EnumValue 2617508010 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Both Budget and Billable</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Line Type - EnumValue Both Budget and Billable - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1493932097 - EnumValue 4030203231 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Budget</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Line Type - EnumValue Budget - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 677694194 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Motivo de liquidación</source>

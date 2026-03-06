@@ -371,8 +371,9 @@ page 96000 "Fixed Real Estate Card"
                 ApplicationArea = All;
                 Caption = 'Statistics';
                 Image = Statistics;
-                RunObject = Page "Fixed Asset Statistics";
-                RunPageLink = "FA No."=FIELD("No.");
+                Promoted = true;
+                RunObject = Page "Fixed RE Statistics";
+                RunPageLink = "No."=FIELD("No.");
                 ShortCutKey = 'F7';
                 ToolTip = 'View detailed historical information about the fixed asset.';
             }
@@ -382,8 +383,8 @@ page 96000 "Fixed Real Estate Card"
                 Caption = 'Dimensions';
                 Image = Dimensions;
                 RunObject = Page 540;
-                                RunPageLink = "Table ID"=CONST(96000),
-                              "No."=FIELD("No.");
+                            RunPageLink = "Table ID"=CONST(96000),
+                            "No."=FIELD("No.");
                 ShortCutKey = 'Shift+Ctrl+D';
                 ToolTip = 'View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.';
             }
@@ -467,14 +468,15 @@ page 96000 "Fixed Real Estate Card"
                 RunPageView = SORTING("Contract No.")
                               WHERE(Status=CONST(Signed));
             }
-            action("Total Value Ins&ured")
+            action("FacturasAlquiler")
             {
                 ApplicationArea = All;
-                Caption = 'Total Value Ins&ured';
-                Image = TotalValueInsured;
-                RunObject = Page "Total Value Insured";
-                RunPageLink = "No."=FIELD("No.");
-                ToolTip = 'View the amounts that you posted to each insurance policy for the fixed asset. The amounts shown can be more or less than the actual insurance policy coverage. The amounts shown can differ from the actual book value of the asset.';
+                Caption = 'Facturas alquiler';
+                Image = Invoice;
+                RunObject = Page "Posted Lease Invoices";
+                RunPageLink = "Fixed Real Estate No."=FIELD("No.");
+                ToolTip = 'View the posted lease invoices';
+                Promoted = true;
             }
             action(Avatar)
             {
@@ -499,7 +501,7 @@ page 96000 "Fixed Real Estate Card"
             action(Publish)
             {
                 ApplicationArea = Basic,Suite;
-                Caption = 'Export Bill Group to File';
+                Caption = 'Publish';
                 Image = ExportFile;
                 ToolTip = 'Export a file with the payment information on the lines.';
 

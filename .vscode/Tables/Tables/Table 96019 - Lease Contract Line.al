@@ -476,21 +476,16 @@ table 96019 "Lease Contract Line"
             SumIndexFields = Amount, Profit;
         }
     }
-
+    fieldgroups
+    {
+        fieldgroup(DropDown; Description, Amount, "VAT %")
+        {
+        }
+    }
 
     trigger OnDelete()
     begin
-        //TestStatusOpen;
-        //GetLeaseContractHeader;
 
-        /*
-        ServCommentLine.SETRANGE("Table Name",ServCommentLine."Table Name"::"Service Contract");
-        ServCommentLine.SETRANGE("Table Subtype","Contract Type");
-        ServCommentLine.SETRANGE("No.","Contract No.");
-        ServCommentLine.SETRANGE(Type,ServCommentLine.Type::General);
-        ServCommentLine.SETRANGE("Table Line No.","Line No.");
-        ServCommentLine.DELETEALL;
-        */
 
     end;
 

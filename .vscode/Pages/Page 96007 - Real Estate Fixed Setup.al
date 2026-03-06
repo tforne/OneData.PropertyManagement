@@ -1,7 +1,7 @@
 page 96007 "Real Estate Fixed Setup"
 {
     ApplicationArea = FixedAssets;
-    Caption = 'Fixed Asset Setup';
+    Caption = 'Real Estate Fixed Setup';
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = Card;

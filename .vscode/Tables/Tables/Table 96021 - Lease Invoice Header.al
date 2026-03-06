@@ -365,7 +365,7 @@ table 96021 "Lease Invoice Header"
 
     fieldgroups
     {
-        fieldgroup(DropDown;"No.","Customer No.","Posting Date")
+        fieldgroup(DropDown;"No.",Name,"Posting Date","Amount Including VAT")
         {
         }
     }

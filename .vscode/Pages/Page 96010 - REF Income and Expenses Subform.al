@@ -35,27 +35,28 @@ page 96010 "REF Income & Expenses Subform"
                 field(Quantity; rec.Quantity)
                 {
                     ApplicationArea = All;
+                    BlankZero = true;
                 }
                 field(Price; rec.Price)
                 {
                     ApplicationArea = All;
+                    BlankZero = true;
                 }
                 field(Amount; rec.Amount)
                 {
                     ApplicationArea = All;
+                    BlankZero = true;
                 }
             }
             group(Group1)
             {
-                group(Group11)
+                Caption = 'Total';
+                field(NetIncome; NetIncome)
                 {
-                    field(NetIncome; NetIncome)
-                    {
-                        ApplicationArea = All;
-                        AutoFormatType = 1;
-                        Caption = 'Net Income';
-                        Editable = false;
-                    }
+                    ApplicationArea = All;
+                    AutoFormatType = 1;
+                    Caption = 'Net Income';
+                    Editable = false;
                 }
             }
         }

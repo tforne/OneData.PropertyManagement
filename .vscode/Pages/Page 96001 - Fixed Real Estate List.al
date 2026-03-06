@@ -37,6 +37,10 @@ page 96001 "Fixed Real Estate List"
                     StyleExpr = StyleIsStrong;
                     ToolTip = 'Specifies a description of the fixed asset.';
                 }
+                field("Post Code"; rec."Post Code")
+                {
+                    ApplicationArea = All;
+                }
                 field(City; rec.City)
                 {
                     ApplicationArea = All;
@@ -89,6 +93,24 @@ page 96001 "Fixed Real Estate List"
                 {
                     ApplicationArea = All;
                 }
+                field("Sales price"; rec."Sales price")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Sale Price';
+                    ToolTip = 'Specifies the sale price of the fixed asset.';
+                }
+                field("Minimum Sales Price"; rec."Minimum Sales Price")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Minimum Sale Price';
+                    ToolTip = 'Specifies the minimum sale price of the fixed asset.';
+                }
+                field("Minimum Rental Sales Price"; rec."Minimum Rental Price")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Minimum Rental Sale Price';
+                    ToolTip = 'Specifies the minimum rental sale price of the fixed asset including tax.';
+                }
                 field("Superficie construida"; rec."Superficie construida")
                 {
                     ApplicationArea = All;
@@ -136,8 +158,8 @@ page 96001 "Fixed Real Estate List"
                 ApplicationArea = All;
                 Caption = 'Statistics';
                 Image = Statistics;
-                RunObject = Page "Fixed Asset Statistics";
-                                RunPageLink = "FA No."=FIELD("No.");
+                RunObject = Page "Fixed RE Statistics";
+                            RunPageLink = "No."=FIELD("No.");
                 ShortCutKey = 'F7';
                 ToolTip = 'View detailed historical information about the fixed asset.';
             }

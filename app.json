@@ -2,7 +2,7 @@
   "id": "88c7367c-5bbe-483c-996a-9b8206a8d923",
   "name": "Property Management",
   "publisher": "OneData",
-  "version": "2.0.26049.0",
+  "version": "3.0.26064.10",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -15,7 +15,7 @@
     "id": "d79ca5b2-aa4a-43be-8437-d39ebf6a169b",
     "name": "Base Application",
     "publisher": "OneData",
-    "version": "1.0.0.0"
+    "version": "2.0.26049.0"
     }
   ],  
   "screenshots": [],
