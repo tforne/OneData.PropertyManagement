@@ -760,8 +760,8 @@ report 96003 "Lease Sales - Invoice"
         }
     }
 
-    requestpage
-    {
+requestpage
+{
         SaveValues = true;
 
         layout

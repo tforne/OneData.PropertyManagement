@@ -39,6 +39,7 @@ report 96001 "Create Lease Contract Invoices"
                 RealEstateMangement.CreateAllLeaseContractLines(InvoiceNo, LeaseContract, InvoiceHeader, LeaseInvoiceHeader);
                 LastCustomer := LeaseContract."Second Customer No.";
                 LastContractCombined := LeaseContract."Combine Invoices";
+                FREJnlPostLine.PostFRELedgerEntryFromLeaseInvoice(LeaseInvoiceHeader);
             end;
 
             trigger OnPostDataItem()
@@ -153,6 +154,7 @@ report 96001 "Create Lease Contract Invoices"
         InvoiceHeader: Record "Sales Header";
         LeaseInvoiceHeader: Record "Lease Invoice Header";
         RealEstateMangement: Codeunit "Real Estate Management";
+        FREJnlPostLine : Codeunit "FRE Jnl.-Post Line";
         Window: Dialog;
         InvoicedAmount: Decimal;
         NoOfInvoices: Integer;

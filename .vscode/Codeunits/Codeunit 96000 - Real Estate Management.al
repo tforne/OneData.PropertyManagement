@@ -1045,6 +1045,18 @@ procedure CancelContract(FromLeaseContract: Record "Lease Contract")
         end;
         TaxAmountLine.MODIFY;
     END;
+    procedure CalcSalesAmount("Fixed Real Estate": Record "Fixed Real Estate"; SalesAmountM2: Decimal; Percentage: Decimal)
+    var
+        FixedRealEstate : record "Fixed Real Estate";
+    begin
+        // Implementation for calculating sales amount
+        if FixedRealEstate.GET("Fixed Real Estate"."No.") then begin
+            FixedRealEstate.CalcFields("Superficie construida");
+            FixedRealEstate."Sales price" := SalesAmountM2 * FixedRealEstate."Superficie construida";
+            FixedRealEstate."Minimum Sales Price" := FixedRealEstate."Sales price" - ((SalesAmountM2 * FixedRealEstate."Superficie construida") * Percentage / 100);
+            FixedRealEstate.MODIFY;
+        end;
+    end;
 
     [EventSubscriber(ObjectType::Codeunit, 1173, 'OnAfterTableHasNumberFieldPrimaryKey', '', false, false)]
     local procedure OnAfterTableHasNumberFieldPrimaryKey(TableNo: Integer; var Result: Boolean; var FieldNo: Integer)

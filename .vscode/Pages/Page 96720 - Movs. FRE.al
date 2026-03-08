@@ -20,6 +20,18 @@ page 96720 "Movs. FRE"
                 {
                     ApplicationArea = All;
                 }
+                field("Tipo Línea"; rec."Line Type")
+                {
+                    ApplicationArea = All;
+                }
+                field("Fixed Real Estate No."; rec."Fixed Real Estate No.")
+                {
+                    ApplicationArea = All;
+                }
+                field("Descripción"; rec.Description)
+                {
+                    ApplicationArea = All;
+                }
                 field("Document Type";Rec."Document Type")
                 {
                     ApplicationArea = All;
@@ -36,10 +48,29 @@ page 96720 "Movs. FRE"
                 {
                     ApplicationArea = All;
                 }
+                field("Source Name";Rec."Source Name")
+                {
+                    ApplicationArea = All;
+                }
+                field("Row No.";Rec."Row No.")
+                {
+                    ApplicationArea = All;
+                }
+                field("Description Row No.";Rec."Description Row No.")
+                {
+                    ApplicationArea = All;
+                }
+                field(Amount;Rec.Amount)
+                {
+                    ApplicationArea = All;
+                }
+                field("Amount Including VAT";Rec."Amount Including VAT")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }
-
     actions
     {
         area(processing)

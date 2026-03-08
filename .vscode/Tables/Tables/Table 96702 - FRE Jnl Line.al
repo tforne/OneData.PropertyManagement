@@ -46,17 +46,17 @@ table 96702 "FRE Jnl. Line"
             Caption = 'Description Row No.';
             DataClassification = ToBeClassified;
         }
-        field(13; "Total Cost"; Decimal)
+        field(13; Amount; Decimal)
         {
             AutoFormatType = 1;
-            Caption = 'Total Cost';
+            Caption = 'Amount';
             Editable = false;
         }
-        field(15; "Total Price"; Decimal)
+        field(15; "Amount Including VAT"; Decimal)
         {
             AutoFormatType = 1;
-            Caption = 'Total Price';
-            Editable = true;
+            Caption = 'Amount Including VAT';
+            Editable = false;
         }
         field(18; "Document Type"; Enum "Gen. Journal Document Type")
         {
@@ -123,6 +123,12 @@ table 96702 "FRE Jnl. Line"
             Caption = 'Source Name';
             DataClassification = ToBeClassified;
             TableRelation = "OneData Grupos IRPF";
+        }
+        
+        field(70; "System-Created Entry"; Boolean)
+        {
+            Caption = 'System-Created Entry';
+            Editable = false;
         }
         field(1018; "Ledger Entry No."; Integer)
         {
@@ -191,6 +197,14 @@ table 96702 "FRE Jnl. Line"
         END;
 
         EXIT((("Journal Batch Name" <> '') AND ("Journal Template Name" = '')) OR (BatchFilter <> ''));
+    end;
+    procedure EmptyLine() Result: Boolean
+    var
+        IsHandled: Boolean;
+    begin
+        exit(
+          ("Fixed Real Estate No." = '') and (Amount = 0)
+           or (not "System-Created Entry"));
     end;
 }
 

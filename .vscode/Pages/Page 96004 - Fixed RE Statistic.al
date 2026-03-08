@@ -17,8 +17,8 @@ page 96004 "Fixed RE Statistics"
             group(General)
             {
                 Caption = 'General';
-                fixed(Control1903895301)
-                {
+                // fixed(Control1903895301)
+                // {
                     ShowCaption = false;
                     group(Amount)
                     {
@@ -44,14 +44,18 @@ page 96004 "Fixed RE Statistics"
                             ApplicationArea = All;
                             ToolTip = 'Specifies the minimum sale price for the fixed asset.';
                         }
-                        field("Minimum Rental Sales Price";Rec."Rental Price")
+                        field("Last Rental Sales Price";Rec."Last Rental Price")
                         {
                             ApplicationArea = All;
-                            ToolTip = 'Specifies the minimum rental sale price for the fixed asset including tax.';
+                            ToolTip = 'Specifies the last rental sale price for the fixed asset including tax.';
+                        }
+                        field("Last Rental Price Modified"; rec."Last Rental Price Modified")
+                        {
+                            ApplicationArea = All;
+                            ToolTip = 'Specifies when the last rental price was last modified.';    
                         }
                     }
-                }
-
+//                }
             }
             group(FlujoCaja)
             {
@@ -69,23 +73,30 @@ page 96004 "Fixed RE Statistics"
             group(Rentability)
             {
                 Caption = 'Rentability';
+                field("Total Flujo Caja";TotalFlujoCaja)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Total Flujo Caja';
+                    ToolTip = 'Specifies the cash flow for the fixed asset.';
+                }
+
                 field("Rentabilidad Bruta"; RentabilidadBruta)
                 {
                     ApplicationArea = All;
                     Caption = 'Gross Rentability';
                     ToolTip = 'Specifies the gross rentability for the fixed asset.';
                 }
+                field("Previsión Gastos Anual"; PrevisionGastosAnual)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Annual Expense Forecast';
+                    ToolTip = 'Specifies the annual expense forecast for the fixed asset.';
+                }
                 field("Rentabilidad Neta"; RentabilidadNeta)
                 {
                     ApplicationArea = All;
                     Caption = 'Net Rentability';
                     ToolTip = 'Specifies the net rentability for the fixed asset.';
-                }
-                field("Flujo Caja Mensual"; FlujoCajaMensual)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Monthly Cash Flow';
-                    ToolTip = 'Specifies the monthly cash flow for the fixed asset.';
                 }
             }
             group(OcupaciónEstabilidad)
@@ -110,7 +121,7 @@ page 96004 "Fixed RE Statistics"
         ProceedsOnDisposalVisible := Disposed;
         GainLossVisible := Disposed;
         DisposalDateVisible := Disposed;
-        // Rec.CalcBookValue();
+        CalculateRentability(rec, RentabilidadBruta, RentabilidadNeta,TotalFlujoCaja);
     end;
 
     trigger OnInit()
@@ -130,6 +141,8 @@ page 96004 "Fixed RE Statistics"
         RentabilidadBruta: Decimal;
         RentabilidadNeta: Decimal;
         FlujoCajaMensual: Decimal;
+        PrevisionGastosAnual: Decimal;
+        TotalFlujoCaja: Decimal;
         BusinessChart: Codeunit "Business Chart";
         SalesInvHeader: Record "Sales Invoice Header";
         StartDate: Date;
@@ -139,6 +152,7 @@ page 96004 "Fixed RE Statistics"
         MonthAmount: Decimal;
         CurrentMonthStart: Date;
         CurrentMonthEnd: Date;
+        
 
     local procedure UpdateChart()
     var
@@ -149,34 +163,59 @@ page 96004 "Fixed RE Statistics"
         BusinessChart.AddMeasure('Ventas',0,Enum::"Business Chart Data Type"::Decimal,Enum::"Business Chart Type"::Column);
 
         XAxisIndex := 0;
+        TotalFlujoCaja := 0;
         for MonthNo := 11 downto 0 do begin
             CurrentMonthStart := CalcDate('<-CM>', CalcDate(StrSubstNo('-%1M', MonthNo), Today));
             CurrentMonthEnd := CalcDate('<CM>', CurrentMonthStart);
 
             MonthLabel := Format(CurrentMonthStart, 0, '<Month Text,3> <Year4>');
-            // MonthAmount := GetSalesAmount(CurrentMonthStart, CurrentMonthEnd);
-            MonthAmount := XAxisIndex * 1000; // Dummy data for testing
+            MonthAmount := GetSalesAmount(rec."No.",CurrentMonthStart, CurrentMonthEnd);
+            TotalFlujoCaja += MonthAmount;
             BusinessChart.AddDataRowWithXDimension(MonthLabel);
             BusinessChart.SetValue(0, XAxisIndex, MonthAmount);
             XAxisIndex += 1;
         end;
-
         BusinessChart.Update(CurrPage.BusinessChart);
     end;
 
-    local procedure GetSalesAmount(DateFrom: Date; DateTo: Date): Decimal
+    local procedure CalculateRentability(FixedRealEstate: record "Fixed Real Estate"; var RentabilidadBruta: Decimal; var RentabilidadNeta: Decimal; FlujoCajaMensual: Decimal)
+    begin
+        // Implementation for calculating rentability   
+        // Calculate Total Flujo Caja for the last 12 months
+        TotalFlujoCaja := 0;
+        for MonthNo := 11 downto 0 do begin
+            CurrentMonthStart := CalcDate('<-CM>', CalcDate(StrSubstNo('-%1M', MonthNo), Today));
+            CurrentMonthEnd := CalcDate('<CM>', CurrentMonthStart);
+            MonthAmount := GetSalesAmount(rec."No.",CurrentMonthStart, CurrentMonthEnd);
+            TotalFlujoCaja += MonthAmount;
+        end;
+        PrevisionGastosAnual := 0;
+        FixedRealEstate.CalcFields("Expense Amount");
+        PrevisionGastosAnual := FixedRealEstate."Expense Amount";
+        if FixedRealEstate."Sales price" <> 0 then begin
+            RentabilidadBruta := TotalFlujoCaja / FixedRealEstate."Sales price" * 100;
+            RentabilidadNeta := (TotalFlujoCaja - PrevisionGastosAnual) / FixedRealEstate."Sales price" * 100;
+        end else begin
+            RentabilidadBruta := 0;
+            RentabilidadNeta := 0;
+        end;
+    end;
+
+    local procedure GetSalesAmount(RealStateNo: Code[20]; DateFrom: Date; DateTo: Date): Decimal
     var
         TotalSales: Decimal;
-        SalesInvHeader2: Record "Sales Invoice Header";
+        FRELedgerEntry: Record "FRE Ledger Entry";
     begin
         TotalSales := 0;
-        SalesInvHeader2.Reset();
-        SalesInvHeader2.SetRange("Posting Date", DateFrom, DateTo);
-
-        if SalesInvHeader2.FindSet() then
+        FRELedgerEntry.reset();
+        FRELedgerEntry.SetRange("Fixed Real Estate No.", RealStateNo);
+        FRELedgerEntry.SetRange("Line Type", FRELedgerEntry."Line Type"::Invoice);
+        FRELedgerEntry.SetRange("Document Type", FRELedgerEntry."Document Type"::Invoice);
+        FRELedgerEntry.SetRange("Posting Date", DateFrom, DateTo);
+        if FRELedgerEntry.FindSet() then
             repeat
-                TotalSales += SalesInvHeader2.Amount;
-            until SalesInvHeader2.Next() = 0;
+                TotalSales += FRELedgerEntry.Amount;
+            until FRELedgerEntry.Next() = 0;
 
         exit(TotalSales);
     end;

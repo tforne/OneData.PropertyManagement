@@ -81,8 +81,22 @@ page 96703 "FRE Journal Line"
                 }
                 field("Source Name";Rec."Source Name")
                 {
-
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the name related to the source number.';
+                 }
                 }
+                field(Amount;Rec.Amount)
+                {
+                    ApplicationArea = Basic, Suite;
+                    StyleExpr = LineStyleExpression;
+                    ToolTip = 'Specifies the amount of the entry.';
+                }
+                field("Amount Including VAT";Rec."Amount Including VAT")
+                {
+                    ApplicationArea = Basic, Suite;
+                    StyleExpr = LineStyleExpression;
+                    ToolTip = 'Specifies the amount including VAT of the entry.';
+                
             }
         }
         area(factboxes)

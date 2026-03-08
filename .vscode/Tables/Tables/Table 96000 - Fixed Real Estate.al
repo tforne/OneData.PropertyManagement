@@ -399,14 +399,14 @@ table 96000 "Fixed Real Estate"
             Caption = 'Precio de venta mínimo';
             DataClassification = ToBeClassified;
         }
-        field(5055;"Rental Price";Decimal)
+        field(5055;"Last Rental Price";Decimal)
         {
-            Caption = 'Precio de alquiler';
+            Caption = 'Last Rental Price';
             DataClassification = ToBeClassified;
         }
         field(5056;"Minimum Rental Price";Decimal)
         {
-            Caption = 'Precio de alquiler mínimo';
+            Caption = 'Minimum Rental Price';
             DataClassification = ToBeClassified;
         }
         field(5057;"Superficie construida";Decimal)
@@ -428,6 +428,13 @@ table 96000 "Fixed Real Estate"
                                                                              Status=CONST(Signed)));
             Editable = false;
             FieldClass = FlowField;
+        }
+        field(5155;"Last Rental Price Modified";Date)
+        {
+            Caption = 'Last Rental Price Modified';
+            DataClassification = ToBeClassified;
+            Editable = false;
+            ToolTip = 'Specifies when the last rental price was last modified.';
         }
         field(6000;"Income Amount";Decimal)
         {

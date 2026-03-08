@@ -79,7 +79,17 @@ page 96015 "Real Estate Role Center"
                     Image = PostedOrder;
                     RunObject = Page "Posted Lease Invoices Lines";
                     ToolTip = 'Open the list of posted sales Lease Invoice.';
-                }                
+                }    
+ 
+                action("Movs. FRE")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Movs. FRE';
+                    Image = LedgerEntries;
+                    RunObject = Page "Movs. FRE";
+                    ToolTip = 'Open the list of movements related to Fixed Real Estate.';
+                }
+
             }
         }
         area(embedding)

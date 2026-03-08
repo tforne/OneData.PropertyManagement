@@ -143,6 +143,18 @@ page 96001 "Fixed Real Estate List"
 
     actions
     {
+        area(processing)
+        {
+            action(CalculateSalesAmount)
+            {
+                ApplicationArea = All;
+                Caption = 'Calculate Sales Amount';
+                Image = Calculate;
+                RunObject = Report 96011;
+                ToolTip = 'Calculate the sales amount for the fixed real estate based on the related lease contracts.';
+                
+            }
+        }
         area(navigation)
         {
             action("Contratos relacionados")

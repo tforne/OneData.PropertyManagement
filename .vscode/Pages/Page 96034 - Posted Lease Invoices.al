@@ -103,8 +103,33 @@ page 96034 "Posted Lease Invoices"
 
     actions
     {
-        area(processing)
+       area(processing)
         {
+            action("Create Payment")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Create Payment';
+                    Image = SuggestVendorPayments;
+                    ToolTip = 'Create a payment journal based on the selected invoices.';
+
+                    // trigger OnAction()
+                    // var
+                    //     VendorLedgerEntry: Record "Vendor Ledger Entry";
+                    //     GenJournalBatch: Record "Gen. Journal Batch";
+                    //     GenJnlManagement: Codeunit GenJnlManagement;
+                    //     CreatePayment: Page "Create Payment";
+                    // begin
+                    //     CurrPage.SetSelectionFilter(VendorLedgerEntry);
+                    //     if CreatePayment.RunModal() = ACTION::OK then begin
+                    //         CreatePayment.MakeGenJnlLines(VendorLedgerEntry);
+                    //         GetBatchRecord(GenJournalBatch, CreatePayment);
+                    //         GenJnlManagement.TemplateSelectionFromBatch(GenJournalBatch);
+                    //         Clear(CreatePayment);
+                    //     end else
+                    //         Clear(CreatePayment);
+                    // end;
+                }
+
             action(SendCustom)
             {
                 ApplicationArea = Basic, Suite;

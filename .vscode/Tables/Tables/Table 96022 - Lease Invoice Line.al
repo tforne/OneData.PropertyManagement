@@ -324,16 +324,16 @@ table 96022 "Lease Invoice Line"
     var
         ItemTrackingMgt: Codeunit "Item Tracking Management";
     begin
-        EXIT(ItemTrackingMgt.ComposeRowID(DATABASE::"Service Invoice Line",0,"Document No.",'',0,"Line No."));
+        EXIT(ItemTrackingMgt.ComposeRowID(DATABASE::"Lease Invoice Line",0,"Document No.",'',0,"Line No."));
     end;
 
     procedure GetCaptionClass(FieldNumber: Integer): Text[80]
     var
-        ServiceInvHeader: Record "Service Invoice Header";
+        LeaseInvHeader: Record "Lease Invoice Header";
     begin
-        IF NOT ServiceInvHeader.GET("Document No.") THEN
-          ServiceInvHeader.INIT;
-        IF ServiceInvHeader."Prices Including VAT" THEN
+        IF NOT LeaseInvHeader.GET("Document No.") THEN
+          LeaseInvHeader.INIT;
+        IF LeaseInvHeader."Prices Including VAT" THEN
           EXIT('2,1,' + GetFieldCaption(FieldNumber));
         EXIT('2,0,' + GetFieldCaption(FieldNumber));
     end;
@@ -342,65 +342,22 @@ table 96022 "Lease Invoice Line"
     var
         "Field": Record Field;
     begin
-        Field.GET(DATABASE::"Service Invoice Line",FieldNumber);
+        Field.GET(DATABASE::"Lease Invoice Line",FieldNumber);
         EXIT(Field."Field Caption");
     end;
 
     procedure GetCurrencyCode(): Code[10]
     var
-        ServiceInvHeader: Record "Service Invoice Header";
+        LeaseInvHeader: Record "Lease Invoice Header";
     begin
-        IF "Document No." = ServiceInvHeader."No." THEN
-          EXIT(ServiceInvHeader."Currency Code");
-        IF ServiceInvHeader.GET("Document No.") THEN
-          EXIT(ServiceInvHeader."Currency Code");
+        IF "Document No." = LeaseInvHeader."No." THEN
+          EXIT(LeaseInvHeader."Currency Code");
+        IF LeaseInvHeader.GET("Document No.") THEN
+          EXIT(LeaseInvHeader."Currency Code");
         EXIT('');
     end;
 
-    local procedure GetServShptLines(var TempServShptLine: Record "Service Shipment Line" temporary)
-    var
-        ServShptLine: Record "Service Shipment Line";
-        ItemLedgEntry: Record "Item Ledger Entry";
-        ValueEntry: Record "Value Entry";
-    begin
-        TempServShptLine.RESET;
-        TempServShptLine.DELETEALL;
-
-        IF Type <> Type::Item THEN
-          EXIT;
-
-        FilterPstdDocLineValueEntries(ValueEntry);
-        IF ValueEntry.FINDSET THEN
-          REPEAT
-            ItemLedgEntry.GET(ValueEntry."Item Ledger Entry No.");
-            IF ItemLedgEntry."Document Type" = ItemLedgEntry."Document Type"::"Service Shipment" THEN
-              IF ServShptLine.GET(ItemLedgEntry."Document No.",ItemLedgEntry."Document Line No.") THEN BEGIN
-                TempServShptLine.INIT;
-                TempServShptLine := ServShptLine;
-                IF TempServShptLine.INSERT THEN;
-              END;
-          UNTIL ValueEntry.NEXT = 0;
-    end;
-
-    procedure FilterPstdDocLineValueEntries(var ValueEntry: Record "Value Entry")
-    begin
-        ValueEntry.RESET;
-        ValueEntry.SETCURRENTKEY("Document No.");
-        ValueEntry.SETRANGE("Document No.","Document No.");
-        ValueEntry.SETRANGE("Document Type",ValueEntry."Document Type"::"Service Invoice");
-        ValueEntry.SETRANGE("Document Line No.","Line No.");
-    end;
-
-    procedure ShowItemShipmentLines()
-    var
-        TempServShptLine: Record "Service Shipment Line" temporary;
-    begin
-        IF Type = Type::Item THEN BEGIN
-          GetServShptLines(TempServShptLine);
-          PAGE.RUNMODAL(0,TempServShptLine);
-        END;
-    end;
-
+    // 
     procedure UpdateAmounts()
     var
         VATBaseAmount: Decimal;

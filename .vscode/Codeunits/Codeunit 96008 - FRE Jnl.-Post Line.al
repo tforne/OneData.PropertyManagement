@@ -18,7 +18,6 @@ procedure PostFRELedgerEntryFromLeaseInvoice(LeaseInvoiceHeader: Record "Lease I
     var
         insFREJnlLine : Record "FRE Jnl. Line" temporary;
         REFSetup : record "REF Setup";
-
     begin
         //  Control de registro        
         REFSetup.get;
@@ -38,13 +37,16 @@ procedure PostFRELedgerEntryFromLeaseInvoice(LeaseInvoiceHeader: Record "Lease I
         insFREJnlLine."Source No." := LeaseInvoiceHeader."Customer No.";
         insFREJnlLine."Source Name" := LeaseInvoiceHeader.Name;
         insFREJnlLine."Document Type" := insFREJnlLine."Document Type"::Invoice;
-        insFREJnlLine."Document No." := LeaseInvoiceHeader."Posting No.";
+        insFREJnlLine."Document No." := LeaseInvoiceHeader."No.";
         insFREJnlLine."Row No." := REFSetup."Default Income Row No";
-        // insFREJnlLine."Description Row No."
-        // insFREJnlLine.Description
-        // insFREJnlLine."Total Cost" := LeaseInvoiceHeader."Total Cost";
-        // insFREJnlLine."Total Price" := LeaseInvoiceHeader."Total Price";
+        insFREJnlLine."Description Row No." := REFSetup."Default Income Row No";
+        insFREJnlLine.Description := StrSubstNo('%1 %2',insFREJnlLine."Document Type",LeaseInvoiceHeader."No."); 
+        LeaseInvoiceHeader.calcfields(Amount,"Amount Including VAT");
+        insFREJnlLine.Amount := LeaseInvoiceHeader."Amount";
+        insFREJnlLine."Amount Including VAT" := LeaseInvoiceHeader."Amount Including VAT";
         insFREJnlLine."Ledger Entry No." := 0;
+        //
+        
         if insFREJnlLine.INSERT then
             Post(insFREJnlLine);
     end;
@@ -54,8 +56,8 @@ procedure PostFRELedgerEntryFromLeaseInvoice(LeaseInvoiceHeader: Record "Lease I
     var
         recFRELedgerEntry : Record "FRE Ledger Entry";
         insFRELedgerEntry : Record "FRE Ledger Entry";
+        FRE : Record "Fixed Real Estate";
         REFSetup : record "REF Setup";
-
     begin
         REFSetup.get;
         //  Control de registro        
@@ -72,17 +74,24 @@ procedure PostFRELedgerEntryFromLeaseInvoice(LeaseInvoiceHeader: Record "Lease I
         insFRELedgerEntry."Fixed Real Estate No." := FREJnlLine."Fixed Real Estate No.";
         insFRELedgerEntry.Description := FREJnlLine.Description;
         insFRELedgerEntry."Posting Date" := FREJnlLine."Date";
-        insFRELedgerEntry."Source Type" := insFRELedgerEntry."Source Type"::Customer;
+        insFRELedgerEntry."Source Type" := FREJnlLine."Source Type";
         insFRELedgerEntry."Source No." := FREJnlLine."Source No.";
         insFRELedgerEntry."Source Name" := FREJnlLine."Source Name";
-        insFRELedgerEntry."Document Type" := insFRELedgerEntry."Document Type"::Invoice;
+        insFRELedgerEntry."Document Type" := FREJnlLine."Document Type";
         insFRELedgerEntry."Document No." := FREJnlLine."Document No.";
         insFRELedgerEntry."Row No." := FREJnlLine."Row No.";
         insFRELedgerEntry."Description Row No." := FREJnlLine."Description Row No.";
-        insFRELedgerEntry."Total Cost" := FREJnlLine."Total Cost";
-        insFRELedgerEntry."Total Price" := FREJnlLine."Total Price";
+        insFRELedgerEntry.Amount := FREJnlLine.Amount;
+        insFRELedgerEntry."Amount Including VAT" := FREJnlLine."Amount Including VAT";
         insFRELedgerEntry."Ledger Entry No." := FREJnlLine."Ledger Entry No.";
+        // modiffy Fixed Real Estate Table to update the last transaction date and amount
+        if FREJnlLine."Line Type" = FREJnlLine."Line Type"::Invoice then begin
+            if FRE.GET(insFRELedgerEntry."Fixed Real Estate No.") then begin
+                FRE."Last Rental Price" := insFRELedgerEntry."Amount";
+                fre."Last Rental Price Modified" := insFRELedgerEntry."Posting Date";
+                FRE.MODIFY;
+            end;
+        end;
         insFRELedgerEntry.INSERT;
     end;
-
 }

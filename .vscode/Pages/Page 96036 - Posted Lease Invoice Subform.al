@@ -95,10 +95,6 @@ page 96036 "Posted Lease Invoice Subform"
         }
     }
 
-    local procedure PageShowItemShipmentLines()
-    begin
-        rec.TESTFIELD(Type, rec.Type::Item);
-        rec.ShowItemShipmentLines;
-    end;
+
 }
 

@@ -254,14 +254,19 @@ page 96000 "Fixed Real Estate Card"
                 {
                     ApplicationArea = All;
                 }
-                field("Rental Price"; rec."Rental Price")
-                {
-                    ApplicationArea = All;
-                }
                 field("Minimum Rental Price"; rec."Minimum Rental Price")
                 {
                     ApplicationArea = All;
                 }
+                field("Last Rental Sales Price";Rec."Last Rental Price Modified")
+                {
+                    ApplicationArea = All;
+                }
+                field("Last Rental Price Modified"; rec."Last Rental Price Modified")
+                {
+                    ApplicationArea = All;
+                }
+
                 group("Descripción comercial")
                 {
                     Caption = 'Descripción comercial';
