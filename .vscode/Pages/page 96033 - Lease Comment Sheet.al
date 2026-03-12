@@ -1,7 +1,7 @@
 page 96033 "Lease Comment Sheet"
 {
     AutoSplitKey = true;
-    Caption = 'Service Comment Sheet';
+    Caption = 'Lease Comment Sheet';
     LinksAllowed = false;
     PageType = List;
     SourceTable = "Lease Comment Line";
@@ -14,7 +14,7 @@ page 96033 "Lease Comment Sheet"
             {
                 field(Date; rec.Date)
                 {
-                    ApplicationArea = Service;
+                    ApplicationArea = all;
                     ToolTip = 'Specifies the date you entered the service comment.';
                 }
                 field(Comment; rec.Comment)
@@ -45,7 +45,6 @@ page 96033 "Lease Comment Sheet"
         
     end;
 
-    var
 
     local procedure Caption(): Text[100]
     var

@@ -421,7 +421,7 @@ page 96031 "Lease Contract Card"
                 Image = ViewComments;
                 Promoted = true;
                 RunObject = Page 96033;
-                RunPageLink = "Table Name"=CONST("Service Contract"),
+                RunPageLink = "Table Name"=CONST("Lease Contract"),
                               "No."=FIELD("Contract No."),
                               "Table Line No."=CONST(0);
                             ToolTip = 'View or add comments for the record.';

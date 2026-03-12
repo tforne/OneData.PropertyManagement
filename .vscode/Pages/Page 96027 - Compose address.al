@@ -65,16 +65,27 @@ page 96027 "Compose address"
     {
     }
 
+    trigger OnAfterGetCurrRecord()
+    begin
+       
+    end;
+    trigger OnClosePage()
+    begin
+        Compose();
+        Rec."Composse Address" := ComposseAddress;
+    end;
+
+
     var
-        StreetType: Record "Street Type";
-        TypesStreetNumbering: Record "Types Street Numbering";
-        ComposseAddress: Text[50];
+    StreetType: Record "Street Type";
+    TypesStreetNumbering: Record "Types Street Numbering";
+    ComposseAddress: Text[50];
 
     local procedure Compose()
     begin
         IF NOT StreetType.GET(rec."Street Type Id.") THEN StreetType.INIT;
         IF NOT TypesStreetNumbering.GET(rec."Types Street Numbering Id.") THEN TypesStreetNumbering.INIT;
-        ComposseAddress := '';
+        ComposseAddress := rec."Composse Address";
         IF StreetType.Description <> '' THEN
             ComposseAddress := StreetType.Description;
         IF rec."Street Name" <> '' THEN

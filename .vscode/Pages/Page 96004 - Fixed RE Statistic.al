@@ -179,6 +179,9 @@ page 96004 "Fixed RE Statistics"
     end;
 
     local procedure CalculateRentability(FixedRealEstate: record "Fixed Real Estate"; var RentabilidadBruta: Decimal; var RentabilidadNeta: Decimal; FlujoCajaMensual: Decimal)
+    var    
+        FixedRealEstate2 : Record "Fixed Real Estate";
+        TotalSalesPrice : Decimal;
     begin
         // Implementation for calculating rentability   
         // Calculate Total Flujo Caja for the last 12 months
@@ -190,11 +193,21 @@ page 96004 "Fixed RE Statistics"
             TotalFlujoCaja += MonthAmount;
         end;
         PrevisionGastosAnual := 0;
-        FixedRealEstate.CalcFields("Expense Amount");
-        PrevisionGastosAnual := FixedRealEstate."Expense Amount";
-        if FixedRealEstate."Sales price" <> 0 then begin
-            RentabilidadBruta := TotalFlujoCaja / FixedRealEstate."Sales price" * 100;
-            RentabilidadNeta := (TotalFlujoCaja - PrevisionGastosAnual) / FixedRealEstate."Sales price" * 100;
+        FixedRealEstate2.reset;
+        if FixedRealEstate.Type = FixedRealEstate.Type::Propiedad then
+            FixedRealEstate2.Setfilter("Totaling",FixedRealEstate.Totaling)
+        else
+            FixedRealEstate2.SetRange("No.", FixedRealEstate."No.");
+        if FixedRealEstate2.FindSet() then
+            repeat
+                FixedRealEstate2.CalcFields("Expense Amount");
+                PrevisionGastosAnual += FixedRealEstate2."Expense Amount";
+                TotalSalesPrice += FixedRealEstate2."Sales price";
+            until FixedRealEstate2.Next() = 0;
+        
+        if TotalSalesPrice <> 0 then begin
+            RentabilidadBruta := TotalFlujoCaja / TotalSalesPrice * 100;
+            RentabilidadNeta := (TotalFlujoCaja - PrevisionGastosAnual) / TotalSalesPrice * 100;
         end else begin
             RentabilidadBruta := 0;
             RentabilidadNeta := 0;
@@ -205,10 +218,15 @@ page 96004 "Fixed RE Statistics"
     var
         TotalSales: Decimal;
         FRELedgerEntry: Record "FRE Ledger Entry";
+        FixedRealEstate: Record "Fixed Real Estate";
     begin
         TotalSales := 0;
+        FixedRealEstate.Get(RealStateNo);
         FRELedgerEntry.reset();
-        FRELedgerEntry.SetRange("Fixed Real Estate No.", RealStateNo);
+        if FixedRealEstate.Type = FixedRealEstate.Type::Propiedad then
+            FRELedgerEntry.Setfilter("Fixed Real Estate No.",FixedRealEstate.Totaling)
+        else
+            FRELedgerEntry.SetRange("Fixed Real Estate No.", RealStateNo);
         FRELedgerEntry.SetRange("Line Type", FRELedgerEntry."Line Type"::Invoice);
         FRELedgerEntry.SetRange("Document Type", FRELedgerEntry."Document Type"::Invoice);
         FRELedgerEntry.SetRange("Posting Date", DateFrom, DateTo);

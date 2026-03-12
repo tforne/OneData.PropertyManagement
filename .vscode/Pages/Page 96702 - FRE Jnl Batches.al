@@ -73,7 +73,7 @@ page 96702 "FRE Jnl. Batches"
     end;
 
     var
-        JnlManagement: Codeunit "Journals Management";
+        JnlManagement: Codeunit "FRE Journals Management";
 
     local procedure DataCaption(): Text[250]
     var

@@ -14,7 +14,7 @@ table 96100 "Incident Assets Real Estate"
         }
         field(2; "Fixed Real Estate No."; Code[20])
         {
-            Caption = 'No.';
+            Caption = 'Fixed Real Estate No.';
             TableRelation = "Fixed Real Estate"."No.";
             Description = 'Select the real estate asset for which the case is being created.';
             trigger OnValidate()
@@ -182,13 +182,22 @@ table 96100 "Incident Assets Real Estate"
     var
         CaptureMedium: Record "Capture Medium";
     begin
-
-        rec."Incident Id." := CreateGuid();
-
+        if "Incident Id." = '00000000-0000-0000-0000-000000000000' then
+            rec."Incident Id." := CreateGuid();
         rec.StateCode := rec.StateCode::Active;
         rec."Incident Date" := Today;
     end;
-        procedure GetURL(): Text
+
+    trigger OnDelete()
+    // Delete related attachments when an incident is deleted
+    var
+        IncidentAttachment: Record "Incident Attachment";
+    begin
+        IncidentAttachment.SetRange("Incident Id.", rec."Incident Id.");
+        IncidentAttachment.DeleteAll();
+    end;
+    
+    procedure GetURL(): Text
     begin
         exit(URL);
     end;
@@ -216,6 +225,7 @@ table 96100 "Incident Assets Real Estate"
         AddAttachmentFromStream(IncidentAttachment, FileName, FileManagement.GetExtension(FileName), PictureInStream);
         CopyFilters(Incident);
     end;
+
     procedure CreateIncident(NewDescription: Text; NewURL: Text): Guid
     begin
         Reset();
@@ -225,6 +235,18 @@ table 96100 "Incident Assets Real Estate"
         Insert(true);
         exit("Incident Id.");
     end;
+    
+    procedure CreateIncident(IncidentAttachment: Record "Incident Attachment"; NewDescription: Text; NewURL: Text): Guid
+    begin
+        Reset();
+        Clear(Rec);
+        Init();
+        "Incident Id." := IncidentAttachment."Incident Id.";
+        Description := CopyStr(NewDescription, 1, MaxStrLen(Description));
+        Insert(true);
+        exit("Incident Id.");
+    end;
+    
     procedure CreateFromAttachment()
     var
         IncidentAttachment: Record "Incident Attachment";
@@ -238,30 +260,35 @@ table 96100 "Incident Assets Real Estate"
 
     procedure AddAttachmentFromStream(var IncidentAttachment: Record "Incident Attachment"; OrgFileName: Text; FileExtension: Text; var InStr: InStream)
     var
+        insIncidentAttachment: Record "Incident Attachment";
+        lastIncidentAttachment: Record "Incident Attachment";   
         FileManagement: Codeunit "File Management";
         OutStr: OutStream;
+        LineNo: Integer;
     begin
-        //TestField("Entry No.");
-        //IncomingDocumentAttachment.SetRange("Incoming Document Entry No.", "Entry No.");
-        if not IncidentAttachment.FindLast() then
-            IncidentAttachment."Line No." := 10000
+        insIncidentAttachment := IncidentAttachment;
+        lastIncidentAttachment.reset;
+        lastIncidentAttachment.SetRange("Incident Id.", IncidentAttachment."Incident Id.");
+        if not lastIncidentAttachment.FindLast() then
+            LineNo := 10000
         else
-            IncidentAttachment."Line No." += 10000;
-        //IncomingDocumentAttachment."Incoming Document Entry No." := "Entry No.";
-        IncidentAttachment.Init();
-        IncidentAttachment.Name :=
+            LineNo := lastIncidentAttachment."Line No." + 10000;
+        insIncidentAttachment."Incident Id." := rec."Incident Id.";
+        insIncidentAttachment."Line No." := LineNo;
+        insIncidentAttachment.Name :=
           CopyStr(FileManagement.GetFileNameWithoutExtension(OrgFileName), 1, MaxStrLen(IncidentAttachment.Name));
-        IncidentAttachment.Validate(
+        insIncidentAttachment.Validate(
           "File Extension", CopyStr(FileExtension, 1, MaxStrLen(IncidentAttachment."File Extension")));
-        IncidentAttachment.Content.CreateOutStream(OutStr);
+        insIncidentAttachment.Content.CreateOutStream(OutStr);
         CopyStream(OutStr, InStr);
-        IncidentAttachment.Insert(true);
+        insIncidentAttachment.Insert(true);
     end;
+
     procedure ImportAttachment(var Incident: Record "Incident Assets Real Estate")
     var
         IncidentAttachment: Record "Incident Attachment";
     begin
-        Message('%1',Incident."Incident Id.");
+        IncidentAttachment.Reset();
         IncidentAttachment.SetRange("Incident Id.", Incident."Incident Id.");
         IncidentAttachment.NewAttachment();
         Incident.Get(IncidentAttachment."Incident Id.")
@@ -280,6 +307,13 @@ table 96100 "Incident Assets Real Estate"
         if GetMainAttachment(IncidentAttachment) then
             exit(IncidentAttachment.GetFullName());
         exit('');
+    end;
+        
+        
+    procedure GetAdditionalAttachments(var IncidentAttachment: Record "Incident Attachment"): Boolean
+    begin
+        IncidentAttachment.SetRange("Incident Id.", "Incident Id.");
+        exit(IncidentAttachment.FindSet());
     end;
 }
 

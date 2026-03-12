@@ -89,7 +89,14 @@ page 96015 "Real Estate Role Center"
                     RunObject = Page "Movs. FRE";
                     ToolTip = 'Open the list of movements related to Fixed Real Estate.';
                 }
-
+                action(Attachments)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Attachments';
+                    Image = Attachments;
+                    RunObject = Page 96155;
+                    ToolTip = 'Open the list of attachments related to Real Estate Incidents.';
+                }
             }
         }
         area(embedding)

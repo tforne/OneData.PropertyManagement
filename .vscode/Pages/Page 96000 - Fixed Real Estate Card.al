@@ -20,12 +20,13 @@ page 96000 "Fixed Real Estate Card"
 
                     trigger OnValidate()
                     begin
-                        UpdatesNoFieldVisible()
+                        UpdatesNoFieldVisible();
+                        UpdatesEditableField();
                     end;
                 }
                 field("Property No."; rec."Property No.")
                 {
-                    Editable = VisiblePropertyNo;
+                    Editable = VisiblePropertyNo and EditableField;
                     ApplicationArea = All;
                 }
                 field("Property Description"; rec."Property Description")
@@ -63,12 +64,14 @@ page 96000 "Fixed Real Estate Card"
                 field("Phone No."; rec."Phone No.")
                 {
                     ApplicationArea = Service;
+                    Editable = EditableField;
                     ToolTip = 'Specifies the customer phone number.';
                 }
                 field(Status; rec.Status)
                 {
                     ApplicationArea = All;
                     Importance = Promoted;
+                    Editable = EditableField;
                     ToolTip = 'Specifies the status of the fixed asset.';
                 }
                 group("Clasificación")
@@ -109,6 +112,12 @@ page 96000 "Fixed Real Estate Card"
                             ShowAcquireNotification;
                         end;
                     }
+                    field(Totaling;Rec.Totaling)
+                    {
+                        ApplicationArea = All;
+                        Editable = false;
+                        ToolTip = 'Specifies the totaling code used to group fixed assets with similar characteristics for reporting and analysis purposes. The totaling code can be used to create totals on fixed asset reports, such as a total for all fixed assets with the same totaling code.';
+                    }
                 }
                 field("Cadastral reference"; rec."Cadastral reference")
                 {
@@ -131,26 +140,28 @@ page 96000 "Fixed Real Estate Card"
                 {
                     ApplicationArea = All;
                     Importance = Additional;
+                    Editable = EditableField;
                     ToolTip = 'Specifies that the related record is blocked from being posted in transactions, for example a customer that is declared insolvent or an item that is placed in quarantine.';
                 }
                 field(Acquired; rec.Acquired)
                 {
                     ApplicationArea = All;
                     Importance = Additional;
+                    Editable = EditableField;
                     ToolTip = 'Specifies if the fixed asset has been acquired.';
                 }
                 field(Managed; rec.Managed)
                 {
+                    ApplicationArea = All;
+                    Importance = Additional;
+                    Editable = EditableField;
+                    ToolTip = 'Specifies if the fixed asset is managed by the system. If this field is not selected, the system will not create or update any related records such as general ledger entries or depreciation books for the fixed asset.';
                 }
                 field("Last Date Modified"; rec."Last Date Modified")
                 {
                     ApplicationArea = All;
                     Importance = Additional;
                     ToolTip = 'Specifies when the fixed asset card was last modified.';
-                }
-                field(Totaling; rec.Totaling)
-                {
-                    Visible = VisiblePropertyNo;
                 }
             }
             group(Maintenance2)
@@ -246,9 +257,11 @@ page 96000 "Fixed Real Estate Card"
             {
                 Caption = 'Precios';
                 Visible = VisiblePropertyNo;
+                Editable = EditableField;
                 field("Sales price"; rec."Sales price")
                 {
                     ApplicationArea = All;
+
                 }
                 field("Minimum Sales Price"; rec."Minimum Sales Price")
                 {
@@ -360,8 +373,6 @@ page 96000 "Fixed Real Estate Card"
                 Caption = 'Attributes';
                 Image = Category;
                 Promoted = false;
-                //The property 'PromotedOnly' can only be set if the property 'Promoted' is set to 'true'
-                //PromotedOnly = false;
                 ToolTip = 'View or edit the item''s attributes, such as color, size, or other characteristics that help to describe the item.';
 
                 trigger OnAction()
@@ -501,6 +512,8 @@ page 96000 "Fixed Real Estate Card"
                 trigger OnAction()
                 begin
                     rec.CalculateTotaling;
+                    rec.CalculateAmounts();
+                    CurrPage.UPDATE(TRUE);
                 end;
             }
             action(Publish)
@@ -550,8 +563,10 @@ page 96000 "Fixed Real Estate Card"
     trigger OnAfterGetRecord()
     begin
         UpdatesNoFieldVisible;
+        UpdatesEditableField();
 
         FAEDescription := rec.GetFREDescription;
+        EditableField := (rec.Type <> rec.Type::Propiedad);
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
@@ -573,6 +588,7 @@ page 96000 "Fixed Real Estate Card"
         ShowMapLbl: Label 'Show on Map';
         VisiblePropertyNo: Boolean;
         ShowURLLbl: Label 'Show on URL';
+        EditableField : Boolean;
 
     local procedure ShowAcquireNotification()
     var
@@ -596,12 +612,17 @@ page 96000 "Fixed Real Estate Card"
     local procedure SetNoFieldVisible()
     begin
         VisiblePropertyNo := FALSE;
+        EditableField := TRUE;
     end;
 
     local procedure UpdatesNoFieldVisible()
     var
     begin
         VisiblePropertyNo := (rec.Type <> rec.Type::Propiedad);
+    end;
+    local procedure UpdatesEditableField()
+    begin
+        EditableField := not (rec.Type <> rec.Type::Propiedad);
     end;
 }
 

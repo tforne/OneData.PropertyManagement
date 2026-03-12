@@ -250,7 +250,7 @@ page 96703 "FRE Journal Line"
         FREJnlLine: Record "FRE Jnl. Line";
         GetGLRegister: Report "IRPF Get IRPF Entries";
         ReportPrint: Codeunit "Test Report-Print";
-        FREJnlManagement: Codeunit "Journals Management";
+        FREJnlManagement: Codeunit "FRE Journals Management";
         //ClientTypeManagement: Codeunit "ClientTypeManagement";
         LineStyleExpression: Text;
         StatisticalValue: Decimal;

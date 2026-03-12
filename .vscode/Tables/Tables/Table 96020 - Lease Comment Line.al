@@ -1,6 +1,6 @@
 table 96020 "Lease Comment Line"
 {
-    Caption = 'Lease Comment Line';
+    Caption = 'FE Comment Line';
     DataCaptionFields = Type, "No.";
     DrillDownPageID = 96033;
     LookupPageID = 96033;
@@ -44,8 +44,8 @@ table 96020 "Lease Comment Line"
         field(9; "Table Name"; Option)
         {
             Caption = 'Table Name';
-            OptionCaption = 'Service Contract,Service Header,Service Item,Loaner,Service Shipment Header,Service Invoice Header,Service Cr.Memo Header';
-            OptionMembers = "Service Contract","Service Header","Service Item",Loaner,"Service Shipment Header","Service Invoice Header","Service Cr.Memo Header";
+            OptionCaption = 'Lease Contract,Lease Header,Lease Invoice Header,Lease Cr.Memo Header';
+            OptionMembers = "Lease Contract","Lease Header","Lease Invoice Header","Lease Cr.Memo Header";
         }
     }
 

@@ -100,6 +100,19 @@ table 96021 "Lease Invoice Header"
             Caption = 'Salesperson Code';
             TableRelation = "Salesperson/Purchaser";
         }
+        field(46; Open; Boolean)
+        {
+            Caption = 'Open';
+        }
+        field(47; "Applies-to ID"; Code[50])
+        {
+            Caption = 'Applies-to ID';
+
+            trigger OnValidate()
+            begin
+                TestField(Open, true);
+            end;
+        }
         field(60;Amount;Decimal)
         {
             AutoFormatExpression = "Currency Code";
@@ -243,6 +256,10 @@ table 96021 "Lease Invoice Header"
             DecimalPlaces = 0:5;
             MaxValue = 100;
             MinValue = 0;
+        }
+        field(200; Status; Enum "Status Lease Invoice")
+        {
+            Caption = 'Status';
         }
         field(480;"Dimension Set ID";Integer)
         {

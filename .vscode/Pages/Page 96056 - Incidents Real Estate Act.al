@@ -51,7 +51,7 @@ page 96056 "Incidents Real Estate Act."
 
                 actions
                 {
-                    action(CreateIncomingDocumentFromCamera)
+                    action(CreateIncidentFromCamera)
                     {
                         ApplicationArea = Suite;
                         Caption = 'Create Incidents from Camera';

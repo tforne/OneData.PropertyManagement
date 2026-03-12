@@ -46,7 +46,7 @@ page 96153 "Incident Attach. FactBox"
                 field("Created Date-Time"; Rec."Created Date-Time")
                 {
                     ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies when the incoming document line was created.';
+                    ToolTip = 'Specifies when the incident was created.';
                     Visible = false;
                 }
             }
@@ -62,66 +62,12 @@ page 96153 "Incident Attach. FactBox"
                 ApplicationArea = Basic, Suite;
                 Caption = 'Upload main attachment';
                 Image = Attach;
-                ToolTip = 'Attach a file as the main attachment to the incoming document record.';
+                ToolTip = 'Attach a file as the main attachment to the incident record.';
                 Enabled = not HasMainAttachment;
 
                 trigger OnAction()
                 begin
                     UploadSingleAttachment();
-                end;
-            }
-            fileuploadaction(UploadSupportingAttachments)
-            {
-                ApplicationArea = Basic, Suite;
-                Caption = 'Upload supporting attachments';
-                AllowMultipleFiles = true;
-                Visible = true;
-                Image = Import;
-                Enabled = HasMainAttachment;
-                ToolTip = 'Attach one or more files as the supporting attachments to the incoming document record.';
-
-                trigger OnAction(files: List of [FileUpload])
-                begin
-                    UploadMultipleAttachments(files);
-                end;
-            }
-#if not CLEAN25
-            action(ImportNew)
-            {
-                ObsoleteState = Pending;
-                ObsoleteReason = 'Action ImportNew is replaced by action UploadMainAttachment and UploadSupportingAttachments.';
-                ObsoleteTag = '25.0';
-                ApplicationArea = Basic, Suite;
-                Caption = 'Attach File';
-                Image = Attach;
-                ToolTip = 'Attach a file to the incoming document record.';
-                Visible = false;
-
-                trigger OnAction()
-                begin
-                    UploadSingleAttachment();
-                end;
-            }
-#endif
-            action(IncomingDoc)
-            {
-                ApplicationArea = Basic, Suite;
-                Caption = 'Incoming Document';
-                Image = Document;
-                Enabled = HasAttachments;
-                Scope = Repeater;
-                ToolTip = 'View or create an incoming document record that is linked to the entry or document.';
-
-                trigger OnAction()
-                var
-                    Incident: Record "Incident Assets Real Estate";
-                begin
-                    if not Incident.Get(Rec."Incident Id.") then
-                        exit;
-                    PAGE.RunModal(PAGE::"RE Incident Card", Incident);
-
-                    if Incident.Get(Incident."Incident Id.") then
-                        LoadDataFromIncident(Incident);
                 end;
             }
             action(OpenInOneDrive)
@@ -160,16 +106,16 @@ page 96153 "Incident Attach. FactBox"
                 Scope = Repeater;
                 trigger OnAction()
                 var
-                    IncomingDocumentAttachment: Record "Incoming Document Attachment";
+                    IncidentAttachment: Record "Incident Attachment";
                     FileManagement: Codeunit "File Management";
                     DocumentServiceMgt: Codeunit "Document Service Management";
                     FileName: Text;
                     FileExtension: Text;
                     InStream: InStream;
                 begin
-                    IncomingDocumentAttachment.Get(Rec."Incident Id.", Rec."Line No.");
-                    IncomingDocumentAttachment.CalcFields(Content);
-                    IncomingDocumentAttachment.Content.CreateInStream(InStream);
+                    IncidentAttachment.Get(Rec."Incident Id.", Rec."Line No.");
+                    IncidentAttachment.CalcFields(Content);
+                    IncidentAttachment.Content.CreateInStream(InStream);
 
                     FileName := FileManagement.StripNotsupportChrInFileName(Rec.Name);
                     FileExtension := StrSubstNo(FileExtensionLbl, Rec."File Extension");
@@ -294,28 +240,16 @@ page 96153 "Incident Attach. FactBox"
                 LoadDataFromIncident(Incident);
     end;
 
-    local procedure UploadMultipleAttachments(Files: List of [FileUpload])
-    var
-        IncidentAttachment: Record "Incident Attachment";
-        Incident: Record "Incident Assets Real Estate";
-        ImportAttachmentIncident: Codeunit "Management - Incident";
-    begin
-        PrepareIncDocAttachmentBeforeUpload(IncidentAttachment);
-
-        if ImportAttachmentIncident.ImportMultiple(IncidentAttachment, true, Files) then
-            if Incident.Get(IncidentAttachment."Incident Id.") then
-                LoadDataFromIncident(Incident);
-    end;
 
     procedure LoadDataFromOnFindRecord(): Boolean
     var
         Incident: Record "Incident Assets Real Estate";
-        IncomingDocumentFound: Boolean;
+        IncidentFound: Boolean;
         CurrentFilterGroup: Integer;
     begin
         CurrentFilterGroup := Rec.FilterGroup();
         Rec.FilterGroup(4);
-        IncomingDocumentFound := FindIncidentsFromFilters(Incident);
+        IncidentFound := FindIncidentsFromFilters(Incident);
         GlobalDocumentNo := Rec.GetFilter("Document No.");
         Clear(GlobalPostingDate);
         if Rec.GetFilter("Posting Date") <> '' then
@@ -326,7 +260,7 @@ page 96153 "Incident Attach. FactBox"
         Rec.Reset();
         Rec.DeleteAll();
 
-        if not IncomingDocumentFound then
+        if not IncidentFound then
             exit(false);
 
         Rec.InsertFromIncident(Incident, Rec);
@@ -335,11 +269,11 @@ page 96153 "Incident Attach. FactBox"
 
     local procedure FindIncidentsFromFilters(var Incident: Record "Incident Assets Real Estate"): Boolean
     var
-        IncomingDocumentEntryNo: Text;
+        IncidentId: Text;
     begin
-        IncomingDocumentEntryNo := Rec.GetFilter("Incident Id.");
-        if IncomingDocumentEntryNo <> '' then
-            exit(Incident.Get(IncomingDocumentEntryNo));
+        IncidentId := Rec.GetFilter("Incident Id.");
+        if IncidentId <> '' then
+            exit(Incident.Get(IncidentId));
 
         // exit(Incident.FindByDocumentNoAndPostingDate(Incident, Rec.GetFilter("Document No."), Rec.GetFilter("Posting Date")));
         exit(false)
@@ -389,7 +323,7 @@ page 96153 "Incident Attach. FactBox"
 
     procedure LoadDataFromIncident(Incident: Record "Incident Assets Real Estate")
     begin
-        OnLoadDataFromIncomingDocumentOnBeforeDeleteAll(Rec);
+        OnLoadDataFromIncidentOnBeforeDeleteAll(Rec);
         Rec.DeleteAll();
         Rec.InsertFromIncident(Incident, Rec);
         CurrPage.Update(false);
@@ -402,7 +336,7 @@ page 96153 "Incident Attach. FactBox"
         if not DataTypeManagement.GetRecordRef(MainRecordVariant, MainRecordRef) then
             exit(false);
 
-        if MainRecordRef.Number = DATABASE::"Incoming Document" then begin
+        if MainRecordRef.Number = DATABASE::"Incident Assets Real Estate" then begin
             Incident.Copy(MainRecordVariant);
             exit(true);
         end;
@@ -435,7 +369,7 @@ page 96153 "Incident Attach. FactBox"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnLoadDataFromIncomingDocumentOnBeforeDeleteAll(var TempIncidentAttachmentOverview: Record "Incident Attachment Overview" temporary)
+    local procedure OnLoadDataFromIncidentOnBeforeDeleteAll(var TempIncidentAttachmentOverview: Record "Incident Attachment Overview" temporary)
     begin
     end;
 }

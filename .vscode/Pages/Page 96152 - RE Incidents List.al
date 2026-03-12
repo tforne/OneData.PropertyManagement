@@ -16,7 +16,8 @@ page 96152 "Incidents List"
                 field("Incident Id."; Rec."Incident Id.")
                 {
                     ToolTip = 'Specifies the value of the Case field.', Comment = '%';
-                    Visible = false;
+                    Visible = true;
+                    Editable = false;
                 }
                 field(Title; Rec.Title)
                 {
@@ -26,6 +27,10 @@ page 96152 "Incidents List"
                 {
                     ToolTip = 'Specifies the value of the Description field.', Comment = '%';
                 }
+                field("Fixed Real Estate No."; Rec."Fixed Real Estate No.")
+                {
+                    ToolTip = 'Specifies the value of the No. field.', Comment = '%';
+                }
                 field("Contract No."; Rec."Contract No.")
                 {
                     ToolTip = 'Specifies the value of the Contract field.', Comment = '%';
@@ -33,6 +38,10 @@ page 96152 "Incidents List"
                 field("Contact No"; Rec."Contact No")
                 {
                     ToolTip = 'Specifies the value of the Contact field.', Comment = '%';
+                }
+                field("Contact Name"; Rec."Contact - Name")
+                {
+                    ToolTip = 'Specifies the value of the Contact Name field.', Comment = '%';
                 }
                 field("Case Type"; Rec."Case Type")
                 {
@@ -42,10 +51,7 @@ page 96152 "Incidents List"
                 {
                     ToolTip = 'Specifies the value of the Incident Date field.', Comment = '%';
                 }
-                field("Fixed Real Estate No."; Rec."Fixed Real Estate No.")
-                {
-                    ToolTip = 'Specifies the value of the No. field.', Comment = '%';
-                }
+
                 field(StateCode; Rec.StateCode)
                 {
                     ToolTip = 'Specifies the value of the Status field.', Comment = '%';
@@ -64,7 +70,7 @@ page 96152 "Incidents List"
                 PromotedCategory = New;
                 Caption = 'Create from Camera';
                 Image = Camera;
-                ToolTip = 'Create a new incoming document record by taking a picture.';
+                ToolTip = 'Create a new incident record by taking a picture.';
                 Visible = HasCamera;
 
                 trigger OnAction()
@@ -83,7 +89,7 @@ page 96152 "Incidents List"
                 PromotedCategory = New;
                 Caption = 'Create from File';
                 Image = ExportAttachment;
-                ToolTip = 'Create a new incoming document record by first selecting the file it will be based on. The selected file will be attached.';
+                ToolTip = 'Create a new incident record by first selecting the file it will be based on. The selected file will be attached.';
 
                 trigger OnAction()
                 begin
@@ -99,11 +105,11 @@ page 96152 "Incidents List"
                 Caption = 'Attach File';
                 Image = Attach;
                 Scope = Repeater;
-                ToolTip = 'Attach a file to the incoming document record.';
+                ToolTip = 'Attach a file to the incident document record.';
 
                 trigger OnAction()
                 begin
-                    Rec.CreateFromAttachment();
+                    Rec.ImportAttachment(rec);
                 end;
             }
         }

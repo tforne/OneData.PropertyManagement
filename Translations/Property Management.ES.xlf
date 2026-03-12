@@ -269,7 +269,7 @@
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 3168444338 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Address</source>
-          <target>Address</target>
+          <target>Dirección</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Address - Property Caption</note>
         </trans-unit>
@@ -317,7 +317,7 @@
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 3634419425 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Work Description</source>
-          <target>Work Description</target>
+          <target>Descripción del trabajo</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Comercial Description - Property Caption</note>
         </trans-unit>
@@ -329,7 +329,7 @@
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 1011843479 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Composse Address</source>
-          <target>Composse Address</target>
+          <target>Dirección compuesta</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Composse Address - Property Caption</note>
         </trans-unit>
@@ -341,19 +341,19 @@
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 499448942 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>County</source>
-          <target>County</target>
+          <target>Provincia</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field County - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <target>Description</target>
+          <target>Descripción</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 47657272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description 2</source>
-          <target>Description 2</target>
+          <target>Descripción 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Description 2 - Property Caption</note>
         </trans-unit>
@@ -413,41 +413,38 @@
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 2393253273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Date Modified</source>
-          <target>Last Date Modified</target>
+          <target>Última fecha modificado</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Last Date Modified - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 1691503831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Price Contract</source>
-          <target>Last Price Contract</target>
+          <target>Último precio contrato</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Last Price Contract - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 980588264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Reference Price</source>
-          <target>Last Reference Price</target>
+          <target>Último precio de referencia</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Last Reference Price - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 4234281305 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Rental Price</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Último precio de alquiler</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Last Rental Price - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 197289522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies when the last rental price was last modified.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Especifica cuándo se modificó por última vez el último precio de alquiler.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Last Rental Price Modified - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 197289522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Rental Price Modified</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Última fecha modificado precio alquiler</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Last Rental Price Modified - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 986721598 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -458,7 +455,7 @@
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 3097337210 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Maintenance Vendor No.</source>
-          <target>Maintenance Vendor No.</target>
+          <target>No. proveedor de mantenimiento</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Maintenance Vendor No. - Property Caption</note>
         </trans-unit>
@@ -470,9 +467,8 @@
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 1354625437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Minimum Rental Price</source>
-          <target>[NAB: REVIEW]Precio de alquiler mínimo</target>
+          <target>Precio mínimi de alquiler</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Minimum Rental Price - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3197180930 - Field 1157678069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1485,7 +1481,7 @@
         </trans-unit>
         <trans-unit id="Table 2772947383 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <target>Description</target>
+          <target>Descripción</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Description - Property Caption</note>
         </trans-unit>
@@ -1496,8 +1492,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Expected Resolution Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2772947383 - Field 2785006923 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No.</source>
-          <target>No.</target>
+          <source>Fixed Real Estate No.</source>
+          <target>No.activo inmobiliario</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Fixed Real Estate No. - Property Caption</note>
         </trans-unit>
@@ -1616,8 +1612,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Attachment - NamedType MustBePdfOrPictureErr</note>
         </trans-unit>
         <trans-unit id="Table 1168049409 - NamedType 4278120030" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The action to create an incoming document from file has completed.</source>
-          <target>La acción para crear un documento entrante desde archivo ha finalizado.</target>
+          <source>The action to create an incident from file has completed.</source>
+          <target>La acción para crear una incidencia desde archivo ha finalizado.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Attachment - NamedType NotifIncDocCompletedMsg</note>
         </trans-unit>
@@ -1861,6 +1857,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Attachment Overview - Field Type - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Table 1336426021 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incident Comment Line</source>
+          <target>Comentarios incidencia</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Comment Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1336426021 - Field 2790486453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comment</source>
+          <target>Comentarios</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Comment Line - Field Comment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1336426021 - Field 3192175264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date</source>
+          <target>Fecha</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Comment Line - Field Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1336426021 - Field 1787860007 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incident Id.</source>
+          <target>Id. incidencia</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Comment Line - Field Incident Id. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1336426021 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <target>No. Línea</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Comment Line - Field Line No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1245772067 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Bank Account</source>
           <target>Cuenta bancaria cliente</target>
@@ -1899,7 +1925,7 @@
         </trans-unit>
         <trans-unit id="Table 1245772067 - Field 3089817519 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Branch No.</source>
-          <target>Bank Branch No.</target>
+          <target>No. oficina bancaria</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Bank Account - Field Bank Branch No. - Property Caption</note>
         </trans-unit>
@@ -2066,8 +2092,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Bank Account - Field Transit No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3030669317 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Lease Comment Line</source>
-          <target>Lease Comment Line</target>
+          <source>FE Comment Line</source>
+          <target>FE Comment Line</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Comment Line - Property Caption</note>
         </trans-unit>
@@ -2108,14 +2134,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Comment Line - Field Table Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3030669317 - Field 3808951907 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Contract,Service Header,Service Item,Loaner,Service Shipment Header,Service Invoice Header,Service Cr.Memo Header</source>
-          <target>Service Contract,Service Header,Service Item,Loaner,Service Shipment Header,Service Invoice Header,Service Cr.Memo Header</target>
+          <source>Lease Contract,Lease Header,Lease Invoice Header,Lease Cr.Memo Header</source>
+          <target>Lease Contract,Lease Header,Lease Invoice Header,Lease Cr.Memo Header</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Comment Line - Field Table Name - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Table 3030669317 - Field 3371953150 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Table Subtype</source>
-          <target>Table Subtype</target>
+          <target>Subtipo tabla</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Comment Line - Field Table Subtype - Property Caption</note>
         </trans-unit>
@@ -2127,7 +2153,7 @@
         </trans-unit>
         <trans-unit id="Table 3030669317 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Type</source>
-          <target>Type</target>
+          <target>Tipo</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Comment Line - Field Type - Property Caption</note>
         </trans-unit>
@@ -3163,6 +3189,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Applies-to Bill No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3899176924 - Field 3093642907 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applies-to ID</source>
+          <target>Applies-to ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Applies-to ID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3899176924 - Field 634516972 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Account Name</source>
           <target>Bank Account Name</target>
@@ -3361,6 +3393,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Notify Customer - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Table 3899176924 - Field 4259830144 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target>Pendiente</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Open - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3899176924 - Field 3855271124 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Method Code</source>
           <target>Cód. forma pago</target>
@@ -3369,7 +3407,7 @@
         </trans-unit>
         <trans-unit id="Table 3899176924 - Field 966740350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Terms Code</source>
-          <target>Payment Terms Code</target>
+          <target>Cód. términos pago</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Payment Terms Code - Property Caption</note>
         </trans-unit>
@@ -3417,13 +3455,13 @@
         </trans-unit>
         <trans-unit id="Table 3899176924 - Field 304272296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prices Including VAT</source>
-          <target>Prices Including VAT</target>
+          <target>Precios incluido IVA</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Prices Including VAT - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3899176924 - Field 4130293374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Priority</source>
-          <target>Priority</target>
+          <target>Prioridad</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Priority - Property Caption</note>
         </trans-unit>
@@ -3435,13 +3473,13 @@
         </trans-unit>
         <trans-unit id="Table 3899176924 - Field 2247850105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Responsibility Center</source>
-          <target>Responsibility Center</target>
+          <target>Centro responsabilidad</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Responsibility Center - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3899176924 - Field 553464652 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Salesperson Code</source>
-          <target>Salesperson Code</target>
+          <target>Código vendedor</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Salesperson Code - Property Caption</note>
         </trans-unit>
@@ -3462,6 +3500,12 @@
           <target>Source Code</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Source Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3899176924 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target>Estado</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3899176924 - Field 305562489 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tax Area Code</source>
@@ -3519,19 +3563,19 @@
         </trans-unit>
         <trans-unit id="Table 2693353827 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
-          <target>Amount</target>
+          <target>Importe</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Line - Field Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2693353827 - Field 1650118938 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount Including VAT</source>
-          <target>Amount Including VAT</target>
+          <target>Importe IVA incluido</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Line - Field Amount Including VAT - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2693353827 - Field 2110823953 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Base Contract</source>
-          <target>Base Contract</target>
+          <target>Base Contracto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Line - Field Base Contract - Property Caption</note>
         </trans-unit>
@@ -5062,25 +5106,25 @@
         </trans-unit>
         <trans-unit id="Table 4091909314 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
-          <target>Code</target>
+          <target>Código</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Type Fixed Real Estate - Field Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4091909314 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <target>Description</target>
+          <target>Descripción</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Type Fixed Real Estate - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3853398659 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Types Street Numbering</source>
-          <target>Types Street Numbering</target>
+          <target>Tipos numeración calle</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Types Street Numbering - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3853398659 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <target>Description</target>
+          <target>Descripción</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Types Street Numbering - Field Description - Property Caption</note>
         </trans-unit>
@@ -5090,37 +5134,27 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Types Street Numbering - Field Id. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1209421254 - NamedType 2976868375" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The invoice was posted from an order. The order has been deleted, and the invoice will be cancelled. You can create a new invoice or order by using the Copy Document action.\ \Do you want to continue?</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+        <trans-unit id="Codeunit 946219275 - NamedType 430733052" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This invoice was posted from a sales order. To cancel it, a sales credit memo will be created and posted. The quantities from the original sales order will be restored, provided the sales order still exists.\ \Do you want to continue?</source>
+          <target>Esta factura se registró a partir de un pedido de ventas. Para cancelarla, se creará y registrará una nota de crédito de ventas. Las cantidades del pedido de ventas original se restaurarán, siempre que el pedido de ventas aún exista. ¿Desea continuar?</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Correct PstdLeaseInv (Yes/No) - NamedType CorrectPostedInvoiceFromDeletedOrderQst</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Cancel Lease Invoice (Yes/No) - NamedType CancelPostedInvoiceQst</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1209421254 - NamedType 4073381244" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The invoice was posted from multiple orders. It will now be cancelled, and you can make a correction manually in the original orders.\ \Do you want to continue?</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+        <trans-unit id="Codeunit 946219275 - NamedType 2409456144" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A credit memo was successfully created. Do you want to open the posted credit memo?</source>
+          <target>Se creó correctamente una nota de crédito. ¿Desea abrir la nota de crédito registrada?</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Correct PstdLeaseInv (Yes/No) - NamedType CorrectPostedInvoiceFromMultipleOrderQst</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Cancel Lease Invoice (Yes/No) - NamedType OpenPostedCreditMemoQst</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1209421254 - NamedType 1864455598" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The invoice was posted from an order. The invoice will be cancelled, and the order will open so that you can make the correction.\ \Do you want to continue?</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+        <trans-unit id="Codeunit 3768397019 - NamedType 1554664300" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The posted sales invoice will be canceled, and a new version of the sales invoice will automatically be created by the system so that you can make the correction.\ \Do you want to continue?</source>
+          <target>Esta factura se registró a partir de un pedido de ventas. Para cancelarla, se creará y registrará una nota de crédito de ventas. Las cantidades del pedido de ventas original se restaurarán, siempre que el pedido de ventas aún exista. ¿Desea continuar?</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Correct PstdLeaseInv (Yes/No) - NamedType CorrectPostedInvoiceFromSingleOrderQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1209421254 - NamedType 1554664300" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The Lease invoice will be canceled, and a new version of the sales invoice will automatically be created by the system so that you can make the correction.\ \Do you want to continue?</source>
-          <target>[NAB: NOT TRANSLATED]</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Correct PstdLeaseInv (Yes/No) - NamedType CorrectPostedInvoiceQst</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Correct Lease Invoice (Yes/No) - NamedType CorrectPostedInvoiceQst</note>
         </trans-unit>
         <trans-unit id="Codeunit 683925318 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
           <source>Next lease invoice %1 period %2</source>
-          <target>Next lease invoice %1 period %2</target>
+          <target>Próxima factura de arrendamiento %1 período %2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text000</note>
         </trans-unit>
@@ -5154,11 +5188,47 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text005</note>
         </trans-unit>
+        <trans-unit id="Codeunit 683925318 - NamedType 3669593336" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incidencia %1</source>
+          <target>Incidencia %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text100</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 683925318 - NamedType 3031896719" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hola %1</source>
+          <target>Hola %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text101</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 683925318 - NamedType 650019274" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hemos registrado correctamente la incidencia %1 que nos has comunicado y procedemos a su resolución.</source>
+          <target>Hemos registrado correctamente la incidencia %1 que nos has comunicado y procedemos a su resolución.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text102</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 683925318 - NamedType 12322657" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Te iremos informando a medida que avancemos con cada punto.</source>
+          <target>Te iremos informando a medida que avancemos con cada punto.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text103</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 683925318 - NamedType 1925412508" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Un saludo</source>
+          <target>Un Saludo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text104</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 683925318 - NamedType 3393061063" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The client will be notified of the incident %1</source>
+          <target>[NAB: REVIEW]El cliente será notificado del incidente %</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">The placeholder "%1" was found in source, but not in target.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text110</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1572046934 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
           <source>can only be a closing date for G/L entries</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Solo puede ser una fecha de cierre para las entradas de contabilidad general</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Jnl.-Check Line - NamedType Text000</note>
         </trans-unit>
         <trans-unit id="Codeunit 605955680 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
@@ -5179,29 +5249,29 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Jnl.-Post Line - NamedType Text003</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2625322547 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 135318348 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
           <source>FRE</source>
           <target>FRE</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Journals Management - NamedType Text000</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Journals Management - NamedType Text000</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2625322547 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 135318348 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
           <source>Diario FRE</source>
           <target>Diario FRE</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Journals Management - NamedType Text001</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Journals Management - NamedType Text001</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2625322547 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 135318348 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
           <source>GENERICO</source>
           <target>GENERICO</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Journals Management - NamedType Text002</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Journals Management - NamedType Text002</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2625322547 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 135318348 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
           <source>Diario genérico</source>
           <target>Diario genérico</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Journals Management - NamedType Text003</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Journals Management - NamedType Text003</note>
         </trans-unit>
         <trans-unit id="Codeunit 1987266316 - NamedType 1156462942" size-unit="char" translate="yes" xml:space="preserve">
           <source>Choose the file to upload.</source>
@@ -5210,14 +5280,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Management - Incident - NamedType ChooseFileTitleMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1987266316 - NamedType 3509666998" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You have created an incoming document based on an empty file. Try again with a file that contains data that you want to import.</source>
-          <target>Ha creado un documento entrante basado en un archivo vacío. Inténtelo de nuevo con un archivo que contenga los datos que desea importar.</target>
+          <source>You have created an incident based on an empty file. Try again with a file that contains data that you want to import.</source>
+          <target>Ha creado una incidencia basado en un archivo vacío. Inténtelo de nuevo con un archivo que contenga los datos que desea importar.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Management - Incident - NamedType EmptyFileMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1987266316 - NamedType 3865442186" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachments (%1)|%1</source>
-          <target>Attachments (%1)|%1</target>
+          <target>Adjuntos (%1)|%1</target>
           <note from="Developer" annotates="general" priority="2">%1=file types, such as *.txt or *.docx</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Management - Incident - NamedType FileDialogTxt</note>
         </trans-unit>
@@ -5367,151 +5437,128 @@
         </trans-unit>
         <trans-unit id="Page 1457722299 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Payment Lease Invoice</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Crear pago factura alquiler</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - NamedType 339077659" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must fill the Batch Name field.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Debes llenar el campo sección.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - NamedType BatchNumberNotFilledErr</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - NamedType 4272839647" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot create a payment with an earlier posting date for %1 %2.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>No puede crear un pago con una fecha de contabilización anterior para %1 %2.</target>
           <note from="Developer" annotates="general" priority="2">%1 - Document Type, %2 - Document No.. You cannot create a payment with an earlier posting date for Invoice INV-001.</note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - NamedType EarlierPostingDateErr</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - NamedType 2053384910" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment of %1 %2 </source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Pagos de %1 %2 </target>
           <note from="Developer" annotates="general" priority="2">%1 document type, %2 Document No.</note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - NamedType MessageToRecipientMsg</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - NamedType 2963480846" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must fill the Posting Date field.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Debe completar el campo Fecha de Registro.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - NamedType PostingDateNotFilledErr</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - NamedType 52491708" size-unit="char" translate="yes" xml:space="preserve">
           <source>In the Starting Document No. field, specify the first document number to be used.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>En el campo Número de Documento Inicial, especifique el primer número de documento a utilizar.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - NamedType SpecifyStartingDocNumErr</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - NamedType 758381069" size-unit="char" translate="yes" xml:space="preserve">
           <source>The value in the Starting Document No. field must have a number so that we can assign the next number in the series.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>El valor en el campo Número de Documento Inicial debe tener un número para que podamos asignar el siguiente número en la serie.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - NamedType StartingDocumentNoErr</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Method 3855485349 - NamedType 805183423" size-unit="char" translate="yes" xml:space="preserve">
           <source>There are no payments to process for the selected entries.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>No hay pagos para procesar para las entradas seleccionadas.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Method MakeGenJnlLines - NamedType ThereAreNoPaymentsToProccesErr</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Method 3855485349 - NamedType 2647632979" size-unit="char" translate="yes" xml:space="preserve">
           <source>A payment application process '%1' is in progress for the selected entry no. %2. Make sure you have not applied this entry in ongoing journals or payment reconciliation journals.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Un proceso de aplicación de pago '%1' está en curso para la entrada seleccionada no. %2. Asegúrese de que no ha aplicado esta entrada en diarios en curso o diarios de conciliación de pagos.</target>
           <note from="Developer" annotates="general" priority="2">%1 - A code for the payment application process, %2 - The entry no. that has an ongoing application process</note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Method MakeGenJnlLines - NamedType PaymentApplicationInProcessErr</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Control 1682139193 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the bank account to which a balancing entry for the journal line will be posted.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Especifica la cuenta bancaria a la que se registrará una entrada de balance para la línea del diario.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Control Bank Account - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Control 1682139193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Account</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Cuenta bancaria</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Control Bank Account - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Control 3182586253 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the journal batch.</source>
-          <target>[NAB: SUGGESTION]Especifica el nombre de la sección de diario.</target>
+          <target>Especifica el nombre de la sección de diario.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Control Batch Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Control 3182586253 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Batch Name</source>
-          <target>[NAB: SUGGESTION]Nombre sección</target>
+          <target>Nombre sección</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Control Batch Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Control 907492870 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for the payment type to be used for the entry on the payment journal line.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Especifica el código para el tipo de pago que se usará en la entrada de la línea del diario de pagos.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Control Payment Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Control 907492870 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Type</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Tipo de pago</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Control Payment Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Control 3710982960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the entry's posting date.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Especifica la fecha de contabilización de la entrada.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Control Posting Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Control 3710982960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date</source>
-          <target>[NAB: SUGGESTION]Fecha registro</target>
-          <target>[NAB: SUGGESTION]Posting Date</target>
-          <target>[NAB: SUGGESTION]Fecha de Registro</target>
+          <target>Fecha registro</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Control Posting Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Control 1505586660 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a document number for the journal line.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Especifica un número de documento para la línea del diario.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Control Starting Document No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Control 1505586660 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Starting Document No.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>No. documento inicial</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Control Starting Document No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Control 3149056129 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the journal template.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Especifica el nombre de la plantilla del diario.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Control Template Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Control 3149056129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Template Name</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Nombre Libro</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Create Payment Lease Invoice - Control Template Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2719346470 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -5540,7 +5587,7 @@
         </trans-unit>
         <trans-unit id="Page 2952824006 - Control 2901750256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attribute</source>
-          <target>Attribute</target>
+          <target>Atributos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Attrib. Factbox - Control Attribute - Property Caption</note>
         </trans-unit>
@@ -5552,7 +5599,7 @@
         </trans-unit>
         <trans-unit id="Page 2952824006 - Control 2006108605 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attribute</source>
-          <target>Attribute</target>
+          <target>Atributos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Attrib. Factbox - Control Attribute Name - Property Caption</note>
         </trans-unit>
@@ -5564,7 +5611,7 @@
         </trans-unit>
         <trans-unit id="Page 2952824006 - Control 998707401 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Value</source>
-          <target>Value</target>
+          <target>Valor</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Attrib. Factbox - Control RawValue - Property Caption</note>
         </trans-unit>
@@ -5600,7 +5647,7 @@
         </trans-unit>
         <trans-unit id="Page 3650738976 - Action 543248582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cargar atibutos por tipo de activo</source>
-          <target>Cargar atibutos por tipo de activo</target>
+          <target>Cargar atributos por tipo de activo</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Attribute Value Edit. - Action Load attributes by asset type - Property Caption</note>
         </trans-unit>
@@ -5642,16 +5689,14 @@
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 197289522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies when the last rental price was last modified.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Especifica cuándo se modificó por última vez el último precio de alquiler.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Last Rental Price Modified - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 2077289617 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the last rental sale price for the fixed asset including tax.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Especifica el último precio de venta de alquiler para el activo fijo incluyendo impuestos.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Last Rental Sales Price - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 1157678069 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -5698,16 +5743,14 @@
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 2376003423 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the annual expense forecast for the fixed asset.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Especifica la previsión de gastos anuales para el activo fijo.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Previsión Gastos Anual - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 2376003423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Annual Expense Forecast</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Previsión Gastos Anual</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Previsión Gastos Anual - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 514059213 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -5736,16 +5779,14 @@
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 3657482835 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the cash flow for the fixed asset.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Especifica el flujo de efectivo del activo inmobiliario.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Total Flujo Caja - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 3657482835 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total Flujo Caja</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Total flujo de caja</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Total Flujo Caja - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 831155605 - Control 76693112 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -5756,25 +5797,25 @@
         </trans-unit>
         <trans-unit id="Page 831155605 - Action 3374002637 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Published Assets</source>
-          <target>Published Assets</target>
+          <target>Publicar activos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Es. Web Site Card - Action Published Assets - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 831155605 - Action 3374002637 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Published Assets</source>
-          <target>Published Assets</target>
+          <target>Publicar activos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Es. Web Site Card - Action Published Assets - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 831155605 - Action 367086139 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Published Assets</source>
-          <target>Published Assets</target>
+          <target>Publicar activos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Es. Web Site Card - Action Publish - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 831155605 - Action 367086139 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Published Assets</source>
-          <target>Published Assets</target>
+          <target>Publicar activos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Es. Web Site Card - Action Publish - Property Caption</note>
         </trans-unit>
@@ -5864,7 +5905,7 @@
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 418100014 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Class Code</source>
-          <target>Class Code</target>
+          <target>Código clase</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control FRE Class Code - Property Caption</note>
         </trans-unit>
@@ -5880,6 +5921,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control FRE Subclass Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4166615366 - Control 478049462 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the totaling code used to group fixed assets with similar characteristics for reporting and analysis purposes. The totaling code can be used to create totals on fixed asset reports, such as a total for all fixed assets with the same totaling code.</source>
+          <target>Especifica el código de totalización utilizado para agrupar activos fijos con características similares con fines de informes y análisis. El código de totalización se puede utilizar para crear totales en los informes de activos fijos, como un total de todos los activos fijos con el mismo código de totalización.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Totaling - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 4166615366 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a description of the fixed asset.</source>
           <target>Specifies a description of the fixed asset.</target>
@@ -5891,6 +5938,12 @@
           <target>Specifies when the fixed asset card was last modified.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Last Date Modified - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4166615366 - Control 4228136327 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the fixed asset is managed by the system. If this field is not selected, the system will not create or update any related records such as general ledger entries or depreciation books for the fixed asset.</source>
+          <target>Especifica si el activo fijo es gestionado por el sistema. Si este campo no está seleccionado, el sistema no creará ni actualizará ningún registro relacionado, como asientos del libro mayor o libros de depreciación del activo fijo.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Managed - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
@@ -5924,7 +5977,7 @@
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 350249191 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Maintenance</source>
-          <target>Maintenance</target>
+          <target>Mantenimiento</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Maintenance - Property Caption</note>
         </trans-unit>
@@ -6038,7 +6091,7 @@
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachments</source>
-          <target>Attachments</target>
+          <target>Adjuntos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Attached Documents - Property Caption</note>
         </trans-unit>
@@ -6050,7 +6103,7 @@
         </trans-unit>
         <trans-unit id="Page 4166615366 - Action 1225782422 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachments</source>
-          <target>Attachments</target>
+          <target>Adjuntos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Attachments - Property Caption</note>
         </trans-unit>
@@ -6074,7 +6127,7 @@
         </trans-unit>
         <trans-unit id="Page 4166615366 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;mments</source>
-          <target>Co&amp;mments</target>
+          <target>Co&amp;mentarios</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Co&amp;mments - Property Caption</note>
         </trans-unit>
@@ -6086,7 +6139,7 @@
         </trans-unit>
         <trans-unit id="Page 4166615366 - Action 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimensions</source>
-          <target>Dimensions</target>
+          <target>Dimensiones</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Dimensions - Property Caption</note>
         </trans-unit>
@@ -6152,7 +6205,7 @@
         </trans-unit>
         <trans-unit id="Page 4166615366 - Action 84074407 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Statistics</source>
-          <target>Statistics</target>
+          <target>Estadísticas</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Statistics - Property Caption</note>
         </trans-unit>
@@ -6192,11 +6245,29 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Acquired - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3848461472 - Control 1643092960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the cadastral reference of the fixed asset, which is a unique code that identifies the property in the land registry.</source>
+          <target>Especifica la referencia catastral del bien inmueble, que es un código único que identifica la propiedad en el registro de la propiedad.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Cadastral reference - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3848461472 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a description of the fixed asset.</source>
           <target>Specifies a description of the fixed asset.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3848461472 - Control 1691503831 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the last price contract for the fixed asset.</source>
+          <target>Especifica el último precio del contrato para el activo fijo.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Last Price Contract - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3848461472 - Control 980588264 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the last reference price of the fixed asset, which is the price of the last lease contract associated with this fixed asset.</source>
+          <target>Especifica el último precio de referencia del activo fijo, que es el precio del último contrato de arrendamiento asociado con este activo fijo.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Last Reference Price - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 3097337210 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of the vendor who performs repairs and maintenance on the fixed asset.</source>
@@ -6252,6 +6323,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Sales price - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3848461472 - Control 3484560217 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the built area of the fixed asset in square meters.</source>
+          <target>Especifica la superficie construida del activo fijo en metros cuadrados.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Superficie construida - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3848461472 - Control 1527594213 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of the vendor from which you purchased this fixed asset.</source>
           <target>Specifies the number of the vendor from which you purchased this fixed asset.</target>
@@ -6266,7 +6343,7 @@
         </trans-unit>
         <trans-unit id="Page 3848461472 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;mments</source>
-          <target>Co&amp;mments</target>
+          <target>Co&amp;mentarios</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Action Co&amp;mments - Property Caption</note>
         </trans-unit>
@@ -6368,7 +6445,7 @@
         </trans-unit>
         <trans-unit id="Page 3049426280 - Control 1131619133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Value</source>
-          <target>Value</target>
+          <target>Valor</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Value List - Control Value - Property Caption</note>
         </trans-unit>
@@ -6552,7 +6629,7 @@
         </trans-unit>
         <trans-unit id="Page 1018266202 - Control 1343707150 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name related to the source number.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Especifica el nombre relacionado con el número de origen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control Source Name - Property ToolTip</note>
         </trans-unit>
@@ -6700,6 +6777,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Headline FFO Manager - Control DocumentationText - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3303743809 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incident Attachment List</source>
+          <target>Adjuntos de incidencias</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3303743809 - Control 3926698677 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the content of the attachment.</source>
+          <target>Especifica el contenido del adjunto.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach List - Control Blob - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3303743809 - Control 1787860007 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the attachment file.</source>
+          <target>Especifica el nombre del archivo adjunto.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach List - Control Incident Id. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3303743809 - Control 3391158951 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the size of the attached file in kilobytes.</source>
+          <target>Especifica el tamaño del archivo adjunto en kilobytes.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach List - Control Size (KB) - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1022304410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Incident Files</source>
           <target>Incident Files</target>
@@ -6713,8 +6814,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach. FactBox - NamedType CreateMainDocumentFirstErr</note>
         </trans-unit>
         <trans-unit id="Page 1022304410 - Control 2186326632 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies when the incoming document line was created.</source>
-          <target>Especifica cuándo se creó la línea del documento entrante.</target>
+          <source>Specifies when the incident was created.</source>
+          <target>Especifica cuándo se creó la incidencia.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach. FactBox - Control Created Date-Time - Property ToolTip</note>
         </trans-unit>
@@ -6750,33 +6851,9 @@
         </trans-unit>
         <trans-unit id="Page 1022304410 - Action 36190024 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Download</source>
-          <target>Download</target>
+          <target>Descargar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach. FactBox - Action Export - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1022304410 - Action 2117948331 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attach a file to the incoming document record.</source>
-          <target>Attach a file to the incoming document record.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach. FactBox - Action ImportNew - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1022304410 - Action 2117948331 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attach File</source>
-          <target>Attach File</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach. FactBox - Action ImportNew - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1022304410 - Action 2577889954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View or create an incoming document record that is linked to the entry or document.</source>
-          <target>View or create an incoming document record that is linked to the entry or document.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach. FactBox - Action IncomingDoc - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1022304410 - Action 2577889954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Incoming Document</source>
-          <target>Documentos entrantes</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach. FactBox - Action IncomingDoc - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1022304410 - Action 498818169 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the file. You will be able to download the file from the viewer control. Works only on limited number of file types.</source>
@@ -6815,9 +6892,10 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach. FactBox - Action ShareToOneDrive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1022304410 - Action 3090326275 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attach a file as the main attachment to the incoming document record.</source>
-          <target>Attach a file as the main attachment to the incoming document record.</target>
+          <source>Attach a file as the main attachment to the incident record.</source>
+          <target>[NAB: REVIEW]Attach a file as the main attachment to the incoming document record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach. FactBox - Action UploadMainAttachment - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1022304410 - Action 3090326275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -6826,17 +6904,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach. FactBox - Action UploadMainAttachment - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1022304410 - Action 279123466 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attach one or more files as the supporting attachments to the incoming document record.</source>
-          <target>Attach one or more files as the supporting attachments to the incoming document record.</target>
+        <trans-unit id="Page 3562040353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incident Comment Subform</source>
+          <target>Comentarios incidencia Subform</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach. FactBox - Action UploadSupportingAttachments - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Comment Subform - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1022304410 - Action 279123466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Upload supporting attachments</source>
-          <target>Upload supporting attachments</target>
+        <trans-unit id="Page 3562040353 - Control 2790486453 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the comment itself.</source>
+          <target>Specifies the comment itself.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Attach. FactBox - Action UploadSupportingAttachments - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Comment Subform - Control Comment - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3562040353 - Control 3192175264 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date the comment was created.</source>
+          <target>Specifies the date the comment was created.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Comment Subform - Control Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2131679017 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Incidents List</source>
@@ -6849,6 +6933,12 @@
           <target>Specifies the value of the Case Type field.</target>
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Control Case Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2131679017 - Control 2378863201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Contact Name field.</source>
+          <target>Especifica el valor del campo Nombre del contacto.</target>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Control Contact Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2131679017 - Control 2557466315 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Contact field.</source>
@@ -6899,9 +6989,10 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Control Title - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2131679017 - Action 2972098037 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create a new incoming document record by first selecting the file it will be based on. The selected file will be attached.</source>
-          <target>Create a new incoming document record by first selecting the file it will be based on. The selected file will be attached.</target>
+          <source>Create a new incident record by first selecting the file it will be based on. The selected file will be attached.</source>
+          <target>[NAB: REVIEW]Create a new incoming document record by first selecting the file it will be based on. The selected file will be attached.</target>
           <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Action CreateFromAttachment - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2131679017 - Action 2972098037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -6911,26 +7002,26 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Action CreateFromAttachment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2131679017 - Action 1325263437 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create a new incoming document record by taking a picture.</source>
-          <target>Create a new incoming document record by taking a picture.</target>
+          <source>Create a new incident record by taking a picture.</source>
+          <target>Cree un nueva incidencia tomando una fotografía.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Action CreateFromCamera - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2131679017 - Action 1325263437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create from Camera</source>
-          <target>Create from Camera</target>
+          <target>Crear desde camera</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Action CreateFromCamera - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2131679017 - Action 3445273183 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attach a file to the incoming document record.</source>
+          <source>Attach a file to the incident document record.</source>
           <target>Attach a file to the incoming document record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Action AttachFile - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2131679017 - Action 3445273183 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attach File</source>
-          <target>Attach File</target>
+          <target>Adjuntar fichero</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Action AttachFile - Property Caption</note>
         </trans-unit>
@@ -6946,17 +7037,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents Real Estate Act. - Control Camera - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3452459383 - Action 1189734726 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 3452459383 - Action 2532383863 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create an incidents by taking a photo of the document with your device camera. The photo will be attached to the new document.</source>
           <target>Create an incidents by taking a photo of the document with your device camera. The photo will be attached to the new document.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Incidents Real Estate Act. - Action CreateIncomingDocumentFromCamera - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incidents Real Estate Act. - Action CreateIncidentFromCamera - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3452459383 - Action 1189734726 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 3452459383 - Action 2532383863 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Incidents from Camera</source>
-          <target>Create Incidents from Camera</target>
+          <target>Crear incidencias desde la cámara</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Incidents Real Estate Act. - Action CreateIncomingDocumentFromCamera - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incidents Real Estate Act. - Action CreateIncidentFromCamera - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3452459383 - Control 3588991647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Incidentes</source>
@@ -6972,7 +7063,7 @@
         </trans-unit>
         <trans-unit id="Page 3225487991 - Control 3050372732 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Communication</source>
-          <target>Communication</target>
+          <target>Comunicación</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Bank Account Card - Control Communication - Property Caption</note>
         </trans-unit>
@@ -7223,8 +7314,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Bank Account List - Control SWIFT Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1879676934 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Comment Sheet</source>
-          <target>Service Comment Sheet</target>
+          <source>Lease Comment Sheet</source>
+          <target>Hoja Commentarios contratos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Comment Sheet - Property Caption</note>
         </trans-unit>
@@ -8022,13 +8113,13 @@
         </trans-unit>
         <trans-unit id="Page 1925115218 - Action 1344672713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Print</source>
-          <target>&amp;Print</target>
+          <target>&amp;Imprimir</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoice - Action &amp;Print - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1925115218 - Action 2526725273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Bill</source>
-          <target>Create Bill</target>
+          <target>Crear efecto cartera</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoice - Action Create Bill - Property Caption</note>
         </trans-unit>
@@ -8046,13 +8137,13 @@
         </trans-unit>
         <trans-unit id="Page 1925115218 - Action 1934669617 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send</source>
-          <target>Send</target>
+          <target>Enviar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoice - Action SendCustom - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 202653304 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lines</source>
-          <target>Lines</target>
+          <target>Líneas</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoice Subform - Property Caption</note>
         </trans-unit>
@@ -8124,7 +8215,7 @@
         </trans-unit>
         <trans-unit id="Page 202653304 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Line</source>
-          <target>&amp;Line</target>
+          <target>&amp;Línea</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoice Subform - Action &amp;Line - Property Caption</note>
         </trans-unit>
@@ -8151,6 +8242,12 @@
           <target>Specifies the name of the contact person at the customer company.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Control Contact Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811265567 - Control 3609111399 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the lease contract related to this invoice.</source>
+          <target>Especifica el número del contrato de arrendamiento relacionado con esta factura.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Control Contract No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2811265567 - Control 284764054 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the country/region of the address.</source>
@@ -8200,6 +8297,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Control Post Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2811265567 - Control 173701737 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the fixed real estate related to this invoice.</source>
+          <target>Especifica el número del bien inmueble relacionado con esta factura.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Control Real Estate No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2811265567 - Control 553464652 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code of the salesperson associated with the invoice.</source>
           <target>Specifies the code of the salesperson associated with the invoice.</target>
@@ -8217,6 +8320,36 @@
           <target>Specifies the code for Shortcut Dimension 2, which is one of two global dimension codes that you set up in the General Ledger Setup window.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811265567 - Control 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the invoice.</source>
+          <target>Especifica el estado de la factura.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811265567 - Action 3698833421 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View the fixed real estate related to this invoice.</source>
+          <target>Ver los activos inmobiliarios relacionados con esta factura.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action FixedRealState - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811265567 - Action 3698833421 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Real Estate</source>
+          <target>Activo inmobiliario</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action FixedRealState - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2811265567 - Action 714257896 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View details of the lease related to this invoice.</source>
+          <target>Ver los detalles del contrato de arrendamiento relacionado con esta factura.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action LeaseDetails - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811265567 - Action 714257896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lease Details</source>
+          <target>Información contrato</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action LeaseDetails - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2811265567 - Action 2678035379 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the status and any errors if the document was sent as an electronic document or OCR file through the document exchange service.</source>
@@ -8244,7 +8377,7 @@
         </trans-unit>
         <trans-unit id="Page 2811265567 - Action 4065541250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Correct</source>
-          <target>Correct</target>
+          <target>Corrección</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action Correct - Property Caption</note>
         </trans-unit>
@@ -8256,7 +8389,7 @@
         </trans-unit>
         <trans-unit id="Page 2811265567 - Action 3748191457 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target>Cancel</target>
+          <target>Cancelar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action CancelInvoice - Property Caption</note>
         </trans-unit>
@@ -8268,22 +8401,32 @@
         </trans-unit>
         <trans-unit id="Page 2811265567 - Action 1858957841 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Correct</source>
-          <target>Correct</target>
+          <target>Corrección</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action CorrectInvoice - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2811265567 - Action 2364835251 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create and post a sales credit memo that reverses this posted sales invoice. This posted sales invoice will be canceled.</source>
+          <target>Create and post a sales credit memo that reverses this posted sales invoice. This posted sales invoice will be canceled.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action Crear efecto - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811265567 - Action 2364835251 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Crear Efecto</source>
+          <target>Crear efecto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action Crear efecto - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2811265567 - Action 2587848506 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a payment journal based on the selected invoices.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Crea un diario de pagos basado en las facturas seleccionadas.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action Create Payment - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2811265567 - Action 2587848506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Payment</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Crear pago</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action Create Payment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2811265567 - Action 1285973296 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -8294,7 +8437,7 @@
         </trans-unit>
         <trans-unit id="Page 2811265567 - Action 1285973296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send by &amp;Email</source>
-          <target>Send by &amp;Email</target>
+          <target>Enviar por &amp;Email</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action Email - Property Caption</note>
         </trans-unit>
@@ -8306,7 +8449,7 @@
         </trans-unit>
         <trans-unit id="Page 2811265567 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Print</source>
-          <target>&amp;Print</target>
+          <target>&amp;Imprimir</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action Print - Property Caption</note>
         </trans-unit>
@@ -8318,13 +8461,13 @@
         </trans-unit>
         <trans-unit id="Page 2811265567 - Action 1934669617 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send</source>
-          <target>Send</target>
+          <target>Enviar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Action SendCustom - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1215376868 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lines</source>
-          <target>Lines</target>
+          <target>Líneas</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices Lines - Property Caption</note>
         </trans-unit>
@@ -8472,9 +8615,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2479975791 - Control 1256526845 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email</source>
+          <target>Correo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Control Contract E-Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2479975791 - Control 3139124163 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contract Phone No.</source>
+          <target>No telf. en contrato</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Control Contract Phone No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2479975791 - Action 3445273183 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attach a file to the incoming document record.</source>
-          <target>Attach a file to the incoming document record.</target>
+          <source>Attach a file to the incident record.</source>
+          <target>Attach a file to the incident record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action AttachFile - Property ToolTip</note>
         </trans-unit>
@@ -8495,6 +8650,24 @@
           <target>Mark as Resolved</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action MarkResolved - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2479975791 - Action 955134568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notificaciones</source>
+          <target>Notificaciones</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action Notificaciones - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2479975791 - Action 1934669617 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepare to send the document according to the customer's sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.</source>
+          <target>Prepare to send the document according to the customer's sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action SendCustom - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2479975791 - Action 1934669617 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send</source>
+          <target>Enviar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action SendCustom - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2479975791 - Action 3031046439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Start Progress</source>
@@ -8832,6 +9005,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Posted Documents - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 586345089 - Action 1225782422 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the list of attachments related to Real Estate Incidents.</source>
+          <target>Abra la lista de adjuntos relacionados con Incidentes Inmobiliarios.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Attachments - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 1225782422 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachments</source>
+          <target>Adjuntos</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Attachments - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 586345089 - Action 1719084420 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the list of movements related to Fixed Real Estate.</source>
           <target>Open the list of movements related to Fixed Real Estate. </target>
@@ -8894,13 +9079,13 @@
         </trans-unit>
         <trans-unit id="Page 873263807 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Line</source>
-          <target>&amp;Line</target>
+          <target>&amp;Línea</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page REF Income &amp; Expenses List - Action &amp;Line - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 873263807 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>F&amp;unctions</source>
-          <target>F&amp;unctions</target>
+          <target>F&amp;unciones</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page REF Income &amp; Expenses List - Action F&amp;unctions - Property Caption</note>
         </trans-unit>
@@ -8936,13 +9121,13 @@
         </trans-unit>
         <trans-unit id="Page 1309920287 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Line</source>
-          <target>&amp;Line</target>
+          <target>&amp;Línea</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page REF Income &amp; Expenses Subform - Action &amp;Line - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1309920287 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>F&amp;unctions</source>
-          <target>F&amp;unctions</target>
+          <target>F&amp;unciones</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page REF Income &amp; Expenses Subform - Action F&amp;unctions - Property Caption</note>
         </trans-unit>
@@ -9685,7 +9870,7 @@
         </trans-unit>
         <trans-unit id="Report 2652458214 - NamedType 3659909257" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit Price</source>
-          <target>Unit Price</target>
+          <target>Precio unitario</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType UnitPriceCaptionLbl</note>
         </trans-unit>
@@ -10247,6 +10432,24 @@
           <target>Rescisión anticipada</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Motivo Liquidacion Contrato - EnumValue Rescision anticipada - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 340650877 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Canceled</source>
+          <target>Anulado</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Status Lease Invoice - EnumValue Canceled - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 340650877 - EnumValue 1778072510 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Closed</source>
+          <target>Cerrado</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Status Lease Invoice - EnumValue Closed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 340650877 - EnumValue 4259830144 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target>Pendiente</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Status Lease Invoice - EnumValue Open - Property Caption</note>
         </trans-unit>
         <trans-unit id="EnumExtension 59623598 - EnumValue 1012960654 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 3528066925">
           <source>Lease Sales Invoice</source>

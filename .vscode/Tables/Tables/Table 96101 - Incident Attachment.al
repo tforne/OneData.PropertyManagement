@@ -180,8 +180,8 @@ table 96101 "Incident Attachment"
     trigger OnInsert()
     begin
         // TestField("Incident Id.");
-        if "Incident Id." = '00000000-0000-0000-0000-000000000000' then
-            "Incident Id." := CreateGuid();
+        // if "Incident Id." = '00000000-0000-0000-0000-000000000000' then
+        //     "Incident Id." := CreateGuid();
         "Created Date-Time" := RoundDateTime(CurrentDateTime, 1000);
         "Created By User Name" := CopyStr(UserId(), 1, MaxStrLen("Created By User Name"));
 
@@ -203,7 +203,7 @@ table 96101 "Incident Attachment"
         DefaultAttachErr: Label 'There can only be one default attachment.';
         MainAttachErr: Label 'There can only be one main attachment.';
         MustBePdfOrPictureErr: Label 'Only files of type %1 and %2 can be used for OCR.', Comment = '%1 and %2 are file types: PDF and Picture';
-        NotifIncDocCompletedMsg: Label 'The action to create an incoming document from file has completed.';
+        NotifIncDocCompletedMsg: Label 'The action to create an incident from file has completed.';
 
     procedure NewAttachment()
     var
@@ -285,7 +285,7 @@ table 96101 "Incident Attachment"
         FileMgt: Codeunit "File Management";
     begin
         OnBeforeExport(Rec);
-
+        
         if not GetContent(TempBlob) then
             exit;
 
@@ -476,7 +476,7 @@ table 96101 "Incident Attachment"
     begin
         TempFieldBuffer.Init();
         TempFieldBuffer.Order += 1;
-        TempFieldBuffer."Table ID" := DATABASE::"Incoming Document";
+        TempFieldBuffer."Table ID" := DATABASE::"Incident Assets Real Estate";
         TempFieldBuffer."Field ID" := FieldID;
         TempFieldBuffer.Insert();
     end;
@@ -498,6 +498,7 @@ table 96101 "Incident Attachment"
         RecordRef.GetTable(Rec);
         TempBlob.ToRecordRef(RecordRef, FieldNo(Content));
         RecordRef.SetTable(Rec);
+
     end;
 
     internal procedure SupportedByFileViewer(): Boolean

@@ -1,4 +1,3 @@
-
 page 96154 "O365 Incident Att. Pict."
 {
     Caption = 'Attachment Picture';
@@ -8,9 +7,8 @@ page 96154 "O365 Incident Att. Pict."
     SourceTable = "Incident Attachment";
     SourceTableView = where(Type = const(Image));
       Permissions = 
-        tabledata "Incident Attachment" = RD,
-        tabledata "Incoming Document Attachment" = R;
-
+        tabledata "Incident Attachment" = RD;
+        
     layout
     {
         area(content)
@@ -62,13 +60,13 @@ page 96154 "O365 Incident Att. Pict."
 
     trigger OnAfterGetRecord()
     begin
-        if not IncomingDocumentAttachment.Get(Rec."Incident Id.", Rec."Line No.") then
-            IncomingDocumentAttachment.Init();
-        IncomingDocumentAttachment.CalcFields(Content);
+        if not IncidentAttachment.Get(Rec."Incident Id.", Rec."Line No.") then
+            IncidentAttachment.Init();
+        IncidentAttachment.CalcFields(Content);
         Rec.SetRecFilter();
     end;
 
     var
-        IncomingDocumentAttachment: Record "Incoming Document Attachment";
+        IncidentAttachment: Record "Incident Attachment";
         DeleteQst: Label 'Are you sure?';
 }

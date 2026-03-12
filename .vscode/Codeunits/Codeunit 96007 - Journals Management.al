@@ -1,4 +1,4 @@
-codeunit 96007 "Journals Management"
+codeunit 96007 "FRE Journals Management"
 {
 
     var

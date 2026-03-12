@@ -182,7 +182,7 @@ report 96005 "RE Contract-Detail"
                     DataItemLink = "No."=FIELD("Contract No.");
                     DataItemLinkReference = "Lease Contract";
                     DataItemTableView = SORTING ("Table Name", "Table Subtype", "No.", Type, "Table Line No.", "Line No.")
-                                        WHERE ("Table Name"=CONST("Service Contract"));
+                                        WHERE ("Table Name"=CONST("Lease Contract"));
                     column(LCL_Date; "Lease Comment Line".Date)
                     {
                     }

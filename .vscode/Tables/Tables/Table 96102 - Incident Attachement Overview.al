@@ -90,10 +90,10 @@ table 96102 "Incident Attachment Overview"
 
     trigger OnDelete()
     var
-        IncomingDocumentAttachment: Record "Incoming Document Attachment";
+        IncidentAttachment: Record "Incident Attachment";
     begin
-        if IncomingDocumentAttachment.Get("Incident Id.", "Line No.") then
-            IncomingDocumentAttachment.Delete(true);
+        if IncidentAttachment.Get("Incident Id.", "Line No.") then
+            IncidentAttachment.Delete(true);
     end;
 
     var
@@ -126,17 +126,21 @@ table 96102 "Incident Attachment Overview"
                     Incident.Get("Incident Id.");
                     HyperLink(Incident.GetURL());
                 end
-            else
+            else begin
+                
                 if not IncidentAttachment.Get("Incident Id.", "Line No.") then
                     Message(NotAvailableAttachmentMsg)
                 else
                     if (Type = Type::Image) and (ClientTypeManagement.GetCurrentClientType() = CLIENTTYPE::Phone) then
                         PAGE.Run(PAGE::"O365 Incident Att. Pict.", IncidentAttachment)
-                    else
+                    else begin
                         if IncidentAttachment.SupportedByFileViewer() and not DownloadFilePreset then
                             ViewFile(IncidentAttachment, Name + '.' + "File Extension")
-                         else
-                             IncidentAttachment.Export(Name + '.' + "File Extension", true);
+                         else begin
+                             IncidentAttachment.Export(Name + '.' + "File Extension", true)
+                         end;
+                    end;
+            end;
         end;
     end;
 
@@ -165,15 +169,16 @@ table 96102 "Incident Attachment Overview"
     var
         SortingOrder: Integer;
     begin
+        
         InsertMainAttachment(Incident, TempIncidentAttachmentOverview, SortingOrder);
         InsertLinkAddress(Incident, TempIncidentAttachmentOverview, SortingOrder);
         InsertSupportingAttachments(
-          Incident, TempIncidentAttachmentOverview, SortingOrder, false);
+           Incident, TempIncidentAttachmentOverview, SortingOrder, false);
           
-        OnAfterInsertFromIncomingDocument(Incident, TempIncidentAttachmentOverview, SortingOrder);
+        OnAfterInsertFromIncident(Incident, TempIncidentAttachmentOverview, SortingOrder);
     end;
 
-    procedure InsertSupportingAttachmentsFromIncomingDocument(Incident: Record "Incident Assets Real Estate"; var TempIncidentAttachmentOverview: Record "Incident Attachment Overview" temporary)
+    procedure InsertSupportingAttachmentsFromIncident(Incident: Record "Incident Assets Real Estate"; var TempIncidentAttachmentOverview: Record "Incident Attachment Overview" temporary)
     var
         SortingOrder: Integer;
     begin
@@ -187,24 +192,24 @@ table 96102 "Incident Attachment Overview"
         if not Incident.GetMainAttachment(IncidentAttachment) then
             exit;
 
-            InsertFromIncomingDocumentAttachment(
+            InsertFromIncidentAttachment(
               TempIncidentAttachmentOverview, IncidentAttachment, SortingOrder,
               TempIncidentAttachmentOverview."Attachment Type"::"Main Attachment", 0);
     end;
 
+    
     local procedure InsertSupportingAttachments(Incident: Record "Incident Assets Real Estate"; var TempIncidentAttachmentOverview: Record "Incident Attachment Overview" temporary; var SortingOrder: Integer; IncludeGroupCaption: Boolean)
     var
         IncidentAttachment: Record "Incident Attachment";
         Indentation2: Integer;
     begin
-        // if not Incident.GetSupportingAttachments(IncidentAttachment) then
-        //     exit;
-
+        if not Incident.GetAdditionalAttachments(IncidentAttachment) then
+            exit;
         if IncludeGroupCaption then
             InsertGroup(TempIncidentAttachmentOverview, Incident, SortingOrder, SupportingAttachmentsTxt);
         Indentation2 := 1;
         repeat
-            InsertFromIncomingDocumentAttachment(
+            InsertFromIncidentAttachment(
               TempIncidentAttachmentOverview, IncidentAttachment, SortingOrder,
               TempIncidentAttachmentOverview."Attachment Type"::"Supporting Attachment", Indentation2);
         until IncidentAttachment.Next() = 0;
@@ -227,15 +232,15 @@ table 96102 "Incident Attachment Overview"
         TempIncidentAttachmentOverview.Insert(true);
     end;
 
-    local procedure InsertFromIncomingDocumentAttachment(var TempIncidentAttachmentOverview: Record "Incident Attachment Overview" temporary; IncidentAttachment: Record "Incident Attachment"; var SortingOrder: Integer; AttachmentType: Option; Indentation2: Integer)
+    local procedure InsertFromIncidentAttachment(var TempIncidentAttachmentOverview: Record "Incident Attachment Overview" temporary; var IncidentAttachment: Record "Incident Attachment"; var SortingOrder: Integer; AttachmentType: Option; Indentation2: Integer)
     begin
         Clear(TempIncidentAttachmentOverview);
         TempIncidentAttachmentOverview.Init();
         TempIncidentAttachmentOverview.TransferFields(IncidentAttachment);
-        AssignSortingNo(TempIncidentAttachmentOverview, SortingOrder);
         TempIncidentAttachmentOverview."Attachment Type" := AttachmentType;
         TempIncidentAttachmentOverview.Indentation := Indentation2;
-        TempIncidentAttachmentOverview.Insert(true);
+        if TempIncidentAttachmentOverview.Insert(true) then;
+        
     end;
 
     local procedure InsertGroup(var TempIncidentAttachmentOverview: Record "Incident Attachment Overview" temporary; Incident: Record "Incident Assets Real Estate"; var SortingOrder: Integer; Description: Text[50])
@@ -262,7 +267,7 @@ table 96102 "Incident Attachment Overview"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterInsertFromIncomingDocument(Incident: Record "Incident Assets Real Estate"; var TempIncidentAttachmentOverview: Record "Incident Attachment Overview" temporary; var SortingOrder: Integer)
+    local procedure OnAfterInsertFromIncident(Incident: Record "Incident Assets Real Estate"; var TempIncidentAttachmentOverview: Record "Incident Attachment Overview" temporary; var SortingOrder: Integer)
     begin
     end;
 

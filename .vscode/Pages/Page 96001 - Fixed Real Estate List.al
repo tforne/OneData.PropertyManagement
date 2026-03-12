@@ -9,12 +9,14 @@ page 96001 "Fixed Real Estate List"
     UsageCategory = Lists;
     ApplicationArea = All;
 
+
     layout
     {
         area(content)
         {
             repeater(Group)
             {
+                FreezeColumn = Description;
                 field("No."; rec."No.")
                 {
                     ApplicationArea = All;
@@ -39,6 +41,8 @@ page 96001 "Fixed Real Estate List"
                 }
                 field("Post Code"; rec."Post Code")
                 {
+                    Style = Strong;
+                    StyleExpr = StyleIsStrong;
                     ApplicationArea = All;
                 }
                 field(City; rec.City)
@@ -65,6 +69,8 @@ page 96001 "Fixed Real Estate List"
                 }
                 field("Cadastral reference"; rec."Cadastral reference")
                 {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the cadastral reference of the fixed asset, which is a unique code that identifies the property in the land registry.';
                 }
                 field(Status; rec.Status)
                 {
@@ -83,47 +89,73 @@ page 96001 "Fixed Real Estate List"
                 }
                 field("Val. Catastral Activo"; rec."Val. Catastral Activo")
                 {
+                    Style = Strong;
+                    StyleExpr = StyleIsStrong;
                     ApplicationArea = All;
+                    BlankZero = true;
                 }
                 field("Val. Castastral Const. Activo"; rec."Val. Castastral Const. Activo")
                 {
+                    Style = Strong;
+                    StyleExpr = StyleIsStrong;
                     ApplicationArea = All;
+                    BlankZero = true;
                 }
                 field("Val. Castastral Actua. Activo"; rec."Val. Castastral Actua. Activo")
                 {
                     ApplicationArea = All;
+                    BlankZero = true;   
                 }
                 field("Sales price"; rec."Sales price")
                 {
                     ApplicationArea = All;
+                    Style = Strong;
+                    StyleExpr = StyleIsStrong;
                     Caption = 'Sale Price';
                     ToolTip = 'Specifies the sale price of the fixed asset.';
                 }
                 field("Minimum Sales Price"; rec."Minimum Sales Price")
                 {
                     ApplicationArea = All;
+                    BlankZero = true;
+                    Style = Strong;
+                    StyleExpr = StyleIsStrong;
+
                     Caption = 'Minimum Sale Price';
                     ToolTip = 'Specifies the minimum sale price of the fixed asset.';
                 }
                 field("Minimum Rental Sales Price"; rec."Minimum Rental Price")
                 {
                     ApplicationArea = All;
+                    BlankZero = true;
+                    Style = Strong;
+                    StyleExpr = StyleIsStrong;
                     Caption = 'Minimum Rental Sale Price';
                     ToolTip = 'Specifies the minimum rental sale price of the fixed asset including tax.';
                 }
                 field("Superficie construida"; rec."Superficie construida")
                 {
                     ApplicationArea = All;
+                    BlankZero = true;
+                    Style = Strong;
+                    StyleExpr = StyleIsStrong;
+                    ToolTip = 'Specifies the built area of the fixed asset in square meters.';
                 }
                 field("Last Reference Price"; rec."Last Reference Price")
                 {
                     ApplicationArea = All;
+                    BlankZero = true;
+                    ToolTip = 'Specifies the last reference price of the fixed asset, which is the price of the last lease contract associated with this fixed asset.';
+
                 }
                 field("Last Price Contract"; rec."Last Price Contract")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the last price contract for the fixed asset.';
+                    BlankZero = true;
                 }
             }
+           
         }
         area(factboxes)
         {
@@ -228,6 +260,7 @@ page 96001 "Fixed Real Estate List"
                 ToolTip = 'View the list of fixed real estate that exist in the system .';
             }
         }
+    
     }
 
     trigger OnAfterGetRecord()

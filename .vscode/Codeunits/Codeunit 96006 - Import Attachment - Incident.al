@@ -6,10 +6,12 @@ codeunit 96006 "Management - Incident"
     var
         FileName: Text;
         FileUp: FileUpload;
+        TempBlob: Codeunit "Temp Blob";
     begin
-        UploadFile(Rec, FileName);
-        message('%1', FileName);
-        //ImportAttachment(Rec, FileUp);
+        UploadFileSaaS(Rec, FileName, TempBlob);
+        if FileName = '' then
+            exit;
+        ImportAttachment(Rec, FileName, TempBlob);
     end;
 
     var
@@ -19,70 +21,77 @@ codeunit 96006 "Management - Incident"
         FilterTxt: Label '*.jpg;*.jpeg;*.bmp;*.png;*.gif;*.tiff;*.tif;*.pdf;*.docx;*.doc;*.xlsx;*.xls;*.pptx;*.ppt;*.msg;*.xml;*.*', Locked = true;
         NotSupportedDocTableErr: Label 'Table no. %1 is not supported.', Comment = '%1 is a number (integer).';
         PhotoLbl: Label 'Photo %1', Comment = '%1 = a number, e.g. 1, 2, 3,...';
-        EmptyFileMsg: Label 'You have created an incoming document based on an empty file. Try again with a file that contains data that you want to import.';
+        EmptyFileMsg: Label 'You have created an incident based on an empty file. Try again with a file that contains data that you want to import.';
         ChooseFileTitleMsg: Label 'Choose the file to upload.';
         IsTestMode: Boolean;
 
-    procedure ImportMultiple(var IncAttachment: Record "Incident Attachment"; RethrowError: Boolean; files: List of [FileUpload]): Boolean
-    begin
-        // Default to MS-DOS encoding to keep consistent with the previous behavior
-        exit(ImportMultiple(IncAttachment, RethrowError, files, TextEncoding::MSDos));
-    end;
 
-    procedure ImportMultiple(var IncAttachment: Record "Incident Attachment"; RethrowError: Boolean; files: List of [FileUpload]; Encoding: TextEncoding): Boolean
+    // internal procedure ImportAttachment(var IncidentAttachment: Record "Incident Attachment"; var FileName:Text; var TempBlob : Codeunit "Temp Blob"): Boolean
+    // begin
+    //     // Default to MS-DOS encoding to keep consistent with the previous behavior
+    //     exit(ImportAttachment(IncidentAttachment, FileName, TextEncoding::MSDos,TempBlob));
+    // end;
+
+    internal procedure ImportAttachment(var IncidentAttachment: Record "Incident Attachment"; var FileName : Text; Encoding: TextEncoding; var TempBlob : Codeunit "Temp Blob"): Boolean
     var
-        CurrentFile: FileUpload;
-        AllFileUploadedSuccessFlag: Boolean;
-    begin
-        AllFileUploadedSuccessFlag := true;
-        foreach CurrentFile in files do begin
-            IncAttachment.Init();
-            IncAttachment."Incident Id." := '00000000-0000-0000-0000-000000000000';
-            IncAttachment."Line No." := 0;
-            AllFileUploadedSuccessFlag := AllFileUploadedSuccessFlag and ImportAttachment(IncAttachment, CurrentFile, Encoding);
-        end;
-
-        if AllFileUploadedSuccessFlag then
-            exit(true);
-
-        if not RethrowError then
-            exit(false);
-
-        Error(GetLastErrorText());
-    end;
-
-    internal procedure ImportAttachment(var IncidentAttachment: Record "Incident Attachment"; SingleFile: FileUpload): Boolean
-    begin
-        // Default to MS-DOS encoding to keep consistent with the previous behavior
-        exit(ImportAttachment(IncidentAttachment, SingleFile, TextEncoding::MSDos));
-    end;
-    internal procedure ImportAttachment(var IncidentAttachment: Record "Incident Attachment"; SingleFile: FileUpload; Encoding: TextEncoding): Boolean
-    var
-        TempBlob: Codeunit "Temp Blob";
         TempInStream: InStream;
         TempOutStream: OutStream;
     begin
-        SingleFile.CreateInStream(TempInStream, Encoding);
-        TempBlob.CreateOutStream(TempOutStream, Encoding);
-        CopyStream(TempOutStream, TempInStream);
+        // TempBlob.CreateInStream(TempInStream, Encoding);
+        // TempBlob.CreateOutStream(TempOutStream, Encoding);
+        // CopyStream(TempOutStream, TempInStream);
 
         CheckFileContentBeforeUploadFile(IncidentAttachment);
         IncidentAttachment.SetContentFromBlob(TempBlob);
-        exit(ImportAttachment(IncidentAttachment, SingleFile.FileName, TempBlob));
+        exit(ImportAttachment(IncidentAttachment, FileName, TempBlob));
     end;
 
-    //[Scope('OnPrem')]
-    procedure UploadFile(var IncidentAttachment: Record "Incident Attachment"; var FileName: Text)
+    procedure UploadFileSaaS(var IncidentAttachment: Record "Incident Attachment"; var FileName: Text; var TempBlob: Codeunit "Temp Blob")
     var
-        TempBlob: Codeunit "Temp Blob";
         FileManagement: Codeunit "File Management";
     begin
         CheckFileContentBeforeUploadFile(IncidentAttachment);
 
-        FileName := FileManagement.BLOBImportWithFilter(TempBlob, ImportTxt, FileName, StrSubstNo(FileDialogTxt, FilterTxt), FilterTxt);
-        IncidentAttachment.SetContentFromBlob(TempBlob);
+        FileName := FileManagement.BLOBImportWithFilter(
+            TempBlob, ImportTxt, FileName, StrSubstNo(FileDialogTxt, FilterTxt), FilterTxt);
+
+        if FileName = '' then
+            exit;
+
+        if not TempBlob.HasValue() then
+            Error('No se ha podido cargar el archivo.');
     end;
 
+    // procedure UploadFileSaaS(var IncidentAttachment: Record "Incident Attachment"; var FileName: Text)
+    // var
+    //     TempBlob: Codeunit "Temp Blob";
+    //     FileManagement: Codeunit "File Management";
+  
+    //     InStr: InStream;
+    //     OutStr: OutStream;
+    //     Incident : Record "Incident Assets Real Estate";
+
+    // begin
+    //     CheckFileContentBeforeUploadFile(IncidentAttachment);
+
+    //     // if not UploadIntoStream(ImportTxt, '', FilterTxt, FileName, InStr) then
+    //     //     exit;
+
+        
+    //     FileName := FileManagement.BLOBImportWithFilter(
+    //         TempBlob, ImportTxt, FileName, StrSubstNo(FileDialogTxt, FilterTxt), FilterTxt);
+
+    //     TempBlob.CreateOutStream(OutStr);
+    //     // CopyStream(OutStr, InStr);
+
+    //     if FileName = '' then
+    //     exit;
+    //     if not TempBlob.HasValue() then
+    //         Error('No se ha podido cargar el archivo.');
+
+    //     IncidentAttachment.SetContentFromBlob(TempBlob);
+    // end;
+    
     local procedure CheckFileContentBeforeUploadFile(var IncidentAttachment: Record "Incident Attachment")
     begin
         OnBeforeUploadFile(IncidentAttachment);
@@ -99,8 +108,7 @@ codeunit 96006 "Management - Incident"
         Incident: Record "Incident Assets Real Estate";
         EmptyFileNameErr: Label 'A file name must be provided.';
     begin
-        // FileName := 'Tomas  Forne Martinez Test';
-        Message('Importing attachment: %1', FileName);
+        
         if FileName = '' then
             Error(EmptyFileNameErr);
 
@@ -140,8 +148,8 @@ codeunit 96006 "Management - Incident"
             Incident.Modify();
         end;
 
-        // if IncidentAttachment.Type in [IncidentAttachment.Type::Image, IncidentAttachment.Type::PDF] then
-        //     IncidentAttachment.OnAttachBinaryFile();
+        if IncidentAttachment.Type in [IncidentAttachment.Type::Image, IncidentAttachment.Type::PDF] then
+            IncidentAttachment.OnAttachBinaryFile();
 
         IncidentAttachment.Insert(true);
         OnAfterImportAttachment(IncidentAttachment);
@@ -177,6 +185,7 @@ codeunit 96006 "Management - Incident"
     var
         IncidentId: Guid;
     begin
+       
         if IncidentAttachment.GetFilter("Incident Id.") <> '' then begin
             IncidentId := IncidentAttachment.GetRangeMin("Incident Id.");
             if IncidentId <> '00000000-0000-0000-0000-000000000000' then
@@ -190,9 +199,16 @@ codeunit 96006 "Management - Incident"
     var
         FilterGroupID: Integer;
         Found: Boolean;
+        IncidentId: Guid;
     begin
         IncidentAttachment.FilterGroup(0);
-        exit(Found);
+        if IncidentAttachment.GetFilter("Incident Id.") <> '' then begin
+            IncidentId := IncidentAttachment.GetRangeMin("Incident Id.");
+            if IncidentId <> '00000000-0000-0000-0000-000000000000' then
+                exit(Incident.Get(IncidentId));
+        end;
+
+        exit(false);
     end;
 
     local procedure FindUsingDocNoFilter(var IncidentAttachment: Record "Incident Attachment"; var Incident: Record "Incident Assets Real Estate"; var PostingDate: Date; var DocNo: Code[20]): Boolean
@@ -230,16 +246,16 @@ codeunit 96006 "Management - Incident"
     var
         DummyRecordID: RecordID;
     begin
-        CreateIncomingDocumentExtended(IncidentAttachment, Incident, PostingDate, DocNo, DummyRecordID);
+        CreateIncidentExtended(IncidentAttachment, Incident, PostingDate, DocNo, DummyRecordID);
     end;
 
-    procedure CreateIncomingDocumentExtended(var IncidentAttachment: Record "Incident Attachment"; var Incident: Record "Incident Assets Real Estate"; PostingDate: Date; DocNo: Code[20]; RelatedRecordID: RecordID)
+    procedure CreateIncidentExtended(var IncidentAttachment: Record "Incident Attachment"; var Incident: Record "Incident Assets Real Estate"; PostingDate: Date; DocNo: Code[20]; RelatedRecordID: RecordID)
     var
         DataTypeManagement: Codeunit "Data Type Management";
         RelatedRecordRef: RecordRef;
         RelatedRecord: Variant;
     begin
-        Incident.CreateIncident('', '');
+        Incident.CreateIncident(IncidentAttachment,IncidentAttachment.Name, '');
         Incident.StateCode := Incident.StateCode::Active;
         Incident.Modify();
     end;

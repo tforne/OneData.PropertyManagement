@@ -33,17 +33,37 @@ page 96151 "RE Incident Card"
                 {
                     Editable = true;
                 }
+                field("Fixed Real Estate No."; rec."Fixed Real Estate No.")
+                {
+                }
                 field("Contract No."; rec."Contract No.")
                 {
                 }
                 field("Contact No"; rec."Contact No")
                 {
                 }
-                field("Fixed Real Estate No."; rec."Fixed Real Estate No.")
+                field("Contact Name"; ContractContactName)
                 {
+                    Editable = false;
+                }
+                field("Contract Phone No."; ContractPhoneNo)
+                {
+                    Caption = 'Contract Phone No.';
+                    ExtendedDatatype = PhoneNo;
+                    Editable = false;
+                }
+                field("Contract E-Mail";ContractEMail)
+                {
+                    Caption = 'Email';
+                    ExtendedDatatype = EMail;
+                    Editable = false;
                 }
             }
-
+            part(CommentLines; 96058)
+            {
+                ApplicationArea = All;
+                SubPageLink = "Incident Id."=FIELD("Incident Id.");
+            }
             group(Management)
             {
                 field(Priority; rec.Priority)
@@ -66,9 +86,9 @@ page 96151 "RE Incident Card"
                 }
             }
         }
-            area(factboxes)
+        area(factboxes)
         {
-            part(IncomingDocAttachFactBox; "Incident Attach. FactBox")
+            part(IncidentAttachFactBox; "Incident Attach. FactBox")
             {
                 ApplicationArea = Basic, Suite;
                 ShowFilter = false;
@@ -130,6 +150,30 @@ page 96151 "RE Incident Card"
                     CloseIncidentAction();
                 end;
             }
+            group(Notificaciones)
+            {
+                Caption = 'Notificaciones';
+                action(SendCustom)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Send';
+                    Ellipsis = true;
+                    Image = SendToMultiple;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = true;
+                    ToolTip = 'Prepare to send the document according to the customer''s sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.';
+
+                    trigger OnAction()
+                    var
+                        LeaseInvoiceHeader: Record "Lease Invoice Header";
+                        CustomerRENotifybyEmail: Codeunit "Customer RE-Notify by Email";
+                    begin
+                        CustomerRENotifybyEmail."NotificarPorCorreoRecepciónIncidencia"(Rec);
+                    end;
+                }
+            }
+
         }
         action(AttachFile)
         {
@@ -138,7 +182,7 @@ page 96151 "RE Incident Card"
             Promoted = true;
             Image = Attach;
             Scope = Repeater;
-            ToolTip = 'Attach a file to the incoming document record.';
+            ToolTip = 'Attach a file to the incident record.';
 
             trigger OnAction()
             begin
@@ -153,7 +197,25 @@ page 96151 "RE Incident Card"
             CurrPage.Editable(false)
         else
             CurrPage.Editable(true);
+        
+        ContractContactName := '';
+        ContractPhoneNo := '';
+        ContractEMail := '';
+    
+        if Contract.get(rec."Contract No.") then begin
+            ContractContactName := contract."Contact Name";
+            ContractPhoneNo := Contract."Phone No.";
+            ContractEMail := Contract."E-Mail";
+        end;
     end;
+
+    var
+        Contract : record "Lease Contract";
+        Contact : Record "Contact";
+        Customer : Record Customer;
+        ContractContactName : text;
+        ContractPhoneNo : Text[30];
+        ContractEMail : Text[80];
 
     local procedure SetStatusInProgress()
     begin

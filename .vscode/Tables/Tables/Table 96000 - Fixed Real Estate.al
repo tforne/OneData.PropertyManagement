@@ -411,7 +411,7 @@ table 96000 "Fixed Real Estate"
         }
         field(5057;"Superficie construida";Decimal)
         {
-            CalcFormula = Sum("FRE Superficies"."Superficie m2" WHERE ("FRE No"=FIELD("No.")));
+            CalcFormula = Sum("FRE Superficies"."Superficie m2" WHERE ("FRE No"=FIELD(FILTER(Totaling))));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -456,10 +456,7 @@ table 96000 "Fixed Real Estate"
         {
             Caption = 'Totaling';
             DataClassification = ToBeClassified;
-            //This property is currently not supported
-            //TestTableRelation = false;
-            //The property 'ValidateTableRelation' can only be set if the property 'TableRelation' is set
-            //ValidateTableRelation = false;
+            Editable = false;
         }
         field(7000;"Val. Catastral Activo";Decimal)
         {
@@ -598,8 +595,7 @@ table 96000 "Fixed Real Estate"
     begin
 
         "Last Date Modified" := TODAY;
-
-
+        CalculateAmounts();
     end;
 
     trigger OnRename()
@@ -799,8 +795,54 @@ table 96000 "Fixed Real Estate"
         END ELSE
           Filtro := "No.";
         Totaling := COPYSTR(Filtro,1,250);
+    end;
 
+    procedure CalculateAmounts()
+    var
+        FixedRealEstate: Record "Fixed Real Estate";    
+        TotalSalesAmount: Decimal;
+        TotalSalesAmountMinimum: Decimal;
+        TotalExpenseAmount: Decimal;
+        TotalIncomingAmount: Decimal;
+        TotalRentalAmount : Decimal;
+        TotalValCatastralActivo : Decimal;
+        TotalValCastastralConstActivo : Decimal;
 
+    begin
+        if rec.Type <> Type::Propiedad then
+          EXIT;
+          
+        TotalSalesAmount := 0;
+        TotalSalesAmountMinimum := 0;
+        TotalExpenseAmount := 0;
+        TotalIncomingAmount := 0;
+        TotalRentalAmount := 0;
+        
+        FixedRealEstate.Reset();
+        FixedRealEstate.SETRANGE(Type,Type::Activo);
+        FixedRealEstate.SETRANGE("Property No.","No.");
+        if FixedRealEstate.FINDFIRST then begin
+           REPEAT
+                FixedRealEstate.CALCFIELDS("Income Amount");
+                FixedRealEstate.CALCFIELDS("Expense Amount");
+                TotalSalesAmount += FixedRealEstate."Sales price";
+                TotalSalesAmountMinimum += FixedRealEstate."Minimum Sales Price";
+                TotalExpenseAmount += FixedRealEstate."Expense Amount"; 
+                TotalIncomingAmount += FixedRealEstate."Income Amount";
+                TotalRentalAmount += FixedRealEstate."Last Rental Price";
+                TotalValCatastralActivo += FixedRealEstate."Val. Catastral Activo";
+                TotalValCastastralConstActivo += FixedRealEstate."Val. Castastral Const. Activo";
+
+           UNTIL FixedRealEstate.NEXT = 0;
+        END;
+        rec."Sales price" := TotalSalesAmount;
+        rec."Minimum Sales Price" := TotalSalesAmountMinimum;
+        //rec."Expense Amount" := TotalExpenseAmount;
+        //rec."Income Amount" := TotalIncomingAmount;
+        rec."Last Rental Price" := TotalRentalAmount;
+        rec."Val. Catastral Activo" := TotalValCatastralActivo;
+        rec."Val. Castastral Const. Activo" := TotalValCastastralConstActivo;
+        rec.MODIFY();
     end;
 
     procedure PublicToWebSite()
@@ -820,7 +862,6 @@ table 96000 "Fixed Real Estate"
         AuxFixedRealEstate := Rec;
         IF PAGE.RUNMODAL(PAGE::"Compose address",Rec) = ACTION::LookupOK THEN BEGIN
           Address := "Composse Address";
-
         END;
     end;
 
