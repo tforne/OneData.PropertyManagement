@@ -20,9 +20,9 @@ table 96003 "REF Setup"
             DataClassification = ToBeClassified;
             TableRelation = "No. Series";
         }
-        field(9; "Fixed Asset Nos."; Code[20])
+        field(9; "real estate asset Nos."; Code[20])
         {
-            Caption = 'Fixed Asset Nos.';
+            Caption = 'real estate asset Nos.';
             TableRelation = "No. Series";
         }
         field(10; "Insurance Nos."; Code[20])
@@ -79,13 +79,13 @@ table 96003 "REF Setup"
         field(301; "Journal Batch Name"; Code[10])
         {
             Caption = 'Journal Batch Name';
-            TableRelation = "FRE Jnl. Batch".Name WHERE ("Journal Template Name"=FIELD("Journal Template Name"));
+            TableRelation = "FRE Jnl. Batch".Name WHERE("Journal Template Name" = FIELD("Journal Template Name"));
         }
         field(302; "Default Income Row No"; Code[10])
         {
             Caption = 'Default income row number';
             TableRelation = "REF Income & Expense Template"."Row No.";
-            ValidateTableRelation =  false;
+            ValidateTableRelation = false;
         }
         field(60000; "Interaction Template Filter"; Text[30])
         {

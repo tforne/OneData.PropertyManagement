@@ -93,11 +93,11 @@ table 96001 "Fixed Real Estate Images"
     var
         Text000: Label 'A main asset cannot be deleted.';
         Text001: Label 'You cannot delete %1 %2 because it has associated depreciation books.';
-        UnexpctedSubclassErr: Label 'This fixed asset subclass belongs to a different fixed asset class.';
+        UnexpctedSubclassErr: Label 'This real estate asset subclass belongs to a different real estate asset class.';
         DontAskAgainActionTxt: Label 'Don''t ask again';
-        NotificationNameTxt: Label 'Fixed Asset Acquisition Wizard', Locked = true;
-        NotificationDescriptionTxt: Label 'Notify when ready to acquire the fixed asset.', Locked = true;
-        ReadyToAcquireMsg: Label 'You are ready to acquire the fixed asset.';
+        NotificationNameTxt: Label 'real estate asset Acquisition Wizard', Locked = true;
+        NotificationDescriptionTxt: Label 'Notify when ready to acquire the real estate asset.', Locked = true;
+        ReadyToAcquireMsg: Label 'You are ready to acquire the real estate asset.';
         AcquireActionTxt: Label 'Acquire';
 }
 

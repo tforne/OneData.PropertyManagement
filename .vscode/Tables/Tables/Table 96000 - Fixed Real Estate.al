@@ -16,7 +16,7 @@ table 96000 "Fixed Real Estate"
             begin
                 IF "No." <> xRec."No." THEN BEGIN
                     REFASetup.GET;
-                    NoSeriesMgt.TestManual(REFASetup."Fixed Asset Nos.");
+                    NoSeriesMgt.TestManual(REFASetup."real estate asset Nos.");
                     "No. Series" := '';
                 END;
             end;
@@ -89,7 +89,7 @@ table 96000 "Fixed Real Estate"
         {
             CaptionClass = '1,1,1';
             Caption = 'Global Dimension 1 Code';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No."=CONST(1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
 
             trigger OnValidate()
             begin
@@ -100,7 +100,7 @@ table 96000 "Fixed Real Estate"
         {
             CaptionClass = '1,1,2';
             Caption = 'Global Dimension 2 Code';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No."=CONST(2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
 
             trigger OnValidate()
             begin
@@ -134,52 +134,52 @@ table 96000 "Fixed Real Estate"
         }
         field(19; Insured; Boolean)
         {
-            CalcFormula = Exist ("Ins. Coverage Ledger Entry" WHERE ("FA No."=FIELD("No.")));
+            CalcFormula = Exist("Ins. Coverage Ledger Entry" WHERE("FA No." = FIELD("No.")));
             Caption = 'Insured';
             Editable = false;
             FieldClass = FlowField;
         }
-        field(20;Comment;Boolean)
+        field(20; Comment; Boolean)
         {
-            CalcFormula = Exist("Real Estate Comment Line" WHERE ("No."=FIELD("No.")));
+            CalcFormula = Exist("Real Estate Comment Line" WHERE("No." = FIELD("No.")));
             Caption = 'Comment';
             Editable = false;
             FieldClass = FlowField;
         }
-        field(21;Blocked;Boolean)
+        field(21; Blocked; Boolean)
         {
             Caption = 'Blocked';
         }
-        field(22;Picture;BLOB)
+        field(22; Picture; BLOB)
         {
             Caption = 'Picture';
             SubType = Bitmap;
         }
-        field(23;"Maintenance Vendor No.";Code[20])
+        field(23; "Maintenance Vendor No."; Code[20])
         {
             Caption = 'Maintenance Vendor No.';
             TableRelation = Vendor;
         }
-        field(24;"Under Maintenance";Boolean)
+        field(24; "Under Maintenance"; Boolean)
         {
             Caption = 'Under Maintenance';
         }
-        field(28;"No. Series";Code[20])
+        field(28; "No. Series"; Code[20])
         {
             Caption = 'No. Series';
             Editable = false;
             TableRelation = "No. Series";
         }
-        field(30;Acquired;Boolean)
+        field(30; Acquired; Boolean)
         {
             Caption = 'Adquirido';
         }
-        field(31;Managed;Boolean)
+        field(31; Managed; Boolean)
         {
             Caption = 'Administrado';
             DataClassification = ToBeClassified;
         }
-        field(45;Address;Text[50])
+        field(45; Address; Text[50])
         {
             Caption = 'Address';
             DataClassification = ToBeClassified;
@@ -189,27 +189,27 @@ table 96000 "Fixed Real Estate"
                 ComposeAddress;
             end;
         }
-        field(46;"Address 2";Text[50])
+        field(46; "Address 2"; Text[50])
         {
             Caption = 'Address 2';
             DataClassification = ToBeClassified;
         }
-        field(47;City;Text[30])
+        field(47; City; Text[30])
         {
             Caption = 'City';
             DataClassification = ToBeClassified;
-            TableRelation = IF ("Country/Region Code"=CONST()) "Post Code".City
-                            ELSE IF ("Country/Region Code"=FILTER(<>'')) "Post Code".City WHERE ("Country/Region Code"=FIELD("Country/Region Code"));
+            TableRelation = IF ("Country/Region Code" = CONST()) "Post Code".City
+            ELSE IF ("Country/Region Code" = FILTER(<> '')) "Post Code".City WHERE("Country/Region Code" = FIELD("Country/Region Code"));
             //This property is currently not supported
             //TestTableRelation = false;
             ValidateTableRelation = false;
 
             trigger OnValidate()
             begin
-                PostCode.ValidateCity(City,"Post Code",County,"Country/Region Code",(CurrFieldNo <> 0) AND GUIALLOWED);
+                PostCode.ValidateCity(City, "Post Code", County, "Country/Region Code", (CurrFieldNo <> 0) AND GUIALLOWED);
             end;
         }
-        field(49;"Phone No.";Text[30])
+        field(49; "Phone No."; Text[30])
         {
             Caption = 'Phone No.';
             DataClassification = ToBeClassified;
@@ -220,18 +220,18 @@ table 96000 "Fixed Real Estate"
             begin
             end;
         }
-        field(50;"Telex No.";Text[20])
+        field(50; "Telex No."; Text[20])
         {
             Caption = 'Telex No.';
             DataClassification = ToBeClassified;
         }
-        field(51;"Territory Code";Code[10])
+        field(51; "Territory Code"; Code[10])
         {
             Caption = 'Territory Code';
             DataClassification = ToBeClassified;
             TableRelation = Territory;
         }
-        field(52;"Country/Region Code";Code[10])
+        field(52; "Country/Region Code"; Code[10])
         {
             Caption = 'Country/Region Code';
             DataClassification = ToBeClassified;
@@ -239,93 +239,93 @@ table 96000 "Fixed Real Estate"
 
             trigger OnValidate()
             begin
-                PostCode.ValidateCountryCode(City,"Post Code",County,"Country/Region Code");
+                PostCode.ValidateCountryCode(City, "Post Code", County, "Country/Region Code");
             end;
         }
-        field(53;"Post Code";Code[20])
+        field(53; "Post Code"; Code[20])
         {
             Caption = 'Post Code';
             DataClassification = ToBeClassified;
-            TableRelation = IF ("Country/Region Code"=CONST()) "Post Code"
-                            ELSE IF ("Country/Region Code"=FILTER(<>'')) "Post Code" WHERE ("Country/Region Code"=FIELD("Country/Region Code"));
+            TableRelation = IF ("Country/Region Code" = CONST()) "Post Code"
+            ELSE IF ("Country/Region Code" = FILTER(<> '')) "Post Code" WHERE("Country/Region Code" = FIELD("Country/Region Code"));
             //This property is currently not supported
             //TestTableRelation = false;
             ValidateTableRelation = false;
 
             trigger OnValidate()
             begin
-                PostCode.ValidatePostCode(City,"Post Code",County,"Country/Region Code",(CurrFieldNo <> 0) AND GUIALLOWED);
+                PostCode.ValidatePostCode(City, "Post Code", County, "Country/Region Code", (CurrFieldNo <> 0) AND GUIALLOWED);
             end;
         }
-        field(54;County;Text[30])
+        field(54; County; Text[30])
         {
             CaptionClass = '5,1,' + "Country/Region Code";
             Caption = 'County';
             DataClassification = ToBeClassified;
         }
-        field(60;Status;Option)
+        field(60; Status; Option)
         {
             Caption = 'Status';
             DataClassification = ToBeClassified;
             OptionMembers = " ","En alquiler",Alquilado,"En venta",Vendido,"En alquiler o en venta","En alquiler con opción a compra",Bloqueado;
         }
-        field(140;Image;Media)
+        field(140; Image; Media)
         {
             Caption = 'Image';
         }
-        field(200;"Comercial Description";BLOB)
+        field(200; "Comercial Description"; BLOB)
         {
             Caption = 'Work Description';
             DataClassification = ToBeClassified;
         }
-        field(300;"Street Type Id.";Code[10])
+        field(300; "Street Type Id."; Code[10])
         {
             Caption = 'Código tipo de calle';
             DataClassification = ToBeClassified;
             TableRelation = "Street Type"."Id.";
         }
-        field(301;"Types Street Numbering Id.";Code[10])
+        field(301; "Types Street Numbering Id."; Code[10])
         {
             Caption = 'Código tipo numeración calle';
             DataClassification = ToBeClassified;
             TableRelation = "Types Street Numbering"."Id.";
         }
-        field(302;"Street Name";Text[30])
+        field(302; "Street Name"; Text[30])
         {
             Caption = 'Nombre de la calle';
             DataClassification = ToBeClassified;
         }
-        field(303;"Number On Street";Text[5])
+        field(303; "Number On Street"; Text[5])
         {
             Caption = 'Número en la calle';
             DataClassification = ToBeClassified;
         }
-        field(304;"Location Height Floor";Text[10])
+        field(304; "Location Height Floor"; Text[10])
         {
             Caption = 'Altura del piso';
             DataClassification = ToBeClassified;
         }
-        field(305;"Composse Address";Text[50])
+        field(305; "Composse Address"; Text[50])
         {
             DataClassification = ToBeClassified;
         }
-        field(500;"Google URL";Text[250])
-        {
-            DataClassification = ToBeClassified;
-            ExtendedDatatype = URL;
-        }
-        field(501;"URL Sede electrónica catastro";Text[250])
+        field(500; "Google URL"; Text[250])
         {
             DataClassification = ToBeClassified;
             ExtendedDatatype = URL;
         }
-        field(600;"Avatar Picture";BLOB)
+        field(501; "URL Sede electrónica catastro"; Text[250])
+        {
+            DataClassification = ToBeClassified;
+            ExtendedDatatype = URL;
+        }
+        field(600; "Avatar Picture"; BLOB)
         {
             Caption = 'Picture';
             DataClassification = ToBeClassified;
             SubType = Bitmap;
         }
-        field(5000;Type;Option)
+        field(5000; Type; Option)
         {
             Caption = 'Tipo';
             DataClassification = ToBeClassified;
@@ -335,20 +335,20 @@ table 96000 "Fixed Real Estate"
             trigger OnValidate()
             begin
                 IF Type = Type::Activo THEN BEGIN
-                  Totaling := "No.";
+                    Totaling := "No.";
                 END;
             end;
         }
-        field(5001;"Year of construction";Integer)
+        field(5001; "Year of construction"; Integer)
         {
             Caption = 'Año de construcción';
             DataClassification = ToBeClassified;
         }
-        field(5051;"Property No.";Code[20])
+        field(5051; "Property No."; Code[20])
         {
             Caption = 'Property No.';
             DataClassification = ToBeClassified;
-            TableRelation = "Fixed Real Estate" WHERE (Type=CONST(Propiedad));
+            TableRelation = "Fixed Real Estate" WHERE(Type = CONST(Propiedad));
 
             trigger OnValidate()
             var
@@ -362,155 +362,155 @@ table 96000 "Fixed Real Estate"
                 ContBusRel: Record "Contact Business Relation";
             begin
                 IF REFA.GET("Property No.") THEN
-                  InheritPropertyToFREData(REFA)
+                    InheritPropertyToFREData(REFA)
                 ELSE
-                  CLEAR("Property Description");
+                    CLEAR("Property Description");
 
-                TESTFIELD(Type,Type::Activo);
+                TESTFIELD(Type, Type::Activo);
             end;
         }
-        field(5052;"Property Description";Text[50])
+        field(5052; "Property Description"; Text[50])
         {
             Caption = 'Property Description';
             DataClassification = ToBeClassified;
             Editable = false;
-            TableRelation = "Fixed Real Estate" WHERE (Type=CONST(Propiedad));
+            TableRelation = "Fixed Real Estate" WHERE(Type = CONST(Propiedad));
             ValidateTableRelation = false;
 
             trigger OnValidate()
             begin
-                IF Type = Type :: Propiedad THEN BEGIN
-                  IF "Property No."<>'' THEN BEGIN
-                    REFA.RESET;
-                    REFA.SETRANGE("Property No.","Property No.");
-                    IF REFA.FINDSET THEN
-                      REFA.MODIFYALL("Property Description","Property Description");
-                  END;
+                IF Type = Type::Propiedad THEN BEGIN
+                    IF "Property No." <> '' THEN BEGIN
+                        REFA.RESET;
+                        REFA.SETRANGE("Property No.", "Property No.");
+                        IF REFA.FINDSET THEN
+                            REFA.MODIFYALL("Property Description", "Property Description");
+                    END;
                 END;
             end;
         }
-        field(5053;"Sales price";Decimal)
+        field(5053; "Sales price"; Decimal)
         {
             Caption = 'Precio de venta';
             DataClassification = ToBeClassified;
         }
-        field(5054;"Minimum Sales Price";Decimal)
+        field(5054; "Minimum Sales Price"; Decimal)
         {
             Caption = 'Precio de venta mínimo';
             DataClassification = ToBeClassified;
         }
-        field(5055;"Last Rental Price";Decimal)
+        field(5055; "Last Rental Price"; Decimal)
         {
             Caption = 'Last Rental Price';
             DataClassification = ToBeClassified;
         }
-        field(5056;"Minimum Rental Price";Decimal)
+        field(5056; "Minimum Rental Price"; Decimal)
         {
             Caption = 'Minimum Rental Price';
             DataClassification = ToBeClassified;
         }
-        field(5057;"Superficie construida";Decimal)
+        field(5057; "Superficie construida"; Decimal)
         {
-            CalcFormula = Sum("FRE Superficies"."Superficie m2" WHERE ("FRE No"=FIELD(FILTER(Totaling))));
+            CalcFormula = Sum("FRE Superficies"."Superficie m2" WHERE("FRE No" = FIELD(FILTER(Totaling))));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(5058;"Last Reference Price";Decimal)
+        field(5058; "Last Reference Price"; Decimal)
         {
-            CalcFormula = Lookup("Reference Index Rental Prices".Price WHERE ("Fixed Real Estate No."=FIELD("No."),
-                                                                              Active=CONST(true)));
+            CalcFormula = Lookup("Reference Index Rental Prices".Price WHERE("Fixed Real Estate No." = FIELD("No."),
+                                                                              Active = CONST(true)));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(5059;"Last Price Contract";Decimal)
+        field(5059; "Last Price Contract"; Decimal)
         {
-            CalcFormula = Lookup("Lease Contract"."Amount per Period" WHERE ("Fixed Real Estate No."=FIELD("No."),
-                                                                             Status=CONST(Signed)));
+            CalcFormula = Lookup("Lease Contract"."Amount per Period" WHERE("Fixed Real Estate No." = FIELD("No."),
+                                                                             Status = CONST(Signed)));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(5155;"Last Rental Price Modified";Date)
+        field(5155; "Last Rental Price Modified"; Date)
         {
             Caption = 'Last Rental Price Modified';
             DataClassification = ToBeClassified;
             Editable = false;
             ToolTip = 'Specifies when the last rental price was last modified.';
         }
-        field(6000;"Income Amount";Decimal)
+        field(6000; "Income Amount"; Decimal)
         {
-            CalcFormula = Sum("REF Income & Expense Lines".Amount WHERE ("No. Fixed Real Estate"=FIELD(FILTER(Totaling)),
-                                                                         Type=CONST(Income)));
+            CalcFormula = Sum("REF Income & Expense Lines".Amount WHERE("No. Fixed Real Estate" = FIELD(FILTER(Totaling)),
+                                                                         Type = CONST(Income)));
             Caption = 'Cantidad de Ingresos';
             Editable = false;
             FieldClass = FlowField;
         }
-        field(6001;"Expense Amount";Decimal)
+        field(6001; "Expense Amount"; Decimal)
         {
-            CalcFormula = Sum("REF Income & Expense Lines".Amount WHERE ("No. Fixed Real Estate"=FIELD(FILTER(Totaling)),
-                                                                         Type=CONST(Expense)));
+            CalcFormula = Sum("REF Income & Expense Lines".Amount WHERE("No. Fixed Real Estate" = FIELD(FILTER(Totaling)),
+                                                                         Type = CONST(Expense)));
             Caption = 'Cantidad de gastos';
             Editable = false;
             FieldClass = FlowField;
         }
-        field(6002;Totaling;Text[250])
+        field(6002; Totaling; Text[250])
         {
             Caption = 'Totaling';
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(7000;"Val. Catastral Activo";Decimal)
+        field(7000; "Val. Catastral Activo"; Decimal)
         {
             DataClassification = ToBeClassified;
         }
-        field(7001;"Val. Castastral Const. Activo";Decimal)
+        field(7001; "Val. Castastral Const. Activo"; Decimal)
         {
             DataClassification = ToBeClassified;
         }
-        field(7002;"Val. Castastral Actua. Activo";Boolean)
+        field(7002; "Val. Castastral Actua. Activo"; Boolean)
         {
             DataClassification = ToBeClassified;
         }
-        field(7010;"Val. Catastral Finca";Decimal)
+        field(7010; "Val. Catastral Finca"; Decimal)
         {
             DataClassification = ToBeClassified;
         }
-        field(7011;"Val. Castastral Const. Finca";Decimal)
+        field(7011; "Val. Castastral Const. Finca"; Decimal)
         {
             DataClassification = ToBeClassified;
         }
-        field(7012;"Val. Castastral Actua. Finca";Boolean)
+        field(7012; "Val. Castastral Actua. Finca"; Boolean)
         {
             DataClassification = ToBeClassified;
         }
-        field(7020;"Total Val. Catastral Activo";Decimal)
+        field(7020; "Total Val. Catastral Activo"; Decimal)
         {
             DataClassification = ToBeClassified;
         }
-        field(7021;"Total Val. Castas. Const. Act.";Decimal)
+        field(7021; "Total Val. Castas. Const. Act."; Decimal)
         {
             DataClassification = ToBeClassified;
         }
-        field(7022;"Total Val. Castas. Act. Act.";Boolean)
+        field(7022; "Total Val. Castas. Act. Act."; Boolean)
         {
             DataClassification = ToBeClassified;
         }
-        field(8000;"Owner Name";Text[100])
+        field(8000; "Owner Name"; Text[100])
         {
-            CalcFormula = Lookup("REF Related Contactos".Name WHERE ("Source No."=FIELD("No."),
-                                                                     Type=CONST(Owner)));
+            CalcFormula = Lookup("REF Related Contactos".Name WHERE("Source No." = FIELD("No."),
+                                                                     Type = CONST(Owner)));
             Caption = 'Nombre propietario';
             Editable = false;
             FieldClass = FlowField;
         }
-        field(10000;"Codeunit Id.";Integer)
+        field(10000; "Codeunit Id."; Integer)
         {
             DataClassification = ToBeClassified;
         }
-        field(10001;"XmlPort Id.";Integer)
+        field(10001; "XmlPort Id."; Integer)
         {
             DataClassification = ToBeClassified;
         }
-        field(10002;"Web Site Id.";Code[10])
+        field(10002; "Web Site Id."; Code[10])
         {
             DataClassification = ToBeClassified;
         }
@@ -518,63 +518,53 @@ table 96000 "Fixed Real Estate"
 
     keys
     {
-        key(Key1;"No.")
+        key(Key1; "No.")
         {
             Clustered = true;
         }
-        key(Key2;"Search Description")
+        key(Key2; "Search Description")
         {
         }
-        key(Key3;"Property Description","Property No.",Type,Description)
+        key(Key3; "Property Description", "Property No.", Type, Description)
         {
         }
-        key(Key4;"FRE Class Code")
+        key(Key4; "FRE Class Code")
         {
         }
-        key(Key5;"FRE Subclass Code")
+        key(Key5; "FRE Subclass Code")
         {
         }
-        key(Key6;"Global Dimension 1 Code")
+        key(Key6; "Global Dimension 1 Code")
         {
         }
-        key(Key7;"Global Dimension 2 Code")
+        key(Key7; "Global Dimension 2 Code")
         {
         }
-        key(Key8;Description)
+        key(Key8; Description)
         {
         }
     }
 
     fieldgroups
     {
-        fieldgroup(DropDown;"No.",Description,"Asset Type",Status)
+        fieldgroup(DropDown; "No.", Description, "Asset Type", Status)
         {
         }
-        fieldgroup(Brick;"No.",Description,City,Image)
+        fieldgroup(Brick; "No.", Description, City, Image)
         {
         }
     }
 
     trigger OnDelete()
-    var
-        FADeprBook: Record "FA Depreciation Book";
     begin
         LOCKTABLE;
-        InsCoverageLedgEntry.LOCKTABLE;
-        /*servirapara las fotos
-        MainAssetComp.SETCURRENTKEY("FA No.");
-        MainAssetComp.SETRANGE("FA No.","No.");
-        MainAssetComp.DELETEALL;
-        
-        MaintenanceRegistration.SETRANGE("FA No.","No.");
-        MaintenanceRegistration.DELETEALL;
-        */
-        
-        CommentLine.SETRANGE("Table Name",CommentLine."Table Name"::"Fixed Asset");
-        CommentLine.SETRANGE("No.","No.");
-        CommentLine.DELETEALL;
-        
-        DimMgt.DeleteDefaultDim(DATABASE::"Fixed Real Estate","No.");
+
+        RECommentLine.SETRANGE("Table Name", RECommentLine."Table Name"::"Fixed Real Estate");
+        RECommentLine.SETRANGE("No.", "No.");
+        if RECommentLine.FindFirst() THEN
+            RECommentLine.DELETEALL;
+
+        DimMgt.DeleteDefaultDim(DATABASE::"Fixed Real Estate", "No.");
 
     end;
 
@@ -584,9 +574,9 @@ table 96000 "Fixed Real Estate"
     begin
         IF "No." = '' THEN BEGIN
             REFASetup.GET;
-            REFASetup.TESTFIELD("Fixed Asset Nos.");
-            // NoSeriesMgt.InitSeries(REFASetup."Fixed Asset Nos.",xRec."No. Series",0D,"No.","No. Series");
-            NoSeriesCode := REFASetup."Fixed Asset Nos.";
+            REFASetup.TESTFIELD("real estate asset Nos.");
+            // NoSeriesMgt.InitSeries(REFASetup."real estate asset Nos.",xRec."No. Series",0D,"No.","No. Series");
+            NoSeriesCode := REFASetup."real estate asset Nos.";
             "No." := NoSeriesMgt.GetNextNo(NoSeriesCode, WorkDate(), true);
         END;
     end;
@@ -609,7 +599,7 @@ table 96000 "Fixed Real Estate"
     var
         Text000: Label 'A main asset cannot be deleted.';
         Text001: Label 'You cannot delete %1 %2 because it has associated depreciation books.';
-        CommentLine: Record "Comment Line";
+        RECommentLine: Record "Real Estate Comment Line";
         REFA: Record "Fixed Real Estate";
         RMSetup: Record "Marketing Setup";
         REFASetup: Record "REF Setup";
@@ -620,11 +610,11 @@ table 96000 "Fixed Real Estate"
         DimMgt: Codeunit "DimensionManagement";
         text002: Label 'Calculo de Totaling sobrepasa los 250. Puede dar incongruencias de calculo de ingresos y gastos';
         Text014: Label 'Before you can use Online Map, you must fill in the Online Map Setup window.\See Setting Up Online Map in Help.';
-        UnexpctedSubclassErr: Label 'This fixed asset subclass belongs to a different fixed asset class.';
+        UnexpctedSubclassErr: Label 'This real estate asset subclass belongs to a different real estate asset class.';
         DontAskAgainActionTxt: Label 'Don''t ask again';
-        NotificationNameTxt: Label 'Fixed Asset Acquisition Wizard', Locked=true;
-        NotificationDescriptionTxt: Label 'Notify when ready to acquire the fixed asset.', Locked=true;
-        ReadyToAcquireMsg: Label 'You are ready to acquire the fixed asset.';
+        NotificationNameTxt: Label 'real estate asset Acquisition Wizard', Locked = true;
+        NotificationDescriptionTxt: Label 'Notify when ready to acquire the real estate asset.', Locked = true;
+        ReadyToAcquireMsg: Label 'You are ready to acquire the real estate asset.';
         AcquireActionTxt: Label 'Acquire';
         PhoneNoCannotContainLettersErr: Label 'You cannot enter letters in this field.';
         Text004: Label 'untitled';
@@ -638,10 +628,10 @@ table 96000 "Fixed Real Estate"
             '%1 %2 %3', "No.", Description, City));
     end;
 
-    procedure ValidateShortcutDimCode(FieldNumber: Integer;var ShortcutDimCode: Code[20])
+    procedure ValidateShortcutDimCode(FieldNumber: Integer; var ShortcutDimCode: Code[20])
     begin
-        DimMgt.ValidateDimValueCode(FieldNumber,ShortcutDimCode);
-        DimMgt.SaveDefaultDim(DATABASE::"Fixed Asset","No.",FieldNumber,ShortcutDimCode);
+        DimMgt.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
+        DimMgt.SaveDefaultDim(DATABASE::"Fixed Real Estate", "No.", FieldNumber, ShortcutDimCode);
         MODIFY(TRUE);
     end;
 
@@ -650,25 +640,7 @@ table 96000 "Fixed Real Estate"
         EXIT(("No." <> '') AND (Description <> '') AND ("FRE Subclass Code" <> ''));
     end;
 
-    procedure ShowAcquireWizardNotification()
-    var
-        NotificationLifecycleMgt: Codeunit "Notification Lifecycle Mgt.";
-        FixedAssetAcquisitionWizard: Codeunit "Fixed Asset Acquisition Wizard";
-        FAAcquireWizardNotification: Notification;
-    begin
-        IF IsNotificationEnabledForCurrentUser THEN BEGIN
-          FAAcquireWizardNotification.ID(GetNotificationID);
-          FAAcquireWizardNotification.MESSAGE(ReadyToAcquireMsg);
-          FAAcquireWizardNotification.SCOPE(NOTIFICATIONSCOPE::LocalScope);
-          FAAcquireWizardNotification.ADDACTION(
-            AcquireActionTxt,CODEUNIT::"Fixed Asset Acquisition Wizard",'RunAcquisitionWizardFromNotification');
-          FAAcquireWizardNotification.ADDACTION(
-            DontAskAgainActionTxt,CODEUNIT::"Fixed Asset Acquisition Wizard",'HideNotificationForCurrentUser');
-          FAAcquireWizardNotification.SETDATA(FixedAssetAcquisitionWizard.GetNotificationFANoDataItemID,"No.");
-          NotificationLifecycleMgt.SendNotification(FAAcquireWizardNotification,RECORDID);
-        END
-    end;
-
+    
     procedure GetNotificationID(): Guid
     begin
     end;
@@ -677,7 +649,7 @@ table 96000 "Fixed Real Estate"
     var
         MyNotifications: Record "My Notifications";
     begin
-        MyNotifications.InsertDefault(GetNotificationID,NotificationNameTxt,NotificationDescriptionTxt,TRUE);
+        MyNotifications.InsertDefault(GetNotificationID, NotificationNameTxt, NotificationDescriptionTxt, TRUE);
     end;
 
     local procedure IsNotificationEnabledForCurrentUser(): Boolean
@@ -692,14 +664,14 @@ table 96000 "Fixed Real Estate"
         MyNotifications: Record "My Notifications";
     begin
         IF NOT MyNotifications.Disable(GetNotificationID) THEN
-          MyNotifications.InsertDefault(GetNotificationID,NotificationNameTxt,NotificationDescriptionTxt,FALSE);
+            MyNotifications.InsertDefault(GetNotificationID, NotificationNameTxt, NotificationDescriptionTxt, FALSE);
     end;
 
     procedure RecallNotificationForCurrentUser()
     var
         NotificationLifecycleMgt: Codeunit "Notification Lifecycle Mgt.";
     begin
-        NotificationLifecycleMgt.RecallNotificationsForRecord(RECORDID,FALSE);
+        NotificationLifecycleMgt.RecallNotificationsForRecord(RECORDID, FALSE);
     end;
 
     procedure SetFREDescription(NewWorkDescription: Text)
@@ -729,9 +701,9 @@ table 96000 "Fixed Real Estate"
         MapMgt: Codeunit "Online Map Management";
     begin
         IF MapPoint.FINDFIRST THEN
-          MapMgt.MakeSelection(DATABASE::"Fixed Real Estate",GETPOSITION)
+            MapMgt.MakeSelection(DATABASE::"Fixed Real Estate", GETPOSITION)
         ELSE
-          MESSAGE(Text014);
+            MESSAGE(Text014);
     end;
 
     procedure InheritPropertyToFREData(NewProperty: Record "Fixed Real Estate")
@@ -755,12 +727,12 @@ table 96000 "Fixed Real Estate"
         ContactFilterContains: Text;
     begin
         IF FREText = '' THEN
-          EXIT('');
+            EXIT('');
 
         REFA.SETCURRENTKEY(Description);
-        REFA.SETRANGE(Description,FREText);
+        REFA.SETRANGE(Description, FREText);
         IF REFA.FINDFIRST THEN
-          EXIT(REFA."No.");
+            EXIT(REFA."No.");
 
 
         EXIT('');
@@ -775,65 +747,65 @@ table 96000 "Fixed Real Estate"
     begin
         Filtro := '';
         FixedRealEstate.RESET;
-        FixedRealEstate.SETRANGE(Type,Type::Activo);
-        FixedRealEstate.SETRANGE("Property No.","No.");
+        FixedRealEstate.SETRANGE(Type, Type::Activo);
+        FixedRealEstate.SETRANGE("Property No.", "No.");
         IF FixedRealEstate.FINDFIRST THEN BEGIN
-          REPEAT
-            IF Filtro = '' THEN
-              Filtro := FixedRealEstate."No."
-            ELSE
-              Filtro := Filtro + '|' + FixedRealEstate."No.";
+            REPEAT
+                IF Filtro = '' THEN
+                    Filtro := FixedRealEstate."No."
+                ELSE
+                    Filtro := Filtro + '|' + FixedRealEstate."No.";
             UNTIL FixedRealEstate.NEXT = 0;
-          END;
+        END;
 
         l := STRLEN(Filtro);
         IF l > 250 THEN
-          MESSAGE(text002);
-        IF l>0 THEN BEGIN
-          IF COPYSTR(Filtro,l,1) = '|' THEN
-            Filtro := COPYSTR(Filtro,1,l-1);
+            MESSAGE(text002);
+        IF l > 0 THEN BEGIN
+            IF COPYSTR(Filtro, l, 1) = '|' THEN
+                Filtro := COPYSTR(Filtro, 1, l - 1);
         END ELSE
-          Filtro := "No.";
-        Totaling := COPYSTR(Filtro,1,250);
+            Filtro := "No.";
+        Totaling := COPYSTR(Filtro, 1, 250);
     end;
 
     procedure CalculateAmounts()
     var
-        FixedRealEstate: Record "Fixed Real Estate";    
+        FixedRealEstate: Record "Fixed Real Estate";
         TotalSalesAmount: Decimal;
         TotalSalesAmountMinimum: Decimal;
         TotalExpenseAmount: Decimal;
         TotalIncomingAmount: Decimal;
-        TotalRentalAmount : Decimal;
-        TotalValCatastralActivo : Decimal;
-        TotalValCastastralConstActivo : Decimal;
+        TotalRentalAmount: Decimal;
+        TotalValCatastralActivo: Decimal;
+        TotalValCastastralConstActivo: Decimal;
 
     begin
         if rec.Type <> Type::Propiedad then
-          EXIT;
-          
+            EXIT;
+
         TotalSalesAmount := 0;
         TotalSalesAmountMinimum := 0;
         TotalExpenseAmount := 0;
         TotalIncomingAmount := 0;
         TotalRentalAmount := 0;
-        
+
         FixedRealEstate.Reset();
-        FixedRealEstate.SETRANGE(Type,Type::Activo);
-        FixedRealEstate.SETRANGE("Property No.","No.");
+        FixedRealEstate.SETRANGE(Type, Type::Activo);
+        FixedRealEstate.SETRANGE("Property No.", "No.");
         if FixedRealEstate.FINDFIRST then begin
-           REPEAT
+            REPEAT
                 FixedRealEstate.CALCFIELDS("Income Amount");
                 FixedRealEstate.CALCFIELDS("Expense Amount");
                 TotalSalesAmount += FixedRealEstate."Sales price";
                 TotalSalesAmountMinimum += FixedRealEstate."Minimum Sales Price";
-                TotalExpenseAmount += FixedRealEstate."Expense Amount"; 
+                TotalExpenseAmount += FixedRealEstate."Expense Amount";
                 TotalIncomingAmount += FixedRealEstate."Income Amount";
                 TotalRentalAmount += FixedRealEstate."Last Rental Price";
                 TotalValCatastralActivo += FixedRealEstate."Val. Catastral Activo";
                 TotalValCastastralConstActivo += FixedRealEstate."Val. Castastral Const. Activo";
 
-           UNTIL FixedRealEstate.NEXT = 0;
+            UNTIL FixedRealEstate.NEXT = 0;
         END;
         rec."Sales price" := TotalSalesAmount;
         rec."Minimum Sales Price" := TotalSalesAmountMinimum;
@@ -860,20 +832,20 @@ table 96000 "Fixed Real Estate"
         AuxAddress: Text[250];
     begin
         AuxFixedRealEstate := Rec;
-        IF PAGE.RUNMODAL(PAGE::"Compose address",Rec) = ACTION::LookupOK THEN BEGIN
-          Address := "Composse Address";
+        IF PAGE.RUNMODAL(PAGE::"Compose address", Rec) = ACTION::LookupOK THEN BEGIN
+            Address := "Composse Address";
         END;
     end;
 
-    procedure IsPublicToWeb(REFNo: Code[20];WebSiteId: Code[20]): Boolean
+    procedure IsPublicToWeb(REFNo: Code[20]; WebSiteId: Code[20]): Boolean
     var
         FixedRealEstate: Record "Fixed Real Estate";
         PublishedFixedRealEstate: Record "Published Fixed Real Estate";
         PublishWebSiteManagement: Codeunit "Publish Web Site Management";
     begin
         PublishedFixedRealEstate.RESET;
-        PublishedFixedRealEstate.SETRANGE("Web Site Code",WebSiteId);
-        PublishedFixedRealEstate.SETRANGE("Fixed Real Estate No.",REFNo);
+        PublishedFixedRealEstate.SETRANGE("Web Site Code", WebSiteId);
+        PublishedFixedRealEstate.SETRANGE("Fixed Real Estate No.", REFNo);
         EXIT(PublishedFixedRealEstate.FINDFIRST);
     end;
 }

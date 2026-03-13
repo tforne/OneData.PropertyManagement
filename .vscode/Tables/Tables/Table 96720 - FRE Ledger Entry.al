@@ -18,7 +18,7 @@ table 96720 "FRE Ledger Entry"
         field(3; "Journal Batch Name"; Code[10])
         {
             Caption = 'Journal Batch Name';
-            TableRelation = "FRE Jnl. Batch".Name WHERE ("Journal Template Name"=FIELD("Journal Template Name"));
+            TableRelation = "FRE Jnl. Batch".Name WHERE("Journal Template Name" = FIELD("Journal Template Name"));
         }
         field(4; "Posting Date"; Date)
         {
@@ -69,22 +69,23 @@ table 96720 "FRE Ledger Entry"
         {
             Caption = 'Document No.';
         }
-        field(57;"Source Type"; Enum "Gen. Journal Source Type")
+        field(57; "Source Type"; Enum "FRE Journal Source Type")
         {
             Caption = 'Source Type';
             DataClassification = ToBeClassified;
         }
-        field(58;"Source No.";Code[20])
+        field(58; "Source No."; Code[20])
         {
             Caption = 'Source No.';
             DataClassification = ToBeClassified;
-            TableRelation = IF ("Source Type"=CONST(Customer)) Customer
-                            ELSE IF ("Source Type"=CONST(Vendor)) Vendor
-                            ELSE IF ("Source Type"=CONST("Bank Account")) "Bank Account"
-                            ELSE IF ("Source Type"=CONST("Fixed Asset")) "Fixed Asset"
-                            ELSE IF ("Source Type"=CONST(Employee)) Employee;
+            TableRelation = IF ("Source Type" = CONST(Customer)) Customer
+            ELSE IF ("Source Type" = CONST(Vendor)) Vendor
+            ELSE IF ("Source Type" = CONST("Bank Account")) "Bank Account"
+            ELSE IF ("Source Type" = CONST("Fixed Asset")) "Fixed Asset"
+            ELSE IF ("Source Type" = CONST("Real Estate Asset")) "Fixed Real Estate"
+            ELSE IF ("Source Type" = CONST(Employee)) Employee;
         }
-        field(62;"Source Name";Text[50])
+        field(62; "Source Name"; Text[50])
         {
             Caption = 'Source Name';
             DataClassification = ToBeClassified;

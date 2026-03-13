@@ -75,7 +75,7 @@ table 96102 "Incident Attachment Overview"
 
     keys
     {
-        key(Key1; "Sorting Order", "Incident Id.")
+        key(Key1; "Sorting Order", "Incident Id.","Line No.")
         {
             Clustered = true;
         }

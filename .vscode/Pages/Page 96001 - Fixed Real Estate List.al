@@ -5,7 +5,7 @@ page 96001 "Fixed Real Estate List"
     PageType = List;
     PopulateAllFields = true;
     SourceTable = "Fixed Real Estate";
-    SourceTableView = SORTING ("Property Description", "Property No.", Type, Description);
+    SourceTableView = SORTING("Property Description", "Property No.", Type, Description);
     UsageCategory = Lists;
     ApplicationArea = All;
 
@@ -37,7 +37,7 @@ page 96001 "Fixed Real Estate List"
                     ApplicationArea = All;
                     Style = Strong;
                     StyleExpr = StyleIsStrong;
-                    ToolTip = 'Specifies a description of the fixed asset.';
+                    ToolTip = 'Specifies a description of the real estate asset.';
                 }
                 field("Post Code"; rec."Post Code")
                 {
@@ -53,24 +53,24 @@ page 96001 "Fixed Real Estate List"
                 field("Vendor No."; rec."Vendor No.")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the number of the vendor from which you purchased this fixed asset.';
+                    ToolTip = 'Specifies the number of the vendor from which you purchased this real estate asset.';
                     Visible = false;
                 }
                 field("Maintenance Vendor No."; rec."Maintenance Vendor No.")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the number of the vendor who performs repairs and maintenance on the fixed asset.';
+                    ToolTip = 'Specifies the number of the vendor who performs repairs and maintenance on the real estate asset.';
                     Visible = false;
                 }
                 field("Responsible Employee"; rec."Responsible Employee")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies which employee is responsible for the fixed asset.';
+                    ToolTip = 'Specifies which employee is responsible for the real estate asset.';
                 }
                 field("Cadastral reference"; rec."Cadastral reference")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the cadastral reference of the fixed asset, which is a unique code that identifies the property in the land registry.';
+                    ToolTip = 'Specifies the cadastral reference of the real estate asset, which is a unique code that identifies the property in the land registry.';
                 }
                 field(Status; rec.Status)
                 {
@@ -81,7 +81,7 @@ page 96001 "Fixed Real Estate List"
                 field(Acquired; rec.Acquired)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies that the fixed asset has been acquired.';
+                    ToolTip = 'Specifies that the real estate asset has been acquired.';
                 }
                 field(Managed; rec.Managed)
                 {
@@ -104,7 +104,7 @@ page 96001 "Fixed Real Estate List"
                 field("Val. Castastral Actua. Activo"; rec."Val. Castastral Actua. Activo")
                 {
                     ApplicationArea = All;
-                    BlankZero = true;   
+                    BlankZero = true;
                 }
                 field("Sales price"; rec."Sales price")
                 {
@@ -112,7 +112,7 @@ page 96001 "Fixed Real Estate List"
                     Style = Strong;
                     StyleExpr = StyleIsStrong;
                     Caption = 'Sale Price';
-                    ToolTip = 'Specifies the sale price of the fixed asset.';
+                    ToolTip = 'Specifies the sale price of the real estate asset.';
                 }
                 field("Minimum Sales Price"; rec."Minimum Sales Price")
                 {
@@ -122,7 +122,7 @@ page 96001 "Fixed Real Estate List"
                     StyleExpr = StyleIsStrong;
 
                     Caption = 'Minimum Sale Price';
-                    ToolTip = 'Specifies the minimum sale price of the fixed asset.';
+                    ToolTip = 'Specifies the minimum sale price of the real estate asset.';
                 }
                 field("Minimum Rental Sales Price"; rec."Minimum Rental Price")
                 {
@@ -131,7 +131,7 @@ page 96001 "Fixed Real Estate List"
                     Style = Strong;
                     StyleExpr = StyleIsStrong;
                     Caption = 'Minimum Rental Sale Price';
-                    ToolTip = 'Specifies the minimum rental sale price of the fixed asset including tax.';
+                    ToolTip = 'Specifies the minimum rental sale price of the real estate asset including tax.';
                 }
                 field("Superficie construida"; rec."Superficie construida")
                 {
@@ -139,23 +139,23 @@ page 96001 "Fixed Real Estate List"
                     BlankZero = true;
                     Style = Strong;
                     StyleExpr = StyleIsStrong;
-                    ToolTip = 'Specifies the built area of the fixed asset in square meters.';
+                    ToolTip = 'Specifies the built area of the real estate asset in square meters.';
                 }
                 field("Last Reference Price"; rec."Last Reference Price")
                 {
                     ApplicationArea = All;
                     BlankZero = true;
-                    ToolTip = 'Specifies the last reference price of the fixed asset, which is the price of the last lease contract associated with this fixed asset.';
+                    ToolTip = 'Specifies the last reference price of the real estate asset, which is the price of the last lease contract associated with this real estate asset.';
 
                 }
                 field("Last Price Contract"; rec."Last Price Contract")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the last price contract for the fixed asset.';
+                    ToolTip = 'Specifies the last price contract for the real estate asset.';
                     BlankZero = true;
                 }
             }
-           
+
         }
         area(factboxes)
         {
@@ -184,7 +184,7 @@ page 96001 "Fixed Real Estate List"
                 Image = Calculate;
                 RunObject = Report 96011;
                 ToolTip = 'Calculate the sales amount for the fixed real estate based on the related lease contracts.';
-                
+
             }
         }
         area(navigation)
@@ -195,7 +195,7 @@ page 96001 "Fixed Real Estate List"
                 Image = ContractPayment;
                 Promoted = true;
                 RunObject = Page "Lease Contract List";
-                RunPageLink = "Fixed Real Estate No."=FIELD("No.");
+                RunPageLink = "Fixed Real Estate No." = FIELD("No.");
             }
             action(Statistics)
             {
@@ -203,9 +203,9 @@ page 96001 "Fixed Real Estate List"
                 Caption = 'Statistics';
                 Image = Statistics;
                 RunObject = Page "Fixed RE Statistics";
-                            RunPageLink = "No."=FIELD("No.");
+                RunPageLink = "No." = FIELD("No.");
                 ShortCutKey = 'F7';
-                ToolTip = 'View detailed historical information about the fixed asset.';
+                ToolTip = 'View detailed historical information about the real estate asset.';
             }
             action(Incidents)
             {
@@ -214,7 +214,7 @@ page 96001 "Fixed Real Estate List"
                 Image = Interaction;
                 Promoted = true;
                 RunObject = Page "RE Incident Mobile";
-                RunPageLink = "Fixed Real Estate No."=FIELD("No.");
+                RunPageLink = "Fixed Real Estate No." = FIELD("No.");
                 ToolTip = 'View service request cases associated with this fixed real estate.';
             }
             action("Co&mments")
@@ -224,7 +224,7 @@ page 96001 "Fixed Real Estate List"
                 Image = ViewComments;
                 Promoted = true;
                 RunObject = Page "Real Estate Comment Sheet";
-                RunPageLink = "Table Name"=CONST("Fixed Real Estate"),"No."=FIELD("No.");
+                RunPageLink = "Table Name" = CONST("Fixed Real Estate"), "No." = FIELD("No.");
                 ToolTip = 'View or add comments for the record.';
             }
             action("Related Contats")
@@ -234,8 +234,8 @@ page 96001 "Fixed Real Estate List"
                 Image = ContactReference;
                 Promoted = true;
                 RunObject = Page "REF Related Contactos";
-                RunPageLink = "Entity Type" = CONST("Fixed Real Estate"),"Source No."=FIELD("No.");
-                RunPageView = SORTING("Entity Type","Source No.");
+                RunPageLink = "Entity Type" = CONST("Fixed Real Estate"), "Source No." = FIELD("No.");
+                RunPageView = SORTING("Entity Type", "Source No.");
             }
             action("Precios Indices de referencia")
             {
@@ -243,8 +243,8 @@ page 96001 "Fixed Real Estate List"
                 Caption = 'Precios Indices de referencia';
                 Image = PriceWorksheet;
                 RunObject = Page 96052;
-                RunPageLink = "Fixed Real Estate No."=FIELD("No.");
-                RunPageView = SORTING("Fixed Real Estate No.","Line No.");
+                RunPageLink = "Fixed Real Estate No." = FIELD("No.");
+                RunPageView = SORTING("Fixed Real Estate No.", "Line No.");
             }
         }
         area(reporting)
@@ -260,7 +260,7 @@ page 96001 "Fixed Real Estate List"
                 ToolTip = 'View the list of fixed real estate that exist in the system .';
             }
         }
-    
+
     }
 
     trigger OnAfterGetRecord()

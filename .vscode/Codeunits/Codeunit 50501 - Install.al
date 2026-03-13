@@ -18,11 +18,11 @@ codeunit 50501 GeneralManagementInstall
 
     procedure installNewVersion()
     var
-        AllProfile  : Record "All Profile";
-    
+        AllProfile: Record "All Profile";
+
     begin
         AllProfile.reset;
-        AllProfile.setrange("Profile ID",'PRESIDENTE - EMPR. REAL ESTATE');
+        AllProfile.setrange("Profile ID", 'PRESIDENTE - EMPR. REAL ESTATE');
         if AllProfile.FindFirst() then begin
             AllProfile.delete;
             message('Perfil eliminado')
@@ -39,29 +39,29 @@ codeunit 50501 GeneralManagementInstall
         then begin
             ReportSelections.Init();
             ReportSelections."Usage" := Enum::"Report Selection Usage"::"Lease S.Invoice";
-            ReportSelections."Report ID" := Report:: "Lease Sales - Invoice";
+            ReportSelections."Report ID" := Report::"Lease Sales - Invoice";
             if ReportSelections.Insert() then;
         end;
     end;
 
     local procedure InsTenantUserMapping()
     var
-        TenantUserMApping : Record "Tenant User Mapping";
+        TenantUserMApping: Record "Tenant User Mapping";
     begin
-            TenantUserMApping.Init();
-            TenantUserMApping."User Email" := 'office@forne.family';
-            TenantUserMApping."Customer No." := 'C00300';
-            if TenantUserMApping.Insert() then;
+        TenantUserMApping.Init();
+        TenantUserMApping."User Email" := 'office@forne.family';
+        TenantUserMApping."Customer No." := 'C00300';
+        if TenantUserMApping.Insert() then;
     end;
 
     procedure ConfigurarREFSetup()
     var
         REFSetup: Record "REF Setup";
-        NoSeries : record "No. Series";
-        NoSeriesLine : Record "No. Series Line";
+        NoSeries: record "No. Series";
+        NoSeriesLine: Record "No. Series Line";
     begin
-        if not REFSetup.get('') then  begin
-            REFSetup."Primary Key":='';
+        if not REFSetup.get('') then begin
+            REFSetup."Primary Key" := '';
             REFSetup.insert;
         end;
         // Incicializar Series
@@ -71,11 +71,11 @@ codeunit 50501 GeneralManagementInstall
             NoSeries."Manual Nos." := true;
             NoSeries."Default Nos." := true;
             NoSeries.insert;
-            NoSeriesLine."Series Code" :=  'PM-CTINV';
+            NoSeriesLine."Series Code" := 'PM-CTINV';
             NoSeriesLine."Line No." := 10000;
             NoSeriesLine."Starting Date" := today;
             NoSeriesLine.Insert(true);
-            NoSeriesLine."Starting No." := StrSubstNo('PM-%1-00001',Date2DMY(today,3)-2000);
+            NoSeriesLine."Starting No." := StrSubstNo('PM-%1-00001', Date2DMY(today, 3) - 2000);
             NoSeriesLine.modify;
             REFSetup."Contract Invoice Nos." := 'PM-CTINV';
             REFSetup.MODIFY;
@@ -86,27 +86,27 @@ codeunit 50501 GeneralManagementInstall
             NoSeries."Manual Nos." := true;
             NoSeries."Default Nos." := true;
             NoSeries.insert;
-            NoSeriesLine."Series Code" :=  'PM-CTLEASINV';
+            NoSeriesLine."Series Code" := 'PM-CTLEASINV';
             NoSeriesLine."Line No." := 10000;
             NoSeriesLine."Starting Date" := today;
             NoSeriesLine.Insert(true);
-            NoSeriesLine."Starting No." := StrSubstNo('CT-%1-00001',Date2DMY(today,3)-2000);
+            NoSeriesLine."Starting No." := StrSubstNo('CT-%1-00001', Date2DMY(today, 3) - 2000);
             NoSeriesLine.modify;
             REFSetup.MODIFY;
         end;
-        if REFSetup."Fixed Asset Nos." = '' then begin
+        if REFSetup."real estate asset Nos." = '' then begin
             NoSeries.Code := 'PM-FA';
-            NoSeries.Description := 'Property Management Fixed Asset';
+            NoSeries.Description := 'Property Management real estate asset';
             NoSeries."Manual Nos." := true;
             NoSeries."Default Nos." := true;
             NoSeries.insert;
-            NoSeriesLine."Series Code" :=  'PM-FA';
+            NoSeriesLine."Series Code" := 'PM-FA';
             NoSeriesLine."Line No." := 10000;
             NoSeriesLine."Starting Date" := today;
             NoSeriesLine.Insert(true);
-            NoSeriesLine."Starting No." := StrSubstNo('FA-%1-00001',Date2DMY(today,3)-2000);
+            NoSeriesLine."Starting No." := StrSubstNo('FA-%1-00001', Date2DMY(today, 3) - 2000);
             NoSeriesLine.modify;
-            REFSetup."Fixed Asset Nos." := 'PM-FA';
+            REFSetup."real estate asset Nos." := 'PM-FA';
             REFSetup.MODIFY;
         end;
         if REFSetup."Insurance Nos." = '' then begin
@@ -115,11 +115,11 @@ codeunit 50501 GeneralManagementInstall
             NoSeries."Manual Nos." := true;
             NoSeries."Default Nos." := true;
             NoSeries.insert;
-            NoSeriesLine."Series Code" :=  'PM-INS';
+            NoSeriesLine."Series Code" := 'PM-INS';
             NoSeriesLine."Line No." := 10000;
             NoSeriesLine."Starting Date" := today;
             NoSeriesLine.Insert(true);
-            NoSeriesLine."Starting No." := StrSubstNo('INS-%1-00001',Date2DMY(today,3)-2000);
+            NoSeriesLine."Starting No." := StrSubstNo('INS-%1-00001', Date2DMY(today, 3) - 2000);
             NoSeriesLine.modify;
             REFSetup."Insurance Nos." := 'PM-INS';
             REFSetup.MODIFY;
@@ -130,14 +130,14 @@ codeunit 50501 GeneralManagementInstall
             NoSeries."Manual Nos." := true;
             NoSeries."Default Nos." := true;
             NoSeries.insert;
-            NoSeriesLine."Series Code" :=  'PM-LEAS';
+            NoSeriesLine."Series Code" := 'PM-LEAS';
             NoSeriesLine."Line No." := 10000;
             NoSeriesLine."Starting Date" := today;
             NoSeriesLine.Insert(true);
-            NoSeriesLine."Starting No." := StrSubstNo('LEAS-%1-00001',Date2DMY(today,3)-2000);
+            NoSeriesLine."Starting No." := StrSubstNo('LEAS-%1-00001', Date2DMY(today, 3) - 2000);
             NoSeriesLine.modify;
             REFSetup."Lease Contract Nos." := 'PM-LEAS';
             REFSetup.MODIFY;
         end;
-    end;          
+    end;
 }

@@ -153,7 +153,7 @@ table 96007 "RE Owner Cue"
         field(96001;"Lease Contract Signed";Decimal)
         {
             CalcFormula = Sum("Lease Contract"."Amount per Period" WHERE (Status=CONST(Signed)));
-            Caption = 'Contractos de alquiler firmados';
+            Caption = 'Contratos de alquiler firmados';
             Editable = false;
             FieldClass = FlowField;
         }
@@ -181,7 +181,7 @@ table 96007 "RE Owner Cue"
         field(96005;"Lease Contract Open";Integer)
         {
             CalcFormula = Count("Lease Contract" WHERE (Status=CONST(" ")));
-            Caption = 'Contractos de alquiler abiertos';
+            Caption = 'Contratos de alquiler abiertos';
             Editable = false;
             FieldClass = FlowField;
         }

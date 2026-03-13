@@ -1,6 +1,6 @@
 page 96040 "Fixed Real Estate Avatar"
 {
-    Caption = 'Fixed Asset Picture';
+    Caption = 'real estate asset Picture';
     DeleteAllowed = false;
     InsertAllowed = false;
     LinksAllowed = false;
@@ -15,7 +15,7 @@ page 96040 "Fixed Real Estate Avatar"
             {
                 ApplicationArea = All;
                 ShowCaption = false;
-                ToolTip = 'Specifies the picture that has been inserted for the fixed asset.';
+                ToolTip = 'Specifies the picture that has been inserted for the real estate asset.';
             }
         }
     }

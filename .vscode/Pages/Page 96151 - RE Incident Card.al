@@ -153,10 +153,10 @@ page 96151 "RE Incident Card"
             group(Notificaciones)
             {
                 Caption = 'Notificaciones';
-                action(SendCustom)
+                action(SendCustomOpenIncident)
                 {
                     ApplicationArea = All;
-                    Caption = 'Send';
+                    Caption = 'Send Open Incident';
                     Ellipsis = true;
                     Image = SendToMultiple;
                     Promoted = true;
@@ -170,6 +170,25 @@ page 96151 "RE Incident Card"
                         CustomerRENotifybyEmail: Codeunit "Customer RE-Notify by Email";
                     begin
                         CustomerRENotifybyEmail."NotificarPorCorreoRecepciónIncidencia"(Rec);
+                    end;
+                }
+                action(SendCustomStatusIncident)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Send Status Incident';
+                    Ellipsis = true;
+                    Image = SendToMultiple;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = true;
+                    ToolTip = 'Prepare to send the document according to the customer''s sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.';
+
+                    trigger OnAction()
+                    var
+                        LeaseInvoiceHeader: Record "Lease Invoice Header";
+                        CustomerRENotifybyEmail: Codeunit "Customer RE-Notify by Email";
+                    begin
+                        CustomerRENotifybyEmail."NotificarPorCorreoSituaciónIncidencia"(Rec);
                     end;
                 }
             }

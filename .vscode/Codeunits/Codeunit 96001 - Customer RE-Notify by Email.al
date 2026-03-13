@@ -14,10 +14,6 @@ codeunit 96001 "Customer RE-Notify by Email"
         Text005: Label 'Aviso de cargo recibo domiciliado el %1';
 
         Text100: Label 'Incidencia %1';
-        Text101: Label 'Hola %1';
-        Text102: Label 'Hemos registrado correctamente la incidencia %1 que nos has comunicado y procedemos a su resolución.';
-        Text103: Label 'Te iremos informando a medida que avancemos con cada punto.';
-        Text104: Label 'Un saludo';
         Text110: Label 'The client will be notified of the incident %1';
 
         
@@ -181,6 +177,100 @@ codeunit 96001 "Customer RE-Notify by Email"
             Error(
                 'No se ha podido enviar el correo de recepción de la incidencia %1. Revise la configuración de email o la licencia/permisos del usuario.',
                 Incidencia."Incident Id.");
+    end;
+
+    procedure NotificarPorCorreoSituaciónIncidencia(Incidencia: Record "Incident Assets Real Estate")
+    var
+        Contract: Record "Lease Contract";
+        IncidentCommentLine: Record "Incident Comment Line";
+        Email: Codeunit Email;
+        EmailMessage: Codeunit "Email Message";
+        Recipients: List of [Text];
+        SubjectText: Text;
+        BodyText: Text;
+        ComentarioText: Text;
+    begin
+        if not Contract.Get(Incidencia."Contract No.") then
+            exit;
+
+        if Contract."E-Mail" = '' then
+            exit;
+
+        IncidentCommentLine.Reset();
+        IncidentCommentLine.SetRange("Incident Id.", Incidencia."Incident Id.");
+
+        if not IncidentCommentLine.FindLast() then
+            exit;
+
+        ComentarioText := FormatearTextoParaHTML(IncidentCommentLine.Comment);
+
+        SubjectText :=
+            StrSubstNo(
+                'Actualización de la incidencia %1',
+                Incidencia."Incident Id.");
+
+        BodyText :=
+            '<html>' +
+            '<body style="font-family: Segoe UI, Arial, sans-serif; font-size: 14px; color: #333333; line-height: 1.6; background-color: #F4F6F8; padding: 20px;">' +
+
+                '<div style="max-width: 650px; margin: 0 auto; background-color: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 8px; overflow: hidden;">' +
+
+                    // Cabecera
+                    '<div style="background-color: #1F4E79; color: white; padding: 20px 24px;">' +
+                        '<h2 style="margin: 0; font-size: 22px;">Actualización de su incidencia</h2>' +
+                        '<p style="margin: 8px 0 0 0; font-size: 14px;">Se ha registrado un nuevo comentario en su solicitud</p>' +
+                    '</div>' +
+
+                    // Contenido
+                    '<div style="padding: 24px;">' +
+                        '<p style="margin-top: 0;">Estimado/a cliente,</p>' +
+
+                        '<p>Le informamos de que se ha añadido un nuevo comentario a la incidencia que tiene registrada con nosotros.</p>' +
+
+                        '<div style="background-color: #F7F9FC; border: 1px solid #D9E2F3; border-radius: 6px; padding: 16px; margin: 20px 0;">' +
+                            '<p style="margin: 0 0 8px 0;"><strong>Número de incidencia:</strong> ' + Format(Incidencia."Incident Id.") + '</p>' +
+                            '<p style="margin: 0 0 8px 0;"><strong>Título:</strong> ' + Incidencia.Title + '</p>' +
+                            '<p style="margin: 0 0 8px 0;"><strong>Fecha del comentario:</strong> ' + Format(IncidentCommentLine.Date) + '</p>' +
+                            '<p style="margin: 0;"><strong>Comentario:</strong><br>' + ComentarioText + '</p>' +
+                        '</div>' +
+
+                        '<p>Si necesita más información, puede ponerse en contacto con nuestro equipo de gestión.</p>' +
+
+                        '<p style="margin-top: 24px;">' +
+                            'Atentamente,<br>' +
+                            '<strong>Equipo de gestión</strong>' +
+                        '</p>' +
+                    '</div>' +
+
+                '</div>' +
+
+            '</body>' +
+            '</html>';
+
+        Clear(Recipients);
+        Recipients.Add(Contract."E-Mail");
+
+        Clear(EmailMessage);
+        EmailMessage.Create(
+            Recipients,
+            SubjectText,
+            BodyText,
+            true);
+
+        if TrySendEmail(Email, EmailMessage) then
+            Message('Se ha enviado el comentario de la incidencia %1 al cliente.', Incidencia."Incident Id.")
+        else
+            Error(
+                'No se ha podido enviar el correo con el comentario de la incidencia %1. Revise la configuración de email o la licencia/permisos del usuario.',
+                Incidencia."Incident Id.");
+    end;
+
+    local procedure FormatearTextoParaHTML(InputText: Text): Text
+    begin
+        InputText := InputText.Replace('&', '&amp;');
+        InputText := InputText.Replace('<', '&lt;');
+        InputText := InputText.Replace('>', '&gt;');
+        exit(InputText);
     end;
 
     [TryFunction]

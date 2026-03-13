@@ -12,7 +12,7 @@ table 96702 "FRE Jnl. Line"
         field(2; "Journal Batch Name"; Code[10])
         {
             Caption = 'Journal Batch Name';
-            TableRelation = "FRE Jnl. Batch".Name WHERE ("Journal Template Name"=FIELD("Journal Template Name"));
+            TableRelation = "FRE Jnl. Batch".Name WHERE("Journal Template Name" = FIELD("Journal Template Name"));
         }
         field(3; "Line No."; Integer)
         {
@@ -68,63 +68,69 @@ table 96702 "FRE Jnl. Line"
             Caption = 'Document No.';
         }
 
-        field(57;"Source Type"; Enum "Gen. Journal Source Type")
+        field(57; "Source Type"; Enum "FRE Journal Source Type")
         {
             Caption = 'Source Type';
             DataClassification = ToBeClassified;
         }
-        field(58;"Source No.";Code[20])
+        field(58; "Source No."; Code[20])
         {
             Caption = 'Source No.';
             DataClassification = ToBeClassified;
-            TableRelation = IF ("Source Type"=CONST(Customer)) Customer
-                            ELSE IF ("Source Type"=CONST(Vendor)) Vendor
-                            ELSE IF ("Source Type"=CONST("Bank Account")) "Bank Account"
-                            ELSE IF ("Source Type"=CONST("Fixed Asset")) "Fixed Asset"
-                            ELSE IF ("Source Type"=CONST(Employee)) Employee;
+            TableRelation = IF ("Source Type" = CONST(Customer)) Customer
+            ELSE IF ("Source Type" = CONST(Vendor)) Vendor
+            ELSE IF ("Source Type" = CONST("Bank Account")) "Bank Account"
+            ELSE IF ("Source Type" = CONST("Fixed Asset")) "Fixed Asset"
+            ELSE IF ("Source Type" = CONST("Real Estate Asset")) "Fixed Real Estate"
+            ELSE IF ("Source Type" = CONST(Employee)) Employee;
             trigger OnValidate()
             var
                 RecCustomer: Record Customer;
                 RecVendor: Record Vendor;
                 RecBankAccount: Record "Bank Account";
-                RecFixedAsset: Record "Fixed Asset";
+                RecFRE : Record "Fixed Real Estate";
                 RecEmployee: Record Employee;
-                OneDataIRPFSetup : Record "OneData IRPF Setup";
+                OneDataIRPFSetup: Record "OneData IRPF Setup";
             begin
                 case "Source Type" of
-                    rec."Source Type"::Customer : begin
-                        OneDataIRPFSetup.get();
-                        RecCustomer.Get("Source No.");
-                        "Source Name" := RecCustomer.Name;
-                    end;
-                    rec."Source Type"::Vendor : begin
-                        RecVendor.Get("Source No.");
-                        "Source Name" := RecVendor.Name;
+                    rec."Source Type"::Customer:
+                        begin
+                            OneDataIRPFSetup.get();
+                            RecCustomer.Get("Source No.");
+                            "Source Name" := RecCustomer.Name;
+                        end;
+                    rec."Source Type"::Vendor:
+                        begin
+                            RecVendor.Get("Source No.");
+                            "Source Name" := RecVendor.Name;
 
-                    end;
-                    rec."Source Type"::"Bank Account" : begin
-                        RecBankAccount.Get("Source No.");
-                        "Source Name" := RecBankAccount.Name;
+                        end;
+                    rec."Source Type"::"Bank Account":
+                        begin
+                            RecBankAccount.Get("Source No.");
+                            "Source Name" := RecBankAccount.Name;
 
-                    end;
-                    rec."Source Type"::"Fixed Asset" : begin
-                        RecFixedAsset.Get("Source No.");
-                        "Source Name" := RecFixedAsset.Description;
-                    end;
-                    rec."Source Type"::Employee : begin
-                        RecEmployee.Get("Source No.");
-                        "Source Name" := RecEmployee.Name;
-                    end;
+                        end;
+                    rec."Source Type"::"real estate asset":
+                        begin
+                            RecFRE.Get("Source No.");
+                            "Source Name" := RecFRE.Description;
+                        end;
+                    rec."Source Type"::Employee:
+                        begin
+                            RecEmployee.Get("Source No.");
+                            "Source Name" := RecEmployee.Name;
+                        end;
                 end;
             end;
         }
-        field(62;"Source Name";Text[50])
-            {
+        field(62; "Source Name"; Text[50])
+        {
             Caption = 'Source Name';
             DataClassification = ToBeClassified;
             TableRelation = "OneData Grupos IRPF";
         }
-        
+
         field(70; "System-Created Entry"; Boolean)
         {
             Caption = 'System-Created Entry';
@@ -140,7 +146,7 @@ table 96702 "FRE Jnl. Line"
 
     keys
     {
-        key(Key1;"Journal Template Name","Journal Batch Name","Line No.")
+        key(Key1; "Journal Template Name", "Journal Batch Name", "Line No.")
         {
             Clustered = true;
             MaintainSIFTIndex = false;
@@ -156,7 +162,7 @@ table 96702 "FRE Jnl. Line"
         ErrorMessage: Record "Error Message";
         IRPFJnlBatch: Record "OneData IRPF Jnl. Batch";
     begin
-        IRPFJnlBatch.GET("Journal Template Name","Journal Batch Name");
+        IRPFJnlBatch.GET("Journal Template Name", "Journal Batch Name");
         ErrorMessage.SetContext(IRPFJnlBatch);
         ErrorMessage.ClearLogRec(Rec);
     end;
@@ -164,17 +170,17 @@ table 96702 "FRE Jnl. Line"
     trigger OnInsert()
     begin
         FREJnlTemplate.GET("Journal Template Name");
-        FREJnlBatch.GET("Journal Template Name","Journal Batch Name");
+        FREJnlBatch.GET("Journal Template Name", "Journal Batch Name");
     end;
 
     trigger OnModify()
     begin
-        FREJnlBatch.GET("Journal Template Name","Journal Batch Name");
+        FREJnlBatch.GET("Journal Template Name", "Journal Batch Name");
     end;
 
     trigger OnRename()
     begin
-        FREJnlBatch.GET(xRec."Journal Template Name",xRec."Journal Batch Name");
+        FREJnlBatch.GET(xRec."Journal Template Name", xRec."Journal Batch Name");
     end;
 
     var
@@ -189,15 +195,16 @@ table 96702 "FRE Jnl. Line"
     begin
         BatchFilter := GETFILTER("Journal Batch Name");
         IF BatchFilter <> '' THEN BEGIN
-          TemplateFilter := GETFILTER("Journal Template Name");
-          IF TemplateFilter <> '' THEN
-            FREJnlBatch.SETFILTER("Journal Template Name",TemplateFilter);
-          FREJnlBatch.SETFILTER(Name,BatchFilter);
-          FREJnlBatch.FINDFIRST;
+            TemplateFilter := GETFILTER("Journal Template Name");
+            IF TemplateFilter <> '' THEN
+                FREJnlBatch.SETFILTER("Journal Template Name", TemplateFilter);
+            FREJnlBatch.SETFILTER(Name, BatchFilter);
+            FREJnlBatch.FINDFIRST;
         END;
 
         EXIT((("Journal Batch Name" <> '') AND ("Journal Template Name" = '')) OR (BatchFilter <> ''));
     end;
+
     procedure EmptyLine() Result: Boolean
     var
         IsHandled: Boolean;

@@ -15,38 +15,38 @@ page 96016 "RE Maintenance Registration"
                 field("FRE No."; rec."FRE No.")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the number of the related fixed asset. ';
+                    ToolTip = 'Specifies the number of the related real estate asset. ';
                     Visible = false;
                 }
                 field("Service Date"; rec."Service Date")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the date when the fixed asset is being serviced.';
+                    ToolTip = 'Specifies the date when the real estate asset is being serviced.';
                 }
                 field("Maintenance Vendor No."; rec."Maintenance Vendor No.")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the number of the vendor who services the fixed asset for this entry.';
+                    ToolTip = 'Specifies the number of the vendor who services the real estate asset for this entry.';
                 }
                 field(Comment; rec.Comment)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies a comment for the service, repairs or maintenance to be performed on the fixed asset.';
+                    ToolTip = 'Specifies a comment for the service, repairs or maintenance to be performed on the real estate asset.';
                 }
                 field("Service Agent Name"; rec."Service Agent Name")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the name of the service agent who is servicing the fixed asset.';
+                    ToolTip = 'Specifies the name of the service agent who is servicing the real estate asset.';
                 }
                 field("Service Agent Phone No."; rec."Service Agent Phone No.")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the phone number of the service agent who is servicing the fixed asset.';
+                    ToolTip = 'Specifies the phone number of the service agent who is servicing the real estate asset.';
                 }
                 field("Service Agent Mobile Phone"; rec."Service Agent Mobile Phone")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the mobile phone number of the service agent who is servicing the fixed asset.';
+                    ToolTip = 'Specifies the mobile phone number of the service agent who is servicing the real estate asset.';
                     Visible = false;
                 }
             }

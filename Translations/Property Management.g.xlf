@@ -184,7 +184,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - NamedType PhoneNoCannotContainLettersErr</note>
         </trans-unit>
         <trans-unit id="Table 3197180930 - NamedType 1731990835" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You are ready to acquire the fixed asset.</source>
+          <source>You are ready to acquire the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - NamedType ReadyToAcquireMsg</note>
         </trans-unit>
@@ -214,7 +214,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - NamedType Text014</note>
         </trans-unit>
         <trans-unit id="Table 3197180930 - NamedType 3242628017" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This fixed asset subclass belongs to a different fixed asset class.</source>
+          <source>This real estate asset subclass belongs to a different real estate asset class.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - NamedType UnexpctedSubclassErr</note>
         </trans-unit>
@@ -599,7 +599,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate Images - NamedType DontAskAgainActionTxt</note>
         </trans-unit>
         <trans-unit id="Table 3175233126 - NamedType 1731990835" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You are ready to acquire the fixed asset.</source>
+          <source>You are ready to acquire the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate Images - NamedType ReadyToAcquireMsg</note>
         </trans-unit>
@@ -614,7 +614,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate Images - NamedType Text001</note>
         </trans-unit>
         <trans-unit id="Table 3175233126 - NamedType 3242628017" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This fixed asset subclass belongs to a different fixed asset class.</source>
+          <source>This real estate asset subclass belongs to a different real estate asset class.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate Images - NamedType UnexpctedSubclassErr</note>
         </trans-unit>
@@ -3464,12 +3464,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table RE Owner Cue - Field Lease Contract Expired - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2729912319 - Field 2402195540 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Contractos de alquiler abiertos</source>
+          <source>Contratos de alquiler abiertos</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table RE Owner Cue - Field Lease Contract Open - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2729912319 - Field 1159117402 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Contractos de alquiler firmados</source>
+          <source>Contratos de alquiler firmados</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table RE Owner Cue - Field Lease Contract Signed - Property Caption</note>
         </trans-unit>
@@ -3923,11 +3923,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table REF Setup - Field Default Income Row No - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1254748834 - Field 537507574 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fixed Asset Nos.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table REF Setup - Field Fixed Asset Nos. - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 1254748834 - Field 1870810210 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Insurance Nos.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3957,6 +3952,11 @@
           <source>Primary Key</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table REF Setup - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1254748834 - Field 1345222968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>real estate asset Nos.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table REF Setup - Field real estate asset Nos. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1254748834 - Field 1170676042 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Repositorio contratos</source>
@@ -4327,26 +4327,6 @@
           <source>Incidencia %1</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text100</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 683925318 - NamedType 3031896719" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Hola %1</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text101</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 683925318 - NamedType 650019274" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Hemos registrado correctamente la incidencia %1 que nos has comunicado y procedemos a su resolución.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text102</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 683925318 - NamedType 12322657" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Te iremos informando a medida que avancemos con cada punto.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text103</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 683925318 - NamedType 1925412508" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Un saludo</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text104</note>
         </trans-unit>
         <trans-unit id="Codeunit 683925318 - NamedType 3393061063" size-unit="char" translate="yes" xml:space="preserve">
           <source>The client will be notified of the incident %1</source>
@@ -4744,27 +4724,27 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Last Rental Price Modified - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 2077289617 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the last rental sale price for the fixed asset including tax.</source>
+          <source>Specifies the last rental sale price for the real estate asset including tax.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Last Rental Sales Price - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 1157678069 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the minimum sale price for the fixed asset.</source>
+          <source>Specifies the minimum sale price for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Minimum Sales Price - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 2243515271 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the total LCY amount for custom 2 entries for the fixed asset.</source>
+          <source>Specifies the total LCY amount for custom 2 entries for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Sales Price - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 3550991128 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the total LCY amount of write-down entries for the fixed asset.</source>
+          <source>Specifies the total LCY amount of write-down entries for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Val. Castastral Const. Activo - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 486121392 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the total LCY amount for custom 1 entries for the fixed asset.</source>
+          <source>Specifies the total LCY amount for custom 1 entries for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Val. Catastral Activo - Property ToolTip</note>
         </trans-unit>
@@ -4784,7 +4764,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentability - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 2376003423 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the annual expense forecast for the fixed asset.</source>
+          <source>Specifies the annual expense forecast for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Previsión Gastos Anual - Property ToolTip</note>
         </trans-unit>
@@ -4794,7 +4774,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Previsión Gastos Anual - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 514059213 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the gross rentability for the fixed asset.</source>
+          <source>Specifies the gross rentability for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentabilidad Bruta - Property ToolTip</note>
         </trans-unit>
@@ -4804,7 +4784,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentabilidad Bruta - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 1577853311 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the net rentability for the fixed asset.</source>
+          <source>Specifies the net rentability for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentabilidad Neta - Property ToolTip</note>
         </trans-unit>
@@ -4814,7 +4794,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentabilidad Neta - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 3657482835 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the cash flow for the fixed asset.</source>
+          <source>Specifies the cash flow for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Total Flujo Caja - Property ToolTip</note>
         </trans-unit>
@@ -4849,7 +4829,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Es. Web Site Card - Action Publish - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4002352761 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fixed Asset Picture</source>
+          <source>real estate asset Picture</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Avatar - Property Caption</note>
         </trans-unit>
@@ -4869,7 +4849,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Avatar - NamedType SelectPictureTxt</note>
         </trans-unit>
         <trans-unit id="Page 4002352761 - Control 4046125839 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the picture that has been inserted for the fixed asset.</source>
+          <source>Specifies the picture that has been inserted for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Avatar - Control Avatar Picture - Property ToolTip</note>
         </trans-unit>
@@ -4894,7 +4874,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control General - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 3384699096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the fixed asset has been acquired.</source>
+          <source>Specifies if the real estate asset has been acquired.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Acquired - Property ToolTip</note>
         </trans-unit>
@@ -4904,7 +4884,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Blocked - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 1643092960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the fixed asset's serial number.</source>
+          <source>Specifies the real estate asset's serial number.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Cadastral reference - Property ToolTip</note>
         </trans-unit>
@@ -4914,7 +4894,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Clasificación - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 418100014 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the class that the fixed asset belongs to.</source>
+          <source>Specifies the class that the real estate asset belongs to.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control FRE Class Code - Property ToolTip</note>
         </trans-unit>
@@ -4924,7 +4904,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control FRE Class Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 1161727698 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the subclass of the class that the fixed asset belongs to.</source>
+          <source>Specifies the subclass of the class that the real estate asset belongs to.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control FRE Subclass Code - Property ToolTip</note>
         </trans-unit>
@@ -4934,22 +4914,22 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control FRE Subclass Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 478049462 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the totaling code used to group fixed assets with similar characteristics for reporting and analysis purposes. The totaling code can be used to create totals on fixed asset reports, such as a total for all fixed assets with the same totaling code.</source>
+          <source>Specifies the totaling code used to group real estate asset with similar characteristics for reporting and analysis purposes. The totaling code can be used to create totals on real estate asset reports, such as a total for all real estate asset with the same totaling code.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Totaling - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a description of the fixed asset.</source>
+          <source>Specifies a description of the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Description - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 2393253273 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies when the fixed asset card was last modified.</source>
+          <source>Specifies when the real estate asset card was last modified.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Last Date Modified - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 4228136327 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the fixed asset is managed by the system. If this field is not selected, the system will not create or update any related records such as general ledger entries or depreciation books for the fixed asset.</source>
+          <source>Specifies if the real estate asset is managed by the system. If this field is not selected, the system will not create or update any related records such as general ledger entries or depreciation books for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Managed - Property ToolTip</note>
         </trans-unit>
@@ -4964,17 +4944,17 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Phone No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 1474138314 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies which employee is responsible for the fixed asset.</source>
+          <source>Specifies which employee is responsible for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Responsible Employee - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 1180181476 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a search description for the fixed asset.</source>
+          <source>Specifies a search description for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Search Description - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the status of the fixed asset.</source>
+          <source>Specifies the status of the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Status - Property ToolTip</note>
         </trans-unit>
@@ -4984,22 +4964,22 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Maintenance - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 4143882926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies that the fixed asset is linked to an insurance policy.</source>
+          <source>Specifies that the real estate asset is linked to an insurance policy.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Insured - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 3097337210 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of the vendor who performs repairs and maintenance on the fixed asset.</source>
+          <source>Specifies the number of the vendor who performs repairs and maintenance on the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Maintenance Vendor No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 1778928279 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the fixed asset is currently being repaired.</source>
+          <source>Specifies if the real estate asset is currently being repaired.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Under Maintenance - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Control 1527594213 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of the vendor from which you purchased this fixed asset.</source>
+          <source>Specifies the number of the vendor from which you purchased this real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Vendor No. - Property ToolTip</note>
         </trans-unit>
@@ -5144,7 +5124,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Incidents - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Action 1862102638 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View or edit maintenance codes for the various types of maintenance, repairs, and services performed on your fixed assets. You can then enter the code in the Maintenance Code field on journals.</source>
+          <source>View or edit maintenance codes for the various types of maintenance, repairs, and services performed on your real estate assets. You can then enter the code in the Maintenance Code field on journals.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Maintenance &amp;Registration - Property ToolTip</note>
         </trans-unit>
@@ -5164,7 +5144,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Related Contats - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4166615366 - Action 84074407 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View detailed historical information about the fixed asset.</source>
+          <source>View detailed historical information about the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Statistics - Property ToolTip</note>
         </trans-unit>
@@ -5199,37 +5179,37 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 3384699096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies that the fixed asset has been acquired.</source>
+          <source>Specifies that the real estate asset has been acquired.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Acquired - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 1643092960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the cadastral reference of the fixed asset, which is a unique code that identifies the property in the land registry.</source>
+          <source>Specifies the cadastral reference of the real estate asset, which is a unique code that identifies the property in the land registry.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Cadastral reference - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a description of the fixed asset.</source>
+          <source>Specifies a description of the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Description - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 1691503831 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the last price contract for the fixed asset.</source>
+          <source>Specifies the last price contract for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Last Price Contract - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 980588264 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the last reference price of the fixed asset, which is the price of the last lease contract associated with this fixed asset.</source>
+          <source>Specifies the last reference price of the real estate asset, which is the price of the last lease contract associated with this real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Last Reference Price - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 3097337210 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of the vendor who performs repairs and maintenance on the fixed asset.</source>
+          <source>Specifies the number of the vendor who performs repairs and maintenance on the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Maintenance Vendor No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 2691587029 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the minimum rental sale price of the fixed asset including tax.</source>
+          <source>Specifies the minimum rental sale price of the real estate asset including tax.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Minimum Rental Sales Price - Property ToolTip</note>
         </trans-unit>
@@ -5239,7 +5219,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Minimum Rental Sales Price - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 1157678069 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the minimum sale price of the fixed asset.</source>
+          <source>Specifies the minimum sale price of the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Minimum Sales Price - Property ToolTip</note>
         </trans-unit>
@@ -5254,12 +5234,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 1474138314 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies which employee is responsible for the fixed asset.</source>
+          <source>Specifies which employee is responsible for the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Responsible Employee - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 3378917543 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the sale price of the fixed asset.</source>
+          <source>Specifies the sale price of the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Sales price - Property ToolTip</note>
         </trans-unit>
@@ -5269,12 +5249,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Sales price - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 3484560217 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the built area of the fixed asset in square meters.</source>
+          <source>Specifies the built area of the real estate asset in square meters.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Superficie construida - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 1527594213 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of the vendor from which you purchased this fixed asset.</source>
+          <source>Specifies the number of the vendor from which you purchased this real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Vendor No. - Property ToolTip</note>
         </trans-unit>
@@ -5314,7 +5294,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Action Related Contats - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Action 84074407 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View detailed historical information about the fixed asset.</source>
+          <source>View detailed historical information about the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Action Statistics - Property ToolTip</note>
         </trans-unit>
@@ -7213,15 +7193,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action Notificaciones - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2479975791 - Action 1934669617 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 2479975791 - Action 2221245231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to send the document according to the customer's sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action SendCustom - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action SendCustomOpenIncident - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 2479975791 - Action 1934669617 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Send</source>
+        <trans-unit id="Page 2479975791 - Action 2221245231 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send Open Incident</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action SendCustom - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action SendCustomOpenIncident - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2479975791 - Action 4140864983 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepare to send the document according to the customer's sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action SendCustomStatusIncident - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2479975791 - Action 4140864983 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send Status Incident</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action SendCustomStatusIncident - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2479975791 - Action 3031046439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Start Progress</source>
@@ -7239,37 +7229,37 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Maintenance Registration - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2231983253 - Control 2790486453 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a comment for the service, repairs or maintenance to be performed on the fixed asset.</source>
+          <source>Specifies a comment for the service, repairs or maintenance to be performed on the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Maintenance Registration - Control Comment - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2231983253 - Control 1808416058 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of the related fixed asset. </source>
+          <source>Specifies the number of the related real estate asset. </source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Maintenance Registration - Control FRE No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2231983253 - Control 3097337210 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of the vendor who services the fixed asset for this entry.</source>
+          <source>Specifies the number of the vendor who services the real estate asset for this entry.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Maintenance Registration - Control Maintenance Vendor No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2231983253 - Control 2384545452 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the mobile phone number of the service agent who is servicing the fixed asset.</source>
+          <source>Specifies the mobile phone number of the service agent who is servicing the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Maintenance Registration - Control Service Agent Mobile Phone - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2231983253 - Control 3677867997 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the service agent who is servicing the fixed asset.</source>
+          <source>Specifies the name of the service agent who is servicing the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Maintenance Registration - Control Service Agent Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2231983253 - Control 2702401585 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the phone number of the service agent who is servicing the fixed asset.</source>
+          <source>Specifies the phone number of the service agent who is servicing the real estate asset.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Maintenance Registration - Control Service Agent Phone No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2231983253 - Control 1145210795 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the date when the fixed asset is being serviced.</source>
+          <source>Specifies the date when the real estate asset is being serviced.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Maintenance Registration - Control Service Date - Property ToolTip</note>
         </trans-unit>
@@ -7319,7 +7309,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Fixed Setup - Control Integration Garana - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2422034571 - Control 1170676042 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for the number series that will be used to assign numbers to fixed assets.</source>
+          <source>Specifies the code for the number series that will be used to assign numbers to real estate assets.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Fixed Setup - Control Repository Contracts Files - Property ToolTip</note>
         </trans-unit>
@@ -7333,15 +7323,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Fixed Setup - Control Numbering - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2422034571 - Control 537507574 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code for the number series that will be used to assign numbers to fixed assets.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Fixed Setup - Control Fixed Asset Nos. - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 2422034571 - Control 1870810210 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number series code that will be used to assign numbers to insurance policies.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Fixed Setup - Control Insurance Nos. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2422034571 - Control 1345222968 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for the number series that will be used to assign numbers to real estate assets.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Fixed Setup - Control real estate asset Nos. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2422034571 - Action 4168187076 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Configure the FA Setup</source>
@@ -8637,6 +8627,46 @@
           <source>Lease Contract</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Enum_DocsPropertyManagement - EnumValue Lease Contract - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 567589183 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 567589183 - EnumValue 1682139193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Bank Account - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 567589183 - EnumValue 1994964448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 567589183 - EnumValue 1498446062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Employee - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 567589183 - EnumValue 372951706 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Asset</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Fixed Asset - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 567589183 - EnumValue 377408248 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IC Partner</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue IC Partner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 567589183 - EnumValue 764677860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Real Estate Asset</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Real Estate Asset - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 567589183 - EnumValue 1936001480 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Vendor - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1493932097 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>

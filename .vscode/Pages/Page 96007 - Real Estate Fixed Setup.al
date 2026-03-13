@@ -32,10 +32,10 @@ page 96007 "Real Estate Fixed Setup"
             group(Numbering)
             {
                 Caption = 'Numbering';
-                field("Fixed Asset Nos."; rec."Fixed Asset Nos.")
+                field("real estate asset Nos."; rec."real estate asset Nos.")
                 {
                     ApplicationArea = FixedAssets;
-                    ToolTip = 'Specifies the code for the number series that will be used to assign numbers to fixed assets.';
+                    ToolTip = 'Specifies the code for the number series that will be used to assign numbers to real estate assets.';
                 }
                 field("Insurance Nos."; rec."Insurance Nos.")
                 {
@@ -60,7 +60,7 @@ page 96007 "Real Estate Fixed Setup"
                 }
                 field("Journal Batch Name"; rec."Journal Batch Name")
                 {
-                }   
+                }
                 field("Default Income Row No"; rec."Default Income Row No")
                 {
                 }
@@ -78,7 +78,7 @@ page 96007 "Real Estate Fixed Setup"
                 field("Repository Contracts Files"; rec."Repository Contracts Files")
                 {
                     ApplicationArea = FixedAssets;
-                    ToolTip = 'Specifies the code for the number series that will be used to assign numbers to fixed assets.';
+                    ToolTip = 'Specifies the code for the number series that will be used to assign numbers to real estate assets.';
                 }
                 field("Repository Lease Invoices"; rec."Repository Lease Invoices")
                 {
@@ -111,7 +111,7 @@ page 96007 "Real Estate Fixed Setup"
                 trigger OnAction()
                 var
                     InitSetup: Codeunit GeneralManagementInstall;
-                begin   
+                begin
                     InitSetup.ConfigurarREFSetup();
                 end;
             }
@@ -122,7 +122,7 @@ page 96007 "Real Estate Fixed Setup"
             {
                 Image = AnalysisView;
                 RunObject = Page "REF Income & Expenses Template";
-                RunPageLink = "No. Template"=CONST('');
+                RunPageLink = "No. Template" = CONST('');
             }
             action("Descriptions Docs. Classified")
             {
