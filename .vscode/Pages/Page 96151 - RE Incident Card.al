@@ -36,6 +36,9 @@ page 96151 "RE Incident Card"
                 field("Fixed Real Estate No."; rec."Fixed Real Estate No.")
                 {
                 }
+                field("REF Description";Rec."REF Description")
+                {                    
+                }
                 field("Contract No."; rec."Contract No.")
                 {
                 }
