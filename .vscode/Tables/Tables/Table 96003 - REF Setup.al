@@ -20,9 +20,9 @@ table 96003 "REF Setup"
             DataClassification = ToBeClassified;
             TableRelation = "No. Series";
         }
-        field(9; "real estate asset Nos."; Code[20])
+        field(9; "Fixed Asset Nos."; Code[20])
         {
-            Caption = 'real estate asset Nos.';
+            Caption = 'Real Estate Asset Nos.';
             TableRelation = "No. Series";
         }
         field(10; "Insurance Nos."; Code[20])

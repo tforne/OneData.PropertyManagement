@@ -94,7 +94,7 @@ codeunit 50501 GeneralManagementInstall
             NoSeriesLine.modify;
             REFSetup.MODIFY;
         end;
-        if REFSetup."real estate asset Nos." = '' then begin
+        if REFSetup."Fixed Asset Nos." = '' then begin
             NoSeries.Code := 'PM-FA';
             NoSeries.Description := 'Property Management real estate asset';
             NoSeries."Manual Nos." := true;
@@ -106,7 +106,7 @@ codeunit 50501 GeneralManagementInstall
             NoSeriesLine.Insert(true);
             NoSeriesLine."Starting No." := StrSubstNo('FA-%1-00001', Date2DMY(today, 3) - 2000);
             NoSeriesLine.modify;
-            REFSetup."real estate asset Nos." := 'PM-FA';
+            REFSetup."Fixed Asset Nos." := 'PM-FA';
             REFSetup.MODIFY;
         end;
         if REFSetup."Insurance Nos." = '' then begin

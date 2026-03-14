@@ -170,7 +170,7 @@ table 96100 "Incident Assets Real Estate"
 
     fieldgroups
     {
-        fieldgroup(DropDown; Title,"Contact No")
+        fieldgroup(DropDown; Title,"REF Description", "Contact - Name")
         {
         }
         fieldgroup(drilldown; "Incident Id.", Title, "Contract No.","Contact - Name")

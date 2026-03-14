@@ -32,7 +32,7 @@ page 96007 "Real Estate Fixed Setup"
             group(Numbering)
             {
                 Caption = 'Numbering';
-                field("real estate asset Nos."; rec."real estate asset Nos.")
+                field("real estate asset Nos."; rec."Fixed Asset Nos.")
                 {
                     ApplicationArea = FixedAssets;
                     ToolTip = 'Specifies the code for the number series that will be used to assign numbers to real estate assets.';

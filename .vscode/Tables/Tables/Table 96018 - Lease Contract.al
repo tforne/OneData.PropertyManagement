@@ -239,7 +239,7 @@ table 96018 "Lease Contract"
         field(31;"Description Fixed Real Estate";Text[50])
         {
             CalcFormula = Lookup("Fixed Real Estate".Description WHERE ("No."=FIELD("Fixed Real Estate No.")));
-            Caption = 'Description';
+            Caption = 'Description Fixed Real Estate';
             Editable = false;
             FieldClass = FlowField;
 

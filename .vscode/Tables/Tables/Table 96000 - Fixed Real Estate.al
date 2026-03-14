@@ -16,7 +16,7 @@ table 96000 "Fixed Real Estate"
             begin
                 IF "No." <> xRec."No." THEN BEGIN
                     REFASetup.GET;
-                    NoSeriesMgt.TestManual(REFASetup."real estate asset Nos.");
+                    NoSeriesMgt.TestManual(REFASetup."Fixed Asset Nos.");
                     "No. Series" := '';
                 END;
             end;
@@ -574,9 +574,8 @@ table 96000 "Fixed Real Estate"
     begin
         IF "No." = '' THEN BEGIN
             REFASetup.GET;
-            REFASetup.TESTFIELD("real estate asset Nos.");
-            // NoSeriesMgt.InitSeries(REFASetup."real estate asset Nos.",xRec."No. Series",0D,"No.","No. Series");
-            NoSeriesCode := REFASetup."real estate asset Nos.";
+            REFASetup.TESTFIELD("Fixed Asset Nos.");
+            NoSeriesCode := REFASetup."Fixed Asset Nos.";
             "No." := NoSeriesMgt.GetNextNo(NoSeriesCode, WorkDate(), true);
         END;
     end;

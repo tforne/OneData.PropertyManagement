@@ -1929,7 +1929,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Contract - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1105920040 - Field 1199407028 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
+          <source>Description Fixed Real Estate</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Contract - Field Description Fixed Real Estate - Property Caption</note>
         </trans-unit>
@@ -3923,6 +3923,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table REF Setup - Field Default Income Row No - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1254748834 - Field 537507574 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Real Estate Asset Nos.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table REF Setup - Field Fixed Asset Nos. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1254748834 - Field 1870810210 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Insurance Nos.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3952,11 +3957,6 @@
           <source>Primary Key</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table REF Setup - Field Primary Key - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1254748834 - Field 1345222968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>real estate asset Nos.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table REF Setup - Field real estate asset Nos. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1254748834 - Field 1170676042 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Repositorio contratos</source>

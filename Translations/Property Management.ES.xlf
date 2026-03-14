@@ -1485,6 +1485,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Description - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 1199407028 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description Fixed Real Estate</source>
+          <target>Decripcion Activo Inmobiliario</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Description Fixed Real Estate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2772947383 - Field 1673834120 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Expected Resolution Date</source>
           <target>Fecha de Resolución Esperada</target>
@@ -2314,8 +2320,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Contract - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1105920040 - Field 1199407028 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <target>Descripción</target>
+          <source>Description Fixed Real Estate</source>
+          <target>Descripción activo inmobiliario</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Contract - Field Description Fixed Real Estate - Property Caption</note>
         </trans-unit>
@@ -5196,7 +5202,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 683925318 - NamedType 3393061063" size-unit="char" translate="yes" xml:space="preserve">
           <source>The client will be notified of the incident %1</source>
-          <target>El cliente será notificado del incidente %</target>
+          <target>El cliente será notificado del incidente %1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text110</note>
         </trans-unit>
@@ -10353,65 +10359,56 @@
         </trans-unit>
         <trans-unit id="Enum 567589183 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
-          <target>[NAB: REVIEW]</target>
+          <target>" "</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source contains only white-space, consider using 'Locked = true' to avoid translation of unnecessary texts. This note can be toggled with the setting 'NAB.PreferLockedTranslations'.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue   - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 567589183 - EnumValue 1682139193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Account</source>
-          <target>[NAB: SUGGESTION]Cuenta bancaria</target>
+          <target>Banco</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Bank Account - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 567589183 - EnumValue 1994964448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Cliente</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Customer - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 567589183 - EnumValue 1498446062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Employee</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Empleado</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Employee - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 567589183 - EnumValue 372951706 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fixed Asset</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Activo inmobiliario</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Fixed Asset - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 567589183 - EnumValue 377408248 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>IC Partner</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>IC Partner</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue IC Partner - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 567589183 - EnumValue 764677860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Real Estate Asset</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Activo inmobiliario</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Real Estate Asset - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 567589183 - EnumValue 1936001480 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Proveedor</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Vendor - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1493932097 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
-          <target>[NAB: REVIEW]  </target>
+          <target>" "</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source contains only white-space, consider using 'Locked = true' to avoid translation of unnecessary texts. This note can be toggled with the setting 'NAB.PreferLockedTranslations'.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Line Type - EnumValue   - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1493932097 - EnumValue 3083078818 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
