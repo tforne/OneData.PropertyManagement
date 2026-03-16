@@ -67,7 +67,36 @@ table 96702 "FRE Jnl. Line"
         {
             Caption = 'Document No.';
         }
-
+        field(20; "Due Date"; Date)
+        {
+            Caption = 'Due Date';
+        }
+        field(21; Open; Boolean)
+        {
+            Caption = 'Open';
+        }
+        field(22; "Applies-to Entry No."; Integer)
+        {
+            Caption = 'Applies-to Entry No.';
+            TableRelation = "FRE Ledger Entry"."Entry No.";
+        }
+        field(23; "Amount to Apply"; Decimal)
+        {
+            Caption = 'Amount to Apply';
+            AutoFormatType = 1;
+        }
+        field(24; "External Document No."; Code[35])
+        {
+            Caption = 'External Document No.';
+        }
+        field(26; "Contract No."; Code[20])
+        {
+            Caption = 'Contract No.';
+        }
+        field(27; "Entry Category"; Enum "FRE Entry Category")
+        {
+            Caption = 'Entry Category';
+        }
         field(57; "Source Type"; Enum "FRE Journal Source Type")
         {
             Caption = 'Source Type';
@@ -151,7 +180,25 @@ table 96702 "FRE Jnl. Line"
             Clustered = true;
             MaintainSIFTIndex = false;
         }
-    }
+        key(Key2; "Fixed Real Estate No.", "Date")
+        {
+        }
+        key(Key3; "Document No.")
+        {
+        }
+        key(Key4; "Source Type", "Source No.")
+        {
+        }
+        key(Key5; Open, "Due Date")
+        {
+        }
+        key(Key6; "Contract No.", "Date")
+        {
+        }
+        key(Key7; "Entry Category", "Date")
+        {
+        }
+        }
 
     fieldgroups
     {

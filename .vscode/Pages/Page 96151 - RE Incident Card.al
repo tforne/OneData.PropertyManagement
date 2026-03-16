@@ -45,21 +45,21 @@ page 96151 "RE Incident Card"
                 field("Contact No"; rec."Contact No")
                 {
                 }
-                field("Contact Name"; ContractContactName)
+                field("Contact Name";rec."Contract - Contact Name")
                 {
+                    Caption = 'Contract - Contact Name';
                     Editable = false;
+
                 }
-                field("Contract Phone No."; ContractPhoneNo)
+                field("Contract Phone No."; rec."Contract - Phone No.")
                 {
-                    Caption = 'Contract Phone No.';
+                    Caption = 'Contract - Phone No.';
                     ExtendedDatatype = PhoneNo;
-                    Editable = false;
                 }
-                field("Contract E-Mail";ContractEMail)
+                field("Contract E-Mail";rec."Contract - EMail")
                 {
-                    Caption = 'Email';
+                    Caption = 'Contract Email';
                     ExtendedDatatype = EMail;
-                    Editable = false;
                 }
             }
             part(CommentLines; 96058)
@@ -220,24 +220,12 @@ page 96151 "RE Incident Card"
         else
             CurrPage.Editable(true);
         
-        ContractContactName := '';
-        ContractPhoneNo := '';
-        ContractEMail := '';
-    
-        if Contract.get(rec."Contract No.") then begin
-            ContractContactName := contract."Contact Name";
-            ContractPhoneNo := Contract."Phone No.";
-            ContractEMail := Contract."E-Mail";
-        end;
     end;
 
     var
         Contract : record "Lease Contract";
         Contact : Record "Contact";
         Customer : Record Customer;
-        ContractContactName : text;
-        ContractPhoneNo : Text[30];
-        ContractEMail : Text[80];
 
     local procedure SetStatusInProgress()
     begin

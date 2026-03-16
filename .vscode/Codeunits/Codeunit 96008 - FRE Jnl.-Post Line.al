@@ -13,6 +13,101 @@ codeunit 96008 "FRE Jnl.-Post Line"
     trigger OnRun()
     begin
     end;
+    procedure PostLine(var FREJnlLine: Record "FRE Jnl. Line")
+    var
+        FRELedgerEntry: Record "FRE Ledger Entry";
+        NextEntryNo: Integer;
+    begin
+        CheckLine(FREJnlLine);
+
+        NextEntryNo := GetNextLedgerEntryNo();
+
+        FRELedgerEntry.Init();
+        FRELedgerEntry."Entry No." := NextEntryNo;
+        FRELedgerEntry."Journal Template Name" := FREJnlLine."Journal Template Name";
+        FRELedgerEntry."Journal Batch Name" := FREJnlLine."Journal Batch Name";
+        FRELedgerEntry."Posting Date" := FREJnlLine.Date;
+        FRELedgerEntry."Line Type" := FREJnlLine."Line Type";
+        FRELedgerEntry."Fixed Real Estate No." := FREJnlLine."Fixed Real Estate No.";
+        FRELedgerEntry.Description := FREJnlLine.Description;
+        FRELedgerEntry."Row No." := FREJnlLine."Row No.";
+        FRELedgerEntry."Description Row No." := FREJnlLine."Description Row No.";
+        FRELedgerEntry.Amount := FREJnlLine.Amount;
+        FRELedgerEntry."Amount Including VAT" := FREJnlLine."Amount Including VAT";
+        FRELedgerEntry."Document Type" := FREJnlLine."Document Type";
+        FRELedgerEntry."Document No." := FREJnlLine."Document No.";
+        FRELedgerEntry."Source Type" := FREJnlLine."Source Type";
+        FRELedgerEntry."Source No." := FREJnlLine."Source No.";
+        FRELedgerEntry."Source Name" := FREJnlLine."Source Name";
+        FRELedgerEntry."Ledger Entry No." := FREJnlLine."Ledger Entry No.";
+        FRELedgerEntry.Insert();
+
+        // Aquí podéis enlazar con vuestra lógica contable o con una codeunit adicional de aplicación.
+        // Ejemplo de uso:
+        // ApplyEntries(OpenEntryNo, FRELedgerEntry."Entry No.", Abs(FRELedgerEntry.Amount), FRELedgerEntry."Posting Date", FRELedgerEntry."Document No.");
+
+        FREJnlLine.Delete();
+    end;
+
+    procedure ApplyEntries(OpenEntryNo: Integer; AppliedEntryNo: Integer; AmountToApply: Decimal; ApplicationDate: Date; DocumentNo: Code[20])
+    var
+        OpenEntry: Record "FRE Ledger Entry";
+        AppliedEntry: Record "FRE Ledger Entry";
+        FREDetailedLedgEntry: Record "FRE Detailed Ledg. Entry";
+    begin
+        if AmountToApply <= 0 then
+            Error('El importe a aplicar debe ser mayor que cero.');
+
+        OpenEntry.Get(OpenEntryNo);
+        AppliedEntry.Get(AppliedEntryNo);
+
+        FREDetailedLedgEntry.Init();
+        FREDetailedLedgEntry."FRE Ledger Entry No." := OpenEntry."Entry No.";
+        FREDetailedLedgEntry."Applied FRE Ledger Entry No." := AppliedEntry."Entry No.";
+        FREDetailedLedgEntry."Application Date" := ApplicationDate;
+        FREDetailedLedgEntry."Posting Date" := AppliedEntry."Posting Date";
+        FREDetailedLedgEntry."Document No." := DocumentNo;
+        FREDetailedLedgEntry."Document Type" := AppliedEntry."Document Type";
+        FREDetailedLedgEntry.Amount := AmountToApply;
+        FREDetailedLedgEntry."Fixed Real Estate No." := OpenEntry."Fixed Real Estate No.";
+        FREDetailedLedgEntry."Source Type" := AppliedEntry."Source Type";
+        FREDetailedLedgEntry."Source No." := AppliedEntry."Source No.";
+        FREDetailedLedgEntry."User ID" := CopyStr(UserId(), 1, MaxStrLen(FREDetailedLedgEntry."User ID"));
+        FREDetailedLedgEntry."Ledger Entry No." := AppliedEntry."Ledger Entry No.";
+        FREDetailedLedgEntry."Initial Entry Amount" := OpenEntry.Amount;
+        FREDetailedLedgEntry."Applied Entry Amount" := AppliedEntry.Amount;
+        FREDetailedLedgEntry.Insert();
+
+        // IMPORTANTE:
+        // Para un control completo de cobros/pagos, os recomiendo añadir en FRE Ledger Entry:
+        //  - Open : Boolean
+        //  - Remaining Amount : Decimal
+        //  - Closed at Date : Date
+        //  - Closed by Entry No. : Integer
+        // y actualizar esos campos aquí.
+    end;
+
+    local procedure CheckLine(var FREJnlLine: Record "FRE Jnl. Line")
+    begin
+        FREJnlLine.TestField("Journal Template Name");
+        FREJnlLine.TestField("Journal Batch Name");
+        FREJnlLine.TestField(Date);
+        FREJnlLine.TestField("Fixed Real Estate No.");
+        FREJnlLine.TestField("Document No.");
+
+        if FREJnlLine.Amount = 0 then
+            Error('El importe no puede ser cero.');
+    end;
+
+    local procedure GetNextLedgerEntryNo(): Integer
+    var
+        FRELedgerEntry: Record "FRE Ledger Entry";
+    begin
+        if FRELedgerEntry.FindLast() then
+            exit(FRELedgerEntry."Entry No." + 1);
+
+        exit(1);
+    end;
 
 procedure PostFRELedgerEntryFromLeaseInvoice(LeaseInvoiceHeader: Record "Lease Invoice Header")
     var

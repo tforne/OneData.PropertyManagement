@@ -143,6 +143,43 @@ page 96703 "FRE Journal Line"
                 //     CLEAR(GetGLRegister);
                 // end;
             }
+            action(DownloadTemplate)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Download Template';
+                Image = Excel;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ToolTip = 'Download an Excel template to import FRE journal lines.';
+
+                trigger OnAction()
+                var
+                    FREImportJnlLines: Codeunit "FRE Import Jnl. Lines";
+                begin
+                    FREImportJnlLines.DownloadTemplate();
+                end;
+            }
+            action(ImportFromExcel)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Import from Excel';
+                Image = ImportExcel;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ToolTip = 'Import journal lines from an Excel file into the current FRE journal batch.';
+
+                trigger OnAction()
+                var
+                    FREImportJnlLines: Codeunit "FRE Import Jnl. Lines";
+                begin
+                    FREImportJnlLines.ImportFromExcel(Rec);
+                    CurrPage.Update(false);
+                end;
+            }
             action(ChecklistReport)
             {
                 ApplicationArea = Basic, Suite;

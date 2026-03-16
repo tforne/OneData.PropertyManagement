@@ -69,6 +69,36 @@ table 96720 "FRE Ledger Entry"
         {
             Caption = 'Document No.';
         }
+        field(20; Open; Boolean)
+        {
+            Caption = 'Open';
+        }
+        field(21; "Due Date"; Date)
+        {
+            Caption = 'Due Date';
+        }
+        field(22; "Closed at Date"; Date)
+        {
+            Caption = 'Closed at Date';
+        }
+        field(23; "Closed by Entry No."; Integer)
+        {
+            Caption = 'Closed by Entry No.';
+        }
+        field(24; "Remaining Amount"; Decimal)
+        {
+            Caption = 'Remaining Amount';
+            AutoFormatType = 1;
+        }
+        field(25; "Remaining Amt. Incl. VAT"; Decimal)
+        {
+            Caption = 'Remaining Amt. Incl. VAT';
+            AutoFormatType = 1;
+        }
+        field(27; "Entry Category"; Enum "FRE Entry Category")
+        {
+            Caption = 'Entry Category';
+        }
         field(57; "Source Type"; Enum "FRE Journal Source Type")
         {
             Caption = 'Source Type';
@@ -101,6 +131,21 @@ table 96720 "FRE Ledger Entry"
     keys
     {
         key(Key1; "Entry No.")
+        {
+        }
+        key(Key2; "Fixed Real Estate No.", "Posting Date")
+        {
+        }
+        key(Key3; "Document No.")
+        {
+        }
+        key(Key4; "Source Type", "Source No.")
+        {
+        }
+        key(Key5; "Row No.", "Posting Date")
+        {
+        }
+        key(Key6; Open, "Due Date")
         {
         }
     }

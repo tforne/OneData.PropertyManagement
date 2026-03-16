@@ -44,6 +44,7 @@ codeunit 50501 GeneralManagementInstall
         end;
     end;
 
+    
     local procedure InsTenantUserMapping()
     var
         TenantUserMApping: Record "Tenant User Mapping";

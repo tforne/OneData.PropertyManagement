@@ -4,6 +4,7 @@ page 96152 "Incidents List"
     Caption = 'Incidents List';
     PageType = List;
     SourceTable = "Incident Assets Real Estate";
+    SourceTableView = SORTING("Fixed Real Estate No.", "Incident Date") ORDER(Ascending);
     UsageCategory = Lists;
     CardPageId = 96151;
     
@@ -30,6 +31,10 @@ page 96152 "Incidents List"
                 field("Fixed Real Estate No."; Rec."Fixed Real Estate No.")
                 {
                     ToolTip = 'Specifies the value of the No. field.', Comment = '%';
+                }
+                field("REF Description";Rec."REF Description")
+                {
+                    
                 }
                 field("Contract No."; Rec."Contract No.")
                 {
