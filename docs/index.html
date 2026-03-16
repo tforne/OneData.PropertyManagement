@@ -1,146 +1,267 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Property Management para Business Central</title>
-  <meta name="description" content="Extensión para Microsoft Dynamics 365 Business Central orientada a la gestión inmobiliaria: activos, contratos, operaciones, incidencias, gastos, ingresos y control operativo desde un único entorno." />
-  <style>
-    :root { --bg:#0b1020; --bg-soft:#121933; --card:#fff; --text:#111827; --text-light:#e5e7eb; --primary:#2563eb; --primary-dark:#1d4ed8; --border:#e5e7eb; --ok:#16a34a; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: Arial, Helvetica, sans-serif; color:var(--text); background:#f8fafc; line-height:1.5; }
-    .hero { background:linear-gradient(135deg,var(--bg) 0%,var(--bg-soft) 100%); color:var(--text-light); padding:72px 20px; }
-    .container { max-width:1120px; margin:0 auto; }
-    .hero-grid { display:grid; grid-template-columns:1.2fr 0.8fr; gap:32px; align-items:center; }
-    .eyebrow { display:inline-block; background:rgba(37,99,235,0.18); color:#bfdbfe; padding:8px 12px; border-radius:999px; font-size:13px; margin-bottom:18px; }
-    h1 { font-size:48px; line-height:1.1; margin:0 0 16px; }
-    .subtitle { font-size:18px; color:#cbd5e1; max-width:720px; margin-bottom:28px; }
-    .cta-row { display:flex; flex-wrap:wrap; gap:14px; margin-bottom:20px; }
-    .btn { text-decoration:none; padding:14px 18px; border-radius:12px; font-weight:bold; display:inline-block; }
-    .btn-primary { background:var(--primary); color:white; }
-    .btn-primary:hover { background:var(--primary-dark); }
-    .btn-secondary { border:1px solid rgba(255,255,255,0.18); color:white; background:rgba(255,255,255,0.04); }
-    .hero-card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:24px; }
-    .hero-card h3 { margin-top:0; color:white; }
-    .hero-card ul { padding-left:18px; color:#dbeafe; }
-    section { padding:68px 20px; }
-    .section-title { font-size:34px; margin:0 0 12px; text-align:center; }
-    .section-subtitle { text-align:center; color:#475569; max-width:800px; margin:0 auto 36px; }
-    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-    .card { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:24px; box-shadow:0 10px 30px rgba(15,23,42,0.05); }
-    .card h3 { margin-top:0; }
-    .card p { color:#475569; }
-    .card img { width:100%; border-radius:12px; margin:16px 0; border:1px solid #e5e7eb; display:block; }
-    .feature-list { list-style:none; padding:0; margin:0; }
-    .feature-list li { padding:10px 0; border-bottom:1px solid #eef2f7; }
-    .feature-list li:last-child { border-bottom:none; }
-    .split { display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; }
-    .badge { display:inline-block; font-size:12px; color:var(--ok); font-weight:bold; margin-bottom:8px; }
-    .faq details { background:white; border:1px solid var(--border); border-radius:14px; padding:16px 18px; margin-bottom:12px; }
-    .faq summary { cursor:pointer; font-weight:bold; }
-    .cta-final { background:#eff6ff; border-top:1px solid #dbeafe; border-bottom:1px solid #dbeafe; text-align:center; }
-    footer { padding:28px 20px 50px; text-align:center; color:#64748b; font-size:14px; }
-    @media (max-width: 900px) { .hero-grid, .grid-3, .split { grid-template-columns:1fr; } h1 { font-size:36px; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Management para Business Central | One Data</title>
+
+<meta name="description" content="Extensión de gestión inmobiliaria para Microsoft Dynamics 365 Business Central. Gestiona activos, contratos, incidencias y operaciones desde un único sistema.">
+
+<meta property="og:title" content="Property Management para Business Central">
+<meta property="og:description" content="Gestión de activos inmobiliarios directamente dentro de Microsoft Dynamics 365 Business Central.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/preview.png">
+
+<style>
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+margin:0;
+background:#f8fafc;
+color:#111827;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
+}
+
+.hero{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+padding:90px 20px;
+}
+
+.hero h1{
+font-size:46px;
+margin-bottom:16px;
+}
+
+.subtitle{
+font-size:18px;
+color:#cbd5e1;
+max-width:700px;
+}
+
+.btn{
+background:#2563eb;
+color:white;
+padding:14px 24px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+display:inline-block;
+margin-top:20px;
+}
+
+.btn:hover{
+background:#1d4ed8;
+}
+
+.section-title{
+text-align:center;
+font-size:34px;
+margin-bottom:10px;
+}
+
+.section-subtitle{
+text-align:center;
+color:#475569;
+margin-bottom:50px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+}
+
+.card{
+background:white;
+border-radius:16px;
+padding:24px;
+border:1px solid #e2e8f0;
+}
+
+.card h3{
+margin-top:0;
+}
+
+.screenshot{
+width:100%;
+border-radius:12px;
+border:1px solid #e2e8f0;
+}
+
+.cta{
+background:#eff6ff;
+}
+
+form{
+max-width:700px;
+margin:auto;
+}
+
+input,textarea{
+width:100%;
+padding:14px;
+border-radius:10px;
+border:1px solid #d1d5db;
+margin-bottom:16px;
+font-size:15px;
+}
+
+button{
+background:#2563eb;
+color:white;
+border:none;
+padding:14px 24px;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#64748b;
+}
+
+@media(max-width:900px){
+.grid{grid-template-columns:1fr}
+.hero h1{font-size:34px}
+}
+
+</style>
 </head>
+
 <body>
-  <header class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">Extensión para Microsoft Dynamics 365 Business Central</div>
-        <h1>Property Management para Business Central</h1>
-        <p class="subtitle">Gestiona activos inmobiliarios, contratos, operaciones, incidencias, gastos e ingresos desde Business Central, con una visión más clara de la operativa diaria y del historial de cada inmueble.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#contacto">Solicitar información</a>
-          <a class="btn btn-secondary" href="#funcionalidades">Ver funcionalidades</a>
-        </div>
-        <p style="color:#94a3b8; margin:0;">Pensada para promotoras, patrimoniales, administradores y empresas con cartera inmobiliaria propia.</p>
-      </div>
-      <div class="hero-card">
-        <h3>Qué aporta la solución</h3>
-        <ul>
-          <li>Control centralizado de activos y unidades</li>
-          <li>Seguimiento contractual y vencimientos</li>
-          <li>Gestión de operaciones, incidencias y actuaciones</li>
-          <li>Visibilidad de gastos, ingresos y rentabilidad</li>
-          <li>Documentación y trazabilidad por inmueble</li>
-        </ul>
-      </div>
-    </div>
-  </header>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Una forma más ordenada de gestionar tu cartera inmobiliaria</h2>
-      <p class="section-subtitle">Cuando la gestión inmobiliaria depende de hojas de cálculo, correos y tareas repartidas entre varias personas, se pierde tiempo y se reduce el control. Esta extensión reúne la operativa clave dentro de Business Central para trabajar con más orden, más trazabilidad y mejor capacidad de seguimiento.</p>
-      <div class="grid-3">
-        <div class="card"><h3>Menos dispersión</h3><p>Evita repartir la información entre documentos, correos y herramientas separadas. Todo queda vinculado al activo y a su operativa.</p></div>
-        <div class="card"><h3>Más visibilidad</h3><p>Consulta rápidamente el estado del inmueble, su contrato actual, las incidencias abiertas, las operaciones realizadas y las próximas actuaciones.</p></div>
-        <div class="card"><h3>Mejor seguimiento</h3><p>Dispón de una base más sólida para controlar vencimientos, ocupación, costes asociados, ingresos recurrentes e historial operativo.</p></div>
-      </div>
-    </div>
-  </section>
+<header class="hero">
+<div class="container">
+<h1>Property Management para Business Central</h1>
+<p class="subtitle">
+Gestiona activos inmobiliarios, contratos, operaciones e incidencias directamente desde Microsoft Dynamics 365 Business Central.
+</p>
 
-  <section id="funcionalidades" style="background:#ffffff;">
-    <div class="container">
-      <h2 class="section-title">Funcionalidades clave</h2>
-      <p class="section-subtitle">Una extensión pensada para cubrir la operativa diaria de empresas patrimoniales, gestoras y organizaciones con activos inmobiliarios propios o arrendados.</p>
-      <div class="split">
-        <div class="card"><div class="badge">OPERATIVA</div><h3>Gestión del activo inmobiliario</h3><ul class="feature-list"><li>Ficha de activo con datos identificativos y operativos</li><li>Control de estado: disponible, alquilado, reservado, baja, etc.</li><li>Seguimiento histórico del inmueble y su situación operativa</li><li>Asociación con propietarios, arrendatarios y documentación</li></ul></div>
-        <div class="card"><div class="badge">CONTRATOS</div><h3>Seguimiento contractual</h3><ul class="feature-list"><li>Control de contratos vigentes y vencimientos</li><li>Consulta rápida del inquilino actual</li><li>Visibilidad de renovaciones y situaciones pendientes</li><li>Base para renovaciones, revisiones y seguimiento administrativo</li></ul></div>
-        <div class="card"><div class="badge">OPERACIONES</div><h3>Operaciones realizadas sobre el activo</h3><ul class="feature-list"><li>Registro de operaciones y actuaciones vinculadas al inmueble</li><li>Trazabilidad completa de intervenciones, cambios y eventos relevantes</li><li>Consulta cronológica del historial operativo del activo</li><li>Base para un mejor seguimiento interno y para informar al propietario</li></ul></div>
-        <div class="card"><div class="badge">INCIDENCIAS</div><h3>Mantenimiento e incidencias</h3><ul class="feature-list"><li>Registro y seguimiento de incidencias</li><li>Priorización de tareas y actuaciones</li><li>Histórico de resolución</li><li>Mejor coordinación entre gestión administrativa y mantenimiento</li></ul></div>
-        <div class="card"><div class="badge">ECONOMÍA</div><h3>Gastos, ingresos y visión económica</h3><ul class="feature-list"><li>Relación entre activo y operativa económica</li><li>Seguimiento de gastos asociados</li><li>Visibilidad sobre ingresos recurrentes</li><li>Base para análisis económico y rentabilidad por inmueble</li></ul></div>
-        <div class="card"><div class="badge">CONTROL</div><h3>Visión completa del ciclo de vida</h3><ul class="feature-list"><li>Consulta unificada del estado actual y del recorrido histórico del activo</li><li>Mejor coordinación entre contratos, operaciones, incidencias y documentación</li><li>Más capacidad de seguimiento para gestores y propietarios</li><li>Base sólida para ampliar procesos y analítica en el futuro</li></ul></div>
-      </div>
-    </div>
-  </section>
+<a class="btn" href="#contacto">Solicitar demo</a>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Por qué elegir esta extensión</h2>
-      <p class="section-subtitle">Diseñada para integrarse con la lógica de trabajo de Business Central y aportar valor desde la operativa real.</p>
-      <div class="grid-3">
-        <div class="card"><h3>Integración natural</h3><p>La solución está pensada para trabajar dentro de Business Central, sin depender de procesos paralelos difíciles de mantener.</p></div>
-        <div class="card"><h3>Más trazabilidad</h3><p>La nueva capa de operaciones sobre el activo permite entender mejor qué ha ocurrido, cuándo y sobre qué inmueble.</p></div>
-        <div class="card"><h3>Preparada para evolucionar</h3><p>Puede crecer con nuevas necesidades funcionales, nuevos procesos y una mayor exigencia de control sobre la cartera inmobiliaria.</p></div>
-      </div>
-    </div>
-  </section>
+</div>
+</header>
 
-  <section style="background:#ffffff;">
-    <div class="container">
-      <h2 class="section-title">Qué puedes destacar con capturas</h2>
-      <p class="section-subtitle">Cuando tengas pantallas reales de la extensión, este bloque te ayudará a hacer la página mucho más convincente.</p>
-      <div class="grid-3">
-        <div class="card"><h3>Vista del activo</h3><img src="images/onedata-captura-activo.png" alt="Vista del activo inmobiliario"><p>Muestra la ficha del inmueble o unidad, con su estado, datos principales y acceso a contratos e incidencias.</p></div>
-        <div class="card"><h3>Gestión contractual</h3><img src="images/onedata-captura-contratos.png" alt="Gestión contractual"><p>Enseña cómo se visualizan los contratos vigentes, los vencimientos próximos y la relación con el inquilino.</p></div>
-        <div class="card"><h3>Operaciones e historial</h3><img src="images/onedata-captura-operaciones.png" alt="Operaciones e historial"><p>Incluye una captura donde se vea claramente el registro de operaciones realizadas sobre el activo y su seguimiento cronológico.</p></div>
-      </div>
-    </div>
-  </section>
+<section>
 
-  <section class="faq" style="background:#ffffff;">
-    <div class="container">
-      <h2 class="section-title">Preguntas frecuentes</h2>
-      <p class="section-subtitle">Puedes adaptar este bloque con tus respuestas reales antes de publicarla.</p>
-      <details><summary>¿La solución está pensada para Microsoft Dynamics 365 Business Central?</summary><p>Sí. Está planteada como una extensión orientada a ampliar Business Central para cubrir procesos específicos de gestión inmobiliaria.</p></details>
-      <details><summary>¿Qué tipo de organizaciones pueden utilizarla?</summary><p>Empresas patrimoniales, gestoras, administradores de fincas, promotoras o compañías que gestionen inmuebles propios o arrendados.</p></details>
-      <details><summary>¿Se puede evolucionar o adaptar a procesos concretos?</summary><p>Sí. Esta landing está redactada de forma general, pero puedes completarla con módulos, capturas, integraciones o procesos propios.</p></details>
-    </div>
-  </section>
+<div class="container">
 
-  <section class="cta-final" id="contacto">
-    <div class="container">
-      <h2 class="section-title">Solicita una demo o más información</h2>
-      <p class="section-subtitle">Sustituye este bloque por tu correo real, un formulario de contacto o un enlace para agendar una demostración.</p>
-      <div class="cta-row" style="justify-content:center;">
-        <a class="btn btn-primary" href="mailto:comercial@onedata.es">Solicitar información</a>
-        <a class="btn btn-secondary" href="https://onedata.es">Ver web corporativa</a>
-      </div>
-    </div>
-  </section>
+<h2 class="section-title">Funcionalidades principales</h2>
+<p class="section-subtitle">
+Centraliza la gestión inmobiliaria dentro de Business Central.
+</p>
 
-  <footer>© 2026 One Data · Property Management para Business Central</footer>
+<div class="grid">
+
+<div class="card">
+<h3>Gestión de activos</h3>
+<p>Ficha completa del inmueble con estado, información principal y acceso a contratos e incidencias.</p>
+</div>
+
+<div class="card">
+<h3>Contratos</h3>
+<p>Seguimiento de contratos vigentes, vencimientos y relación con inquilinos.</p>
+</div>
+
+<div class="card">
+<h3>Operaciones</h3>
+<p>Registro de operaciones realizadas sobre cada activo para mantener trazabilidad completa.</p>
+</div>
+
+<div class="card">
+<h3>Incidencias</h3>
+<p>Gestión de incidencias y mantenimiento vinculados a cada inmueble.</p>
+</div>
+
+<div class="card">
+<h3>Control económico</h3>
+<p>Relación entre gastos, ingresos y activos para analizar rentabilidad.</p>
+</div>
+
+<div class="card">
+<h3>Trazabilidad</h3>
+<p>Historial completo de contratos, incidencias y operaciones.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">Capturas de la solución</h2>
+<p class="section-subtitle">Ejemplo de pantallas dentro de Business Central.</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Activo inmobiliario</h3>
+<img class="screenshot" src="images/activo.png">
+</div>
+
+<div class="card">
+<h3>Contratos</h3>
+<img class="screenshot" src="images/contratos.png">
+</div>
+
+<div class="card">
+<h3>Operaciones</h3>
+<img class="screenshot" src="images/operaciones.png">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="cta" id="contacto">
+
+<div class="container">
+
+<h2 class="section-title">Solicitar información</h2>
+<p class="section-subtitle">
+Déjanos tus datos y te contactaremos para mostrarte la solución.
+</p>
+
+<form action="https://formspree.io/f/TU_FORM_ID" method="POST">
+
+<input type="text" name="name" placeholder="Nombre" required>
+<input type="text" name="company" placeholder="Empresa">
+<input type="email" name="email" placeholder="Email" required>
+<input type="text" name="phone" placeholder="Teléfono">
+<textarea name="message" rows="5" placeholder="Mensaje"></textarea>
+
+<button type="submit">Solicitar información</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<footer>
+© 2026 One Data · Property Management para Business Central
+</footer>
+
 </body>
 </html>
