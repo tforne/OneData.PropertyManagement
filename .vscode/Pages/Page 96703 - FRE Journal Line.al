@@ -24,91 +24,104 @@ page 96703 "FRE Journal Line"
 
                 trigger OnLookup(var Text: Text): Boolean
                 begin
-                    EXIT(FREJnlManagement.LookupName(rec.GETRANGEMAX("Journal Template Name"), CurrentJnlBatchName, Text));
+                    exit(FREJnlManagement.LookupName(Rec.GetRangeMax("Journal Template Name"), CurrentJnlBatchName, Text));
                 end;
 
                 trigger OnValidate()
                 begin
-
                     FREJnlManagement.CheckName(CurrentJnlBatchName, Rec);
-                    CurrentJnlBatchNameOnAfterVali;
+                    CurrentJnlBatchNameOnAfterVali();
                 end;
             }
+
             repeater(Group)
             {
-                field(Date; rec.Date)
+                field(Date; Rec.Date)
                 {
                     ApplicationArea = Basic, Suite;
                     StyleExpr = LineStyleExpression;
                     ToolTip = 'Specifies the date the item entry was posted.';
                 }
-                field("Document Type"; rec."Document Type")
+
+                field("Document Type"; Rec."Document Type")
                 {
+                    ApplicationArea = Basic, Suite;
                 }
-                field("Document No."; rec."Document No.")
+
+                field("Document No."; Rec."Document No.")
                 {
                     ApplicationArea = Basic, Suite;
                     StyleExpr = LineStyleExpression;
                     ToolTip = 'Specifies the document number on the entry.';
                 }
-                field("Line Type"; rec."Line Type")
+
+                field("Line Type"; Rec."Line Type")
                 {
                     ApplicationArea = Basic, Suite;
                     StyleExpr = LineStyleExpression;
                     ToolTip = 'Specifies the type of the item entry.';
                 }
-                field("Row No.";Rec."Row No.")
+
+                field("Row No."; Rec."Row No.")
                 {
                     ApplicationArea = Basic, Suite;
                     StyleExpr = LineStyleExpression;
                     ToolTip = 'Specifies the row number.';
                 }
-                field("Description Row No.";Rec."Description Row No.")
+
+                field("Description Row No."; Rec."Description Row No.")
                 {
                     ApplicationArea = Basic, Suite;
                     StyleExpr = LineStyleExpression;
                     ToolTip = 'Specifies the description row number.';
                 }
-                field("Source Type"; rec."Source Type")
+
+                field("Source Type"; Rec."Source Type")
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the entry type.';
                 }
-                field("Source No."; rec."Source No.")
+
+                field("Source No."; Rec."Source No.")
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the number that the item entry had in the table it came from.';
                 }
-                field("Source Name";Rec."Source Name")
+
+                field("Source Name"; Rec."Source Name")
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the name related to the source number.';
-                 }
                 }
-                field(Amount;Rec.Amount)
+
+                field(Amount; Rec.Amount)
                 {
                     ApplicationArea = Basic, Suite;
                     StyleExpr = LineStyleExpression;
                     ToolTip = 'Specifies the amount of the entry.';
                 }
-                field("Amount Including VAT";Rec."Amount Including VAT")
+
+                field("Amount Including VAT"; Rec."Amount Including VAT")
                 {
                     ApplicationArea = Basic, Suite;
                     StyleExpr = LineStyleExpression;
                     ToolTip = 'Specifies the amount including VAT of the entry.';
-                
+                }
             }
         }
+
         area(factboxes)
         {
             part(ErrorMessagesPart; 701)
             {
                 ApplicationArea = Basic, Suite;
             }
+
             systempart(Control1900383207; Links)
             {
                 Visible = false;
             }
+
             systempart(Control1900383208; Notes)
             {
                 Visible = false;
@@ -121,6 +134,7 @@ page 96703 "FRE Journal Line"
         area(navigation)
         {
         }
+
         area(processing)
         {
             action(GetEntries)
@@ -137,12 +151,12 @@ page 96703 "FRE Journal Line"
 
                 // trigger OnAction()
                 // begin
-
                 //     GetGLRegister.SetIRPFJnlLine(Rec);
-                //     GetGLRegister.RUNMODAL;
-                //     CLEAR(GetGLRegister);
+                //     GetGLRegister.RunModal();
+                //     Clear(GetGLRegister);
                 // end;
             }
+
             action(DownloadTemplate)
             {
                 ApplicationArea = Basic, Suite;
@@ -152,7 +166,7 @@ page 96703 "FRE Journal Line"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-                ToolTip = 'Download an Excel template to import FRE journal lines.';
+                ToolTip = 'Download the Excel template to import FRE journal lines.';
 
                 trigger OnAction()
                 var
@@ -161,6 +175,7 @@ page 96703 "FRE Journal Line"
                     FREImportJnlLines.DownloadTemplate();
                 end;
             }
+
             action(ImportFromExcel)
             {
                 ApplicationArea = Basic, Suite;
@@ -180,6 +195,7 @@ page 96703 "FRE Journal Line"
                     CurrPage.Update(false);
                 end;
             }
+
             action(ChecklistReport)
             {
                 ApplicationArea = Basic, Suite;
@@ -201,17 +217,17 @@ page 96703 "FRE Journal Line"
                       CODEUNIT.RUN(VATReportsConfiguration."Validate Codeunit ID",Rec);
                       EXIT;
                     END;
-                    
+
                     ReportPrint.PrintIntrastatJnlLine(Rec);
                     */
-
                 end;
             }
+
             action("Toggle Error Filter")
             {
                 ApplicationArea = Basic, Suite;
                 Caption = 'Filter Error Lines';
-                Image = "Filter";
+                Image = Filter;
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
@@ -220,12 +236,14 @@ page 96703 "FRE Journal Line"
 
                 trigger OnAction()
                 begin
-                    rec.MARKEDONLY(NOT rec.MARKEDONLY);
+                    Rec.MarkedOnly(not Rec.MarkedOnly);
                 end;
             }
+
             group(Page)
             {
                 Caption = 'Page';
+
                 action(EditInExcel)
                 {
                     ApplicationArea = Basic, Suite;
@@ -242,7 +260,11 @@ page 96703 "FRE Journal Line"
                     var
                         ODataUtility: Codeunit ODataUtility;
                     begin
-                        ODataUtility.EditJournalWorksheetInExcel(CurrPage.CAPTION, CurrPage.OBJECTID(FALSE), rec."Journal Batch Name", rec."Journal Template Name");
+                        ODataUtility.EditJournalWorksheetInExcel(
+                          CurrPage.Caption,
+                          CurrPage.ObjectId(false),
+                          Rec."Journal Batch Name",
+                          Rec."Journal Template Name");
                     end;
                 }
             }
@@ -251,44 +273,43 @@ page 96703 "FRE Journal Line"
 
     trigger OnAfterGetCurrRecord()
     begin
-        UpdateErrors;
+        UpdateErrors();
     end;
 
     trigger OnAfterGetRecord()
     begin
-        UpdateErrors;
+        UpdateErrors();
     end;
 
     trigger OnInit()
     begin
-        StatisticalValueVisible := TRUE;
+        StatisticalValueVisible := true;
     end;
 
     trigger OnOpenPage()
     var
         JnlSelected: Boolean;
     begin
-
-        IF rec.IsOpenedFromBatch THEN BEGIN
-            CurrentJnlBatchName := rec."Journal Batch Name";
+        if Rec.IsOpenedFromBatch then begin
+            CurrentJnlBatchName := Rec."Journal Batch Name";
             FREJnlManagement.OpenJnl(CurrentJnlBatchName, Rec);
-            EXIT;
-        END;
-        FREJnlManagement.TemplateSelection(PAGE::"FRE Journal Line", Rec, JnlSelected);
-        IF NOT JnlSelected THEN
-            ERROR('');
-        FREJnlManagement.OpenJnl(CurrentJnlBatchName, Rec);
+            exit;
+        end;
 
+        FREJnlManagement.TemplateSelection(Page::"FRE Journal Line", Rec, JnlSelected);
+        if not JnlSelected then
+            Error('');
+
+        FREJnlManagement.OpenJnl(CurrentJnlBatchName, Rec);
         LineStyleExpression := 'Standard';
     end;
 
     var
-        NoLinesLbl: label 'No hay líneas en el diario para generar el modelo. ¿ Quieres que te las sugiramos ?';
+        NoLinesLbl: Label 'No hay líneas en el diario para generar el modelo. ¿ Quieres que te las sugiramos ?';
         FREJnlLine: Record "FRE Jnl. Line";
         GetGLRegister: Report "IRPF Get IRPF Entries";
         ReportPrint: Codeunit "Test Report-Print";
         FREJnlManagement: Codeunit "FRE Journals Management";
-        //ClientTypeManagement: Codeunit "ClientTypeManagement";
         LineStyleExpression: Text;
         StatisticalValue: Decimal;
         TotalStatisticalValue: Decimal;
@@ -300,10 +321,9 @@ page 96703 "FRE Journal Line"
 
     local procedure CurrentJnlBatchNameOnAfterVali()
     begin
-
-        CurrPage.SAVERECORD;
+        CurrPage.SaveRecord();
         FREJnlManagement.SetName(CurrentJnlBatchName, Rec);
-        CurrPage.UPDATE(FALSE);
+        CurrPage.Update(false);
     end;
 
     local procedure ErrorsExistOnCurrentBatch(ShowError: Boolean): Boolean
@@ -311,9 +331,9 @@ page 96703 "FRE Journal Line"
         ErrorMessage: Record "Error Message";
         FREJnlBatch: Record "FRE Jnl. Batch";
     begin
-        FREJnlBatch.GET(rec."Journal Template Name", rec."Journal Batch Name");
+        FREJnlBatch.Get(Rec."Journal Template Name", Rec."Journal Batch Name");
         ErrorMessage.SetContext(FREJnlBatch);
-        EXIT(ErrorMessage.HasErrors(ShowError));
+        exit(ErrorMessage.HasErrors(ShowError));
     end;
 
     local procedure ErrorsExistOnCurrentLine(): Boolean
@@ -321,25 +341,25 @@ page 96703 "FRE Journal Line"
         ErrorMessage: Record "Error Message";
         FREJnlBatch: Record "FRE Jnl. Batch";
     begin
-        FREJnlBatch.GET(rec."Journal Template Name", rec."Journal Batch Name");
+        FREJnlBatch.Get(Rec."Journal Template Name", Rec."Journal Batch Name");
         ErrorMessage.SetContext(FREJnlBatch);
-        EXIT(ErrorMessage.HasErrorMessagesRelatedTo(Rec));
+        exit(ErrorMessage.HasErrorMessagesRelatedTo(Rec));
     end;
 
     local procedure UpdateErrors()
     begin
-        CurrPage.ErrorMessagesPart.PAGE.SetRecordID(rec.RECORDID);
-        CurrPage.ErrorMessagesPart.PAGE.GetStyleOfRecord(Rec, LineStyleExpression);
-        rec.MARK(ErrorsExistOnCurrentLine);
+        CurrPage.ErrorMessagesPart.Page.SetRecordId(Rec.RecordId);
+        CurrPage.ErrorMessagesPart.Page.GetStyleOfRecord(Rec, LineStyleExpression);
+        Rec.Mark(ErrorsExistOnCurrentLine());
     end;
-    local procedure ExistJournalLines() ExisLine : Boolean
+
+    local procedure ExistJournalLines() ExisLine: Boolean
     var
-        FREJnlLine: Record "FRE Jnl. Line";    
+        FREJnlLine2: Record "FRE Jnl. Line";
     begin
-        FREJnlLine.Reset();
-        FREJnlLine.SetRange("Journal Template Name", rec.GETRANGEMAX("Journal Template Name"));
-        FREJnlLine.SetRange("Journal Batch Name", CurrentJnlBatchName);
-        ExisLine := FREJnlLine.FindFirst();
+        FREJnlLine2.Reset();
+        FREJnlLine2.SetRange("Journal Template Name", Rec.GetRangeMax("Journal Template Name"));
+        FREJnlLine2.SetRange("Journal Batch Name", CurrentJnlBatchName);
+        ExisLine := FREJnlLine2.FindFirst();
     end;
 }
-

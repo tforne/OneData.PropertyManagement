@@ -202,8 +202,9 @@ page 96151 "RE Incident Card"
             ApplicationArea = Basic, Suite;
             Caption = 'Attach File';
             Promoted = true;
+            PromotedCategory = Process;
+            PromotedIsBig = true;
             Image = Attach;
-            Scope = Repeater;
             ToolTip = 'Attach a file to the incident record.';
 
             trigger OnAction()

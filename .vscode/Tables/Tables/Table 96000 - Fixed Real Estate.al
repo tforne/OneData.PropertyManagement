@@ -2,9 +2,8 @@ table 96000 "Fixed Real Estate"
 {
     Caption = 'Fixed Real Estate';
     DataCaptionFields = "No.", Description;
-    DrillDownPageID = 96001;
-    LookupPageID = 96001;
-    Permissions = TableData "Ins. Coverage Ledger Entry" = r;
+    DrillDownPageID = 96061;
+    LookupPageID = 96061;
 
     fields
     {

@@ -108,8 +108,9 @@ page 96152 "Incidents List"
             {
                 ApplicationArea = Basic, Suite;
                 Caption = 'Attach File';
+                Promoted = true;
+                PromotedCategory = Process;
                 Image = Attach;
-                Scope = Repeater;
                 ToolTip = 'Attach a file to the incident document record.';
 
                 trigger OnAction()

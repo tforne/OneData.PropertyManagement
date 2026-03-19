@@ -48,6 +48,10 @@ table 96004 "REF Income & Expense Template"
         {
             DataClassification = ToBeClassified;
         }
+        field(27; "Entry Category"; Enum "FRE Entry Category")
+        {
+            Caption = 'Entry Category';
+        }
     }
 
     keys

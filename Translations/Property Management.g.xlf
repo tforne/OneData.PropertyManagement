@@ -963,6 +963,261 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table FRE Equipment - Field Serial No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 828762091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Excel Template Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Excel Template Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 828762091 - Field 644119721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Template File</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Excel Template Setup - Field Journal Template File - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 828762091 - Field 1663593181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Excel Template Setup - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 828762091 - Field 1164027211 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Template File Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Excel Template Setup - Field Template File Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Import Preview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 3017400064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accept Suggestion</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Accept Suggestion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 1650118938 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount Including VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Amount Including VAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 3192175264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 2000659170 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description Row No. Text</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Description Row No. Text - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 2199736276 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description Row No. Value</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Description Row No. Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 2248886284 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Error - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 536678772 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Real Estate Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Fixed Real Estate Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 2785006923 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Real Estate No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Fixed Real Estate No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 158172202 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Line Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 2782707039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Row No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Row No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 1972081730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Row No. Value</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Row No. Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 1882905478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 1753214751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Source Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 669387652 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggestion Confidence</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Suggestion Confidence - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3887761882 - Field 1806044201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggestion Explanation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview - Field Suggestion Explanation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Import Preview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 3017400064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accept Suggestion</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Accept Suggestion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 1650118938 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount Including VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Amount Including VAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 3192175264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 2000659170 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description Row No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Description Row No. Text - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 3001368750 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Document Type Text - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 2248886284 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Error - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 3411902486 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Excel Row No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Excel Row No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 536678772 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Real Estate Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Fixed Real Estate Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 2785006923 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Real Estate No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Fixed Real Estate No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 1806942709 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Line Type Text - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 2782707039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Row No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Row No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 653058497 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggested Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Suggested Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 1549680396 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggested Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Suggested Source Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 669387652 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggestion Confidence</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Suggestion Confidence - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 1806044201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggestion Explanation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Suggestion Explanation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2072934698 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Import Suggestion Rule</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Suggestion Rule - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2072934698 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Suggestion Rule - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2072934698 - Field 3286003210 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hit Count</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Suggestion Rule - Field Hit Count - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2072934698 - Field 1065088499 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Used Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Suggestion Rule - Field Last Used Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2072934698 - Field 3482496012 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pattern</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Suggestion Rule - Field Pattern - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2072934698 - Field 2782707039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Row No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Suggestion Rule - Field Row No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2072934698 - Field 1882905478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Suggestion Rule - Field Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2072934698 - Field 1753214751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Suggestion Rule - Field Source Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2812746253 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>FRE Jnl. Batch</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3853,6 +4108,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table REF Income &amp; Expense Lines - Field Description - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2499553307 - Field 3833463168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry Category</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table REF Income &amp; Expense Lines - Field Entry Category - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2499553307 - Field 2194229237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3912,6 +4172,11 @@
           <source>Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table REF Income &amp; Expense Template - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2078298600 - Field 3833463168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry Category</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table REF Income &amp; Expense Template - Field Entry Category - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2078298600 - Field 584980105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Identation</source>
@@ -5583,6 +5848,41 @@
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Equipments - Control Serial No. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 828762091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Excel Template Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Excel Template Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 828762091 - Action 3969018065 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Download Stored Template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Excel Template Setup - Action DownloadStoredTemplate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 828762091 - Action 3442519275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test Download Stored Template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Excel Template Setup - Action TestDownloadStoredTemplate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 828762091 - Action 732141755 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test Open Stored Template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Excel Template Setup - Action TestOpenStoredTemplate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 828762091 - Action 1237462053 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Upload Excel Template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Excel Template Setup - Action UploadTemplate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3564166803 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Preview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Preview old - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1029779798 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Preview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Preview v2 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3912197647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>FRE Jnl. Batches</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5648,16 +5948,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - NamedType NoLinesLbl</note>
         </trans-unit>
-        <trans-unit id="Page 1018266202 - Control 636392376 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the amount of the entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control Amount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1018266202 - Control 1650118938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the amount including VAT of the entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control Amount Including VAT - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 1018266202 - Control 874212758 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the journal batch.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5667,6 +5957,16 @@
           <source>Batch Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control CurrentJnlBatchName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Control 636392376 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount of the entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Control 1650118938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount including VAT of the entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control Amount Including VAT - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1018266202 - Control 3192175264 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date the item entry was posted.</source>
@@ -5719,7 +6019,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Action ChecklistReport - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1018266202 - Action 3438415016 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Download an Excel template to import FRE journal lines.</source>
+          <source>Download the Excel template to import FRE journal lines.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Action DownloadTemplate - Property ToolTip</note>
         </trans-unit>
@@ -7708,6 +8008,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Documentos entrantes - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 586345089 - Action 419426744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Information - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3292464003 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Documentación</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Documentación - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3196258104 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Web Property Management</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action WebPropertyManagement - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 586345089 - Action 1074715950 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Journals</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7762,6 +8077,11 @@
           <source>Fixed Read Es. Web Site List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Fixed Read Es. Web Site List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 828762091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Excel Template Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action FRE Excel Template Setup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 586345089 - Action 2588469355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Insurance Types</source>
@@ -7942,6 +8262,66 @@
           <source>Specifies the value of the Description field.</source>
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Rentals Deposit - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Real Estate List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a description of the real estate asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Action 3000180178 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or add comments for the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Action Co&amp;mments - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Co&amp;mments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Action Co&amp;mments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Action 2075529655 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contratos relacionados</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Action Contratos relacionados - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Action 3588991647 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View service request cases associated with this fixed real estate.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Action Incidents - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Action 3588991647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incidents</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Action Incidents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Action 3370173147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Precios Indices de referencia</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Action Precios Indices de referencia - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Action 3198808537 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Related Contats</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Action Related Contats - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Action 84074407 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View detailed historical information about the real estate asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Action Statistics - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Action 84074407 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Statistics</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Action Statistics - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3072371513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contratación y Ventas</source>
@@ -8952,6 +9332,11 @@
           <source>Lease Contract</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Enum_DocsPropertyManagement - EnumValue Lease Contract - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2663975535 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Entry Category - EnumValue   - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2663975535 - EnumValue 153585834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Collection</source>

@@ -43,6 +43,12 @@ page 96009 "REF Income & Expenses Template"
                     Style = Strong;
                     StyleExpr = Emphasize;
                 }
+                field("Entry Category";rec."Entry Category")
+                {
+                    ApplicationArea = All;
+                    Style = Strong;
+                    StyleExpr = Emphasize;
+                }
             }
         }
     }

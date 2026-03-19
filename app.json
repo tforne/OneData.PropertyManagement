@@ -2,13 +2,13 @@
   "id": "88c7367c-5bbe-483c-996a-9b8206a8d923",
   "name": "Property Management",
   "publisher": "OneData",
-  "version": "3.0.26074.30",
+  "version": "3.0.26077.38",
   "brief": "",
   "description": "",
   "privacyStatement": "",
   "EULA": "",
   "help": "https://tforne.github.io/OneData.PropertyManagement/",
-  "url": "https://tforne.github.io/OneData.PropertyManagement/",
+  "url": "https://tforne.github.io/OneData.PropertyManagement/docs/",
   "logo": "./docs/Images/One_Data_Partner.png",
   "dependencies": [
     {

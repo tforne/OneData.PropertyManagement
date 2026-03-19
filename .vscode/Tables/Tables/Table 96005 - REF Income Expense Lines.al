@@ -62,6 +62,10 @@ table 96005 "REF Income & Expense Lines"
             Caption = 'Importe';
             DataClassification = ToBeClassified;
         }
+        field(27; "Entry Category"; Enum "FRE Entry Category")
+        {
+            Caption = 'Entry Category';
+        }
     }
 
     keys

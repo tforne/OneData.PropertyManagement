@@ -266,8 +266,36 @@ page 96015 "Real Estate Role Center"
                     Image = Setup;
                     RunObject = Page 427;
                 }
+                action("FRE Excel Template Setup")
+                {
+                    Caption = 'FRE Excel Template Setup';
+                    ApplicationArea = All;
+                    Image = Setup;
+                    RunObject = Page 96725;
+                }
+
+            }
+            group(Information)
+            {
+                Caption = 'Information';
+                action("WebPropertyManagement")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Web Property Management';
+                    Image = Web;
+                    RunObject = codeunit 96200;
+                }
+                action("Documentación")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Documentación';
+                    Image = Information;
+                    RunObject = codeunit 96201;
+
+                }
             }
         }
     }
 }
+
 
