@@ -38,10 +38,29 @@ table 96702 "FRE Jnl. Line"
         field(9; "Row No."; Code[10])
         {
             Caption = 'Row No.';
-            TableRelation = "REF Income & Expense Template"."Row No.";
             DataClassification = ToBeClassified;
+            trigger OnLookup()
+            var
+                REFIETemplate : record "REF Income & Expense Template";
+                PageREFIETemplate : page "REF Income & Expenses Template";
+            begin
+                REFIETemplate.reset;
+                REFIETemplate.setfilter(Type,'%1|%2',0,1);
+                if REFIETemplate.FindFirst() then begin
+                    PageREFIETemplate.LookupMode := true;
+                    PageREFIETemplate.SetRecord(REFIETemplate);
+                    PageREFIETemplate.SetTableView(REFIETemplate);
+                    if PageREFIETemplate.RunModal() = Action::LookupOK then begin
+                        PageREFIETemplate.GetRecord(REFIETemplate);
+                        rec."Row No." := REFIETemplate."Row No.";
+                        Rec."Description Row No." := REFIETemplate.Description;
+                        rec."Entry Category" := REFIETemplate."Entry Category";
+                    end;
+
+                end;
+            end;
         }
-        field(10; "Description Row No."; Code[10])
+        field(10; "Description Row No."; Code[100])
         {
             Caption = 'Description Row No.';
             DataClassification = ToBeClassified;
@@ -157,7 +176,7 @@ table 96702 "FRE Jnl. Line"
         {
             Caption = 'Source Name';
             DataClassification = ToBeClassified;
-            TableRelation = "OneData Grupos IRPF";
+
         }
 
         field(70; "System-Created Entry"; Boolean)
@@ -198,6 +217,9 @@ table 96702 "FRE Jnl. Line"
         key(Key7; "Entry Category", "Date")
         {
         }
+        key(Key8; "Line Type")
+        {
+        }
         }
 
     fieldgroups
@@ -207,10 +229,10 @@ table 96702 "FRE Jnl. Line"
     trigger OnDelete()
     var
         ErrorMessage: Record "Error Message";
-        IRPFJnlBatch: Record "OneData IRPF Jnl. Batch";
+        FREJnlBatch: Record "FRE Jnl. Batch";
     begin
-        IRPFJnlBatch.GET("Journal Template Name", "Journal Batch Name");
-        ErrorMessage.SetContext(IRPFJnlBatch);
+        FREJnlBatch.GET("Journal Template Name", "Journal Batch Name");
+        ErrorMessage.SetContext(FREJnlBatch);
         ErrorMessage.ClearLogRec(Rec);
     end;
 

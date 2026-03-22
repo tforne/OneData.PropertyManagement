@@ -808,6 +808,7 @@ codeunit 96000 "Real Estate Management"
                     REFIncomeExpensesLines."Row No." := REFIncomeExpensesTemplate."Row No.";
                     REFIncomeExpensesLines.Type := REFIncomeExpensesTemplate.Type;
                     REFIncomeExpensesLines.Description := REFIncomeExpensesTemplate.Description;
+                    REFIncomeExpensesLines."Entry Category" := REFIncomeExpensesTemplate."Entry Category";
                     REFIncomeExpensesLines.Quantity := 0;
                     REFIncomeExpensesLines.Price := 0;
                     REFIncomeExpensesLines.Amount := 0;

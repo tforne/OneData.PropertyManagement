@@ -5,7 +5,7 @@ page 96061 "Simple Fixed Real Estate List"
     PageType = List;
     PopulateAllFields = true;
     SourceTable = "Fixed Real Estate";
-    SourceTableView = SORTING("Property Description", "Property No.", Type, Description) where (Type = const(1));
+    SourceTableView = SORTING("Property Description", "Property No.", Type, Description);
     UsageCategory = Lists;
     ApplicationArea = All;
 
@@ -17,10 +17,14 @@ page 96061 "Simple Fixed Real Estate List"
             repeater(Group)
             {
                 FreezeColumn = Description;
+                field(Type;Rec.Type)
+                {
+                    ApplicationArea = All;
+                    Visible = true;
+                }
                 field("No."; rec."No.")
                 {
                     ApplicationArea = All;
-                    Style = Strong;
                     ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
                     Visible = true;
                 }

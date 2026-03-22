@@ -60,6 +60,10 @@ page 96720 "Movs. FRE"
                 {
                     ApplicationArea = All;
                 }
+                field("Entry Category";Rec."Entry Category")
+                {
+                    ApplicationArea = All;
+                }
                 field(Amount;Rec.Amount)
                 {
                     ApplicationArea = All;

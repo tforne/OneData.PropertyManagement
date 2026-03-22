@@ -34,6 +34,10 @@ page 96011 "REF Income & Expenses List"
                     StyleExpr = Emphasize;
                     ApplicationArea = All;
                 }
+                field("Entry Category";Rec."Entry Category")
+                {
+                        ApplicationArea = All;
+                }
                 field(Quantity; rec.Quantity)
                 {
                     ApplicationArea = All;

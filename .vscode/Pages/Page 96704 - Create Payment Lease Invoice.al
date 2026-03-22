@@ -262,6 +262,7 @@ page 96704 "Create Payment Lease Invoice"
         FREJnlLine."Document No." := LeaseInvoiceHeader."No.";
         FREJnlLine."Row No." := REFSetup."Default Income Row No";
         FREJnlLine."Description Row No." := REFSetup."Default Income Row No";
+        FREJnlLine."Entry Category" := FREJnlLine."Entry Category"::Rent;
         FREJnlLine.Description := StrSubstNo('%1 %2',FREJnlLine."Document Type",LeaseInvoiceHeader."No.");
 
         LeaseInvoiceHeader.calcfields(Amount,"Amount Including VAT");

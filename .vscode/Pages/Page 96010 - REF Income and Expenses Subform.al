@@ -37,6 +37,13 @@ page 96010 "REF Income & Expenses Subform"
                     ApplicationArea = All;
                     BlankZero = true;
                 }
+                field("Entry Category"; rec."Entry Category")
+                {
+                    Caption = 'Entry Category';
+                    ApplicationArea = All;
+                    Style = Standard;
+                    StyleExpr = Emphasize;
+                }
                 field(Price; rec.Price)
                 {
                     ApplicationArea = All;

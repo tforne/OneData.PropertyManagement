@@ -43,7 +43,7 @@ table 96720 "FRE Ledger Entry"
             TableRelation = "REF Income & Expense Template"."Row No.";
             DataClassification = ToBeClassified;
         }
-        field(10; "Description Row No."; Code[10])
+        field(10; "Description Row No."; text[100])
         {
             Caption = 'Description Row No.';
             DataClassification = ToBeClassified;

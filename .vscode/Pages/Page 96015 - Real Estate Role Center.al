@@ -273,7 +273,13 @@ page 96015 "Real Estate Role Center"
                     Image = Setup;
                     RunObject = Page 96725;
                 }
-
+                action("FRE Jnl. Template List")
+                {
+                    Caption = 'FRE Jnl. Template List';
+                    ApplicationArea = All;
+                    Image = Setup;
+                    RunObject = Page 96700;
+                }
             }
             group(Information)
             {

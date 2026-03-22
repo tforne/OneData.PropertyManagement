@@ -67,6 +67,18 @@ page 96703 "FRE Journal Line"
                     ApplicationArea = Basic, Suite;
                     StyleExpr = LineStyleExpression;
                     ToolTip = 'Specifies the row number.';
+                    trigger OnValidate()
+                    var
+                        RefIETemplante : Record "REF Income & Expense Template";
+                    begin
+                        rec."Description Row No." := '';
+                        RefIETemplante.reset;
+                        RefIETemplante.SetRange("Row No.",rec."Row No.");
+                        if RefIETemplante.FindFirst() then begin
+                            rec."Description Row No." := RefIETemplante.Description;
+                            rec."Entry Category" := RefIETemplante."Entry Category";
+                        end;
+                    end;
                 }
 
                 field("Description Row No."; Rec."Description Row No.")
@@ -76,22 +88,38 @@ page 96703 "FRE Journal Line"
                     ToolTip = 'Specifies the description row number.';
                 }
 
+                field(Description;Rec.Description)
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the description.';
+                    Visible = true;
+                }
+                field("Entry Category";Rec."Entry Category")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the entry category.';
+                    Visible = true;
+                }
+
                 field("Source Type"; Rec."Source Type")
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the entry type.';
+                    Visible = false;
                 }
 
                 field("Source No."; Rec."Source No.")
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the number that the item entry had in the table it came from.';
+                    Visible = false;
                 }
 
                 field("Source Name"; Rec."Source Name")
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the name related to the source number.';
+                    Visible = false;
                 }
 
                 field(Amount; Rec.Amount)
@@ -106,6 +134,7 @@ page 96703 "FRE Journal Line"
                     ApplicationArea = Basic, Suite;
                     StyleExpr = LineStyleExpression;
                     ToolTip = 'Specifies the amount including VAT of the entry.';
+                    Visible = false;
                 }
             }
         }
@@ -265,6 +294,51 @@ page 96703 "FRE Journal Line"
                           CurrPage.ObjectId(false),
                           Rec."Journal Batch Name",
                           Rec."Journal Template Name");
+                    end;
+                }
+            }
+            group(post)
+            {
+                Caption = 'Post';
+                action(CheckJournal)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Check';
+                    Image = Check;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = true;
+                    PromotedOnly = true;
+                    ToolTip = 'Validate the FRE journal lines before posting.';
+
+                    trigger OnAction()
+                    var
+                        FREJnlPostBatch: Codeunit "FRE Jnl.-Post Batch";
+                    begin
+                        FREJnlPostBatch.RunCheck(Rec);
+                    end;
+                }
+                action(PostJournal)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Post';
+                    Image = Post;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = true;
+                    PromotedOnly = true;
+                    ShortCutKey = 'F9';
+                    ToolTip = 'Post the FRE journal lines.';
+
+                    trigger OnAction()
+                    var
+                        FREJnlPostBatch: Codeunit "FRE Jnl.-Post Batch";
+                    begin
+                        if not Confirm('¿Desea registrar el diario %1?', false, Rec."Journal Batch Name") then
+                            exit;
+
+                        FREJnlPostBatch.RunPost(Rec);
+                        CurrPage.Update(false);
                     end;
                 }
             }

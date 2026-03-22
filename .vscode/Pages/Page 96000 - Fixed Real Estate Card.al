@@ -499,6 +499,26 @@ page 96000 "Fixed Real Estate Card"
                 RunObject = Page "Fixed Real Estate Avatar";
                 RunPageLink = "No." = FIELD("No.");
             }
+            group(History)
+            {
+                Caption = 'History';
+
+                action(FRELedgerEntries)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'FRE Movs.';
+                    Image = LedgerEntries;
+                    ToolTip = 'View FRE ledger entries for this real estate asset.';
+
+                    trigger OnAction()
+                    var
+                        FRELedgerEntry: Record "FRE Ledger Entry";
+                    begin
+                        FRELedgerEntry.SetRange("Fixed Real Estate No.", Rec."No.");
+                        Page.Run(Page::"Movs. FRE", FRELedgerEntry);
+                    end;
+                }
+            }
         }
         area(processing)
         {

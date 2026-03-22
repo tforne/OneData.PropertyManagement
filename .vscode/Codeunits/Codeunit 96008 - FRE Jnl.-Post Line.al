@@ -32,6 +32,7 @@ codeunit 96008 "FRE Jnl.-Post Line"
         FRELedgerEntry.Description := FREJnlLine.Description;
         FRELedgerEntry."Row No." := FREJnlLine."Row No.";
         FRELedgerEntry."Description Row No." := FREJnlLine."Description Row No.";
+        FRELedgerEntry."Entry Category" := FREJnlLine."Entry Category";
         FRELedgerEntry.Amount := FREJnlLine.Amount;
         FRELedgerEntry."Amount Including VAT" := FREJnlLine."Amount Including VAT";
         FRELedgerEntry."Document Type" := FREJnlLine."Document Type";
@@ -135,6 +136,7 @@ procedure PostFRELedgerEntryFromLeaseInvoice(LeaseInvoiceHeader: Record "Lease I
         insFREJnlLine."Document No." := LeaseInvoiceHeader."No.";
         insFREJnlLine."Row No." := REFSetup."Default Income Row No";
         insFREJnlLine."Description Row No." := REFSetup."Default Income Row No";
+        insFREJnlLine."Entry Category" := insFREJnlLine."Entry Category"::Rent;
         insFREJnlLine.Description := StrSubstNo('%1 %2',insFREJnlLine."Document Type",LeaseInvoiceHeader."No."); 
         LeaseInvoiceHeader.calcfields(Amount,"Amount Including VAT");
         insFREJnlLine.Amount := LeaseInvoiceHeader."Amount";
@@ -176,6 +178,7 @@ procedure PostFRELedgerEntryFromLeaseInvoice(LeaseInvoiceHeader: Record "Lease I
         insFRELedgerEntry."Document No." := FREJnlLine."Document No.";
         insFRELedgerEntry."Row No." := FREJnlLine."Row No.";
         insFRELedgerEntry."Description Row No." := FREJnlLine."Description Row No.";
+        insFRELedgerEntry."Entry Category" := FREJnlLine."Entry Category";
         insFRELedgerEntry.Amount := FREJnlLine.Amount;
         insFRELedgerEntry."Amount Including VAT" := FREJnlLine."Amount Including VAT";
         insFRELedgerEntry."Ledger Entry No." := FREJnlLine."Ledger Entry No.";

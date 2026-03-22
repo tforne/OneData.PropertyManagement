@@ -39,6 +39,10 @@ table 96727 "FRE Import Suggestion Rule"
         {
             Caption = 'Last Used Date';
         }
+        field(27; "Entry Category"; Enum "FRE Entry Category")
+        {
+            Caption = 'Entry Category';
+        }
     }
 
     keys

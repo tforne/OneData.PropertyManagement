@@ -546,7 +546,7 @@ table 96000 "Fixed Real Estate"
 
     fieldgroups
     {
-        fieldgroup(DropDown; "No.", Description, "Asset Type", Status)
+        fieldgroup(DropDown; Description, Type,"No.", Status)
         {
         }
         fieldgroup(Brick; "No.", Description, City, Image)

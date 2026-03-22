@@ -61,6 +61,7 @@ codeunit 96012 "FRE Import Jnl. Lines"
             Error('El fichero Excel no contiene líneas para importar.');
 
         BuildPreview(TempExcelBuffer, PreviewRec, HasErrors);
+        commit;
 
         Page.RunModal(Page::"FRE Import Preview v2", PreviewRec);
 
@@ -281,21 +282,22 @@ codeunit 96012 "FRE Import Jnl. Lines"
 
 
 
-local procedure CheckHeaderCell(var TempExcelBuffer: Record "Excel Buffer" temporary; RowNo: Integer; ColNo: Integer; ExpectedText: Text)
-var
-    CurrentValue: Text;
-begin
-    CurrentValue := GetCellValue(TempExcelBuffer, RowNo, ColNo);
-    if CurrentValue <> ExpectedText then
-        Error(
-            'Cabecera incorrecta en columna %1. Esperado: %2. Actual: %3',
-            ColNo,
-            ExpectedText,
-            CurrentValue);
-end;
+    local procedure CheckHeaderCell(var TempExcelBuffer: Record "Excel Buffer" temporary; RowNo: Integer; ColNo: Integer; ExpectedText: Text)
+    var
+        CurrentValue: Text;
+    begin
+        CurrentValue := GetCellValue(TempExcelBuffer, RowNo, ColNo);
+        if CurrentValue <> ExpectedText then
+            Error(
+                'Cabecera incorrecta en columna %1. Esperado: %2. Actual: %3',
+                ColNo,
+                ExpectedText,
+                CurrentValue);
+    end;
 
     local procedure BuildPreview(var TempExcelBuffer: Record "Excel Buffer" temporary; var PreviewRec: Record "FRE Import Preview v2" temporary; var HasErrors: Boolean)
     var
+        AssetSuggestionMgt: Codeunit "FRE Asset Suggestion Mgt.";
         RowNo: Integer;
         LastRowNo: Integer;
         ErrorText: Text[250];
@@ -315,14 +317,21 @@ end;
                 HasErrors := true;
 
             FillPreviewRecord(PreviewRec, TempExcelBuffer, RowNo, ErrorText);
+            if PreviewRec."Fixed Real Estate No." <> '' then           
+                AssetSuggestionMgt.LearnFromPreview(PreviewRec)
+            else
+                AssetSuggestionMgt.SuggestFixedRealEstate(PreviewRec);
+            PreviewRec.Modify();
         end;
     end;
 
     local procedure FillPreviewRecord(var PreviewRec: Record "FRE Import Preview v2" temporary; var TempExcelBuffer: Record "Excel Buffer" temporary; RowNo: Integer; ErrorText: Text[250])
     var
+        REFincomeExpensesTemplate: Record "REF Income & Expense Template";
         TempDate: Date;
         TempDecimal: Decimal;
         RowDescription: Text[100];
+        FixedRealEstateDescription :  Text[100];
     begin
         PreviewRec.Init();
         PreviewRec."Excel Row No." := RowNo;
@@ -330,19 +339,25 @@ end;
         if Evaluate(TempDate, GetCellValue(TempExcelBuffer, RowNo, 1)) then
             PreviewRec.Date := TempDate;
 
-        // PreviewRec."Document Type" := CopyStr(GetCellValue(TempExcelBuffer, RowNo, 2), 1, MaxStrLen(PreviewRec."Document Type"));
         PreviewRec."Document No." := CopyStr(GetCellValue(TempExcelBuffer, RowNo, 3), 1, MaxStrLen(PreviewRec."Document No."));
-        // PreviewRec."Line Type" := CopyStr(GetCellValue(TempExcelBuffer, RowNo, 4), 1, MaxStrLen(PreviewRec."Line Type"));
-
-        PreviewRec."Fixed Real Estate No." :=
-            ResolveFixedRealEstateNoByDescription(
-                CopyStr(GetCellValue(TempExcelBuffer, RowNo, 5), 1, 100));
+        
+        FixedRealEstateDescription := CopyStr(GetCellValue(TempExcelBuffer, RowNo, 5), 1, 100);
+        PreviewRec."Fixed Real Estate No." := ResolveFixedRealEstateNoByDescription(FixedRealEstateDescription);
+        PreviewRec."Fixed Real Estate Description" := FixedRealEstateDescription;
 
         PreviewRec.Description := CopyStr(GetCellValue(TempExcelBuffer, RowNo, 6), 1, MaxStrLen(PreviewRec.Description));
 
         RowDescription := CopyStr(GetCellValue(TempExcelBuffer, RowNo, 7), 1, 100);
         PreviewRec."Description Row No. Text" := RowDescription;
         PreviewRec."Row No." := ResolveRowNoByDescription(RowDescription);
+
+        // asignar Entry categoria
+        if PreviewRec."Row No." <>'' then begin
+            REFincomeExpensesTemplate.reset;
+            REFincomeExpensesTemplate.setrange("Row No.",PreviewRec."Row No.");
+            if REFincomeExpensesTemplate.FindFirst() then 
+                PreviewRec."Entry Category" := REFincomeExpensesTemplate."Entry Category";
+        end;
 
         // Ya no viene Source Type ni Source No.
         // PreviewRec."Source Type" := '';
@@ -377,10 +392,10 @@ end;
                 AppendError(ErrorText, StrSubstNo('Date no es válido: %1.', CellValue));
 
         // Document Type (opcional)
-        CellValue := GetCellValue(TempExcelBuffer, RowNo, 2);
-        if CellValue <> '' then
-            if not Evaluate(GenJnlDocType, CellValue) then
-                AppendError(ErrorText, StrSubstNo('Document Type no es válido: %1.', CellValue));
+        // CellValue := GetCellValue(TempExcelBuffer, RowNo, 2);
+        // if CellValue <> '' then
+        //     if not Evaluate(GenJnlDocType, CellValue) then
+        //         AppendError(ErrorText, StrSubstNo('Document Type no es válido: %1.', CellValue));
 
         // Document No.
         CellValue := GetCellValue(TempExcelBuffer, RowNo, 3);
@@ -388,12 +403,12 @@ end;
             AppendError(ErrorText, 'Document No. es obligatorio.');
 
         // Line Type
-        CellValue := GetCellValue(TempExcelBuffer, RowNo, 4);
-        if CellValue = '' then
-            AppendError(ErrorText, 'Line Type es obligatorio.')
-        else
-            if not ResolveLineType(CellValue, FRELineType) then
-                AppendError(ErrorText, StrSubstNo('Line Type no es válido: %1.', CellValue));
+        // CellValue := GetCellValue(TempExcelBuffer, RowNo, 4);
+        // if CellValue = '' then
+        //    AppendError(ErrorText, 'Line Type es obligatorio.')
+        // else
+        //     if not ResolveLineType(CellValue, FRELineType) then
+        //         AppendError(ErrorText, StrSubstNo('Line Type no es válido: %1.', CellValue));
 
         // Fixed Real Estate Description
         CellValue := GetCellValue(TempExcelBuffer, RowNo, 5);
@@ -442,12 +457,13 @@ end;
             ErrorText := CopyStr(ErrorText + ' ' + NewError, 1, MaxStrLen(ErrorText));
     end;
 
-    local procedure InsertPreviewLines(var FREJnlLine: Record "FRE Jnl. Line"; var PreviewRec: Record "FRE Import Preview v2" temporary)
+    local procedure InsertPreviewLines(var FREJnlLine: Record "FRE Jnl. Line"; var PreviewRec: Record "FRE Import Preview v2")
     var
         NewLine: Record "FRE Jnl. Line";
         NextLineNo: Integer;
         FRELineType: Enum "FRE Line Type";
         GenJnlDocType: Enum "Gen. Journal Document Type";
+        AssetSuggestionMgt: Codeunit "FRE Asset Suggestion Mgt.";
     begin
         NextLineNo := GetNextLineNo(FREJnlLine."Journal Template Name", FREJnlLine."Journal Batch Name");
 
@@ -472,41 +488,37 @@ end;
 
                 NewLine.Validate("Document No.", PreviewRec."Document No.");
 
-                // if not ResolveLineType(PreviewRec."Line Type", FRELineType) then
-                //     Error('No se ha podido convertir el Line Type %1.', PreviewRec."Line Type");
-
-                NewLine.Validate("Line Type", FRELineType);
+                NewLine."Line Type" := NewLine."Line Type" :: Invoice;
 
                 if PreviewRec."Fixed Real Estate No." <> '' then
                     NewLine.Validate("Fixed Real Estate No.", PreviewRec."Fixed Real Estate No.");
 
+               // Aplicar sugerencia de inmueble si el usuario la ha aceptado
+                if (PreviewRec."Fixed Real Estate No." = '') and PreviewRec."Accept Suggestion" then
+                    PreviewRec."Fixed Real Estate No." := PreviewRec."Suggested FRE No.";
+
                 if PreviewRec.Description <> '' then
                     NewLine.Validate(Description, PreviewRec.Description);
 
-                if PreviewRec."Row No." <> '' then
+                if PreviewRec."Row No." <> '' then begin
                     NewLine.Validate("Row No.", PreviewRec."Row No.");
-
+                    NewLine.Validate("Entry Category", PreviewRec."Entry Category");
+                end;
                 if PreviewRec."Description Row No. Text" <> '' then
                     NewLine.Validate("Description Row No.", PreviewRec."Description Row No. Text");
-
-                // Source vacío en este modelo
+                
                 NewLine.Amount := PreviewRec.Amount;
                 NewLine."Amount Including VAT" := PreviewRec."Amount Including VAT";
 
-                if PreviewRec."Accept Suggestion" then begin
-                    if PreviewRec."Suggested Source Type" <> PreviewRec."Suggested Source Type"::" " then
-                        NewLine.Validate("Source Type", PreviewRec."Suggested Source Type");
-
-                    if PreviewRec."Suggested Source No." <> '' then
-                        NewLine.Validate("Source No.", PreviewRec."Suggested Source No.");
-                end;
-
                 NewLine.Insert(true);
+
+                // Aprendizaje histórico
+                AssetSuggestionMgt.LearnFromPreview(PreviewRec);
 
                 NextLineNo += 10000;
             until PreviewRec.Next() = 0;
     end;
-
+    
     local procedure IsRowEmpty(var TempExcelBuffer: Record "Excel Buffer" temporary; RowNo: Integer): Boolean
     begin
         exit(
@@ -595,5 +607,48 @@ end;
         end;
 
         exit(false);
+    end;
+
+    procedure ValidatePreview (var PreviewRec: Record "FRE Import Preview v2" temporary): Text[250]
+    var
+        AssetSuggestionMgt: Codeunit "FRE Asset Suggestion Mgt.";
+        ErrorText: Text[250];
+        CellValue: Text;
+        TempDate: Date;
+        TempDecimal: Decimal;
+        GenJnlDocType: Enum "Gen. Journal Document Type";
+        FRELineType: Enum "FRE Line Type";
+        ResolvedFRENo: Code[20];
+        ResolvedRowNo: Code[10];
+    begin
+        PreviewRec.Error := '';
+        // Date
+        if PreviewRec.Date = 0D then
+            AppendError(ErrorText, 'Date es obligatorio.');
+
+        // Line Type
+        // if PreviewRec."Line Type Text" = '' then
+        //     AppendError(ErrorText, 'Line Type es obligatorio.');
+
+        // Fixed Real Estate Description
+        IF PreviewRec."Fixed Real Estate Description" = '' then
+            AppendError(ErrorText, 'Fixed Real Estate Description es obligatorio.');
+        
+        // Description
+        IF PreviewRec.Description = '' then
+            AppendError(ErrorText, 'Description es obligatorio.');
+
+        // Description Row No. (opcional pero recomendable)
+        IF PreviewRec."Description Row No. Text" = '' then
+            AppendError(ErrorText, StrSubstNo('No se encuentra la fila para la descripción: %1.', CellValue));
+
+        // Amount
+        if PreviewRec.Amount = 0 then
+            AppendError(ErrorText, 'Amount es obligatorio.');
+
+        PreviewRec.Error := ErrorText;
+        
+        AssetSuggestionMgt.SuggestFixedRealEstate(PreviewRec);
+        exit(ErrorText);
     end;
 }

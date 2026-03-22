@@ -60,10 +60,17 @@ table 96004 "REF Income & Expense Template"
         {
             Clustered = true;
         }
+        key(key2; Type, "Row No.")
+        {
+        }
     }
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description, Type, "Row No.")
+        {
+        }
+
     }
 
     trigger OnInsert()
