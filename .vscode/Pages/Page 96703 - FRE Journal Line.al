@@ -61,7 +61,12 @@ page 96703 "FRE Journal Line"
                     StyleExpr = LineStyleExpression;
                     ToolTip = 'Specifies the type of the item entry.';
                 }
-
+                field("Fixed Real Estate No.";Rec."Fixed Real Estate No.")
+                {
+                    ApplicationArea = Basic, Suite;
+                    StyleExpr = LineStyleExpression;
+                    ToolTip = 'Specifies the Fixed Real Estate.';
+                }
                 field("Row No."; Rec."Row No.")
                 {
                     ApplicationArea = Basic, Suite;

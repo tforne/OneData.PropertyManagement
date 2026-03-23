@@ -65,8 +65,8 @@ codeunit 96012 "FRE Import Jnl. Lines"
 
         Page.RunModal(Page::"FRE Import Preview v2", PreviewRec);
 
-        if HasErrors then
-            Error('No se puede importar porque existen errores en el fichero.');
+        // if HasErrors then
+        //     Error('No se puede importar porque existen errores en el fichero.');
 
         InsertPreviewLines(FREJnlLine, PreviewRec);
 

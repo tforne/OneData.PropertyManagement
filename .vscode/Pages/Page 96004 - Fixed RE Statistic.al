@@ -78,6 +78,9 @@ page 96004 "Fixed RE Statistics"
                     ApplicationArea = All;
                     Caption = 'Total Flujo Caja';
                     ToolTip = 'Specifies the cash flow for the real estate asset.';
+                    DecimalPlaces = 2 : 2;
+                    AutoFormatType = 1;
+                    BlankZero = true;
                 }
 
                 field("Rentabilidad Bruta"; RentabilidadBruta)
@@ -85,19 +88,47 @@ page 96004 "Fixed RE Statistics"
                     ApplicationArea = All;
                     Caption = 'Gross Rentability';
                     ToolTip = 'Specifies the gross rentability for the real estate asset.';
+                    DecimalPlaces = 2 : 2;
+                    AutoFormatType = 2;
+
                 }
                 field("Previsión Gastos Anual"; PrevisionGastosAnual)
                 {
                     ApplicationArea = All;
                     Caption = 'Annual Expense Forecast';
                     ToolTip = 'Specifies the annual expense forecast for the real estate asset.';
+                    DecimalPlaces = 2 : 2;
+                    AutoFormatType = 1;
+                    BlankZero = true;
+
+                }
+                field("Rentabilidad Prevista Neta"; RentabilidadPrevistaNeta)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Net Rentability Forecast';
+                    ToolTip = 'Specifies the net rentability forecast for the real estate asset.';
+                    DecimalPlaces = 2 : 2;
+                    AutoFormatType = 2;
+                }
+                field("Gastos Anual"; GastosAnual)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Annual Expense';
+                    ToolTip = 'Specifies the annual expense for the real estate asset.';
+                    DecimalPlaces = 2 : 2;
+                    AutoFormatType = 1;
+                    BlankZero = true;
                 }
                 field("Rentabilidad Neta"; RentabilidadNeta)
                 {
                     ApplicationArea = All;
                     Caption = 'Net Rentability';
                     ToolTip = 'Specifies the net rentability for the real estate asset.';
+                    DecimalPlaces = 2 : 2;
+                    AutoFormatType = 2;
+                    StyleExpr = RentabilidadStyle;
                 }
+
             }
             group(OcupaciónEstabilidad)
             {
@@ -122,6 +153,10 @@ page 96004 "Fixed RE Statistics"
         GainLossVisible := Disposed;
         DisposalDateVisible := Disposed;
         CalculateRentability(rec, RentabilidadBruta, RentabilidadNeta, TotalFlujoCaja);
+        if RentabilidadNeta < 5 then
+            RentabilidadStyle := 'Unfavorable'
+        else
+            RentabilidadStyle := 'Favorable';
     end;
 
     trigger OnInit()
@@ -139,9 +174,11 @@ page 96004 "Fixed RE Statistics"
         GainLossVisible: Boolean;
         DisposalDateVisible: Boolean;
         RentabilidadBruta: Decimal;
+        RentabilidadPrevistaNeta : Decimal;
         RentabilidadNeta: Decimal;
         FlujoCajaMensual: Decimal;
         PrevisionGastosAnual: Decimal;
+        GastosAnual: Decimal;
         TotalFlujoCaja: Decimal;
         BusinessChart: Codeunit "Business Chart";
         SalesInvHeader: Record "Sales Invoice Header";
@@ -149,9 +186,11 @@ page 96004 "Fixed RE Statistics"
         EndDate: Date;
         MonthNo: Integer;
         MonthLabel: Text;
-        MonthAmount: Decimal;
+        MonthAmountIncoming: Decimal;
+        MonthAmountExpenses: Decimal;
         CurrentMonthStart: Date;
         CurrentMonthEnd: Date;
+        RentabilidadStyle : Text;
 
 
     local procedure UpdateChart()
@@ -161,18 +200,21 @@ page 96004 "Fixed RE Statistics"
         BusinessChart.Initialize();
         BusinessChart.SetXDimension('Mes', Enum::System.Visualization."Business Chart Data Type"::String);
         BusinessChart.AddMeasure('Ventas', 0, Enum::"Business Chart Data Type"::Decimal, Enum::"Business Chart Type"::Column);
+        BusinessChart.AddMeasure('Gastos', 0, Enum::"Business Chart Data Type"::Decimal, Enum::"Business Chart Type"::Column);
 
         XAxisIndex := 0;
         TotalFlujoCaja := 0;
         for MonthNo := 11 downto 0 do begin
             CurrentMonthStart := CalcDate('<-CM>', CalcDate(StrSubstNo('-%1M', MonthNo), Today));
             CurrentMonthEnd := CalcDate('<CM>', CurrentMonthStart);
-
             MonthLabel := Format(CurrentMonthStart, 0, '<Month Text,3> <Year4>');
-            MonthAmount := GetSalesAmount(rec."No.", CurrentMonthStart, CurrentMonthEnd);
-            TotalFlujoCaja += MonthAmount;
+            MonthAmountIncoming := GetSalesAmount(rec."No.", CurrentMonthStart, CurrentMonthEnd);
+            MonthAmountExpenses := GetExpensesAmount(rec."No.", CurrentMonthStart, CurrentMonthEnd);
+            TotalFlujoCaja += MonthAmountIncoming;
+            GastosAnual += MonthAmountExpenses;
             BusinessChart.AddDataRowWithXDimension(MonthLabel);
-            BusinessChart.SetValue(0, XAxisIndex, MonthAmount);
+            BusinessChart.SetValue(0, XAxisIndex, MonthAmountIncoming);
+            BusinessChart.SetValue(1, XAxisIndex, MonthAmountExpenses);
             XAxisIndex += 1;
         end;
         BusinessChart.Update(CurrPage.BusinessChart);
@@ -186,11 +228,14 @@ page 96004 "Fixed RE Statistics"
         // Implementation for calculating rentability   
         // Calculate Total Flujo Caja for the last 12 months
         TotalFlujoCaja := 0;
+        GastosAnual := 0;
         for MonthNo := 11 downto 0 do begin
             CurrentMonthStart := CalcDate('<-CM>', CalcDate(StrSubstNo('-%1M', MonthNo), Today));
             CurrentMonthEnd := CalcDate('<CM>', CurrentMonthStart);
-            MonthAmount := GetSalesAmount(rec."No.", CurrentMonthStart, CurrentMonthEnd);
-            TotalFlujoCaja += MonthAmount;
+            MonthAmountIncoming := GetSalesAmount(rec."No.", CurrentMonthStart, CurrentMonthEnd);
+            MonthAmountExpenses := GetExpensesAmount(rec."No.", CurrentMonthStart, CurrentMonthEnd);
+            TotalFlujoCaja += MonthAmountIncoming;
+            GastosAnual += MonthAmountExpenses;
         end;
         PrevisionGastosAnual := 0;
         FixedRealEstate2.reset;
@@ -207,9 +252,11 @@ page 96004 "Fixed RE Statistics"
 
         if TotalSalesPrice <> 0 then begin
             RentabilidadBruta := TotalFlujoCaja / TotalSalesPrice * 100;
-            RentabilidadNeta := (TotalFlujoCaja - PrevisionGastosAnual) / TotalSalesPrice * 100;
+            RentabilidadPrevistaNeta := (TotalFlujoCaja - PrevisionGastosAnual) / TotalSalesPrice * 100;
+            RentabilidadNeta := (TotalFlujoCaja + GastosAnual) / TotalSalesPrice * 100;
         end else begin
             RentabilidadBruta := 0;
+            RentabilidadPrevistaNeta := 0;
             RentabilidadNeta := 0;
         end;
     end;
@@ -236,6 +283,30 @@ page 96004 "Fixed RE Statistics"
             until FRELedgerEntry.Next() = 0;
 
         exit(TotalSales);
+    end;
+    
+    local procedure GetExpensesAmount(RealStateNo: Code[20]; DateFrom: Date; DateTo: Date): Decimal
+    var
+        TotalExpenses: Decimal;
+        FRELedgerEntry: Record "FRE Ledger Entry";
+        FixedRealEstate: Record "Fixed Real Estate";
+    begin
+        TotalExpenses := 0;
+        FixedRealEstate.Get(RealStateNo);
+        FRELedgerEntry.reset();
+        if FixedRealEstate.Type = FixedRealEstate.Type::Propiedad then
+            FRELedgerEntry.Setfilter("Fixed Real Estate No.", FixedRealEstate.Totaling)
+        else
+            FRELedgerEntry.SetRange("Fixed Real Estate No.", RealStateNo);
+        //FRELedgerEntry.SetRange("Line Type", FRELedgerEntry."Line Type"::Invoice);
+        //FRELedgerEntry.SetRange("Document Type", FRELedgerEntry."Document Type"::Invoice);
+        FRELedgerEntry.SetRange("Posting Date", DateFrom, DateTo);
+        if FRELedgerEntry.FindSet() then
+            repeat
+                if FRELedgerEntry.Amount < 0 then
+                    TotalExpenses += FRELedgerEntry.Amount;
+            until FRELedgerEntry.Next() = 0;
+        exit(TotalExpenses);
     end;
 
 }

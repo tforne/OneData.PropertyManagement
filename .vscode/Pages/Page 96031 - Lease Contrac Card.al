@@ -43,14 +43,14 @@ page 96031 "Lease Contract Card"
                     field("Salesperson Code"; rec."Salesperson Code")
                     {
                         ApplicationArea = All;
-                        ToolTip = 'Specifies the code of the salesperson assigned to this service contract.';
+                        ToolTip = 'Specifies the code of the salesperson assigned to this lease contract.';
                     }
                     field(Status; rec.Status)
                     {
                         ApplicationArea = All;
                         Importance = Promoted;
                         Editable = false;
-                        ToolTip = 'Specifies the status of the service contract or contract quote.';
+                        ToolTip = 'Specifies the status of the lease contract or contract quote.';
                     }
                 }
                 group("Activo inmobiliario 3")
@@ -130,7 +130,7 @@ page 96031 "Lease Contract Card"
                     {
                         ApplicationArea = All;
                         Importance = Promoted;
-                        ToolTip = 'Specifies the number of the customer who owns the service items in the service contract/contract quote.';
+                        ToolTip = 'Specifies the number of the customer who owns in the lease contract.';
 
                         trigger OnValidate()
                         begin
@@ -146,7 +146,7 @@ page 96031 "Lease Contract Card"
                     {
                         ApplicationArea = All;
                         DrillDown = false;
-                        ToolTip = 'Specifies the name of the customer in the service contract.';
+                        ToolTip = 'Specifies the name of the customer in the lease contract.';
                     }
                     field(Address; rec.Address)
                     {
@@ -184,7 +184,7 @@ page 96031 "Lease Contract Card"
                     {
                         ApplicationArea = All;
                         DrillDown = false;
-                        ToolTip = 'Specifies the name of the person you regularly contact when you do business with the customer in this service contract.';
+                        ToolTip = 'Specifies the name of the person you regularly contact when you do business with the customer in this lease contract.';
                     }
                     field("Phone No."; rec."Phone No.")
                     {
@@ -211,7 +211,7 @@ page 96031 "Lease Contract Card"
                     {
                         ApplicationArea = All;
                         Importance = Promoted;
-                        ToolTip = 'Specifies the number of the customer who owns the service items in the service contract/contract quote.';
+                        ToolTip = 'Specifies the number of the customer who owns the service items in the lease contract/contract quote.';
 
                         trigger OnValidate()
                         begin
@@ -227,7 +227,7 @@ page 96031 "Lease Contract Card"
                     {
                         ApplicationArea = All;
                         DrillDown = false;
-                        ToolTip = 'Specifies the name of the customer in the service contract.';
+                        ToolTip = 'Specifies the name of the customer in the lease contract.';
                     }
                     field("Second Address"; rec."Second Address")
                     {
@@ -265,7 +265,7 @@ page 96031 "Lease Contract Card"
                     {
                         ApplicationArea = All;
                         DrillDown = false;
-                        ToolTip = 'Specifies the name of the person you regularly contact when you do business with the customer in this service contract.';
+                        ToolTip = 'Specifies the name of the person you regularly contact when you do business with the customer in this lease contract.';
                     }
                     field("Phone No. 2"; rec."Phone No. 2")
                     {
@@ -344,14 +344,14 @@ page 96031 "Lease Contract Card"
                 }
                 group(Fianzas)
                 {
-                    Caption = 'Fianzas';
+                    Caption = 'Comentarios';
                     field(BailDescription; BailDescription)
                     {
                         ApplicationArea = All;
                         Importance = Standard;
                         MultiLine = true;
                         ShowCaption = false;
-                        ToolTip = 'Specifies the products or service being offered';
+                        ToolTip = 'Specifies the comments';
 
                         trigger OnValidate()
                         begin
@@ -402,18 +402,6 @@ page 96031 "Lease Contract Card"
     {
         area(navigation)
         {
-            action("Filed Contracts")
-            {
-                ApplicationArea = All;
-                Caption = 'Filed Contracts';
-                Image = Agreement;
-                RunObject = Page 6073;
-                Promoted = true;
-                RunPageLink = "Contract No. Relation"=FIELD("Contract No.");
-                RunPageView = SORTING("Entry No.")
-                              ORDER(Descending);
-                ToolTip = 'View service contracts that are filed.';
-            }
             action("Co&mments")
             {
                 ApplicationArea = All;
@@ -434,17 +422,6 @@ page 96031 "Lease Contract Card"
                 RunObject = Page 96054;
                 RunPageLink = "Contract No."=FIELD("Contract No.");
                 ToolTip = 'View and manage rental deposits for this lease contract.';
-            }
-            action("&Gain/Loss Entries")
-            {
-                ApplicationArea = All;
-                Caption = '&Gain/Loss Entries';
-                Image = GainLossEntries;
-                RunObject = Page 6064;
-                                RunPageLink = "Contract No."=FIELD("Contract No.");
-                RunPageView = SORTING("Contract No.","Change Date")
-                              ORDER(Descending);
-                ToolTip = 'View the contract number, reason code, contract group code, responsibility center, customer number, ship-to code, customer name, and type of change, as well as the contract gain and loss. You can print all your service contract gain/loss entries.';
             }
             action("Related Contats")
             {
@@ -565,27 +542,27 @@ page 96031 "Lease Contract Card"
                 end;
             }
 
-            group("F&unctions")
-            {
-                Caption = 'F&unctions';
-                Image = "Action";
+            // group("F&unctions")
+            // {
+            //     Caption = 'F&unctions';
+            //     Image = "Action";
 
-                action("Create &Interaction")
-                {
-                    ApplicationArea = RelationshipMgmt;
-                    Caption = 'Create &Interaction';
-                    Image = CreateInteraction;
-                    promoted = true;
-                    ToolTip = 'Create an interaction with a specified contact.';
+            //     action("Create &Interaction")
+            //     {
+            //         ApplicationArea = RelationshipMgmt;
+            //         Caption = 'Create &Interaction';
+            //         Image = CreateInteraction;
+            //         promoted = true;
+            //         ToolTip = 'Create an interaction with a specified contact.';
 
-                    trigger OnAction()
-                    var
-                        SegmentLine: Record "Segment Line" temporary;
-                    begin
-                        SegmentLine.CreateInteractionFromLeaseContract(Rec);
-                    end;
-                }
-            }
+            //         trigger OnAction()
+            //         var
+            //             SegmentLine: Record "Segment Line" temporary;
+            //         begin
+            //             SegmentLine.CreateInteractionFromLeaseContract(Rec);
+            //         end;
+            //     }
+            // }
         }
         area(reporting)
         {

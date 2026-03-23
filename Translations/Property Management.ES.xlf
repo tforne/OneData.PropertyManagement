@@ -867,6 +867,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table FRE Asset Suggestion Rule - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 586920293 - Field 3833463168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry Category</source>
+          <target>Categoría No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Asset Suggestion Rule - Field Entry Category - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 586920293 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
           <target>No. mov.</target>
@@ -1401,6 +1407,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Document Type Text - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1029779798 - Field 3833463168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry Category</source>
+          <target>Categoría No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Preview v2 - Field Entry Category - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1029779798 - Field 2248886284 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Error</source>
           <target>Error</target>
@@ -1490,6 +1502,12 @@
           <target>Regla de Sugerencia de Importación</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Suggestion Rule - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2072934698 - Field 3833463168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry Category</source>
+          <target>Categoría No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Import Suggestion Rule - Field Entry Category - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2072934698 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
@@ -3191,7 +3209,7 @@
         </trans-unit>
         <trans-unit id="Table 1105920040 - Field 505713862 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prices Services Including VAT</source>
-          <target>Prices Services Including VAT</target>
+          <target>Importe servicios IVA incluido</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Contract - Field Prices Services Including VAT - Property Caption</note>
         </trans-unit>
@@ -4277,7 +4295,7 @@
         </trans-unit>
         <trans-unit id="Table 2693353827 - Field 3710982960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date</source>
-          <target>Posting Date</target>
+          <target>Fecha registro</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Line - Field Posting Date - Property Caption</note>
         </trans-unit>
@@ -4295,14 +4313,14 @@
         </trans-unit>
         <trans-unit id="Table 2693353827 - Field 2704404533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity</source>
-          <target>Quantity</target>
+          <target>Cantidad</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Line - Field Quantity - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2693353827 - Field 3179217921 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity (Base)</source>
-          <target>Quantity (Base)</target>
+          <target>Cantidad (Base)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Line - Field Quantity (Base) - Property Caption</note>
         </trans-unit>
@@ -4356,7 +4374,7 @@
         </trans-unit>
         <trans-unit id="Table 2693353827 - Field 1246077090 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT %</source>
-          <target>VAT %</target>
+          <target>IVA %</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Line - Field VAT % - Property Caption</note>
         </trans-unit>
@@ -4413,6 +4431,12 @@
           <target>Importe Fianzas</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Liquidacion Contrato Header - Field Amount Rental Deposit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4013870713 - Field 1786750675 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ciudad Entrega Llaves</source>
+          <target>Ciudad entrega llaves</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Liquidacion Contrato Header - Field Ciudad Entrega Llaves - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4013870713 - Field 3609111399 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contract No.</source>
@@ -6334,6 +6358,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentability - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 4077591006 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the annual expense for the real estate asset.</source>
+          <target>Especifica la previsión de gastos anuales para el activo fijo.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Gastos Anual - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 4077591006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Annual Expense</source>
+          <target>Gastos Anuales</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Gastos Anual - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2833055648 - Control 2376003423 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the annual expense forecast for the real estate asset.</source>
           <target>Especifica la previsión de gastos anuales para el activo fijo.</target>
@@ -6369,6 +6405,18 @@
           <target>Rentabilidad Neta</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentabilidad Neta - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 2401130061 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the net rentability forecast for the real estate asset.</source>
+          <target>Especifica la rentabilidad neta para el activo fijo.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentabilidad Prevista Neta - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2833055648 - Control 2401130061 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Rentability Forecast</source>
+          <target>Rentabilidad neta prevista</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Statistics - Control Rentabilidad Prevista Neta - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2833055648 - Control 3657482835 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the cash flow for the real estate asset.</source>
@@ -6964,6 +7012,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Action Contratos relacionados - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3848461472 - Action 4201773078 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>History</source>
+          <target>Históricos</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Action History - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3848461472 - Action 1041427610 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View FRE ledger entries for this real estate asset.</source>
+          <target>Ver las entradas del libro mayor para este activo inmobiliario.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Action FRELedgerEntries - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3848461472 - Action 1041427610 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Movs.</source>
+          <target>Movs. activo inmobiliario</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Action FRELedgerEntries - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3848461472 - Action 3588991647 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View service request cases associated with this fixed real estate.</source>
           <target>View service request cases associated with this fixed real estate.</target>
@@ -7025,10 +7091,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Action Fixed Real Estate List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 586920293 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>96730</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <source>FRE Asset Suggestion Rule</source>
+          <target>Regla sugerencia activos</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Asset Suggestion Rule - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 586920293 - Control 883711285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -7346,6 +7411,18 @@
           <target>Especifica el número de documento de la entrada.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Control 3833463168 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry category.</source>
+          <target>Especifica el no. categoría</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control Entry Category - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1018266202 - Control 2785006923 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Fixed Real Estate.</source>
+          <target>Especifica el activo inmobiliario</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Journal Line - Control Fixed Real Estate No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1018266202 - Control 158172202 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of the item entry.</source>
@@ -8128,14 +8205,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - NamedType ShowMapLbl</note>
         </trans-unit>
         <trans-unit id="Page 602873404 - Control 1058315588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fianzas</source>
-          <target>Fianzas</target>
+          <source>Comentarios</source>
+          <target>Comentarios</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control Fianzas - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 602873404 - Control 2192753540 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the products or service being offered</source>
-          <target>Specifies the products or service being offered</target>
+          <source>Specifies the comments</source>
+          <target>Especifica comentarios</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control BailDescription - Property ToolTip</note>
         </trans-unit>
@@ -8170,7 +8247,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control City - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 602873404 - Control 2378863201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the person you regularly contact when you do business with the customer in this service contract.</source>
+          <source>Specifies the name of the person you regularly contact when you do business with the customer in this lease contract.</source>
           <target>Specifies the name of the person you regularly contact when you do business with the customer in this service contract.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control Contact Name - Property ToolTip</note>
@@ -8182,7 +8259,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control Contact No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 602873404 - Control 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of the customer who owns the service items in the service contract/contract quote.</source>
+          <source>Specifies the number of the customer who owns in the lease contract.</source>
           <target>Specifies the number of the customer who owns the service items in the service contract/contract quote.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control Customer No. - Property ToolTip</note>
@@ -8194,7 +8271,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control E-Mail - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 602873404 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the customer in the service contract.</source>
+          <source>Specifies the name of the customer in the lease contract.</source>
           <target>Specifies the name of the customer in the service contract.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control Name - Property ToolTip</note>
@@ -8254,19 +8331,19 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control Second Contact No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 602873404 - Control 1871509557 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of the customer who owns the service items in the service contract/contract quote.</source>
+          <source>Specifies the number of the customer who owns the service items in the lease contract/contract quote.</source>
           <target>Specifies the number of the customer who owns the service items in the service contract/contract quote.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control Second Customer No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 602873404 - Control 1044011001 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the customer in the service contract.</source>
+          <source>Specifies the name of the customer in the lease contract.</source>
           <target>Specifies the name of the customer in the service contract.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control Second Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 602873404 - Control 181002263 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the person you regularly contact when you do business with the customer in this service contract.</source>
+          <source>Specifies the name of the person you regularly contact when you do business with the customer in this lease contract.</source>
           <target>Specifies the name of the person you regularly contact when you do business with the customer in this service contract.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control Second Name 2 - Property ToolTip</note>
@@ -8296,13 +8373,13 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control Activo inmobiliario 2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 602873404 - Control 553464652 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code of the salesperson assigned to this service contract.</source>
+          <source>Specifies the code of the salesperson assigned to this lease contract.</source>
           <target>Specifies the code of the salesperson assigned to this service contract.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control Salesperson Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 602873404 - Control 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the status of the service contract or contract quote.</source>
+          <source>Specifies the status of the lease contract or contract quote.</source>
           <target>Specifies the status of the service contract or contract quote.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control Status - Property ToolTip</note>
@@ -8367,18 +8444,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Control LiquidacionFactBox - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 602873404 - Action 989646587 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the contract number, reason code, contract group code, responsibility center, customer number, ship-to code, customer name, and type of change, as well as the contract gain and loss. You can print all your service contract gain/loss entries.</source>
-          <target>View the contract number, reason code, contract group code, responsibility center, customer number, ship-to code, customer name, and type of change, as well as the contract gain and loss. You can print all your service contract gain/loss entries.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action &amp;Gain/Loss Entries - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 602873404 - Action 989646587 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Gain/Loss Entries</source>
-          <target>&amp;Gain/Loss Entries</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action &amp;Gain/Loss Entries - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 602873404 - Action 1225782422 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add a file as an attachment. You can attach images as well as documents.</source>
           <target>Add a file as an attachment. You can attach images as well as documents.</target>
@@ -8402,18 +8467,6 @@
           <target>Co&amp;mments</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action Co&amp;mments - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 602873404 - Action 920669669 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View service contracts that are filed.</source>
-          <target>View service contracts that are filed.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action Filed Contracts - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 602873404 - Action 920669669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Filed Contracts</source>
-          <target>Filed Contracts</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action Filed Contracts - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 602873404 - Action 4201773078 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>History</source>
@@ -8450,24 +8503,6 @@
           <target>Fianzas</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action Rentals Deposit - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 602873404 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>F&amp;unctions</source>
-          <target>F&amp;unctions</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action F&amp;unctions - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 602873404 - Action 1876160316 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create an interaction with a specified contact.</source>
-          <target>Create an interaction with a specified contact.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action Create &amp;Interaction - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 602873404 - Action 1876160316 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create &amp;Interaction</source>
-          <target>Create &amp;Interaction</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action Create &amp;Interaction - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 602873404 - Action 2737311339 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 602873404">
           <source>Cierra definitivamente el contrato y realiza la liquidación final.</source>
@@ -8678,6 +8713,18 @@
           <target>Liquidar contrato</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Liquidacion Contrato Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 343132848 - Action 1095648578 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entrega de llaves y posesión</source>
+          <target>Entrega de llaves y posesión</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Liquidacion Contrato Card - Action ImprimirEntregaLlaves - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 343132848 - Action 2357859915 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Imprimir liquidación</source>
+          <target>Imprimir liquidación</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Liquidacion Contrato Card - Action ImprimirLiquidacionContrato - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2917445911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Liquidación</source>
@@ -10053,6 +10100,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page REF Income &amp; Expenses List - Action Insert Template - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1309920287 - Control 3833463168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry Category</source>
+          <target>Categoría No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page REF Income &amp; Expenses Subform - Control Entry Category - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1309920287 - Control 1878130204 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
           <source>Income,Expense,Title</source>
           <target>Ingresos,Gastos,Título</target>
@@ -10301,13 +10354,13 @@
         </trans-unit>
         <trans-unit id="Page 3483293743 - Control 1199407028 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the description of the fixed real estate associated with the lease contract.</source>
-          <target>Especifica la descripción del inmueble fijo asociado al contrato de arrendamiento.</target>
+          <target>Especifica la descripción del inmueble asociado al contrato de arrendamiento.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sumary Lease Contract - Control Description Fixed Real Estate - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3483293743 - Control 1199407028 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fixed Real Estate Description</source>
-          <target>Descripción del Inmueble Fijo</target>
+          <target>Descripción del Inmueble</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sumary Lease Contract - Control Description Fixed Real Estate - Property Caption</note>
         </trans-unit>
@@ -10514,6 +10567,18 @@
           <target>Posting Date</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Create Lease Contract Invoices - Control PostingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2678703848 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entrega de llaves y toma de posesión</source>
+          <target>Entrega de llaves y toma de posesión</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Entrega Llaves y Posesion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2678703848 - Control 3956304233 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mostrar 10 líneas vacías si no hay deficiencias</source>
+          <target>Mostrar 10 líneas vacías si no hay deficiencias</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Entrega Llaves y Posesion - Control ShowEmptyAnnexLines - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 4144606965 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Generate FRE Movs.</source>
@@ -11006,6 +11071,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - Control ShowInfoIVA - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2553826820 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Liquidación de contrato</source>
+          <target>Liquidación de contrato</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Liquidacion Contrato - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2553826820 - ReportLabel 3094310281" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ANEXO I</source>
+          <target>ANEXO I</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Liquidacion Contrato - ReportLabel AnexoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2553826820 - ReportLabel 914146395" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CLÁUSULAS DEL ACUERDO</source>
+          <target>CLÁUSULAS DEL ACUERDO</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Liquidacion Contrato - ReportLabel ClausulasLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2553826820 - ReportLabel 1651818927" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RESOLUCIÓN DE CONTRATO</source>
+          <target>RESOLUCIÓN DE CONTRATO</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Liquidacion Contrato - ReportLabel TituloLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2553826820 - Control 2019500901 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Usar líneas reales en Anexo I</source>
+          <target>Usar líneas reales en Anexo I</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Liquidacion Contrato - Control UsarLineasRealesEnAnexo - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3901344888 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Liquidación Contrato</source>
           <target>Liquidación Contrato</target>
@@ -11013,8 +11108,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Liquidación Contrato - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3573719515 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Contract-Detail</source>
-          <target>Service Contract-Detail</target>
+          <source>Lease Contract-Detail</source>
+          <target>Contrato de Arrendamiento - Detalle</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report RE Contract-Detail - Property Caption</note>
         </trans-unit>
@@ -11055,14 +11150,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report RE Contract-Detail - NamedType ServeContrHdrStartDtCptnLbl</note>
         </trans-unit>
         <trans-unit id="Report 3573719515 - NamedType 4202575877" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Contract</source>
-          <target>Service Contract</target>
+          <source>Lease Contract</source>
+          <target>Contrato de arrendamiento</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report RE Contract-Detail - NamedType ServiceContractCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 3573719515 - NamedType 2144910049" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Discounts</source>
-          <target>Service Discounts</target>
+          <source>Lease Discounts</source>
+          <target>Descuento alquiler</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report RE Contract-Detail - NamedType ServiceDiscountsCaptionLbl</note>
         </trans-unit>
@@ -11115,7 +11210,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report RE Contract-Detail - Control PrintLogo - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3573719515 - Control 4026912517 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if you want the printed report to show any service comments.</source>
+          <source>Specifies if you want the printed report to show any lease comments.</source>
           <target>Especifica si desea que el informe impreso muestre cualquier comentario de servicio.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report RE Contract-Detail - Control ShowComments - Property ToolTip</note>

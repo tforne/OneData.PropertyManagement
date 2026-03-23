@@ -2,7 +2,7 @@ report 96005 "RE Contract-Detail"
 {
     DefaultLayout = RDLC;
     RDLCLayout = '.vscode/Reports/Report 96005 - RE Contract Detail.rdl';
-    Caption = 'Service Contract-Detail';
+    Caption = 'Lease Contract-Detail';
 
     dataset
     {
@@ -218,7 +218,7 @@ report 96005 "RE Contract-Detail"
                     {
                         ApplicationArea = All;
                         Caption = 'Show Comments';
-                        ToolTip = 'Specifies if you want the printed report to show any service comments.';
+                        ToolTip = 'Specifies if you want the printed report to show any lease comments.';
                     }
                     field(PrintLogo; PrintLogo)
                     {
@@ -258,10 +258,10 @@ report 96005 "RE Contract-Detail"
         ShowShippingAddr: Boolean;
         ShowComments: Boolean;
         InvoicetoCaptionLbl: Label 'Invoice to';
-        ServiceContractCaptionLbl: Label 'Service Contract';
+        ServiceContractCaptionLbl: Label 'Lease Contract';
         ServeContrHdrStartDtCptnLbl: Label 'Starting Date';
         ServContrHdrNxtInvDtCptnLbl: Label 'Next Invoice Date';
-        ServiceDiscountsCaptionLbl: Label 'Service Discounts';
+        ServiceDiscountsCaptionLbl: Label 'Lease Discounts';
         ServeCmntLineDateCaptionLbl: Label 'Date';
         ShiptoAddressCaptionLbl: Label 'Ship-to Address';
         CommentsCaptionLbl: Label 'Comments';

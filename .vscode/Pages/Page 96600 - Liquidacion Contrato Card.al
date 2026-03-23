@@ -16,6 +16,10 @@ page 96600 "Liquidacion Contrato Card"
                 { 
                     ApplicationArea = All;
                 }
+                field("Ciudad Entrega Llaves";Rec."Ciudad Entrega Llaves")
+                {
+                    ApplicationArea = All;
+                }
                 field(Motivo; rec."Motivo Liquidacion") 
                 { 
                     ApplicationArea = All;
@@ -51,12 +55,48 @@ page 96600 "Liquidacion Contrato Card"
         }
     }
 
-    actions
+actions
+{
+    area(processing)
     {
-        area(processing)
+        action(ImprimirEntregaLlaves)
         {
+            ApplicationArea = All;
+            Caption = 'Entrega de llaves y posesión';
+            Image = Print;
+
+            trigger OnAction()
+            var
+                LiquidacionHeader: Record "Liquidacion Contrato Header";
+            begin
+                LiquidacionHeader := Rec;
+                LiquidacionHeader.SetRecFilter();
+
+                Report.RunModal(
+                    Report::"Entrega Llaves y Posesion",
+                    true,
+                    false,
+                    LiquidacionHeader
+                );
+            end;
+        }
+        action(ImprimirLiquidacionContrato)
+        {
+            ApplicationArea = All;
+            Caption = 'Imprimir liquidación';
+            Image = Print;
+
+            trigger OnAction()
+            var
+                LiquidacionHeader: Record "Liquidacion Contrato Header";
+            begin
+                LiquidacionHeader := Rec;
+                LiquidacionHeader.SetRecFilter();
+                Report.RunModal(Report::"Liquidacion Contrato", true, false, LiquidacionHeader);
+            end;
         }
     }
+}
 
     var
         ContratoNo: Code[20];

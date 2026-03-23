@@ -9,18 +9,39 @@ codeunit 96008 "FRE Jnl.-Post Line"
     Text002	: label 'GENERICO';
     Text003	: label 'Diario genérico';
     
-
     trigger OnRun()
     begin
     end;
+
     procedure PostLine(var FREJnlLine: Record "FRE Jnl. Line")
     var
-        FRELedgerEntry: Record "FRE Ledger Entry";
-        NextEntryNo: Integer;
+        FixedRealEstate: Record "Fixed Real Estate";
     begin
         CheckLine(FREJnlLine);
 
-        NextEntryNo := GetNextLedgerEntryNo();
+        FixedRealEstate.Get(FREJnlLine."Fixed Real Estate No.");
+
+        case FixedRealEstate.Type of
+            FixedRealEstate.Type::Activo :
+                PostSingleLedgerEntry(FREJnlLine, FREJnlLine."Fixed Real Estate No.", FREJnlLine.Amount, FREJnlLine."Amount Including VAT");
+
+            FixedRealEstate."Type"::Propiedad:
+                PostDistributedLedgerEntries(FREJnlLine);
+        end;
+
+        FREJnlLine.Delete();
+    end;
+
+    local procedure PostSingleLedgerEntry(var FREJnlLine: Record "FRE Jnl. Line"; FixedRealEstateNo: Code[20]; EntryAmount: Decimal; EntryAmountInclVAT: Decimal)
+    var
+        FRELedgerEntry: Record "FRE Ledger Entry";
+         recFRELedgerEntry : Record "FRE Ledger Entry";
+    begin
+        //  Control de registro        
+        NextEntryNo := 0;
+        recFRELedgerEntry.reset;
+        if recFRELedgerEntry.FindLast() then
+            NextEntryNo := recFRELedgerEntry."Entry No." + 10;
 
         FRELedgerEntry.Init();
         FRELedgerEntry."Entry No." := NextEntryNo;
@@ -47,8 +68,101 @@ codeunit 96008 "FRE Jnl.-Post Line"
         // Ejemplo de uso:
         // ApplyEntries(OpenEntryNo, FRELedgerEntry."Entry No.", Abs(FRELedgerEntry.Amount), FRELedgerEntry."Posting Date", FRELedgerEntry."Document No.");
 
-        FREJnlLine.Delete();
+        // FREJnlLine.Delete();
+
     end;
+
+    local procedure PostDistributedLedgerEntries(var FREJnlLine: Record "FRE Jnl. Line")
+    var
+        FRERelation: Record "Fixed Real Estate";
+        insFREJnlLine : record "FRE Jnl. Line";
+        TotalSurface: Decimal;
+        AllocatedAmount: Decimal;
+        AllocatedAmountInclVAT: Decimal;
+        RemainingAmount: Decimal;
+        RemainingAmountInclVAT: Decimal;
+        CalculatedAmount: Decimal;
+        CalculatedAmountInclVAT: Decimal;
+        RelationCount: Integer;
+        CurrentIndex: Integer;
+    begin
+        FRERelation.Reset();
+        FRERelation.SetRange(Type, FRERelation.type::Activo);
+        FRERelation.SetRange("Property No.", FREJnlLine."Fixed Real Estate No.");
+
+        if not FRERelation.FindSet() then
+            Error(
+              'El activo %1 es de tipo Property y no tiene activos Fixed relacionados.',
+              FREJnlLine."Fixed Real Estate No.");
+
+        TotalSurface := GetTotalSurface(FREJnlLine."Fixed Real Estate No.");
+
+        if TotalSurface = 0 then
+            Error(
+              'La superficie total de reparto es 0 para el activo Property %1.',
+              FREJnlLine."Fixed Real Estate No.");
+
+        RemainingAmount := FREJnlLine.Amount;
+        RemainingAmountInclVAT := FREJnlLine."Amount Including VAT";
+        RelationCount := FRERelation.Count();
+        CurrentIndex := 0;
+
+        repeat
+            CurrentIndex += 1;
+
+            if CurrentIndex < RelationCount then begin
+                FRERelation.CalcFields("Superficie construida");
+                CalculatedAmount :=
+                  Round(FREJnlLine.Amount * FRERelation."Superficie construida" / TotalSurface, 0.01);
+
+                CalculatedAmountInclVAT :=
+                  Round(FREJnlLine."Amount Including VAT" * FRERelation."Superficie construida" / TotalSurface, 0.01);
+
+                RemainingAmount -= CalculatedAmount;
+                RemainingAmountInclVAT -= CalculatedAmountInclVAT;
+            end else begin
+                // La última línea absorbe el resto para evitar descuadres por redondeo
+                CalculatedAmount := RemainingAmount;
+                CalculatedAmountInclVAT := RemainingAmountInclVAT;
+            end;
+            insFREJnlLine := FREJnlLine;
+            insFREJnlLine."Fixed Real Estate No." := FRERelation."No.";
+            insFREJnlLine.Amount := CalculatedAmount;
+            insFREJnlLine."Amount Including VAT" := CalculatedAmountInclVAT;
+
+            PostSingleLedgerEntry(
+              insFREJnlLine,
+              FRERelation."No.",
+              CalculatedAmount,
+              CalculatedAmountInclVAT);
+
+        until FRERelation.Next() = 0;
+    end;
+
+    local procedure GetTotalSurface(PropertyNo: Code[20]): Decimal
+    var
+        FRERelation: Record "Fixed Real Estate";
+        TotalSurface: Decimal;
+    begin
+        FRERelation.Reset();
+        FRERelation.SetRange("No.", PropertyNo);
+
+        if FRERelation.FindSet() then
+            repeat
+                FRERelation.CalcFields("Superficie construida");
+                if FRERelation."Superficie construida" <= 0 then
+                    Error(
+                      'La superficie debe ser mayor que cero en la relación Property %1 / Fixed %2.',
+                      FRERelation."Property No.",
+                      FRERelation."No.");
+
+                TotalSurface += FRERelation."Superficie construida";
+            until FRERelation.Next() = 0;
+
+        exit(TotalSurface);
+    end;
+
+
 
     procedure ApplyEntries(OpenEntryNo: Integer; AppliedEntryNo: Integer; AmountToApply: Decimal; ApplicationDate: Date; DocumentNo: Code[20])
     var
@@ -109,6 +223,7 @@ codeunit 96008 "FRE Jnl.-Post Line"
 
         exit(1);
     end;
+
 
 procedure PostFRELedgerEntryFromLeaseInvoice(LeaseInvoiceHeader: Record "Lease Invoice Header")
     var

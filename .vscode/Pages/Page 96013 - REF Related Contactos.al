@@ -3,7 +3,7 @@ page 96013 "REF Related Contactos"
     PageType = List;
     SourceTable = "REF Related Contactos";
     ApplicationArea = All;
-    Editable = false;
+    Editable = true;
 
     layout
     {

@@ -246,6 +246,27 @@ page 96001 "Fixed Real Estate List"
                 RunPageLink = "Fixed Real Estate No." = FIELD("No.");
                 RunPageView = SORTING("Fixed Real Estate No.", "Line No.");
             }
+            group(History)
+            {
+                Caption = 'History';
+
+                action(FRELedgerEntries)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'FRE Movs.';
+                    Image = LedgerEntries;
+                    ToolTip = 'View FRE ledger entries for this real estate asset.';
+
+                    trigger OnAction()
+                    var
+                        FRELedgerEntry: Record "FRE Ledger Entry";
+                    begin
+                        FRELedgerEntry.SetRange("Fixed Real Estate No.", Rec."No.");
+                        Page.Run(Page::"Movs. FRE", FRELedgerEntry);
+                    end;
+                }
+            }
+
         }
         area(reporting)
         {
@@ -260,7 +281,6 @@ page 96001 "Fixed Real Estate List"
                 ToolTip = 'View the list of fixed real estate that exist in the system .';
             }
         }
-
     }
 
     trigger OnAfterGetRecord()
