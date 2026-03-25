@@ -1663,6 +1663,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table FRE Publicacions Register - Field Status - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Table 63557237 - Field 3443316986 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Construida</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Superficies - Field Construida - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 63557237 - Field 1944590337 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Descripción</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2637,6 +2642,11 @@
           <source>,By Phone 1,By Phone 2,By Fax,By Email</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Contract - Field Notify Customer 2 - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 1105920040 - Field 2136068585 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cantidad Contactos relacionados</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Lease Contract - Field Number Contacts Related - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1105920040 - Field 106240973 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Número en la calle</source>
@@ -4079,7 +4089,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table RE Owner Cue - Field Released Sales Quotes - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2729912319 - Field 2894124434 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Activos inmoniliarios en alquiler</source>
+          <source>Activos inmobiliarios en alquiler</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table RE Owner Cue - Field Rental Fixed Real Estate - Property Caption</note>
         </trans-unit>
@@ -7088,6 +7098,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action Rentals Deposit - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 602873404 - Action 2852726581 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy owner from FRE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action Copy owner from FRE - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 602873404 - Action 2737311339 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cierra definitivamente el contrato y realiza la liquidación final.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8818,6 +8833,66 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Entrega Llaves y Posesion - Control ShowEmptyAnnexLines - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3055287935 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Real Estate List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Real Estate - Label - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3055287935 - NamedType 684809554" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Real Estate - Label - NamedType CurrReportPageNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3055287935 - NamedType 860388627" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Depreciation Ending Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Real Estate - Label - NamedType FADeprBookDeprEndDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3055287935 - NamedType 1783601074" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Depreciation Starting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Real Estate - Label - NamedType FADeprBookDeprStartDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3055287935 - NamedType 3911832810" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Depr. Ending Date (Custom 1)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Real Estate - Label - NamedType FADeprBookEndDateCustomCptnLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3055287935 - NamedType 1937552788" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Projected Disposal Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Real Estate - Label - NamedType FADeprBookProjDisplDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3055287935 - NamedType 4124042306" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Depr. Starting Date (Custom 1)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Real Estate - Label - NamedType FADeprBookStartDateCustomCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3055287935 - NamedType 2133273322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>First User-Defined Depr. Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Real Estate - Label - NamedType FADeprBookUsrDfndDeprDtCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3055287935 - NamedType 3683503147" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Asset - List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Real Estate - Label - NamedType FAListCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3055287935 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Real Estate - Label - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3055287935 - Control 2536010183 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want each fixed asset printed on a new page.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Real Estate - Label - Control PrintOnlyOnePerPage - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3055287935 - Control 2536010183 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Page per Asset</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Real Estate - Label - Control PrintOnlyOnePerPage - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 4144606965 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Generate FRE Movs.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8903,6 +8978,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType codeCaption</note>
         </trans-unit>
+        <trans-unit id="Report 2652458214 - NamedType 374451185" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contrato</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType ContractNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2652458214 - NamedType 2789660459" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Datos del inquilino</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType CustomerBlockCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2652458214 - NamedType 301621269" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delivery port</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8978,6 +9063,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType InvoiceNoCaptionLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2652458214 - NamedType 3948572959" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FACTURA DE ALQUILER</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType InvoiceTitleCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2652458214 - NamedType 530619947" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice and Payment Discounts</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9003,15 +9093,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType orderQtyCaption</note>
         </trans-unit>
+        <trans-unit id="Report 2652458214 - NamedType 1779133614" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Propietario</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType OwnerNameCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2652458214 - NamedType 2684561776" size-unit="char" translate="yes" xml:space="preserve">
           <source>Propietario</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType OwnerText</note>
         </trans-unit>
+        <trans-unit id="Report 2652458214 - NamedType 3607767210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CIF/NIF</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType OwnerVatCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2652458214 - NamedType 4022464961" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page %1 of %2</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType PageCaptionCap</note>
+        </trans-unit>
+        <trans-unit id="Report 2652458214 - NamedType 1036140953" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Condiciones de pago</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType PaymentBlockCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2652458214 - NamedType 1928308579" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone No.</source>
@@ -9052,6 +9157,11 @@
           <source>Invoice Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType PostingDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2652458214 - NamedType 40272270" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Datos del inmueble</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType PropertyBlockCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2652458214 - NamedType 3086798691" size-unit="char" translate="yes" xml:space="preserve">
           <source>Qty.</source>
@@ -9132,6 +9242,11 @@
           <source>Total net weight</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType totalPesoNeto</note>
+        </trans-unit>
+        <trans-unit id="Report 2652458214 - NamedType 3781393304" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resumen económico</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType TotalsBlockCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2652458214 - NamedType 3659909257" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit Price</source>
@@ -9574,7 +9689,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Profile Incident Manager - Property ProfileDescription</note>
         </trans-unit>
         <trans-unit id="Profile 3305561352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Gestor de Propiedades</source>
+          <source>Gestor de propiedades</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Profile Property Management - Property Caption</note>
         </trans-unit>

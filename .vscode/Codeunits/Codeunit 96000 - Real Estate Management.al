@@ -97,6 +97,7 @@ codeunit 96000 "Real Estate Management"
             InvoiceHeader2."Bill-to Contact" := LeaseContract2."Second Contact";
             InvoiceHeader2."VAT Registration No." := Cust."VAT Registration No.";
             InvoiceHeader2."Sell-to E-Mail" := Cust."E-Mail";
+            InvoiceHeader2."Grupo IRPF" := LeaseContract2."Grupo IRPF";
 
             IF NOT ContractExists THEN
             InvoiceHeader2.VALIDATE("Posting Date",PostDate);
@@ -148,7 +149,7 @@ codeunit 96000 "Real Estate Management"
             LeaseInvoiceHeader2."VAT Registration No." := Cust."VAT Registration No.";
             LeaseInvoiceHeader2."E-Mail" := Cust."E-Mail";
             LeaseInvoiceHeader2."Notify Customer" := LeaseContract2."Notify Customer";
-
+            
 
             IF NOT ContractExists THEN
             LeaseInvoiceHeader2.VALIDATE("Posting Date",PostDate);

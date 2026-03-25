@@ -137,37 +137,6 @@
       border: 1px solid #e5e7eb;
       display: block;
     }
-
-    .feature-head {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 10px;
-    }
-    .feature-head h3 {
-      margin: 0;
-    }
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      min-width: 48px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
-      border: 1px solid #bfdbfe;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
-    }
-    .feature-icon svg {
-      width: 24px;
-      height: 24px;
-      stroke: #2563eb;
-      stroke-width: 2;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
     .feature-list {
       list-style: none;
       padding: 0;
@@ -229,7 +198,7 @@
         <div class="eyebrow">Extensión para Microsoft Dynamics 365 Business Central</div>
         <h1>Property Management para Business Central</h1>
         <p class="subtitle">
-          Gestiona activos inmobiliarios, contratos, operaciones, incidencias, ingresos, gastos y fiscalidad asociada desde Business Central, con una visión más clara de la operativa diaria, el historial de cada inmueble y la gestión de IRPF integrada con OneData Fiscal.
+          Gestiona activos inmobiliarios, contratos, operaciones, incidencias, gastos e ingresos desde Business Central, con una visión más clara de la operativa diaria y del historial de cada inmueble.
         </p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#contacto">Solicitar información</a>
@@ -243,7 +212,7 @@
           <li>Control centralizado de activos y unidades</li>
           <li>Seguimiento contractual y vencimientos</li>
           <li>Gestión de operaciones, incidencias y actuaciones</li>
-          <li>Visibilidad de gastos, ingresos, rentabilidad e IRPF</li>
+          <li>Visibilidad de gastos, ingresos y rentabilidad</li>
           <li>Documentación y trazabilidad por inmueble</li>
         </ul>
       </div>
@@ -280,12 +249,7 @@
       <div class="split">
         <div class="card">
           <div class="badge">OPERATIVA</div>
-          <div class="feature-head">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path><path d="M9 21v-6h6v6"></path></svg>
-            </div>
-            <h3>Gestión del activo inmobiliario</h3>
-          </div>
+          <h3>Gestión del activo inmobiliario</h3>
           <ul class="feature-list">
             <li>Ficha de activo con datos identificativos y operativos</li>
             <li>Control de estado: disponible, alquilado, reservado, baja, etc.</li>
@@ -295,12 +259,7 @@
         </div>
         <div class="card">
           <div class="badge">CONTRATOS</div>
-          <div class="feature-head">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"></path><path d="M15 3v4h4"></path><path d="M10 12h6"></path><path d="M10 16h6"></path></svg>
-            </div>
-            <h3>Seguimiento contractual</h3>
-          </div>
+          <h3>Seguimiento contractual</h3>
           <ul class="feature-list">
             <li>Control de contratos vigentes y vencimientos</li>
             <li>Consulta rápida del inquilino actual</li>
@@ -310,12 +269,7 @@
         </div>
         <div class="card">
           <div class="badge">OPERACIONES</div>
-          <div class="feature-head">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 18h16"></path><path d="M6 18V8"></path><path d="M12 18V5"></path><path d="M18 18v-7"></path></svg>
-            </div>
-            <h3>Operaciones realizadas sobre el activo</h3>
-          </div>
+          <h3>Operaciones realizadas sobre el activo</h3>
           <ul class="feature-list">
             <li>Registro de operaciones y actuaciones vinculadas al inmueble</li>
             <li>Trazabilidad completa de intervenciones, cambios y eventos relevantes</li>
@@ -325,12 +279,7 @@
         </div>
         <div class="card">
           <div class="badge">INCIDENCIAS</div>
-          <div class="feature-head">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M14.7 6.3 17.7 9.3"></path><path d="M3 21l3.5-.8L18 8.7a2.1 2.1 0 0 0-3-3L3.5 17.2 3 21z"></path></svg>
-            </div>
-            <h3>Mantenimiento e incidencias</h3>
-          </div>
+          <h3>Mantenimiento e incidencias</h3>
           <ul class="feature-list">
             <li>Registro y seguimiento de incidencias</li>
             <li>Priorización de tareas y actuaciones</li>
@@ -340,83 +289,22 @@
         </div>
         <div class="card">
           <div class="badge">ECONOMÍA</div>
-          <div class="feature-head">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3v18"></path><path d="M17 7.5c0-1.9-2.2-3.5-5-3.5S7 5.6 7 7.5 9.2 11 12 11s5 1.6 5 3.5S14.8 18 12 18 7 16.4 7 14.5"></path></svg>
-            </div>
-            <h3>Gastos, ingresos y visión económica</h3>
-          </div>
+          <h3>Gastos, ingresos y visión económica</h3>
           <ul class="feature-list">
             <li>Relación entre activo y operativa económica</li>
             <li>Seguimiento de gastos asociados</li>
             <li>Visibilidad sobre ingresos recurrentes</li>
-            <li>Base para análisis económico, rentabilidad por inmueble y control fiscal</li>
+            <li>Base para análisis económico y rentabilidad por inmueble</li>
           </ul>
         </div>
         <div class="card">
           <div class="badge">CONTROL</div>
-          <div class="feature-head">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-2.7 7.8-7 9-4.3-1.2-7-4.5-7-9V6l7-3z"></path><path d="m9.5 12 1.8 1.8 3.7-3.7"></path></svg>
-            </div>
-            <h3>Visión completa del ciclo de vida</h3>
-          </div>
+          <h3>Visión completa del ciclo de vida</h3>
           <ul class="feature-list">
             <li>Consulta unificada del estado actual y del recorrido histórico del activo</li>
             <li>Mejor coordinación entre contratos, operaciones, incidencias y documentación</li>
             <li>Más capacidad de seguimiento para gestores y propietarios</li>
             <li>Base sólida para ampliar procesos y analítica en el futuro</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <section id="fiscal" style="background:#f8fbff; border-top:1px solid #dbeafe; border-bottom:1px solid #dbeafe;">
-    <div class="container">
-      <h2 class="section-title">Gestión Fiscal Integrada — IRPF con OneData Fiscal</h2>
-      <p class="section-subtitle">OneData Property Management incorpora la gestión de IRPF en alquileres mediante integración directa con <strong>OneData Fiscal</strong>, que actúa como motor fiscal centralizado para garantizar trazabilidad, automatización y control normativo.</p>
-      <div class="split">
-        <div class="card">
-          <div class="badge">FISCALIDAD</div>
-          <h3>Gestión profesional del IRPF en alquileres</h3>
-          <ul class="feature-list">
-            <li>Cálculo automático de retenciones en contratos sujetos a IRPF</li>
-            <li>Parametrización mediante Grupos IRPF</li>
-            <li>Soporte para claves y subclaves de percepción</li>
-            <li>Control de referencia catastral y datos fiscales asociados</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="badge">ARQUITECTURA</div>
-          <h3>Separación clara entre gestión y fiscalidad</h3>
-          <ul class="feature-list">
-            <li><strong>Property Management</strong>: contratos, facturación y cálculo IRPF</li>
-            <li><strong>OneData Fiscal</strong>: modelos tributarios y declaraciones</li>
-            <li>Menos duplicidad de lógica fiscal</li>
-            <li>Mayor facilidad de mantenimiento ante cambios normativos</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="badge">AUTOMATIZACIÓN</div>
-          <h3>Información fiscal estructurada</h3>
-          <ul class="feature-list">
-            <li>Generación automática de movimientos fiscales</li>
-            <li>Base de cálculo, porcentaje e importe retenido</li>
-            <li>Datos enlazados al contrato, inmueble y tercero</li>
-            <li>Trazabilidad entre operación inmobiliaria y declaración fiscal</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="badge">MODELOS</div>
-          <h3>Integración con OneData Fiscal</h3>
-          <ul class="feature-list">
-            <li>Preparado para modelos fiscales como 115 y 180</li>
-            <li>Consolidación de información por declarante</li>
-            <li>Validación fiscal desde una solución especializada</li>
-            <li>Reducción de errores y tareas manuales</li>
           </ul>
         </div>
       </div>
@@ -479,10 +367,6 @@
       <details>
         <summary>¿Qué tipo de organizaciones pueden utilizarla?</summary>
         <p>Empresas patrimoniales, gestoras, administradores de fincas, promotoras o compañías que gestionen inmuebles propios o arrendados.</p>
-      </details>
-      <details>
-        <summary>¿Cómo se gestiona el IRPF de los alquileres?</summary>
-        <p>La solución utiliza la operativa de Property Management para generar la información del alquiler y la integra con <strong>OneData Fiscal</strong>, que actúa como solución especializada para la gestión de IRPF, los modelos fiscales y las declaraciones.</p>
       </details>
       <details>
         <summary>¿Se puede evolucionar o adaptar a procesos concretos?</summary>

@@ -45,7 +45,7 @@ page 96053 "Sumary Lease Contract"
                     ToolTip = 'Specifies the total amount of rental deposits associated with the lease contract.';
                     DrillDownPageId = 96054;
                 }
-                field("Contacts Related";Rec."Contacts Related")
+                field("Contacts Related";Rec."Number Contacts Related")
                 {
                     ApplicationArea = All;
                     Caption = 'Contacts Related';

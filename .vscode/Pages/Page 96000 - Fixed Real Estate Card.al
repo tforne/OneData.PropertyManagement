@@ -535,6 +535,7 @@ page 96000 "Fixed Real Estate Card"
                     CurrPage.UPDATE(TRUE);
                 end;
             }
+
             action(Publish)
             {
                 ApplicationArea = Basic, Suite;

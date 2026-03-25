@@ -1,4 +1,4 @@
-﻿report 96003 "Lease Sales - Invoice"
+report 96003 "Lease Sales - Invoice"
 {
     DefaultLayout = RDLC;
     RDLCLayout = '.vscode/Reports/Report 96003 - Lease Sales Invoice.rdl';
@@ -53,43 +53,6 @@
             {
             }
             column(OwnerTextCaption; OwnerText)
-            {
-            }
-
-            column(ContractNo_LeaseInvHdr; "Contract No.")
-            {
-            }
-            column(ContractNoCaption; ContractNoCaptionLbl)
-            {
-            }
-            column(InvoiceTitleCaption; InvoiceTitleCaptionLbl)
-            {
-            }
-            column(CustomerBlockCaption; CustomerBlockCaptionLbl)
-            {
-            }
-            column(PropertyBlockCaption; PropertyBlockCaptionLbl)
-            {
-            }
-            column(PaymentBlockCaption; PaymentBlockCaptionLbl)
-            {
-            }
-            column(TotalsBlockCaption; TotalsBlockCaptionLbl)
-            {
-            }
-            column(OwnerNameCaption; OwnerNameCaptionLbl)
-            {
-            }
-            column(OwnerVatCaption; OwnerVatCaptionLbl)
-            {
-            }
-            column(PropertySummaryText; PropertySummaryText)
-            {
-            }
-            column(PaymentSummaryText; PaymentSummaryText)
-            {
-            }
-            column(FooterNoteText; FooterNoteText)
             {
             }
             column(YourReference_SalesInvHdr; "Your Reference")
@@ -791,9 +754,6 @@
                 END;
                 FormatAddressFields("Lease Invoice Header");
                 FormatDocumentFields("Lease Invoice Header");
-                PropertySummaryText := BuildPropertySummary("Lease Invoice Header");
-                PaymentSummaryText := BuildPaymentSummary("Lease Invoice Header");
-                FooterNoteText := BuildFooterNote();
 
 
             end;
@@ -1054,57 +1014,6 @@ requestpage
         "OwnerCIF/NIF": Text[50];
         FixedRealEstateDescription: Text[50];
         OwnerText: Label 'Propietario';
-        ContractNoCaptionLbl: Label 'Contrato';
-        InvoiceTitleCaptionLbl: Label 'FACTURA DE ALQUILER';
-        CustomerBlockCaptionLbl: Label 'Datos del inquilino';
-        PropertyBlockCaptionLbl: Label 'Datos del inmueble';
-        PaymentBlockCaptionLbl: Label 'Condiciones de pago';
-        TotalsBlockCaptionLbl: Label 'Resumen económico';
-        OwnerNameCaptionLbl: Label 'Propietario';
-        OwnerVatCaptionLbl: Label 'CIF/NIF';
-        PropertySummaryText: Text[250];
-        PaymentSummaryText: Text[250];
-        FooterNoteText: Text[250];
-
-
-    local procedure BuildPropertySummary(LeaseInvoiceHeader: Record "Lease Invoice Header"): Text[250]
-    var
-        ResultText: Text[250];
-    begin
-        ResultText := FixedRealEstateDescription;
-        if LeaseInvoiceHeader."Contract No." <> '' then
-            ResultText += ' | ' + ContractNoCaptionLbl + ': ' + LeaseInvoiceHeader."Contract No.";
-        if OwnerName <> '' then
-            ResultText += ' | ' + OwnerNameCaptionLbl + ': ' + OwnerName;
-        exit(ResultText);
-    end;
-
-    local procedure BuildPaymentSummary(LeaseInvoiceHeader: Record "Lease Invoice Header"): Text[250]
-    var
-        ResultText: Text[250];
-    begin
-        ResultText := '';
-        if PaymentTerms.Description <> '' then
-            ResultText := PmtTermsDescCaptionLbl + ': ' + PaymentTerms.Description;
-        if PaymentMethod.Description <> '' then begin
-            if ResultText <> '' then
-                ResultText += ' | ';
-            ResultText += PmtMethodDescCaptionLbl + ': ' + PaymentMethod.Description;
-        end;
-        if LeaseInvoiceHeader."Due Date" <> 0D then begin
-            if ResultText <> '' then
-                ResultText += ' | ';
-            ResultText += DueDateCaptionLbl + ': ' + Format(LeaseInvoiceHeader."Due Date", 0, 4);
-        end;
-        exit(ResultText);
-    end;
-
-    local procedure BuildFooterNote(): Text[250]
-    begin
-        if (CompanyInfo."Bank Name" <> '') or (CompanyInfo."Bank Account No." <> '') then
-            exit(StrSubstNo('Pago por transferencia: %1 %2', CompanyInfo."Bank Name", CompanyInfo."Bank Account No."));
-        exit('Gracias por su confianza.');
-    end;
 
 
     local procedure CorrectShipment(var SalesShipmentLine: Record "Sales Shipment Line")

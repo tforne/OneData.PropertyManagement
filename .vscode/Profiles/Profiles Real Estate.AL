@@ -1,6 +1,6 @@
 profile "Property Management"
 {
-    Caption = 'Gestor de Propiedades';
+    Caption = 'Gestor de propiedades';
     RoleCenter = "Real Estate Role Center";
     Enabled = true;
     Promoted = true;

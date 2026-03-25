@@ -541,7 +541,19 @@ page 96031 "Lease Contract Card"
                     CurrPage.Update();
                 end;
             }
+            
+            action("Copy owner from FRE")
+            {
+                ApplicationArea = All;
+                Caption = 'Copy owner from FRE';
+                Image = Copy;
 
+                trigger OnAction()
+                begin
+                    rec.CopyContactsOwnerFromFRE();
+                    CurrPage.UPDATE(TRUE);
+                end;
+            }
             // group("F&unctions")
             // {
             //     Caption = 'F&unctions';

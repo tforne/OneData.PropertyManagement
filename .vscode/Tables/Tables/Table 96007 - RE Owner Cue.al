@@ -166,7 +166,7 @@ table 96007 "RE Owner Cue"
         }
         field(96003;"Builded surface";Decimal)
         {
-            CalcFormula = Sum("FRE Superficies"."Superficie m2");
+            CalcFormula = Sum("FRE Superficies"."Superficie m2" where(Construida=const(true)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -174,7 +174,7 @@ table 96007 "RE Owner Cue"
         {
             CalcFormula = Count("Fixed Real Estate" WHERE (Type=CONST(Activo),
                                                            Status=CONST("En alquiler")));
-            Caption = 'Activos inmoniliarios en alquiler';
+            Caption = 'Activos inmobiliarios en alquiler';
             Editable = false;
             FieldClass = FlowField;
         }

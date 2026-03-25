@@ -6,6 +6,7 @@ page 96030 "Lease Contract List"
     PageType = List;
     SourceTable = "Lease Contract";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

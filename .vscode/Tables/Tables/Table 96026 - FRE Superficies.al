@@ -24,6 +24,10 @@ table 96026 "FRE Superficies"
             Editable = false;
             FieldClass = FlowField;
         }
+        field(20;Construida;Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 
     keys

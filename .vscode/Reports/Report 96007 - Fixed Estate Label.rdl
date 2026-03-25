@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="FANoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>FANoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>FANoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FAClassCodeCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>FAClassCodeCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>FAClassCodeCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FASubclassCodeCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>FASubclassCodeCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>FASubclassCodeCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="FATableCaptionFAFilter">
+          <DataField>FATableCaptionFAFilter</DataField>
+        </Field>
+        <Field Name="FAFilter">
+          <DataField>FAFilter</DataField>
+        </Field>
+        <Field Name="FANo">
+          <DataField>FANo</DataField>
+        </Field>
+        <Field Name="FADesc">
+          <DataField>FADesc</DataField>
+        </Field>
+        <Field Name="City">
+          <DataField>City</DataField>
+        </Field>
+        <Field Name="FASerialNo">
+          <DataField>FASerialNo</DataField>
+        </Field>
+        <Field Name="GlobalDim1CodeCaption">
+          <DataField>GlobalDim1CodeCaption</DataField>
+        </Field>
+        <Field Name="FAGlobalDim1Code">
+          <DataField>FAGlobalDim1Code</DataField>
+        </Field>
+        <Field Name="GlobalDim2CodeCaption">
+          <DataField>GlobalDim2CodeCaption</DataField>
+        </Field>
+        <Field Name="FAGlobalDim2Code">
+          <DataField>FAGlobalDim2Code</DataField>
+        </Field>
+        <Field Name="FAClassCode">
+          <DataField>FAClassCode</DataField>
+        </Field>
+        <Field Name="FASubclassCode">
+          <DataField>FASubclassCode</DataField>
+        </Field>
+        <Field Name="FAEImage">
+          <DataField>FAEImage</DataField>
+        </Field>
+        <Field Name="PageGroupNo">
+          <DataField>PageGroupNo</DataField>
+        </Field>
+        <Field Name="FAListCaption">
+          <DataField>FAListCaption</DataField>
+        </Field>
+        <Field Name="CurrReportPageNoCaption">
+          <DataField>CurrReportPageNoCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoPicture">
+          <DataField>CompanyInfoPicture</DataField>
+        </Field>
+        <Field Name="ReferenciaCatastral">
+          <DataField>ReferenciaCatastral</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

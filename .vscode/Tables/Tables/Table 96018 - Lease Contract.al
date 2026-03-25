@@ -611,6 +611,14 @@ table 96018 "Lease Contract"
             Editable = false;
             FieldClass = FlowField;
         }
+        field(5061;"Number Contacts Related";Integer)
+        {
+            CalcFormula = count("REF Related Contactos" WHERE ("Entity Type"=CONST(Contract),
+                                                               "Source No."=FIELD("Contract No.")));
+            Caption = 'Cantidad Contactos relacionados';
+            Editable = false;
+            FieldClass = FlowField;
+        }
         field(5936;"Notify Customer";Option)
         {
             Caption = 'Notify Customer';
@@ -1052,9 +1060,6 @@ table 96018 "Lease Contract"
           MESSAGE(Text014);
     end;
 
-
-
-
     procedure SetBailDescription(NewWorkDescription: Text)
     var
         OutStream: OutStream;
@@ -1109,6 +1114,36 @@ table 96018 "Lease Contract"
             RealEstateManagement.RecalculateIRPFLeaseLine(LeaseContract, LeaseContractLine);
             LeaseContractLine.Modify();
         until LeaseContractLine.next = 0;
+    end;
+
+    procedure CopyContactsOwnerFromFRE()
+    var
+        RelatedContact,insRelatedContact : record "REF Related Contactos";
+        MovNo : Integer;
+    begin
+        if "Fixed Real Estate No." <> '' then begin
+            MovNo := 0;
+            insRelatedContact.reset;
+            insRelatedContact.setrange("Entity Type",insRelatedContact."Entity Type"::Contract);
+            insRelatedContact.setrange("Source No.","Contract No.");
+            if insRelatedContact.FindLast() then
+                MovNo := insRelatedContact."No. Entry." + 10;
+            
+            RelatedContact.reset;
+            RelatedContact.setrange("Entity Type", RelatedContact."Entity Type"::"Fixed Real Estate");
+            RelatedContact.SetRange("Source No.","Fixed Real Estate No.");
+            RelatedContact.setrange(Type, RelatedContact.type::Owner);
+            if RelatedContact.FindFirst() then repeat
+                insRelatedContact := RelatedContact;
+                insRelatedContact."No. Entry." := MovNo;
+                insRelatedContact."Entity Type" := insRelatedContact."Entity Type"::Contract;
+                insRelatedContact."Source No." := "Contract No.";
+                insRelatedContact.insert;
+                MovNo := MovNo + 10;
+            until RelatedContact.next = 0;
+        end;
+
+
     end;
 }
 

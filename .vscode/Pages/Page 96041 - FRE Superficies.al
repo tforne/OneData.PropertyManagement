@@ -21,6 +21,10 @@ page 96041 "FRE Superficies"
                 {
                     ApplicationArea = All;
                 }
+                field(Construida;Rec.Construida)
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }
