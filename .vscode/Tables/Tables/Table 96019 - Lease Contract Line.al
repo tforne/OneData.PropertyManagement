@@ -1,3 +1,20 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
+namespace OneData.Property.Lease;
+
+using Microsoft.Finance.Currency;
+using Microsoft.Finance.Dimension;
+using Microsoft.Finance.GeneralLedger.Account;
+using Microsoft.Finance.GeneralLedger.Setup;
+using Microsoft.Finance.VAT.Setup;
+using Microsoft.Foundation.UOM;
+using Microsoft.Sales.Customer;
+//using Microsoft.Service.Comment;
+using Microsoft.Service.Ledger;
+using OneData.Property.Setup;
+
 table 96019 "Lease Contract Line"
 {
     Caption = 'Lease Contract Line';
@@ -522,7 +539,7 @@ table 96019 "Lease Contract Line"
         Text008: Label '%1 field value cannot be later than the %2 field value on the contract line.';
         Text009: Label 'The %1 cannot be less than the %2.';
         Text011: Label 'Service ledger entry exists for service contract line %1.\\You may need to create a credit memo.';
-        LeaseContractCommentLine: Record "Service Comment Line";
+        LeaseContractCommentLine: Record "Lease Comment Line";
         LeaseContractHeaderAux: Record "Lease Contract";
         DimMgt: Codeunit "DimensionManagement";
         HideDialog: Boolean;
@@ -584,7 +601,7 @@ table 96019 "Lease Contract Line"
         //LeaseContractHeader.TESTFIELD("Customer No.");
         TESTFIELD("Line No.");
         LeaseContractCommentLine.RESET;
-        LeaseContractCommentLine.SETRANGE("Table Name", LeaseContractCommentLine."Table Name"::"Service Contract");
+        LeaseContractCommentLine.SETRANGE("Table Name", LeaseContractCommentLine."Table Name"::"Lease Contract");
         // LeaseContractCommentLine.SETRANGE("Table Subtype","Contract Type");
         LeaseContractCommentLine.SETRANGE("No.", "Contract No.");
         //LeaseContractCommentLine.SETRANGE(Type,LeaseContractCommentLine.Type::General);

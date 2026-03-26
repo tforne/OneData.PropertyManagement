@@ -1,9 +1,37 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
+namespace OneData.Property.Asset;
+
+using Microsoft.FixedAssets.Setup;
+using Microsoft.Finance.Dimension;
+using Microsoft.Purchases.Vendor;
+using Microsoft.FixedAssets.Insurance;
+using Microsoft.Foundation.Comment;
+using Microsoft.Foundation.NoSeries;
+using Microsoft.HumanResources.Employee;
+using Microsoft.Inventory.Location;
+using Microsoft.Purchases.Document;
+using Microsoft.Sales.Document;
+using System.Environment.Configuration;
+using System.Telemetry;
+using Microsoft.eServices.OnlineMap;
+using Microsoft.Foundation.Address;
+using Microsoft.Inventory.Intrastat;
+using System.Reflection;
+using OneData.Property.Setup;
+using OneData.Property.Lease;
+using Microsoft.CRM.Contact;
+using Microsoft.CRM.Team;
+
 table 96000 "Fixed Real Estate"
 {
     Caption = 'Fixed Real Estate';
     DataCaptionFields = "No.", Description;
     DrillDownPageID = 96061;
     LookupPageID = 96061;
+    DataPerCompany = false;
 
     fields
     {
@@ -25,8 +53,6 @@ table 96000 "Fixed Real Estate"
             Caption = 'Description';
 
             trigger OnValidate()
-            var
-                FADeprBook: Record "FA Depreciation Book";
             begin
                 IF ("Search Description" = UPPERCASE(xRec.Description)) OR ("Search Description" = '') THEN
                     "Search Description" := Description;
@@ -350,15 +376,6 @@ table 96000 "Fixed Real Estate"
             TableRelation = "Fixed Real Estate" WHERE(Type = CONST(Propiedad));
 
             trigger OnValidate()
-            var
-                Opp: Record "Opportunity";
-                OppEntry: Record "Opportunity Entry";
-                Task: Record "To-do";
-                InteractLogEntry: Record "Interaction Log Entry";
-                SegLine: Record "Segment Line";
-                SalesHeader: Record "Sales Header";
-                Cont: Record Contact;
-                ContBusRel: Record "Contact Business Relation";
             begin
                 IF REFA.GET("Property No.") THEN
                     InheritPropertyToFREData(REFA)
@@ -599,9 +616,7 @@ table 96000 "Fixed Real Estate"
         Text001: Label 'You cannot delete %1 %2 because it has associated depreciation books.';
         RECommentLine: Record "Real Estate Comment Line";
         REFA: Record "Fixed Real Estate";
-        RMSetup: Record "Marketing Setup";
         REFASetup: Record "REF Setup";
-        MaintenanceRegistration: Record "Maintenance Registration";
         PostCode: Record "Post Code";
         InsCoverageLedgEntry: Record "Ins. Coverage Ledger Entry";
         NoSeriesMgt: Codeunit "No. Series";
@@ -718,11 +733,6 @@ table 96000 "Fixed Real Estate"
     end;
 
     procedure GetFRENo(FREText: Text): Code[20]
-    var
-        Contact: Record Contact;
-        ContactWithoutQuote: Text;
-        ContactFilterFromStart: Text;
-        ContactFilterContains: Text;
     begin
         IF FREText = '' THEN
             EXIT('');

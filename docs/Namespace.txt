@@ -1,0 +1,18 @@
+OneData
+│
+├── Property
+│   ├── Asset
+│   ├── Lease
+│   ├── Finance
+│   ├── Incident
+│   ├── Partner
+│   ├── Publication
+│   ├── Index
+│   └── Setup
+│
+└── FamilyOffice
+    ├── Family
+    ├── Entity
+    ├── Ownership
+    ├── Governance
+    └── Analytics

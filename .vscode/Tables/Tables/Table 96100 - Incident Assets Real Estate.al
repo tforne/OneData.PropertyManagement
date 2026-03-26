@@ -1,3 +1,7 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96100 "Incident Assets Real Estate"
 {
     Caption = 'Incident Assets Real Estate';

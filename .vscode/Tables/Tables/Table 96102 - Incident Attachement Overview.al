@@ -1,9 +1,14 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96102 "Incident Attachment Overview"
 {
     Caption = 'Incident Attachment Overview';
     TableType = Temporary;
     ReplicateData = false;
     DataClassification = CustomerContent;
+    
 
     fields
     {

@@ -1,6 +1,12 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96050 "Consumer Price Index"
 {
-
+    Caption = 'Consumer Price Index';
+    DataPerCompany = false;
+    
     fields
     {
         field(1; "Consumer Price Index Category"; Code[10])

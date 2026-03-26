@@ -1,7 +1,13 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96051 "Consumer Price Index Categorie"
 {
+    DataPerCompany = false;
     DrillDownPageID = 96051;
     LookupPageID = 96051;
+    
 
     fields
     {

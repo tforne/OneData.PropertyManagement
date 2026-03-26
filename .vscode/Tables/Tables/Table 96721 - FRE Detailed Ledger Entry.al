@@ -1,7 +1,12 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96721 "FRE Detailed Ledg. Entry"
 {
     Caption = 'FRE Detailed Ledger Entry';
     DataClassification = CustomerContent;
+    DataPerCompany = false;
 
     fields
     {

@@ -1,6 +1,11 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96005 "REF Income & Expense Lines"
 {
     Caption = 'REF Income & Expenses Template';
+    DataPerCompany = false;
     DrillDownPageID = 96011;
     LookupPageID = 96011;
 

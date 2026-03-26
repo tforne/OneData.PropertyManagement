@@ -1,3 +1,11 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+namespace OneData.Property.Asset;
+
+using Microsoft.CRM.Contact;
+using Microsoft.Foundation.Address;
+
 table 96006 "REF Related Contactos"
 {
     DrillDownPageID = 96012;

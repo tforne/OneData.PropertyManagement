@@ -1,7 +1,12 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96054 "FRE Equipment"
 {
     Caption = 'FRE Equipment';
-
+    DataPerCompany = false;
+    
     fields
     {
         field(1; "FRE No."; Code[20])

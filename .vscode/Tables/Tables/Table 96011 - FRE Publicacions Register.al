@@ -1,7 +1,12 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96011 "FRE Publicacions Register"
 {
     Caption = 'Credit Transfer Register';
     DataCaptionFields = Identifier, "Created Date-Time";
+    DataPerCompany = false;
     DrillDownPageID = 1205;
     LookupPageID = 1205;
 

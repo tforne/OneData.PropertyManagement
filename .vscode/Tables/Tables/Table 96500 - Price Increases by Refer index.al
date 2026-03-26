@@ -1,6 +1,11 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96500 "Price Increases by Refer index"
 {
     Caption = 'Rental price increases by reference index';
+    DataPerCompany = false;
 
     fields
     {

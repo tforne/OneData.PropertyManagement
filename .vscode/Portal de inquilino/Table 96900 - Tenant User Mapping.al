@@ -1,4 +1,4 @@
-table 97000 "Tenant User Mapping"
+table 96900 "Tenant User Mapping"
 {
     DataClassification = CustomerContent;
 

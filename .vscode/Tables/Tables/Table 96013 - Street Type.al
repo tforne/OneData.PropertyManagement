@@ -1,6 +1,12 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+namespace OneData.Property.Asset;
+
 table 96013 "Street Type"
 {
     Caption = 'Street Type';
+    DataPerCompany = false;
     DrillDownPageID = 96025;
     LookupPageID = 96025;
 

@@ -2,7 +2,7 @@
   "id": "88c7367c-5bbe-483c-996a-9b8206a8d923",
   "name": "Property Management",
   "publisher": "OneData",
-  "version": "3.0.26084.49",
+  "version": "3.0.26085.52",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -24,7 +24,7 @@
   "idRanges": [
     {
       "from": 50000,
-      "to": 99999
+      "to": 96999
     }
   ],
   "resourceExposurePolicy": {

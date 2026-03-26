@@ -1,7 +1,12 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96055 "Incident Comment Line"
 {
     Caption = 'Incident Comment Line';
     DataCaptionFields = "Incident Id.";
+    DataPerCompany = false;
     DrillDownPageID = 96058;
     LookupPageID = 96058;
 

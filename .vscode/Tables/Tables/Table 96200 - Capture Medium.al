@@ -1,7 +1,12 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96200 "Capture Medium"
 {
     DrillDownPageID = 96200;
     LookupPageID = 96200;
+    DataPerCompany = false;
 
     fields
     {

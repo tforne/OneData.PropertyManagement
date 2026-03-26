@@ -1,3 +1,7 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96601 "Liquidacion Contrato Lines"
 {
     Caption = 'Liquidación de Contrato Lines';

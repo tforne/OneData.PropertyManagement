@@ -1,7 +1,13 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96026 "FRE Superficies"
+
 {
     DrillDownPageID = 96041;
     LookupPageID = 96041;
+    DataPerCompany = false;
 
     fields
     {

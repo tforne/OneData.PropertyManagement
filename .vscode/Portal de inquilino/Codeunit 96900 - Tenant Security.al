@@ -1,4 +1,4 @@
-codeunit 97000 "Tenant Security"
+codeunit 96900 "Tenant Security"
 {
     SingleInstance = true;
 

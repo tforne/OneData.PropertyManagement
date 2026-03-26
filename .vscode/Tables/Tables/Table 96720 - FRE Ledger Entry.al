@@ -1,8 +1,13 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96720 "FRE Ledger Entry"
 {
     Caption = 'FRE Ledger Entry';
     DrillDownPageID = "Movs. FRE";
     LookupPageID = "Movs. FRE";
+    DataPerCompany = false;
 
     fields
     {

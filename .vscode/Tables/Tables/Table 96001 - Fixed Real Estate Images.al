@@ -1,9 +1,14 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
+namespace OneData.Property.Asset;
+
 table 96001 "Fixed Real Estate Images"
 {
     Caption = 'Fixed Real Estate Images';
     DataCaptionFields = "Fixed Real Estate No.", Description;
-    //DrillDownPageID = 96005;
-    //LookupPageID = 96005;
+    DataPerCompany = false;
     Permissions = TableData 5629 = r;
 
     fields

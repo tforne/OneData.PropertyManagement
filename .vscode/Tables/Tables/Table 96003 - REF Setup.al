@@ -1,3 +1,13 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
+namespace OneData.Property.Setup;
+
+using Microsoft.Finance.GeneralLedger.Account;
+using Microsoft.Foundation.NoSeries;
+using Microsoft.CRM.BusinessRelation;
+
 table 96003 "REF Setup"
 {
     Caption = 'REF Setup';

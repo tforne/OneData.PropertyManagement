@@ -1,5 +1,10 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96017 "Published Fixed Real Estate"
 {
+    DataPerCompany = false;
     DrillDownPageID = 96029;
     LookupPageID = 96029;
 

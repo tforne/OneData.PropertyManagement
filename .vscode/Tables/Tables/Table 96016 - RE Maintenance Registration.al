@@ -1,6 +1,11 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96016 "RE Maintenance Registration"
 {
     Caption = 'Maintenance Registration';
+    DataPerCompany = false;
     DrillDownPageID = 96016;
     LookupPageID = 96016;
 

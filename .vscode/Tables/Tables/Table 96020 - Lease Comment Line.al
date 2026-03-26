@@ -1,3 +1,11 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
+namespace OneData.Property.Lease;
+
+using Microsoft.Service.Comment;
+
 table 96020 "Lease Comment Line"
 {
     Caption = 'FE Comment Line';
@@ -68,7 +76,7 @@ table 96020 "Lease Comment Line"
     end;
 
     var
-        ServCommentLine: Record "Service Comment Line";
+        ServCommentLine: Record "Lease Comment Line";
 
     procedure SetUpNewLine()
     begin

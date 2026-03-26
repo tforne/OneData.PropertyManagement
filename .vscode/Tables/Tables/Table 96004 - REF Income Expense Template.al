@@ -1,6 +1,11 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96004 "REF Income & Expense Template"
 {
     Caption = 'REF Income & Expenses Template';
+    DataPerCompany = false;
 
     fields
     {

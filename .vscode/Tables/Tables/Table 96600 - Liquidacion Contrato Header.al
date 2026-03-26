@@ -1,3 +1,7 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96600 "Liquidacion Contrato Header"
 {
     Caption = 'Liquidación de Contrato Header';

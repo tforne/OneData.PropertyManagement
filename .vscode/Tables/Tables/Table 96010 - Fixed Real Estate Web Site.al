@@ -1,5 +1,10 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96010 "Fixed Real Estate Web Site"
 {
+    DataPerCompany = false;
     DrillDownPageID = 96022;
     LookupPageID = 96022;
 

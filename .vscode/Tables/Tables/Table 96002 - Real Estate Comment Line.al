@@ -1,6 +1,14 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
+namespace OneData.Property.Asset;
+using Microsoft.Foundation.Comment;
+
 table 96002 "Real Estate Comment Line"
 {
     Caption = 'Comment Line';
+    DataPerCompany = false;
  
 
     fields

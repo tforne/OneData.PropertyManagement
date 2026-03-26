@@ -59,6 +59,20 @@ page 96014 "Small Real Estate Act."
                     DecimalPlaces = 2 : 2;
                 }
 
+                group(FlujoCaja)
+                {
+                    Caption = 'Flujo de Caja';
+                    usercontrol(BusinessChart; BusinessChart)
+                    {
+                        ApplicationArea = All;
+
+                        trigger AddInReady()
+                        begin
+                            UpdateChart();
+                        end;
+                    }
+                }
+
                 actions
                 {
                     action("New Real Estate")
@@ -136,6 +150,30 @@ page 96014 "Small Real Estate Act."
         "%NotRental": Decimal;
         PriceM2: Decimal;
         ContractExpiredCueStyle: Text;
+        Disposed: Boolean;
+        DisposalValueVisible: Boolean;
+        ProceedsOnDisposalVisible: Boolean;
+        GainLossVisible: Boolean;
+        DisposalDateVisible: Boolean;
+        RentabilidadBruta: Decimal;
+        RentabilidadPrevistaNeta : Decimal;
+        RentabilidadNeta: Decimal;
+        FlujoCajaMensual: Decimal;
+        PrevisionGastosAnual: Decimal;
+        GastosAnual: Decimal;
+        TotalFlujoCaja: Decimal;
+        BusinessChart: Codeunit "Business Chart";
+        SalesInvHeader: Record "Sales Invoice Header";
+        StartDate: Date;
+        EndDate: Date;
+        MonthNo: Integer;
+        MonthLabel: Text;
+        MonthAmountIncoming: Decimal;
+        MonthAmountExpenses: Decimal;
+        CurrentMonthStart: Date;
+        CurrentMonthEnd: Date;
+        RentabilidadStyle : Text;
+
 
     local procedure CalculateCueFieldValues()
     begin
@@ -160,5 +198,68 @@ page 96014 "Small Real Estate Act."
         else
             ContractExpiredCueStyle := 'Unfavorable';
     end;
+
+    local procedure UpdateChart()
+    var
+        XAxisIndex: Integer;
+    begin
+        BusinessChart.Initialize();
+        BusinessChart.SetXDimension('Mes', Enum::System.Visualization."Business Chart Data Type"::String);
+        BusinessChart.AddMeasure('Ventas', 0, Enum::"Business Chart Data Type"::Decimal, Enum::"Business Chart Type"::Column);
+        BusinessChart.AddMeasure('Gastos', 0, Enum::"Business Chart Data Type"::Decimal, Enum::"Business Chart Type"::Column);
+
+        XAxisIndex := 0;
+        TotalFlujoCaja := 0;
+        for MonthNo := 11 downto 0 do begin
+            CurrentMonthStart := CalcDate('<-CM>', CalcDate(StrSubstNo('-%1M', MonthNo), Today));
+            CurrentMonthEnd := CalcDate('<CM>', CurrentMonthStart);
+            MonthLabel := Format(CurrentMonthStart, 0, '<Month Text,3> <Year4>');
+            MonthAmountIncoming := GetSalesAmount(CurrentMonthStart, CurrentMonthEnd);
+            MonthAmountExpenses := GetExpensesAmount(CurrentMonthStart, CurrentMonthEnd);
+            TotalFlujoCaja += MonthAmountIncoming;
+            GastosAnual += MonthAmountExpenses;
+            BusinessChart.AddDataRowWithXDimension(MonthLabel);
+            BusinessChart.SetValue(0, XAxisIndex, MonthAmountIncoming);
+            BusinessChart.SetValue(1, XAxisIndex, MonthAmountExpenses);
+            XAxisIndex += 1;
+        end;
+        BusinessChart.Update(CurrPage.BusinessChart);
+    end;
+    local procedure GetSalesAmount(DateFrom: Date; DateTo: Date): Decimal
+    var
+        TotalSales: Decimal;
+        FRELedgerEntry: Record "FRE Ledger Entry";
+    begin
+        TotalSales := 0;
+        FRELedgerEntry.reset();
+        FRELedgerEntry.SetRange("Line Type", FRELedgerEntry."Line Type"::Invoice);
+        FRELedgerEntry.SetRange("Document Type", FRELedgerEntry."Document Type"::Invoice);
+        FRELedgerEntry.SetRange("Posting Date", DateFrom, DateTo);
+        if FRELedgerEntry.FindSet() then
+            repeat
+                TotalSales += FRELedgerEntry.Amount;
+            until FRELedgerEntry.Next() = 0;
+
+        exit(TotalSales);
+    end;
+    
+    local procedure GetExpensesAmount(DateFrom: Date; DateTo: Date): Decimal
+    var
+        TotalExpenses: Decimal;
+        FRELedgerEntry: Record "FRE Ledger Entry";
+    begin
+        TotalExpenses := 0;
+        FRELedgerEntry.reset();
+        //FRELedgerEntry.SetRange("Line Type", FRELedgerEntry."Line Type"::Invoice);
+        //FRELedgerEntry.SetRange("Document Type", FRELedgerEntry."Document Type"::Invoice);
+        FRELedgerEntry.SetRange("Posting Date", DateFrom, DateTo);
+        if FRELedgerEntry.FindSet() then
+            repeat
+                if FRELedgerEntry.Amount < 0 then
+                    TotalExpenses += FRELedgerEntry.Amount;
+            until FRELedgerEntry.Next() = 0;
+        exit(TotalExpenses);
+    end;
+
 }
 

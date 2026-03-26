@@ -1,6 +1,11 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
 table 96052 "Reference Index Rental Prices"
 {
     Caption = 'Reference Index Rental Prices';
+    DataPerCompany = false;
 
     fields
     {

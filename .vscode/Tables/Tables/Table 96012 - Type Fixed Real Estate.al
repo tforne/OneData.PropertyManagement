@@ -1,6 +1,12 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+namespace OneData.Property.Asset;
+
 table 96012 "Type Fixed Real Estate"
 {
     Caption = 'Tipo de activos inmobiliarios';
+    DataPerCompany = false;
     DrillDownPageID = 96024;
     LookupPageID = 96024;
 

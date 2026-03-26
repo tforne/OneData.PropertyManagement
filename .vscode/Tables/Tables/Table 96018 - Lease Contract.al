@@ -1,3 +1,31 @@
+// ------------------------------------------------------------------------------------------------
+// Copyright (c) Tomàs Forné Martínez. All rights reserved.
+// ------------------------------------------------------------------------------------------------
+
+namespace OneData.Property.Lease;
+
+using Microsoft.Bank.BankAccount;
+using Microsoft.CRM.BusinessRelation;
+using Microsoft.CRM.Interaction;
+using Microsoft.CRM.Team;
+using Microsoft.EServices.OnlineMap;
+using Microsoft.Finance.GeneralLedger.Setup;
+using Microsoft.Foundation.AuditCodes;
+using Microsoft.Foundation.NoSeries;
+using Microsoft.Foundation.PaymentTerms;
+using Microsoft.Inventory.Intrastat;
+using Microsoft.Inventory.Location;
+using Microsoft.Sales.Customer;
+using Microsoft.Service.Document;
+using OneData.Property.Asset;
+using OneData.Property.Setup;
+using Microsoft.CRM.Contact;
+using Microsoft.Foundation.Address;
+using OneData.Fiscal;
+using System.EMail;
+using System.Globalization;
+using System.Reflection;
+
 table 96018 "Lease Contract"
 {
     DrillDownPageID = 96030;
@@ -798,15 +826,6 @@ table 96018 "Lease Contract"
 
             trigger OnValidate()
             var
-                Opp: Record Opportunity;
-                OppEntry: Record "Opportunity Entry";
-                Task: Record "To-do";
-                InteractLogEntry: Record "Interaction Log Entry";
-                SegLine: Record "Segment Line";
-                SalesHeader: Record "Sales Header";
-                Cont: Record "Contact";
-                ContBusRel: Record "Contact Business Relation";
-                refa: Record "Fixed Real Estate";
             begin
             end;
         }
@@ -876,7 +895,6 @@ table 96018 "Lease Contract"
         PostCode: Record "Post Code";
         ComposseAddress: Text[50];
         NoSeriesMgt: Codeunit "No. Series";
-        DimMgt: Codeunit "DimensionManagement";
         ServOrderMgt: Codeunit "ServOrderManagement";
         Confirmed: Boolean;
         SkipContact: Boolean;
