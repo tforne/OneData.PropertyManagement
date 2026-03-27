@@ -1,6 +1,9 @@
 // ------------------------------------------------------------------------------------------------
 // Copyright (c) Tomàs Forné Martínez. All rights reserved.
 // ------------------------------------------------------------------------------------------------
+namespace OneData.Property.Publication;
+
+using OneData.Property.Asset;
 
 table 96017 "Published Fixed Real Estate"
 {

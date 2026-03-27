@@ -1,6 +1,10 @@
 // ------------------------------------------------------------------------------------------------
 // Copyright (c) Tomàs Forné Martínez. All rights reserved.
 // ------------------------------------------------------------------------------------------------
+namespace OneData.Property.Publication;
+
+using Microsoft.Inventory.Item.Attribute;
+using System.Reflection;
 
 table 96015 "Rel. XML Elem. to Attrib. Item"
 {

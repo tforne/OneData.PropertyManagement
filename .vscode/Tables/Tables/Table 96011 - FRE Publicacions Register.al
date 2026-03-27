@@ -1,6 +1,11 @@
 // ------------------------------------------------------------------------------------------------
 // Copyright (c) Tomàs Forné Martínez. All rights reserved.
 // ------------------------------------------------------------------------------------------------
+namespace OneData.Property.Publication;
+
+using Microsoft.Bank.Payment;
+using System.IO;
+using System.Security.AccessControl;
 
 table 96011 "FRE Publicacions Register"
 {

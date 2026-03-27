@@ -1,6 +1,9 @@
 // ------------------------------------------------------------------------------------------------
 // Copyright (c) Tomàs Forné Martínez. All rights reserved.
 // ------------------------------------------------------------------------------------------------
+namespace OneData.Property.Setup;
+
+using Microsoft.Finance.GeneralLedger.Account;
 
 table 96004 "REF Income & Expense Template"
 {

@@ -1,6 +1,25 @@
 // ------------------------------------------------------------------------------------------------
 // Copyright (c) Tomàs Forné Martínez. All rights reserved.
 // ------------------------------------------------------------------------------------------------
+namespace OneData.Property.Finance;
+
+using Microsoft.Finance.Currency;
+using Microsoft.Finance.Dimension;
+using Microsoft.Finance.GeneralLedger.Account;
+using Microsoft.Finance.GeneralLedger.Setup;
+using Microsoft.Finance.SalesTax;
+using Microsoft.Finance.VAT.Calculation;
+using Microsoft.Finance.VAT.Setup;
+using Microsoft.Foundation.UOM;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Tracking;
+using Microsoft.Projects.Resources.Resource;
+using Microsoft.Sales.Customer;
+using Microsoft.Service.Pricing;
+using Microsoft.Utilities;
+using OneData.Property.Asset;
+using OneData.Property.Lease;
+using System.Reflection;
 
 table 96022 "Lease Invoice Line"
 {

@@ -1,6 +1,7 @@
 // ------------------------------------------------------------------------------------------------
 // Copyright (c) Tomàs Forné Martínez. All rights reserved.
 // ------------------------------------------------------------------------------------------------
+namespace OneData.Property.Setup;
 
 table 96008 "Description Documents Class"
 {

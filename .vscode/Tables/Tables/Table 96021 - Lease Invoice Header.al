@@ -2,6 +2,36 @@
 // Copyright (c) Tomàs Forné Martínez. All rights reserved.
 // ------------------------------------------------------------------------------------------------
 
+namespace OneData.Property.Finance;
+
+using Microsoft.Bank.BankAccount;
+using Microsoft.CRM.Contact;
+using Microsoft.CRM.Team;
+using Microsoft.Finance.Currency;
+using Microsoft.Finance.Dimension;
+using Microsoft.Finance.GeneralLedger.Setup;
+using Microsoft.Finance.SalesTax;
+using Microsoft.Finance.VAT.Setup;
+using Microsoft.Foundation.Address;
+using Microsoft.Foundation.AuditCodes;
+using Microsoft.Foundation.Navigate;
+using Microsoft.Foundation.NoSeries;
+using Microsoft.Foundation.PaymentTerms;
+using Microsoft.Foundation.Reporting;
+using Microsoft.Inventory.Location;
+using Microsoft.Sales.Customer;
+using Microsoft.Sales.Document;
+using Microsoft.Sales.History;
+using Microsoft.Sales.Pricing;
+using Microsoft.Sales.Receivables;
+using OneData.Property.Asset;
+using OneData.Property.Lease;
+using OneData.Property.Setup;
+using System.EMail;
+using System.Globalization;
+using System.Security.AccessControl;
+using System.Security.User;
+
 table 96021 "Lease Invoice Header"
 {
     Caption = 'Lease Invoice Header';

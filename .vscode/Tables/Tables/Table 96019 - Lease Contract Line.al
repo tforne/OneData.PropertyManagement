@@ -11,7 +11,6 @@ using Microsoft.Finance.GeneralLedger.Setup;
 using Microsoft.Finance.VAT.Setup;
 using Microsoft.Foundation.UOM;
 using Microsoft.Sales.Customer;
-//using Microsoft.Service.Comment;
 using Microsoft.Service.Ledger;
 using OneData.Property.Setup;
 

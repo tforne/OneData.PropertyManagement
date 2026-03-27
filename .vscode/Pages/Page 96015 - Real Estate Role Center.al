@@ -7,35 +7,29 @@ page 96015 "Real Estate Role Center"
     {
         area(rolecenter)
         {
-//            group(Group01)
-//            {
-                part(Control139; "Headline FFO Manager")
-                {
-                    ApplicationArea = all;
-                }
-                part("Real Estate Incidents"; 96056)
-                {
-                    ApplicationArea = all;
-                }
-                part("Real Estate"; 96014)
-                {
-                    ApplicationArea = all;
-                }
-                part("Account Manager Activities"; 9030)
-                {
-                    ApplicationArea = all;
-                }
-                part("User Tasks Activities"; 9078)
-                {
-                    ApplicationArea = all;
-                }
-//            }
-            group(Group02)
+            part(Control139; "Headline FFO Manager")
             {
-                systempart(MyNotes; MyNotes)
-                {
-                    ApplicationArea = all;
-                }
+                ApplicationArea = all;
+            }
+            part("Real Estate Incidents"; 96056)
+            {
+                ApplicationArea = all;
+            }
+            part("Real Estate"; 96014)
+            {
+                ApplicationArea = all;
+            }
+            part("Account Manager Activities"; 9030)
+            {
+                ApplicationArea = all;
+            }
+            part("User Tasks Activities"; 9078)
+            {
+                ApplicationArea = all;
+            }
+            part(RECashFlowChart; "RE Cash Flow Chart")
+            {
+                ApplicationArea = All;
             }
         }
     }

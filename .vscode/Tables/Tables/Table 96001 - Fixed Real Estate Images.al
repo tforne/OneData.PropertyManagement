@@ -4,6 +4,11 @@
 
 namespace OneData.Property.Asset;
 
+using Microsoft.CRM.Contact;
+using Microsoft.Foundation.Address;
+using OneData.Property.Setup;
+
+
 table 96001 "Fixed Real Estate Images"
 {
     Caption = 'Fixed Real Estate Images';

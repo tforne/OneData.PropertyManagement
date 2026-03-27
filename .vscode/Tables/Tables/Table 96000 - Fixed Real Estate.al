@@ -14,6 +14,7 @@ using Microsoft.HumanResources.Employee;
 using Microsoft.Inventory.Location;
 using Microsoft.Purchases.Document;
 using Microsoft.Sales.Document;
+using OneData.Property.Publication;
 using System.Environment.Configuration;
 using System.Telemetry;
 using Microsoft.eServices.OnlineMap;

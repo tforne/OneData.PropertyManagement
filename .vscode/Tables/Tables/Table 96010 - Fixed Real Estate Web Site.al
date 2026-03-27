@@ -1,6 +1,9 @@
 // ------------------------------------------------------------------------------------------------
 // Copyright (c) Tomàs Forné Martínez. All rights reserved.
 // ------------------------------------------------------------------------------------------------
+namespace OneData.Property.Publication;
+
+using System.Reflection;
 
 table 96010 "Fixed Real Estate Web Site"
 {

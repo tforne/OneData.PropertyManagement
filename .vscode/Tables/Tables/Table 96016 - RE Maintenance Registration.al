@@ -1,6 +1,9 @@
 // ------------------------------------------------------------------------------------------------
 // Copyright (c) Tomàs Forné Martínez. All rights reserved.
 // ------------------------------------------------------------------------------------------------
+namespace OneData.Property.Asset;
+
+using Microsoft.Purchases.Vendor;
 
 table 96016 "RE Maintenance Registration"
 {
