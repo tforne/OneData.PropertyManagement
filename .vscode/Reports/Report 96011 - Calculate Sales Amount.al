@@ -9,7 +9,7 @@ report 96011 "Calculate Sales Amount"
     {
         dataitem("Fixed Real Estate";"Fixed Real Estate")
         {
-            RequestFilterFields = "No.","Post Code";
+            RequestFilterFields = "No.","Post Code","Asset Type";
 
             trigger OnAfterGetRecord()
             begin

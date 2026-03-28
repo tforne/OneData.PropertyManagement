@@ -5338,6 +5338,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Clasificación - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4166615366 - Control 1304617788 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the asset type that the real estate asset belongs to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Asset Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4166615366 - Control 1304617788 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Asset Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Control Asset Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4166615366 - Control 418100014 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the class that the real estate asset belongs to.</source>
           <note from="Developer" annotates="general" priority="2"></note>

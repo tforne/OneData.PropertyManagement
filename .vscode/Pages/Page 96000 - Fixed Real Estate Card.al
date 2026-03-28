@@ -111,6 +111,14 @@ page 96000 "Fixed Real Estate Card"
                             SetDefaultPostingGroup;
                         end;
                     }
+                    field("Asset Type";Rec."Asset Type")
+                    {
+                        ApplicationArea = All;
+                        Caption = 'Asset Type';
+                        Importance = Promoted;
+                        ShowMandatory = true;
+                        ToolTip = 'Specifies the asset type that the real estate asset belongs to.';
+                    }
                     field(Totaling; Rec.Totaling)
                     {
                         ApplicationArea = All;

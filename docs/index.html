@@ -3,507 +3,635 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Property Management para Business Central</title>
-  <meta name="description" content="Extensión para Microsoft Dynamics 365 Business Central orientada a la gestión inmobiliaria: activos, contratos, operaciones, incidencias, gastos, ingresos y control operativo desde un único entorno." />
+  <title>OneData Property Management</title>
   <style>
     :root {
-      --bg: #0b1020;
-      --bg-soft: #121933;
-      --card: #ffffff;
-      --text: #111827;
-      --text-light: #e5e7eb;
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --border: #e5e7eb;
-      --ok: #16a34a;
+      --bg: #07111f;
+      --bg-2: #0b1730;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.1);
+      --text: #eaf2ff;
+      --muted: #a7b8d1;
+      --line: rgba(255,255,255,0.12);
+      --primary: #66b4ff;
+      --secondary: #8b7dff;
+      --success: #29d17d;
+      --shadow: 0 30px 80px rgba(0,0,0,.35);
+      --radius: 24px;
+      --max: 1180px;
     }
+
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
-      background: #f8fafc;
-      line-height: 1.5;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(102,180,255,.18), transparent 26%),
+        radial-gradient(circle at 15% 80%, rgba(139,125,255,.18), transparent 24%),
+        linear-gradient(180deg, var(--bg), var(--bg-2) 55%, #0f1c38);
     }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 88px 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(102,180,255,.22);
+      background: rgba(102,180,255,.08);
+      color: #cfe6ff;
+      font-size: .82rem;
+      letter-spacing: .02em;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 18px rgba(102,180,255,.8);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--line);
+      background: rgba(7,17,31,.68);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 14px 36px rgba(102,180,255,.24);
+    }
+    .brand-name { font-weight: 800; font-size: 1.04rem; }
+    .brand-sub { color: var(--muted); font-size: .88rem; }
+    .menu {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .menu a {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+    .menu a:hover { color: white; }
+    .menu .cta-mini {
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+    }
+
     .hero {
-      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-soft) 100%);
-      color: var(--text-light);
-      padding: 72px 20px;
-    }
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
+      padding: 84px 0 54px;
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 32px;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 36px;
       align-items: center;
     }
-    .eyebrow {
-      display: inline-block;
-      background: rgba(37, 99, 235, 0.18);
-      color: #bfdbfe;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      margin-bottom: 18px;
+    .hero h1 {
+      margin: 18px 0 18px;
+      font-size: clamp(2.6rem, 5vw, 5.4rem);
+      line-height: .98;
+      letter-spacing: -.03em;
+      max-width: 760px;
     }
-    h1 {
-      font-size: 48px;
-      line-height: 1.1;
-      margin: 0 0 16px;
-    }
-    .subtitle {
-      font-size: 18px;
-      color: #cbd5e1;
+    .lead {
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.75;
       max-width: 720px;
-      margin-bottom: 28px;
     }
-    .cta-row {
+    .hero-actions {
+      margin: 28px 0 30px;
       display: flex;
-      flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 20px;
+      flex-wrap: wrap;
     }
     .btn {
-      text-decoration: none;
-      padding: 14px 18px;
-      border-radius: 12px;
-      font-weight: bold;
-      display: inline-block;
-    }
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-    .btn-primary:hover { background: var(--primary-dark); }
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.18);
-      color: white;
-      background: rgba(255,255,255,0.04);
-    }
-    .btn-light {
-      border: 1px solid #cbd5e1;
-      color: #0f172a;
-      background: white;
-    }
-    .hero-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 20px;
-      padding: 24px;
-    }
-    .hero-card h3 {
-      margin-top: 0;
-      color: white;
-    }
-    .hero-card ul {
-      padding-left: 18px;
-      color: #dbeafe;
-    }
-    section {
-      padding: 68px 20px;
-    }
-    .section-title {
-      font-size: 34px;
-      margin: 0 0 12px;
-      text-align: center;
-    }
-    .section-subtitle {
-      text-align: center;
-      color: #475569;
-      max-width: 800px;
-      margin: 0 auto 36px;
-    }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
-    }
-    .card h3 { margin-top: 0; }
-    .card p { color: #475569; }
-    .card img {
-      width: 100%;
-      border-radius: 12px;
-      margin: 16px 0;
-      border: 1px solid #e5e7eb;
-      display: block;
-    }
-
-    .feature-head {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 10px;
-    }
-    .feature-head h3 {
-      margin: 0;
-    }
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      min-width: 48px;
+      min-height: 50px;
+      padding: 0 20px;
       border-radius: 14px;
-      background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
-      border: 1px solid #bfdbfe;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+      font-weight: 700;
+      transition: transform .18s ease, opacity .18s ease, background .18s ease;
     }
-    .feature-icon svg {
-      width: 24px;
-      height: 24px;
-      stroke: #2563eb;
-      stroke-width: 2;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 14px 34px rgba(102,180,255,.22);
     }
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .btn-secondary {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
     }
-    .feature-list li {
-      padding: 10px 0;
-      border-bottom: 1px solid #eef2f7;
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 760px;
     }
-    .feature-list li:last-child { border-bottom: none; }
-    .split {
+    .metric {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      padding: 18px;
+    }
+    .metric strong {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+    .metric span {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: .94rem;
+    }
+
+    .hero-panel {
+      position: relative;
+    }
+    .glass-card {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+    }
+    .window-bar {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 999px; }
+    .dot.red { background: #ff5d73; }
+    .dot.yellow { background: #ffbe3c; }
+    .dot.green { background: var(--success); }
+    .window-title { margin-left: 8px; }
+    .dashboard {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+    .dash-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: start;
+      gap: 14px;
     }
-    .badge {
-      display: inline-block;
-      font-size: 12px;
-      color: var(--ok);
-      font-weight: bold;
+    .dash-card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      border-radius: 20px;
+      padding: 18px;
+    }
+    .dash-card.highlight {
+      background: linear-gradient(135deg, rgba(102,180,255,.16), rgba(139,125,255,.18));
+    }
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: .84rem;
       margin-bottom: 8px;
     }
-    .faq details {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 12px;
+    .dash-card strong {
+      display: block;
+      font-size: 1.02rem;
+      line-height: 1.4;
     }
-    .faq summary {
-      cursor: pointer;
-      font-weight: bold;
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
     }
-    .cta-final {
-      background: #eff6ff;
-      border-top: 1px solid #dbeafe;
-      border-bottom: 1px solid #dbeafe;
-      text-align: center;
+    .section-head h2 {
+      font-size: clamp(2rem, 3vw, 3.3rem);
+      margin: 14px 0;
+      line-height: 1.05;
     }
-    footer {
-      padding: 28px 20px 50px;
-      text-align: center;
-      color: #64748b;
-      font-size: 14px;
+    .section-head p { color: var(--muted); line-height: 1.75; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
-    @media (max-width: 900px) {
-      .hero-grid, .grid-3, .split {
-        grid-template-columns: 1fr;
-      }
-      h1 { font-size: 36px; }
+    .feature-card,
+    .solution-card,
+    .workflow-card,
+    .cta-card,
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.05);
+    }
+    .feature-card,
+    .solution-card,
+    .workflow-card,
+    .cta-card,
+    .contact-card { padding: 24px; }
+    .feature-card h3,
+    .solution-card h3,
+    .workflow-card h3,
+    .cta-card h3,
+    .contact-card h3 { margin: 10px 0 10px; font-size: 1.18rem; }
+    .feature-card p,
+    .solution-card p,
+    .workflow-card p,
+    .cta-card p,
+    .contact-card p,
+    .solution-card li,
+    .workflow-card li { color: var(--muted); line-height: 1.7; }
+    .icon-chip {
+      width: 48px; height: 48px;
+      border-radius: 16px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(102,180,255,.18), rgba(139,125,255,.18));
+      font-size: 1.3rem;
+    }
+
+    .solution-card ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    .section-dark {
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border-top: 1px solid rgba(255,255,255,.04);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .workflow-card .step {
+      width: 38px; height: 38px; border-radius: 999px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .cta-card {
+      background: linear-gradient(135deg, rgba(102,180,255,.14), rgba(139,125,255,.16));
+    }
+    .link-list {
+      display: grid;
+      gap: 14px;
+    }
+    .mini-link {
+      display: block;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+    }
+    .mini-link strong { display: block; margin-bottom: 6px; }
+    .mini-link span { color: var(--muted); line-height: 1.55; }
+
+    .footer {
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--line);
+      background: rgba(0,0,0,.16);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .footer p { color: var(--muted); line-height: 1.7; }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .card-grid,
+      .workflow,
+      .split,
+      .footer-grid,
+      .hero-metrics,
+      .dash-row { grid-template-columns: 1fr; }
+      .menu { display: none; }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">Extensión para Microsoft Dynamics 365 Business Central</div>
-        <h1>Property Management para Business Central</h1>
-        <p class="subtitle">
-          Gestiona activos inmobiliarios, contratos, operaciones, incidencias, ingresos, gastos y fiscalidad asociada desde Business Central, con una visión más clara de la operativa diaria, el historial de cada inmueble y la gestión de IRPF integrada con OneData Fiscal.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#contacto">Solicitar información</a>
-          <a class="btn btn-secondary" href="#funcionalidades">Ver funcionalidades</a>
-          <a class="btn btn-secondary" href="mejoras-v3-premium.html">Mejoras versión 3.0</a>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark">OD</div>
+        <div>
+          <div class="brand-name">OneData</div>
+          <div class="brand-sub">Property Management</div>
         </div>
-        <p style="color:#94a3b8; margin:0;">Pensada para promotoras, patrimoniales, administradores y empresas con cartera inmobiliaria propia.</p>
       </div>
-      <div class="hero-card">
-        <h3>Qué aporta la solución</h3>
-        <ul>
-          <li>Control centralizado de activos y unidades</li>
-          <li>Seguimiento contractual y vencimientos</li>
-          <li>Gestión de operaciones, incidencias y actuaciones</li>
-          <li>Visibilidad de gastos, ingresos, rentabilidad e IRPF</li>
-          <li>Documentación y trazabilidad por inmueble</li>
-        </ul>
-      </div>
+      <nav class="menu">
+        <a href="#product">Producto</a>
+        <a href="#solutions">Soluciones</a>
+        <a href="#workflow">Flujo</a>
+        <a href="#docs">Documentación</a>
+        <a href="#contact" class="cta-mini">Solicitar demo</a>
+      </nav>
     </div>
   </header>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Una forma más ordenada de gestionar tu cartera inmobiliaria</h2>
-      <p class="section-subtitle">
-        Cuando la gestión inmobiliaria depende de hojas de cálculo, correos y tareas repartidas entre varias personas, se pierde tiempo y se reduce el control. Esta extensión reúne la operativa clave dentro de Business Central para trabajar con más orden, más trazabilidad y mejor capacidad de seguimiento.
-      </p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Menos dispersión</h3>
-          <p>Evita repartir la información entre documentos, correos y herramientas separadas. Todo queda vinculado al activo y a su operativa.</p>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Microsoft Dynamics 365 Business Central · Microsoft 365 · Family Office</span>
+          <h1>La home premium para una solución inmobiliaria y financiera de nivel SaaS.</h1>
+          <p class="lead">
+            OneData Property Management centraliza activos, contratos, extractos bancarios, FRE Journal,
+            posting y análisis financiero por activo en una única plataforma operativa para patrimoniales y family offices.
+          </p>
+          <div class="hero-actions">
+            <a href="#solutions" class="btn btn-primary">Explorar soluciones</a>
+            <a href="#docs" class="btn btn-secondary">Ver documentación</a>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric">
+              <strong>1 flujo</strong>
+              <span>del extracto bancario al FRE Ledger</span>
+            </div>
+            <div class="metric">
+              <strong>2 tipos</strong>
+              <span>Property y Fixed con reparto automático</span>
+            </div>
+            <div class="metric">
+              <strong>360º</strong>
+              <span>control operativo, documental y financiero</span>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <h3>Más visibilidad</h3>
-          <p>Consulta rápidamente el estado del inmueble, su contrato actual, las incidencias abiertas, las operaciones realizadas y las próximas actuaciones.</p>
-        </div>
-        <div class="card">
-          <h3>Mejor seguimiento</h3>
-          <p>Dispón de una base más sólida para controlar vencimientos, ocupación, costes asociados, ingresos recurrentes e historial operativo.</p>
+
+        <div class="hero-panel">
+          <div class="glass-card">
+            <div class="window-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="window-title">OneData Financial Engine</span>
+            </div>
+            <div class="dashboard">
+              <div class="dash-row">
+                <div class="dash-card">
+                  <span class="label">Entrada documental</span>
+                  <strong>Extracto bancario mensual por empresa</strong>
+                </div>
+                <div class="dash-card">
+                  <span class="label">Importación</span>
+                  <strong>Source + Journal Lines + FRE Journal</strong>
+                </div>
+              </div>
+              <div class="dash-row">
+                <div class="dash-card highlight">
+                  <span class="label">Sugerencias</span>
+                  <strong>Propuesta automática de activo inmobiliario</strong>
+                </div>
+                <div class="dash-card">
+                  <span class="label">Posting</span>
+                  <strong>Distribución Property → Fixed por superficie</strong>
+                </div>
+              </div>
+              <div class="dash-card">
+                <span class="label">Resultado</span>
+                <strong>FRE Ledger histórico, trazable y consultable desde la ficha del activo</strong>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="funcionalidades" style="background:#ffffff;">
-    <div class="container">
-      <h2 class="section-title">Funcionalidades clave</h2>
-      <p class="section-subtitle">Una extensión pensada para cubrir la operativa diaria de empresas patrimoniales, gestoras y organizaciones con activos inmobiliarios propios o arrendados.</p>
-      <div class="split">
-        <div class="card">
-          <div class="badge">OPERATIVA</div>
-          <div class="feature-head">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path><path d="M9 21v-6h6v6"></path></svg>
-            </div>
-            <h3>Gestión del activo inmobiliario</h3>
-          </div>
-          <ul class="feature-list">
-            <li>Ficha de activo con datos identificativos y operativos</li>
-            <li>Control de estado: disponible, alquilado, reservado, baja, etc.</li>
-            <li>Seguimiento histórico del inmueble y su situación operativa</li>
-            <li>Asociación con propietarios, arrendatarios y documentación</li>
-          </ul>
+    <section id="product" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Producto</span>
+          <h2>Gestión inmobiliaria, financiera y documental en una sola capa de producto.</h2>
+          <p>
+            Diseñado para organizaciones que no solo necesitan administrar inmuebles,
+            sino también controlar el rendimiento financiero real de cada activo con trazabilidad completa.
+          </p>
         </div>
-        <div class="card">
-          <div class="badge">CONTRATOS</div>
-          <div class="feature-head">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"></path><path d="M15 3v4h4"></path><path d="M10 12h6"></path><path d="M10 16h6"></path></svg>
-            </div>
-            <h3>Seguimiento contractual</h3>
-          </div>
-          <ul class="feature-list">
-            <li>Control de contratos vigentes y vencimientos</li>
-            <li>Consulta rápida del inquilino actual</li>
-            <li>Visibilidad de renovaciones y situaciones pendientes</li>
-            <li>Base para renovaciones, revisiones y seguimiento administrativo</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="badge">OPERACIONES</div>
-          <div class="feature-head">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 18h16"></path><path d="M6 18V8"></path><path d="M12 18V5"></path><path d="M18 18v-7"></path></svg>
-            </div>
-            <h3>Operaciones realizadas sobre el activo</h3>
-          </div>
-          <ul class="feature-list">
-            <li>Registro de operaciones y actuaciones vinculadas al inmueble</li>
-            <li>Trazabilidad completa de intervenciones, cambios y eventos relevantes</li>
-            <li>Consulta cronológica del historial operativo del activo</li>
-            <li>Base para un mejor seguimiento interno y para informar al propietario</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="badge">INCIDENCIAS</div>
-          <div class="feature-head">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M14.7 6.3 17.7 9.3"></path><path d="M3 21l3.5-.8L18 8.7a2.1 2.1 0 0 0-3-3L3.5 17.2 3 21z"></path></svg>
-            </div>
-            <h3>Mantenimiento e incidencias</h3>
-          </div>
-          <ul class="feature-list">
-            <li>Registro y seguimiento de incidencias</li>
-            <li>Priorización de tareas y actuaciones</li>
-            <li>Histórico de resolución</li>
-            <li>Mejor coordinación entre gestión administrativa y mantenimiento</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="badge">ECONOMÍA</div>
-          <div class="feature-head">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3v18"></path><path d="M17 7.5c0-1.9-2.2-3.5-5-3.5S7 5.6 7 7.5 9.2 11 12 11s5 1.6 5 3.5S14.8 18 12 18 7 16.4 7 14.5"></path></svg>
-            </div>
-            <h3>Gastos, ingresos y visión económica</h3>
-          </div>
-          <ul class="feature-list">
-            <li>Relación entre activo y operativa económica</li>
-            <li>Seguimiento de gastos asociados</li>
-            <li>Visibilidad sobre ingresos recurrentes</li>
-            <li>Base para análisis económico, rentabilidad por inmueble y control fiscal</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="badge">CONTROL</div>
-          <div class="feature-head">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-2.7 7.8-7 9-4.3-1.2-7-4.5-7-9V6l7-3z"></path><path d="m9.5 12 1.8 1.8 3.7-3.7"></path></svg>
-            </div>
-            <h3>Visión completa del ciclo de vida</h3>
-          </div>
-          <ul class="feature-list">
-            <li>Consulta unificada del estado actual y del recorrido histórico del activo</li>
-            <li>Mejor coordinación entre contratos, operaciones, incidencias y documentación</li>
-            <li>Más capacidad de seguimiento para gestores y propietarios</li>
-            <li>Base sólida para ampliar procesos y analítica en el futuro</li>
-          </ul>
+        <div class="card-grid">
+          <article class="feature-card">
+            <div class="icon-chip">🏢</div>
+            <h3>Gestión de activos</h3>
+            <p>Modelo de activos Property y Fixed, clasificación patrimonial, documentación y estructura escalable.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon-chip">📄</div>
+            <h3>Contratos y rentas</h3>
+            <p>Control contractual, depósitos, renovaciones, actualizaciones y liquidaciones dentro de Business Central.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon-chip">💳</div>
+            <h3>FRE Financial Engine</h3>
+            <p>Diario financiero, importación de extractos, validación, posting y movimientos por activo.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-
-  <section id="fiscal" style="background:#f8fbff; border-top:1px solid #dbeafe; border-bottom:1px solid #dbeafe;">
-    <div class="container">
-      <h2 class="section-title">Gestión Fiscal Integrada — IRPF con OneData Fiscal</h2>
-      <p class="section-subtitle">OneData Property Management incorpora la gestión de IRPF en alquileres mediante integración directa con <strong>OneData Fiscal</strong>, que actúa como motor fiscal centralizado para garantizar trazabilidad, automatización y control normativo.</p>
-      <div class="split">
-        <div class="card">
-          <div class="badge">FISCALIDAD</div>
-          <h3>Gestión profesional del IRPF en alquileres</h3>
-          <ul class="feature-list">
-            <li>Cálculo automático de retenciones en contratos sujetos a IRPF</li>
-            <li>Parametrización mediante Grupos IRPF</li>
-            <li>Soporte para claves y subclaves de percepción</li>
-            <li>Control de referencia catastral y datos fiscales asociados</li>
-          </ul>
+    <section id="solutions" class="section section-dark">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Soluciones</span>
+          <h2>Una estructura preparada para múltiples landings y múltiples mensajes comerciales.</h2>
+          <p>
+            Organiza el ecosistema en torno a una home principal y varias páginas específicas por caso de uso.
+          </p>
         </div>
-        <div class="card">
-          <div class="badge">ARQUITECTURA</div>
-          <h3>Separación clara entre gestión y fiscalidad</h3>
-          <ul class="feature-list">
-            <li><strong>Property Management</strong>: contratos, facturación y cálculo IRPF</li>
-            <li><strong>OneData Fiscal</strong>: modelos tributarios y declaraciones</li>
-            <li>Menos duplicidad de lógica fiscal</li>
-            <li>Mayor facilidad de mantenimiento ante cambios normativos</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="badge">AUTOMATIZACIÓN</div>
-          <h3>Información fiscal estructurada</h3>
-          <ul class="feature-list">
-            <li>Generación automática de movimientos fiscales</li>
-            <li>Base de cálculo, porcentaje e importe retenido</li>
-            <li>Datos enlazados al contrato, inmueble y tercero</li>
-            <li>Trazabilidad entre operación inmobiliaria y declaración fiscal</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="badge">MODELOS</div>
-          <h3>Integración con OneData Fiscal</h3>
-          <ul class="feature-list">
-            <li>Preparado para modelos fiscales como 115 y 180</li>
-            <li>Consolidación de información por declarante</li>
-            <li>Validación fiscal desde una solución especializada</li>
-            <li>Reducción de errores y tareas manuales</li>
-          </ul>
+        <div class="card-grid">
+          <article class="solution-card">
+            <div class="icon-chip">🏙️</div>
+            <h3>Property Management</h3>
+            <p>Landing principal del producto con visión global de activos, contratos, facturación y control financiero.</p>
+            <ul>
+              <li>Activos y contratos</li>
+              <li>Facturación y reporting</li>
+              <li>Arquitectura funcional completa</li>
+            </ul>
+          </article>
+          <article class="solution-card">
+            <div class="icon-chip">👨‍👩‍👧‍👦</div>
+            <h3>Family Office</h3>
+            <p>Enfoque específico para sociedades patrimoniales con necesidad de control mensual por empresa y por activo.</p>
+            <ul>
+              <li>Visión multiempresa</li>
+              <li>Control patrimonial</li>
+              <li>Proceso mensual estructurado</li>
+            </ul>
+          </article>
+          <article class="solution-card">
+            <div class="icon-chip">🏦</div>
+            <h3>Bank Statements</h3>
+            <p>Proceso completo de extractos bancarios: Source, importación, sugerencias, validación y posting.</p>
+            <ul>
+              <li>SharePoint / Microsoft 365</li>
+              <li>Excel → Journal → Ledger</li>
+              <li>Trazabilidad documental</li>
+            </ul>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Por qué elegir esta extensión</h2>
-      <p class="section-subtitle">Diseñada para integrarse con la lógica de trabajo de Business Central y aportar valor desde la operativa real.</p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Integración natural</h3>
-          <p>La solución está pensada para trabajar dentro de Business Central, sin depender de procesos paralelos difíciles de mantener.</p>
+    <section id="workflow" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Flujo operativo</span>
+          <h2>De la entrada documental al análisis financiero por inmueble.</h2>
         </div>
-        <div class="card">
-          <h3>Más trazabilidad</h3>
-          <p>La nueva capa de operaciones sobre el activo permite entender mejor qué ha ocurrido, cuándo y sobre qué inmueble.</p>
-        </div>
-        <div class="card">
-          <h3>Preparada para evolucionar</h3>
-          <p>Puede crecer con nuevas necesidades funcionales, nuevos procesos y una mayor exigencia de control sobre la cartera inmobiliaria.</p>
+        <div class="workflow">
+          <article class="workflow-card">
+            <div class="step">1</div>
+            <h3>Extracto / Source</h3>
+            <p>Recepción del extracto bancario y preparación estructurada de los datos en la plantilla Excel.</p>
+          </article>
+          <article class="workflow-card">
+            <div class="step">2</div>
+            <h3>FRE Journal</h3>
+            <p>Importación de movimientos, generación de líneas y revisión de incidencias operativas.</p>
+          </article>
+          <article class="workflow-card">
+            <div class="step">3</div>
+            <h3>Sugerencias</h3>
+            <p>Asignación sugerida del activo inmobiliario a partir de la descripción del movimiento.</p>
+          </article>
+          <article class="workflow-card">
+            <div class="step">4</div>
+            <h3>Posting</h3>
+            <p>Registro definitivo del diario con reparto automático Property → Fixed si corresponde.</p>
+          </article>
+          <article class="workflow-card">
+            <div class="step">5</div>
+            <h3>FRE Ledger</h3>
+            <p>Histórico financiero final, accesible desde la ficha del activo para consulta y reporting.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section style="background:#ffffff;">
-    <div class="container">
-      <h2 class="section-title">Qué puedes destacar con capturas</h2>
-      <p class="section-subtitle">Cuando tengas pantallas reales de la extensión, este bloque te ayudará a hacer la página mucho más convincente.</p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Vista del activo</h3>
-          <img src="images/onedata-captura-activo.png" alt="Vista del activo inmobiliario">
-          <p>Muestra la ficha del inmueble o unidad, con su estado, datos principales y acceso a contratos e incidencias.</p>
-        </div>
-        <div class="card">
-          <h3>Gestión contractual</h3>
-          <img src="images/onedata-captura-contratos.png" alt="Gestión contractual">
-          <p>Enseña cómo se visualizan los contratos vigentes, los vencimientos próximos y la relación con el inquilino.</p>
-        </div>
-        <div class="card">
-          <h3>Operaciones e historial</h3>
-          <img src="images/onedata-captura-operaciones.png" alt="Operaciones e historial">
-          <p>Incluye una captura donde se vea claramente el registro de operaciones realizadas sobre el activo y su seguimiento cronológico.</p>
+    <section id="docs" class="section section-dark">
+      <div class="container split">
+        <article class="cta-card">
+          <span class="eyebrow">Documentación</span>
+          <h2>Guía funcional y guía técnica listas para adopción.</h2>
+          <p>
+            La home principal enlaza la documentación de usuario y técnica, facilitando implantación, soporte y demo comercial.
+          </p>
+          <div class="hero-actions">
+            <a href="guides/user-guide.html" class="btn btn-primary">Guía de Usuario</a>
+            <a href="guides/technical-guide.html" class="btn btn-secondary">Guía Técnica</a>
+          </div>
+        </article>
+        <div class="link-list">
+          <a class="mini-link" href="#contact">
+            <strong>Solicitar demo</strong>
+            <span>Presentación comercial orientada a patrimoniales y family offices.</span>
+          </a>
+          <a class="mini-link" href="#solutions">
+            <strong>Explorar soluciones</strong>
+            <span>Acceso a landings específicas por producto y caso de uso.</span>
+          </a>
+          <a class="mini-link" href="#workflow">
+            <strong>Ver flujo operativo</strong>
+            <span>Del extracto bancario al ledger, con sugerencias y posting integrado.</span>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="faq" style="background:#ffffff;">
-    <div class="container">
-      <h2 class="section-title">Preguntas frecuentes</h2>
-      <p class="section-subtitle">Puedes adaptar este bloque con tus respuestas reales antes de publicarla.</p>
-      <details>
-        <summary>¿La solución está pensada para Microsoft Dynamics 365 Business Central?</summary>
-        <p>Sí. Está planteada como una extensión orientada a ampliar Business Central para cubrir procesos específicos de gestión inmobiliaria.</p>
-      </details>
-      <details>
-        <summary>¿Qué tipo de organizaciones pueden utilizarla?</summary>
-        <p>Empresas patrimoniales, gestoras, administradores de fincas, promotoras o compañías que gestionen inmuebles propios o arrendados.</p>
-      </details>
-      <details>
-        <summary>¿Cómo se gestiona el IRPF de los alquileres?</summary>
-        <p>La solución utiliza la operativa de Property Management para generar la información del alquiler y la integra con <strong>OneData Fiscal</strong>, que actúa como solución especializada para la gestión de IRPF, los modelos fiscales y las declaraciones.</p>
-      </details>
-      <details>
-        <summary>¿Se puede evolucionar o adaptar a procesos concretos?</summary>
-        <p>Sí. Esta landing está redactada de forma general, pero puedes completarla con módulos, capturas, integraciones o procesos propios.</p>
-      </details>
-    </div>
-  </section>
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Contacto</span>
+          <h2>Preparado para demo, implantación o evolución funcional.</h2>
+          <p>
+            La home premium actúa como punto de entrada corporativo para redirigir a producto, documentación y casos de uso.
+          </p>
+        </div>
+        <div class="card-grid">
+          <article class="contact-card">
+            <div class="icon-chip">💼</div>
+            <h3>Cliente potencial</h3>
+            <p>Presentación de la propuesta de valor orientada a control patrimonial y rendimiento por activo.</p>
+          </article>
+          <article class="contact-card">
+            <div class="icon-chip">🧩</div>
+            <h3>Implantación</h3>
+            <p>Preparada para combinar Business Central, Microsoft 365, SharePoint y procesos mensuales estructurados.</p>
+          </article>
+          <article class="contact-card">
+            <div class="icon-chip">🚀</div>
+            <h3>Evolución</h3>
+            <p>Base sólida para nuevas funcionalidades como conciliación, automatización y sugerencias más avanzadas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <section class="cta-final" id="contacto">
-    <div class="container">
-      <h2 class="section-title">Solicita una demo o más información</h2>
-      <p class="section-subtitle">Puedes contactar con One Data para ampliar información sobre la solución, solicitar una demostración o resolver cualquier duda funcional.</p>
-      <div class="cta-row" style="justify-content:center;">
-        <a class="btn btn-primary" href="mailto:comercial@onedata.es">Solicitar información</a>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand-name">OneData</div>
+        <p>Property Management sobre Microsoft Dynamics 365 Business Central.</p>
+      </div>
+      <div>
+        <strong>Capacidades</strong>
+        <p>Activos · Contratos · FRE Journal · Posting · FRE Ledger · Microsoft 365</p>
+      </div>
+      <div>
+        <strong>Escenario ideal</strong>
+        <p>Family offices, patrimoniales y carteras inmobiliarias con alta exigencia financiera.</p>
       </div>
     </div>
-  </section>
-
-  <footer>
-    © 2026 One Data · Property Management para Business Central
   </footer>
 </body>
 </html>
