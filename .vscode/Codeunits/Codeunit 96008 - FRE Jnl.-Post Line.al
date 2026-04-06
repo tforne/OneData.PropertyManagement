@@ -62,6 +62,7 @@ codeunit 96008 "FRE Jnl.-Post Line"
         FRELedgerEntry."Source No." := FREJnlLine."Source No.";
         FRELedgerEntry."Source Name" := FREJnlLine."Source Name";
         FRELedgerEntry."Ledger Entry No." := FREJnlLine."Ledger Entry No.";
+        FRELedgerEntry."Company Name" := CompanyName;
         FRELedgerEntry.Insert();
 
         // Aquí podéis enlazar con vuestra lógica contable o con una codeunit adicional de aplicación.
@@ -297,6 +298,7 @@ procedure PostFRELedgerEntryFromLeaseInvoice(LeaseInvoiceHeader: Record "Lease I
         insFRELedgerEntry.Amount := FREJnlLine.Amount;
         insFRELedgerEntry."Amount Including VAT" := FREJnlLine."Amount Including VAT";
         insFRELedgerEntry."Ledger Entry No." := FREJnlLine."Ledger Entry No.";
+        insFRELedgerEntry."Company Name" := CompanyName;
         // modiffy Fixed Real Estate Table to update the last transaction date and amount
         if FREJnlLine."Line Type" = FREJnlLine."Line Type"::Invoice then begin
             if FRE.GET(insFRELedgerEntry."Fixed Real Estate No.") then begin

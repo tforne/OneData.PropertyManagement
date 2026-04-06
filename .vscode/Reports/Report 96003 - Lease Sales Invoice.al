@@ -1,10 +1,11 @@
-﻿report 96003 "Lease Sales - Invoice"
+report 96003 "Lease Sales - Invoice"
 {
     DefaultLayout = RDLC;
     RDLCLayout = '.vscode/Reports/Report 96003 - Lease Sales Invoice.rdl';
     Caption = 'Lease Sales - Invoice';
     EnableHyperlinks = true;
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {
@@ -440,7 +441,9 @@
                                 IF VATPostingSetup."VAT Calculation Type" <> VATPostingSetup."VAT Calculation Type"::"No Taxable VAT" THEN BEGIN
                                     VATAmountLine.INIT;
                                     VATAmountLine."VAT Identifier" := "VAT Identifier";
+#pragma warning disable AL0603
                                     VATAmountLine."VAT Calculation Type" := "VAT Calculation Type";
+#pragma warning restore AL0603
                                     VATAmountLine."VAT %" := VATPostingSetup."VAT %";
                                     VATAmountLine."EC %" := VATPostingSetup."EC %";
                                     VATAmountLine."VAT Base" := "Lease Invoice Line".Amount;
@@ -826,12 +829,10 @@ requestpage
                     field(ShowInfoIVA; infoIVA)
                     {
                         Caption = 'Mostrar información IVA';
-                        ApplicationArea = All;
                     }
                     field(Idioma; gcodeLanguageSuffix)
                     {
                         TableRelation = Language;
-                        ApplicationArea = All;
 
                         trigger OnLookup(var Text: Text): Boolean
                         var
@@ -911,8 +912,12 @@ requestpage
         CompanyInfo3: Record "Company Information";
         SalesSetup: Record "Sales & Receivables Setup";
         Cust: Record Customer;
+#pragma warning disable AL0432
         VATAmountLine: Record "VAT Amount Line" temporary;
+#pragma warning restore AL0432
+#pragma warning disable AL0432
         TempVATAmountLineLCY: Record "VAT Amount Line" temporary;
+#pragma warning restore AL0432
         RespCenter: Record "Responsibility Center";
         RecLanguage: Record "Language";
         CurrExchRate: Record "Currency Exchange Rate";
@@ -1196,7 +1201,9 @@ requestpage
         EXIT(PADSTR('', 2, ' '));
     end;
 
+#pragma warning disable AL0432
     local procedure CalcVATAmountLineLCY(LeaseInvoiceHeader: Record "Lease Invoice Header"; TempVATAmountLine2: Record "VAT Amount Line"temporary; var TempVATAmountLineLCY2: Record "VAT Amount Line" temporary; var VATBaseRemainderAfterRoundingLCY2: Decimal; var AmtInclVATRemainderAfterRoundingLCY2: Decimal)
+#pragma warning restore AL0432
     var
         VATBaseLCY: Decimal;
         AmtInclVATLCY: Decimal;

@@ -70,7 +70,6 @@ page 96152 "Incidents List"
         {
             action(CreateFromCamera)
             {
-                ApplicationArea = All;
                 Promoted = true;
                 PromotedCategory = New;
                 Caption = 'Create from Camera';
@@ -89,7 +88,6 @@ page 96152 "Incidents List"
             }
             action(CreateFromAttachment)
             {
-                ApplicationArea = All;
                 Promoted = true;
                 PromotedCategory = New;
                 Caption = 'Create from File';

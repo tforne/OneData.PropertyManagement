@@ -8,6 +8,7 @@ page 96058 "Incident Comment Subform"
     MultipleNewLines = true;
     PageType = ListPart;
     SourceTable = "Incident Comment Line";
+    ApplicationArea = All;
 
     layout
     {

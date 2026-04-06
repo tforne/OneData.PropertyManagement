@@ -7,6 +7,7 @@ page 96035 "Posted Lease Invoice"
     PageType = Document;
     RefreshOnActivate = true;
     SourceTable = "Lease Invoice Header";
+    ApplicationArea = All;
 
     layout
     {
@@ -17,28 +18,24 @@ page 96035 "Posted Lease Invoice"
                 Caption = 'General';
                 field("No."; rec."No.")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     Importance = Promoted;
                     ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
                 }
                 field("Contract No.";Rec."Contract No.")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     Importance = Promoted;
                     ToolTip = 'Specifies the contract number associated with the lease invoice.';
                 }
                 field("Customer No."; rec."Customer No.")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     Importance = Promoted;
                     ToolTip = 'Specifies the number of the customer who owns the items on the invoice.';
                 }
                 field("Contact No."; rec."Contact No.")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     ToolTip = 'Specifies the number of the contact at the customer to whom you shipped the service.';
                 }
@@ -47,25 +44,21 @@ page 96035 "Posted Lease Invoice"
                     Caption = 'Sell-to';
                     field(Name; rec.Name)
                     {
-                        ApplicationArea = All;
                         Editable = false;
                         ToolTip = 'Specifies the name of the customer on the service invoice.';
                     }
                     field(Address; rec.Address)
                     {
-                        ApplicationArea = All;
                         Editable = false;
                         ToolTip = 'Specifies the address of the customer on the invoice.';
                     }
                     field("Address 2"; rec."Address 2")
                     {
-                        ApplicationArea = All;
                         Editable = false;
                         ToolTip = 'Specifies additional address information.';
                     }
                     field(City; rec.City)
                     {
-                        ApplicationArea = All;
                         Editable = false;
                         ToolTip = 'Specifies the city of the address.';
                     }
@@ -74,30 +67,25 @@ page 96035 "Posted Lease Invoice"
                         Visible = IsSellToCountyVisible;
                         field(County; rec.County)
                         {
-                            ApplicationArea = All;
                             Editable = false;
                         }
 
                     field("Post Code"; rec."Post Code")
                     {
-                        ApplicationArea = All;
                         Editable = false;
                         ToolTip = 'Specifies the postal code.';
                     }
                     field("Country/Region Code"; rec."Country/Region Code")
                     {
-                        ApplicationArea = All;
                     }
                     field("Contact Name"; rec."Contact Name")
                     {
-                        ApplicationArea = All;
                         Editable = false;
                         ToolTip = 'Specifies the name of the contact person at the customer company.';
                     }
                 }
                 field("Posting Date"; rec."Posting Date")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     ToolTip = 'Specifies the date when the invoice was posted.';
                 }
@@ -107,19 +95,16 @@ page 96035 "Posted Lease Invoice"
                 }
                 field("Document Date"; rec."Document Date")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     ToolTip = 'Specifies the date when the related document was created.';
                 }
                 field("Salesperson Code"; rec."Salesperson Code")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     ToolTip = 'Specifies the code of the salesperson associated with the invoice.';
                 }
                 field("Responsibility Center"; rec."Responsibility Center")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     ToolTip = 'Specifies the code of the responsibility center, such as a distribution hub, that is associated with the involved user, company, customer, or vendor.';
                 }
@@ -127,7 +112,6 @@ page 96035 "Posted Lease Invoice"
         }
             part(LeaseInvLines; 96036)
             {
-                ApplicationArea = All;
                 SubPageLink = "Document No."=FIELD("No.");
             }
             group(Cartera)
@@ -135,11 +119,9 @@ page 96035 "Posted Lease Invoice"
                 Caption = 'Cartera';
                 field("Bank Account No."; rec."Bank Account No.")
                 {
-                    ApplicationArea = All;
                 }
                 field("Bank Account Name"; rec."Bank Account Name")
                 {
-                    ApplicationArea = All;
                 }
             }
             group("Foreign Trade")
@@ -147,7 +129,6 @@ page 96035 "Posted Lease Invoice"
                 Caption = 'Foreign Trade';
                 field("Currency Code"; rec."Currency Code")
                 {
-                    ApplicationArea = All;
                     Importance = Promoted;
                     ToolTip = 'Specifies the currency code for the amounts on the invoice.';
 
@@ -175,7 +156,6 @@ page 96035 "Posted Lease Invoice"
         {
             action("&Print")
             {
-                ApplicationArea = All;
                 Caption = '&Print';
                 Ellipsis = true;
                 Image = Print;
@@ -195,7 +175,6 @@ page 96035 "Posted Lease Invoice"
             {
                 Caption = 'Create Bill';
                 Image = Invoice;
-                ApplicationArea = All;
 
                 trigger OnAction()
                 var
@@ -209,7 +188,6 @@ page 96035 "Posted Lease Invoice"
                 Caption = 'Notificaciones';
                 action(SendCustom)
                 {
-                    ApplicationArea = All;
                     Caption = 'Send';
                     Ellipsis = true;
                     Image = SendToMultiple;

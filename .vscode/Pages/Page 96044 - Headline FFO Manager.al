@@ -5,6 +5,7 @@ page 96044 "Headline FFO Manager"
     Caption = 'Headline';
     PageType = HeadlinePart;
     RefreshOnActivate = true;
+    ApplicationArea = All;
 
     layout
     {

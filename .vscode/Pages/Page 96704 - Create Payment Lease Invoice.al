@@ -3,6 +3,7 @@ page 96704 "Create Payment Lease Invoice"
     Caption = 'Create Payment Lease Invoice';
     PageType = StandardDialog;
     SaveValues = true;
+    ApplicationArea = All;
 
     layout
     {

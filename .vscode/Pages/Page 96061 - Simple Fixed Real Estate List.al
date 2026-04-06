@@ -19,23 +19,19 @@ page 96061 "Simple Fixed Real Estate List"
                 FreezeColumn = Description;
                 field(Type;Rec.Type)
                 {
-                    ApplicationArea = All;
                     Visible = true;
                 }
                 field("No."; rec."No.")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
                     Visible = true;
                 }
                 field(Description; rec.Description)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies a description of the real estate asset.';
                 }
                 field("Post Code"; rec."Post Code")
                 {
-                    ApplicationArea = All;
                 }
             }
 
@@ -66,7 +62,6 @@ page 96061 "Simple Fixed Real Estate List"
             }
             action(Statistics)
             {
-                ApplicationArea = All;
                 Caption = 'Statistics';
                 Image = Statistics;
                 RunObject = Page "Fixed RE Statistics";
@@ -76,7 +71,6 @@ page 96061 "Simple Fixed Real Estate List"
             }
             action(Incidents)
             {
-                ApplicationArea = All;
                 Caption = 'Incidents';
                 Image = Interaction;
                 Promoted = true;
@@ -96,7 +90,6 @@ page 96061 "Simple Fixed Real Estate List"
             }
             action("Related Contats")
             {
-                ApplicationArea = All;
                 Caption = 'Related Contats';
                 Image = ContactReference;
                 Promoted = true;
@@ -106,7 +99,6 @@ page 96061 "Simple Fixed Real Estate List"
             }
             action("Precios Indices de referencia")
             {
-                ApplicationArea = All;
                 Caption = 'Precios Indices de referencia';
                 Image = PriceWorksheet;
                 RunObject = Page 96052;

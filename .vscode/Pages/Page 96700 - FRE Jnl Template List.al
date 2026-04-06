@@ -5,6 +5,7 @@ page 96700 "FRE Jnl. Template List"
     PageType = List;
     RefreshOnActivate = true;
     SourceTable = "FRE Jnl. Template";
+    ApplicationArea = All;
 
     layout
     {
@@ -43,12 +44,10 @@ page 96700 "FRE Jnl. Template List"
             systempart(Control1900383207; Links)
             {
                 Visible = false;
-                ApplicationArea = All;
             }
             systempart(Control1900383208; Notes)
             {
                 Visible = false;
-                ApplicationArea = All;
             }
         }
     }

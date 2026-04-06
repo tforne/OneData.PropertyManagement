@@ -8,6 +8,7 @@ page 96008 "Real Estate Comment Sheet"
     MultipleNewLines = true;
     PageType = List;
     SourceTable = "Real Estate Comment Line";
+    ApplicationArea = All;
 
     layout
     {

@@ -5,6 +5,7 @@ page 96037 "Compose address Opp"
     PageType = Card;
     ShowFilter = false;
     SourceTable = Opportunity;
+    ApplicationArea = All;
 
     layout
     {
@@ -14,7 +15,6 @@ page 96037 "Compose address Opp"
             {
                 field("Street Type Id."; rec."Street Type Id.")
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     begin
                         Compose;
@@ -22,7 +22,6 @@ page 96037 "Compose address Opp"
                 }
                 field("Types Street Numbering Id."; rec."Types Street Numbering Id.")
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     begin
                         Compose;
@@ -30,7 +29,6 @@ page 96037 "Compose address Opp"
                 }
                 field("Street Name"; rec."Street Name")
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     begin
                         Compose;
@@ -38,7 +36,6 @@ page 96037 "Compose address Opp"
                 }
                 field("Number On Street"; rec."Number On Street")
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     begin
                         Compose;
@@ -46,7 +43,6 @@ page 96037 "Compose address Opp"
                 }
                 field("Location Height Floor"; rec."Location Height Floor")
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     begin
                         Compose;
@@ -54,7 +50,6 @@ page 96037 "Compose address Opp"
                 }
                 field(ComposseAddress; ComposseAddress)
                 {
-                    ApplicationArea = All;
                     Editable = true;
                 }
             }

@@ -4,6 +4,7 @@ page 96056 "Incidents Real Estate Act."
     PageType = CardPart;
     RefreshOnActivate = true;
     SourceTable = "RE Owner Cue";
+    ApplicationArea = All;
 
     layout
     {
@@ -16,7 +17,6 @@ page 96056 "Incidents Real Estate Act."
                 
                 field("Active Incidents";Rec."Active Incidents")
                 {
-                    ApplicationArea = All;
                     StyleExpr = IncidentCueStyle;
                     trigger OnDrillDown()
                     var
@@ -29,9 +29,23 @@ page 96056 "Incidents Real Estate Act."
                         IncidentList.RUNMODAL;
                     end;
                 }
+                field("Resolved Incidents";Rec."Resolved Incidents")
+                {
+                    StyleExpr = IncidentCueStyle;
+                    trigger OnDrillDown()
+                    var
+                        IncidentList: Page "Incidents List";
+                        IncidentRec: Record "Incident Assets Real Estate";
+                    begin
+                        IncidentRec.RESET;
+                        IncidentRec.SetRange(StateCode, IncidentRec.StateCode::Resolved);
+                        IncidentList.SETTABLEVIEW(IncidentRec);
+                        IncidentList.RUNMODAL;
+                    end;
+                }
+
                 field("Tenants";Rec."Tenants")
                 {
-                    ApplicationArea = All;
                     trigger OnDrillDown()
                     var
                         RelatedContact: Page "REF Related Contactos";
@@ -105,21 +119,6 @@ page 96056 "Incidents Real Estate Act."
 
     local procedure CalculateCueFieldValues()
     begin
-
-        M2NotRental := 0;
-        FixedRealEstate.RESET;
-        FixedRealEstate.SETRANGE(Status, FixedRealEstate.Status::"En alquiler");
-        IF FixedRealEstate.FINDFIRST THEN
-            REPEAT
-                FixedRealEstate.CALCFIELDS(FixedRealEstate."Superficie construida");
-                M2NotRental := M2NotRental + FixedRealEstate."Superficie construida";
-            UNTIL FixedRealEstate.NEXT = 0;
-
-        "%NotRental" := -100;
-        IF rec."Builded surface" <> 0 THEN BEGIN
-            "%NotRental" := M2NotRental / rec."Builded surface";
-            PriceM2 := rec."Lease Contract Signed" / rec."Builded surface"
-        END;
         
         if Rec."Active Incidents" = 0 then
             IncidentCueStyle := 'Favorable'

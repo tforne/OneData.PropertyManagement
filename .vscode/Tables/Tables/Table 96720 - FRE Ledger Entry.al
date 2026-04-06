@@ -125,6 +125,11 @@ table 96720 "FRE Ledger Entry"
             Caption = 'Source Name';
             DataClassification = ToBeClassified;
         }
+        field(100; "Company Name"; Text[30])
+        {
+            Editable = false;
+            Caption = 'Company Name';
+        }
         field(1018; "Ledger Entry No."; Integer)
         {
             BlankZero = true;

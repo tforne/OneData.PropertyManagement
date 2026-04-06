@@ -117,59 +117,58 @@ codeunit 96000 "Real Estate Management"
             InvoiceHeader2.VALIDATE("Payment Terms Code",LeaseContract2."Payment Terms Code");
             InvoiceHeader2."Your Reference" := LeaseContract2."Your Reference";
             InvoiceHeader2.MODIFY
-        END ELSE BEGIN
-        CLEAR(LeaseInvoiceHeader2);
-            LeaseInvoiceHeader2.INIT;
-            REFSetup.GET ;
-            REFSetup.TESTFIELD("Contract Lease Invoice Nos.");
-
-            LeaseInvoiceHeader2.INSERT(TRUE);
-            ServInvNo := LeaseInvoiceHeader2."No.";
-
-            LeaseInvoiceHeader2."Posting Description" := 'Recibo alquiler No.: ' + LeaseInvoiceHeader2."No.";
-            LeaseInvoiceHeader2.VALIDATE("Customer No.",LeaseContract2."Customer No.");
-
-            LeaseInvoiceHeader2."Prices Including VAT" := FALSE;
-
-            Cust.GET(LeaseInvoiceHeader2."Customer No.");
-            LeaseInvoiceHeader2."Responsibility Center" := Cust."Responsibility Center";
-
-            Cust.TESTFIELD("Gen. Bus. Posting Group");
-            LeaseInvoiceHeader2."Customer No." := Cust."No.";
-            LeaseInvoiceHeader2.Name := Cust.Name;
-            LeaseInvoiceHeader2."Name 2" := Cust."Name 2";
-            LeaseInvoiceHeader2.Address := Cust.Address;
-            LeaseInvoiceHeader2."Address 2" := Cust."Address 2";
-            LeaseInvoiceHeader2.City := Cust.City;
-            LeaseInvoiceHeader2."Post Code" := Cust."Post Code";
-            LeaseInvoiceHeader2.County := Cust.County;
-            LeaseInvoiceHeader2."Country/Region Code" := Cust."Country/Region Code";
-            LeaseInvoiceHeader2."Contact Name" := LeaseContract2."Contact Name";
-            LeaseInvoiceHeader2."Contact No." := LeaseContract2."Contact No.";
-            LeaseInvoiceHeader2."VAT Registration No." := Cust."VAT Registration No.";
-            LeaseInvoiceHeader2."E-Mail" := Cust."E-Mail";
-            LeaseInvoiceHeader2."Notify Customer" := LeaseContract2."Notify Customer";
-            
-
-            IF NOT ContractExists THEN
-            LeaseInvoiceHeader2.VALIDATE("Posting Date",PostDate);
-            LeaseInvoiceHeader2.VALIDATE("Document Date",PostDate);
-            LeaseInvoiceHeader2."Contract No." := LeaseContract2."Contract No.";
-            LeaseInvoiceHeader2."Fixed Real Estate No." := LeaseContract2."Fixed Real Estate No.";
-            LeaseInvoiceHeader2."Gen. Bus. Posting Group" := Cust."Gen. Bus. Posting Group";
-            LeaseInvoiceHeader2.VALIDATE("Payment Terms Code",LeaseContract2."Payment Terms Code");
-            LeaseInvoiceHeader2.VALIDATE("Payment Method Code",LeaseContract2."Payment Method Code");
-
-            IF LeaseContract2."Second Customer No."<>'' THEN BEGIN
-                Cust2.GET(LeaseContract2."Second Customer No.");
-                LeaseInvoiceHeader2."VAT Bus. Posting Group" := Cust2."VAT Bus. Posting Group";
-            END ELSE
-                LeaseInvoiceHeader2."VAT Bus. Posting Group" := Cust."VAT Bus. Posting Group";
-
-            LeaseInvoiceHeader2.VALIDATE("Payment Terms Code",LeaseContract2."Payment Terms Code");
-            LeaseInvoiceHeader2."Your Reference" := LeaseContract2."Your Reference";
-            LeaseInvoiceHeader2.MODIFY;
         END;
+        CLEAR(LeaseInvoiceHeader2);
+        LeaseInvoiceHeader2.INIT;
+        REFSetup.GET ;
+        REFSetup.TESTFIELD("Contract Lease Invoice Nos.");
+
+        LeaseInvoiceHeader2.INSERT(TRUE);
+        ServInvNo := LeaseInvoiceHeader2."No.";
+
+        LeaseInvoiceHeader2."Posting Description" := 'Recibo alquiler No.: ' + LeaseInvoiceHeader2."No.";
+        LeaseInvoiceHeader2.VALIDATE("Customer No.",LeaseContract2."Customer No.");
+
+        LeaseInvoiceHeader2."Prices Including VAT" := FALSE;
+
+        Cust.GET(LeaseInvoiceHeader2."Customer No.");
+        LeaseInvoiceHeader2."Responsibility Center" := Cust."Responsibility Center";
+
+        Cust.TESTFIELD("Gen. Bus. Posting Group");
+        LeaseInvoiceHeader2."Customer No." := Cust."No.";
+        LeaseInvoiceHeader2.Name := Cust.Name;
+        LeaseInvoiceHeader2."Name 2" := Cust."Name 2";
+        LeaseInvoiceHeader2.Address := Cust.Address;
+        LeaseInvoiceHeader2."Address 2" := Cust."Address 2";
+        LeaseInvoiceHeader2.City := Cust.City;
+        LeaseInvoiceHeader2."Post Code" := Cust."Post Code";
+        LeaseInvoiceHeader2.County := Cust.County;
+        LeaseInvoiceHeader2."Country/Region Code" := Cust."Country/Region Code";
+        LeaseInvoiceHeader2."Contact Name" := LeaseContract2."Contact Name";
+        LeaseInvoiceHeader2."Contact No." := LeaseContract2."Contact No.";
+        LeaseInvoiceHeader2."VAT Registration No." := Cust."VAT Registration No.";
+        LeaseInvoiceHeader2."E-Mail" := Cust."E-Mail";
+        LeaseInvoiceHeader2."Notify Customer" := LeaseContract2."Notify Customer";
+        
+
+        IF NOT ContractExists THEN
+        LeaseInvoiceHeader2.VALIDATE("Posting Date",PostDate);
+        LeaseInvoiceHeader2.VALIDATE("Document Date",PostDate);
+        LeaseInvoiceHeader2."Contract No." := LeaseContract2."Contract No.";
+        LeaseInvoiceHeader2."Fixed Real Estate No." := LeaseContract2."Fixed Real Estate No.";
+        LeaseInvoiceHeader2."Gen. Bus. Posting Group" := Cust."Gen. Bus. Posting Group";
+        LeaseInvoiceHeader2.VALIDATE("Payment Terms Code",LeaseContract2."Payment Terms Code");
+        LeaseInvoiceHeader2.VALIDATE("Payment Method Code",LeaseContract2."Payment Method Code");
+
+        IF LeaseContract2."Second Customer No."<>'' THEN BEGIN
+            Cust2.GET(LeaseContract2."Second Customer No.");
+            LeaseInvoiceHeader2."VAT Bus. Posting Group" := Cust2."VAT Bus. Posting Group";
+        END ELSE
+            LeaseInvoiceHeader2."VAT Bus. Posting Group" := Cust."VAT Bus. Posting Group";
+
+        LeaseInvoiceHeader2.VALIDATE("Payment Terms Code",LeaseContract2."Payment Terms Code");
+        LeaseInvoiceHeader2."Your Reference" := LeaseContract2."Your Reference";
+        LeaseInvoiceHeader2.MODIFY;
     end;
 
     // procedure CreateInvoiceLeaseContract(LeaseContract2: Record "Lease Contract"; PostDate: Date; ContractExists: Boolean; var InvoiceHeader2: Record "Sales Header") ServInvNo: Code[20]

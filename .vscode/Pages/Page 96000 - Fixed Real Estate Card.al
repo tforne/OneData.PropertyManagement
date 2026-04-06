@@ -16,7 +16,6 @@ page 96000 "Fixed Real Estate Card"
                 Caption = 'General';
                 field(Type; rec.Type)
                 {
-                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -27,16 +26,13 @@ page 96000 "Fixed Real Estate Card"
                 field("Property No."; rec."Property No.")
                 {
                     Editable = VisiblePropertyNo and EditableField;
-                    ApplicationArea = All;
                 }
                 field("Property Description"; rec."Property Description")
                 {
                     Editable = false;
-                    applicationArea = All;
                 }
                 field("No."; rec."No.")
                 {
-                    ApplicationArea = All;
                     Importance = Additional;
                     ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
 
@@ -51,7 +47,6 @@ page 96000 "Fixed Real Estate Card"
                 }
                 field(Description; rec.Description)
                 {
-                    ApplicationArea = All;
                     Importance = Promoted;
                     ShowMandatory = true;
                     ToolTip = 'Specifies a description of the real estate asset.';
@@ -69,7 +64,6 @@ page 96000 "Fixed Real Estate Card"
                 }
                 field(Status; rec.Status)
                 {
-                    ApplicationArea = All;
                     Importance = Promoted;
                     Editable = EditableField;
                     ToolTip = 'Specifies the status of the real estate asset.';
@@ -79,14 +73,12 @@ page 96000 "Fixed Real Estate Card"
                     Caption = 'Clasificación';
                     field("FRE Class Code"; rec."FRE Class Code")
                     {
-                        ApplicationArea = All;
                         Caption = 'Class Code';
                         Importance = Promoted;
                         ToolTip = 'Specifies the class that the real estate asset belongs to.';
                     }
                     field("FRE Subclass Code"; rec."FRE Subclass Code")
                     {
-                        ApplicationArea = All;
                         Caption = 'Subclass Code';
                         Importance = Promoted;
                         ShowMandatory = true;
@@ -113,7 +105,6 @@ page 96000 "Fixed Real Estate Card"
                     }
                     field("Asset Type";Rec."Asset Type")
                     {
-                        ApplicationArea = All;
                         Caption = 'Asset Type';
                         Importance = Promoted;
                         ShowMandatory = true;
@@ -121,55 +112,48 @@ page 96000 "Fixed Real Estate Card"
                     }
                     field(Totaling; Rec.Totaling)
                     {
-                        ApplicationArea = All;
                         Editable = false;
                         ToolTip = 'Specifies the totaling code used to group real estate asset with similar characteristics for reporting and analysis purposes. The totaling code can be used to create totals on real estate asset reports, such as a total for all real estate asset with the same totaling code.';
                     }
                 }
                 field("Cadastral reference"; rec."Cadastral reference")
                 {
-                    ApplicationArea = All;
                     Importance = Promoted;
                     ToolTip = 'Specifies the real estate asset''s serial number.';
                 }
                 field("Search Description"; rec."Search Description")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies a search description for the real estate asset.';
                 }
                 field("Responsible Employee"; rec."Responsible Employee")
                 {
-                    ApplicationArea = All;
                     Importance = Promoted;
                     ToolTip = 'Specifies which employee is responsible for the real estate asset.';
                 }
                 field(Blocked; rec.Blocked)
                 {
-                    ApplicationArea = All;
                     Importance = Additional;
                     Editable = EditableField;
                     ToolTip = 'Specifies that the related record is blocked from being posted in transactions, for example a customer that is declared insolvent or an item that is placed in quarantine.';
                 }
                 field(Acquired; rec.Acquired)
                 {
-                    ApplicationArea = All;
                     Importance = Additional;
                     Editable = EditableField;
                     ToolTip = 'Specifies if the real estate asset has been acquired.';
                 }
                 field(Managed; rec.Managed)
                 {
-                    ApplicationArea = All;
                     Importance = Additional;
                     Editable = EditableField;
                     ToolTip = 'Specifies if the real estate asset is managed by the system. If this field is not selected, the system will not create or update any related records such as general ledger entries or depreciation books for the real estate asset.';
                 }
                 field("Last Date Modified"; rec."Last Date Modified")
                 {
-                    ApplicationArea = All;
                     Importance = Additional;
                     ToolTip = 'Specifies when the real estate asset card was last modified.';
                 }
+
             }
             group(Maintenance2)
             {
@@ -225,7 +209,6 @@ page 96000 "Fixed Real Estate Card"
                     }
                     field("Google URL"; rec."Google URL")
                     {
-                        ApplicationArea = All;
                     }
                 }
                 group("Construcción")
@@ -233,11 +216,9 @@ page 96000 "Fixed Real Estate Card"
                     Caption = 'Construcción';
                     field("Year of construction"; rec."Year of construction")
                     {
-                        ApplicationArea = All;
                     }
                     field("Superficie construida"; rec."Superficie construida")
                     {
-                        ApplicationArea = All;
                     }
                     field(ShowURL; ShowURLLbl)
                     {
@@ -256,7 +237,6 @@ page 96000 "Fixed Real Estate Card"
                     }
                     field("URL Sede electrónica catastro"; rec."URL Sede electrónica catastro")
                     {
-                        ApplicationArea = All;
                     }
                 }
             }
@@ -267,24 +247,19 @@ page 96000 "Fixed Real Estate Card"
                 Editable = EditableField;
                 field("Sales price"; rec."Sales price")
                 {
-                    ApplicationArea = All;
 
                 }
                 field("Minimum Sales Price"; rec."Minimum Sales Price")
                 {
-                    ApplicationArea = All;
                 }
                 field("Minimum Rental Price"; rec."Minimum Rental Price")
                 {
-                    ApplicationArea = All;
                 }
                 field("Last Rental Sales Price"; Rec."Last Rental Price Modified")
                 {
-                    ApplicationArea = All;
                 }
                 field("Last Rental Price Modified"; rec."Last Rental Price Modified")
                 {
-                    ApplicationArea = All;
                 }
 
                 group("Descripción comercial")
@@ -320,50 +295,47 @@ page 96000 "Fixed Real Estate Card"
                 Caption = 'Maintenance';
                 field("Vendor No."; rec."Vendor No.")
                 {
-                    ApplicationArea = All;
                     Importance = Promoted;
                     ToolTip = 'Specifies the number of the vendor from which you purchased this real estate asset.';
                 }
                 field("Maintenance Vendor No."; rec."Maintenance Vendor No.")
                 {
-                    ApplicationArea = All;
                     Importance = Promoted;
                     ToolTip = 'Specifies the number of the vendor who performs repairs and maintenance on the real estate asset.';
                 }
                 field("Under Maintenance"; rec."Under Maintenance")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies if the real estate asset is currently being repaired.';
                 }
                 field(Insured; rec.Insured)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies that the real estate asset is linked to an insurance policy.';
                 }
             }
+
+            part(RealEstates; "OD RE FA Link ListPart")
+                {
+                    SubPageLink = "FA No." = field("No.");
+                }
         }
         area(factboxes)
         {
 
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
-                ApplicationArea = All;
                 Caption = 'Attachments';
                 SubPageLink = "Table ID" = CONST(5600),
                               "No." = FIELD("No.");
             }
             systempart("Links"; Links)
             {
-                ApplicationArea = All;
                 Visible = false;
             }
             systempart("Notes"; Notes)
             {
-                ApplicationArea = All;
             }
             part(FixedREAttributesFactbox; 96003)
             {
-                ApplicationArea = aLL;
                 Visible = false;
             }
         }
@@ -391,7 +363,6 @@ page 96000 "Fixed Real Estate Card"
             }
             action(Statistics)
             {
-                ApplicationArea = All;
                 Caption = 'Statistics';
                 Image = Statistics;
                 Promoted = true;
@@ -413,7 +384,6 @@ page 96000 "Fixed Real Estate Card"
             }
             action("Maintenance &Registration")
             {
-                ApplicationArea = All;
                 Caption = 'Maintenance &Registration';
                 Image = MaintenanceRegistrations;
                 RunObject = Page 96016;
@@ -432,7 +402,6 @@ page 96000 "Fixed Real Estate Card"
             }
             action(Incidents)
             {
-                ApplicationArea = All;
                 Caption = 'Incidents';
                 Image = Interaction;
                 Promoted = true;
@@ -442,7 +411,6 @@ page 96000 "Fixed Real Estate Card"
             }
             action("Related Contats")
             {
-                ApplicationArea = All;
                 Caption = 'Related Contats';
                 Image = ContactReference;
                 RunObject = Page "REF Related Contactos";
@@ -467,7 +435,6 @@ page 96000 "Fixed Real Estate Card"
             }
             action(Attachments)
             {
-                ApplicationArea = All;
                 Caption = 'Attachments';
                 Image = Attach;
                 ToolTip = 'Add a file as an attachment. You can attach images as well as documents.';
@@ -493,7 +460,6 @@ page 96000 "Fixed Real Estate Card"
             }
             action("FacturasAlquiler")
             {
-                ApplicationArea = All;
                 Caption = 'Facturas alquiler';
                 Image = Invoice;
                 RunObject = Page "Posted Lease Invoices";
@@ -532,7 +498,6 @@ page 96000 "Fixed Real Estate Card"
         {
             action("Calculate Totaling")
             {
-                ApplicationArea = All;
                 Caption = 'Calcular sumatorio';
                 Image = CalculateLines;
 
@@ -556,12 +521,22 @@ page 96000 "Fixed Real Estate Card"
                     rec.PublicToWebSite;
                 end;
             }
+            action(CreateExclusiveFA)
+            {
+                Caption = 'Crear Activo Fijo';
+
+                trigger OnAction()
+                var
+                    Mgt: Codeunit "OD RE FA Link Mgt.";
+                begin
+                    Mgt.CreateExclusiveFAForRealEstate(Rec);
+                end;
+            }
         }
         area(reporting)
         {
             action("G/L Analysis")
             {
-                ApplicationArea = All;
                 Caption = 'G/L Analysis';
                 Image = "Report";
                 //RunObject = Report 5610;

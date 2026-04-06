@@ -175,14 +175,7 @@ codeunit 96101 "RE Incident Management"
         if Incident."Resolution Date" = 0D then
             Error('Debe informar la fecha de resolución cuando la incidencia esté resuelta.');
 
-        if Incident.StatusCode = Incident.StatusCode::" " then
-            Error('Debe informar el motivo de estado cuando la incidencia esté resuelta.');
 
-        if not (Incident.StatusCode in
-           [Incident.StatusCode::ProblemSolved,
-            Incident.StatusCode::InformationProvided])
-        then
-            Error('El motivo de estado no es válido para una incidencia resuelta.');
     end;
 
     local procedure CheckCanceledStatus(var Incident: Record "Incident Assets Real Estate")

@@ -4,6 +4,7 @@ page 96702 "FRE Jnl. Batches"
     DataCaptionExpression = DataCaption;
     PageType = List;
     SourceTable = "FRE Jnl. Batch";
+    ApplicationArea = All;
 
     layout
     {
@@ -29,12 +30,10 @@ page 96702 "FRE Jnl. Batches"
             systempart(Control1900383207; Links)
             {
                 Visible = false;
-                ApplicationArea = All;
             }
             systempart(Control1900383208; Notes)
             {
                 Visible = false;
-                ApplicationArea = All;
             }
         }
     }

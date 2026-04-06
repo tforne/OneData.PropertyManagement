@@ -64,7 +64,6 @@ page 96151 "RE Incident Card"
             }
             part(CommentLines; 96058)
             {
-                ApplicationArea = All;
                 SubPageLink = "Incident Id."=FIELD("Incident Id.");
             }
             group(Management)
@@ -158,7 +157,6 @@ page 96151 "RE Incident Card"
                 Caption = 'Notificaciones';
                 action(SendCustomOpenIncident)
                 {
-                    ApplicationArea = All;
                     Caption = 'Send Open Incident';
                     Ellipsis = true;
                     Image = SendToMultiple;
@@ -177,7 +175,6 @@ page 96151 "RE Incident Card"
                 }
                 action(SendCustomStatusIncident)
                 {
-                    ApplicationArea = All;
                     Caption = 'Send Status Incident';
                     Ellipsis = true;
                     Image = SendToMultiple;
@@ -242,11 +239,15 @@ page 96151 "RE Incident Card"
     end;
 
     local procedure CloseIncidentAction()
+    var
+        CustomerRENotifyByEmail : Codeunit "Customer RE-Notify by Email";
     begin
         if rec.StateCode <> rec.StateCode::Resolved then
             Error('The incident must be resolved before closing.');
 
-        rec.StateCode := rec.StateCode::Resolved;
+        rec.StateCode := rec.StateCode::Closed;
         rec.Modify(true);
+        
+        CustomerRENotifyByEmail.NotificarPorCorreoCierreIncidencia(Rec);
     end;
 }

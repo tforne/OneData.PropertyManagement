@@ -205,7 +205,9 @@ table 96022 "Lease Invoice Line"
                 GetSalesHeader;
                 "VAT %" := VATPostingSetup."VAT %";
 
+#pragma warning disable AL0603
                 "VAT Calculation Type" := VATPostingSetup."VAT Calculation Type";
+#pragma warning restore AL0603
                 "VAT Identifier" := VATPostingSetup."VAT Identifier";
 
                 CASE "VAT Calculation Type" OF
@@ -326,7 +328,9 @@ table 96022 "Lease Invoice Line"
         ItemTrackingDocMgt.ShowItemTrackingForInvoiceLine(RowID1);
     end;
 
+#pragma warning disable AL0432
     procedure CalcVATAmountLines(LeaseInvHeader: Record "Lease Invoice Header";var TempVATAmountLine: Record "VAT Amount Line" temporary)
+#pragma warning restore AL0432
     begin
         /*
         TempVATAmountLine.DELETEALL;

@@ -3,6 +3,7 @@ page 96043 "Lease Bank Account Card"
     Caption = 'Customer Bank Account Card';
     PageType = Card;
     SourceTable = "Lease Bank Account";
+    ApplicationArea = All;
 
     layout
     {

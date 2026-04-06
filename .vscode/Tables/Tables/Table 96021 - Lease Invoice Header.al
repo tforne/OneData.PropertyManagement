@@ -431,14 +431,36 @@ table 96021 "Lease Invoice Header"
         SetView('');
 
     end;
-
+    
     trigger OnDelete()
+    var
+        LeaseContract : record "Lease Contract";
+        LeaseInvoiceHeader : record "Lease Invoice Header";
+        LeaseInvoiceLine : record "Lease Invoice Line";
+        LeaseBankAccount : record "Lease Bank Account";
+        TaxAmountLine : record "Tax Amount Line";
+        LiquidacionHeader : record "Liquidacion Contrato Header";
+        LiquidacionLines : Record "Liquidacion Contrato Lines";
+        refRelatedContactos: Record "REF Related Contactos";
+        REFMovs: Record "FRE Ledger Entry";
+
     begin
         LOCKTABLE;
 
         LeaseInvoiceLine.RESET;
         LeaseInvoiceLine.SETRANGE("Document No.","No.");
         LeaseInvoiceLine.DELETEALL;
+
+        TaxAmountLine.RESET;
+        TaxAmountLine.SETRANGE("Document No.","No.");
+        if TaxAmountLine.FINDSET() THEN
+            TaxAmountLine.DeleteAll();
+
+        REFMovs.RESET;
+        REFMovs.SetRange("Document Type", REFMovs."Document Type"::Invoice);
+        REFMovs.SETRANGE("Document No.","No.");
+        if REFMovs.FINDSET() THEN
+            REFMovs.DeleteAll();
     end;
 
     var

@@ -230,6 +230,28 @@ page 96703 "FRE Journal Line"
                 end;
             }
 
+            action(ImportBankStatement)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Importar extracto bancario';
+                Image = ImportExcel;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+
+                trigger OnAction()
+                var
+                    FREImportJnlLines: Codeunit "FRE Import Jnl. Lines";
+                    FREBankStatement: Record "FRE Bank Statement";
+                begin
+                    // Aquí puedes pedir selección de extracto
+                    if Page.RunModal(Page::"FRE Bank Statements", FREBankStatement) = Action::LookupOK then begin
+                        FREImportJnlLines.ImportBankStatementFromStatement(Rec, FREBankStatement);
+                        CurrPage.Update(false);
+                    end;
+                end;
+            }
+
             action(ChecklistReport)
             {
                 ApplicationArea = Basic, Suite;

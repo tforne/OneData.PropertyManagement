@@ -1,7 +1,8 @@
 page 96015 "Real Estate Role Center"
 {
-    Caption = 'Sales and Relationship Manager', Comment = 'Use same translation as ''Profile Description'' (if applicable)';
+    Caption = 'Property Management Role Center';
     PageType = RoleCenter;
+    ApplicationArea = All;
 
     layout
     {
@@ -9,28 +10,23 @@ page 96015 "Real Estate Role Center"
         {
             part(Control139; "Headline FFO Manager")
             {
-                ApplicationArea = all;
+            }
+            part(RECashFlowChart;"RE Analisis Ingresos y Gastos")
+            {
             }
             part("Real Estate Incidents"; 96056)
             {
-                ApplicationArea = all;
             }
             part("Real Estate"; 96014)
             {
-                ApplicationArea = all;
             }
             part("Account Manager Activities"; 9030)
             {
-                ApplicationArea = all;
             }
             part("User Tasks Activities"; 9078)
             {
-                ApplicationArea = all;
             }
-            part(RECashFlowChart; "RE Cash Flow Chart")
-            {
-                ApplicationArea = All;
-            }
+
         }
     }
 
@@ -44,7 +40,6 @@ page 96015 "Real Estate Role Center"
                 Image = FiledPosted;
                 action("Posted Lease Invoices")
                 {
-                    ApplicationArea = All;
                     Caption = 'Posted Lease Invoices';
                     Image = PostedShipment;
                     RunObject = Page "Posted Lease Invoices";
@@ -52,7 +47,6 @@ page 96015 "Real Estate Role Center"
                 }
                 action("Posted Sales Invoices")
                 {
-                    ApplicationArea = All;
                     Caption = 'Posted Sales Invoices';
                     Image = PostedShipment;
                     RunObject = Page "Posted Sales Invoices";
@@ -60,7 +54,6 @@ page 96015 "Real Estate Role Center"
                 }
                 action("Posted Sales Credit Memos")
                 {
-                    ApplicationArea = All;
                     Caption = 'Posted Sales Credit Memos';
                     Image = PostedOrder;
                     RunObject = Page "Posted Sales Credit Memos";
@@ -68,7 +61,6 @@ page 96015 "Real Estate Role Center"
                 }
                 action("Posted Lease Invoices Lines")
                 {
-                    ApplicationArea = All;
                     Caption = 'Posted Lease Invoices Lines';
                     Image = PostedOrder;
                     RunObject = Page "Posted Lease Invoices Lines";
@@ -77,7 +69,6 @@ page 96015 "Real Estate Role Center"
  
                 action("Movs. FRE")
                 {
-                    ApplicationArea = All;
                     Caption = 'Movs. FRE';
                     Image = LedgerEntries;
                     RunObject = Page "Movs. FRE";
@@ -85,7 +76,6 @@ page 96015 "Real Estate Role Center"
                 }
                 action(Attachments)
                 {
-                    ApplicationArea = All;
                     Caption = 'Attachments';
                     Image = Attachments;
                     RunObject = Page 96155;
@@ -97,7 +87,6 @@ page 96015 "Real Estate Role Center"
         {
             action(Contacts)
             {
-                ApplicationArea = all;
                 Caption = 'Contacts';
                 Image = CustomerContact;
                 RunObject = Page 5052;
@@ -105,7 +94,6 @@ page 96015 "Real Estate Role Center"
             }
             action(Customers)
             {
-                ApplicationArea = All;
                 Caption = 'Customers';
                 Image = Customer;
                 RunObject = Page 22;
@@ -114,19 +102,21 @@ page 96015 "Real Estate Role Center"
             action(Vendors)
             {
                 Caption = 'Vendors';
-                ApplicationArea = All;
                 RunObject = Page 27;
             }
             action("Fixed Real Estate List")
             {
                 Caption = 'Activos inmobiliarios';
-                ApplicationArea = All;
                 RunObject = Page 96001;
             }
-        
+            action("Fixed Assets")
+            {
+                Caption = 'Activos fijos';
+                Image = FixedAssets;
+                RunObject = Page "Fixed Asset List";
+            }       
             action("Incoming Documents")
             {
-                ApplicationArea = All;
                 Caption = 'Incoming Documents';
                 RunObject = Page "Incoming Documents";
             }
@@ -138,8 +128,6 @@ page 96015 "Real Estate Role Center"
                 Caption = 'New';
                 action(NewContract)
                 {
-                    // AccessByPermission = TableData 5050 = IMD;
-                    ApplicationArea = All;
                     Caption = 'Contract';
                     Image = Add;
                     RunObject = Page "Lease Contract Card";
@@ -153,14 +141,12 @@ page 96015 "Real Estate Role Center"
                 action("Crear facturación de contratos")
                 {
                     Caption = 'Crear facturación de contratos';
-                    ApplicationArea = All;
                     Image = Documents;
                     RunObject = Report 96001;
                 }
                 action("Hoja de incremento de precios")
                 {
                     Caption = 'Hoja de incremento de precios';
-                    ApplicationArea = All;
                     Image = Documents;
                     RunObject = page 96500;
                 }
@@ -171,7 +157,6 @@ page 96015 "Real Estate Role Center"
                 action("Documentos entrantes")
                 {
                     Caption = 'Documentos entrantes';
-                    ApplicationArea = All;
                     Image = Documents;
                     RunObject = Page 190;
                 }
@@ -182,9 +167,15 @@ page 96015 "Real Estate Role Center"
                 action("Journal property")
                 {
                     Caption = 'Journal property';
-                    ApplicationArea = All;
                     Image = Journal;
                     RunObject = Page "FRE Journal Line";
+                }
+                action("General Journals")
+                {
+                    Caption = 'Diarios generales';
+                    Image = Journal;
+                    RunObject = Page "General Journal";
+                    ToolTip = 'Abrir los diarios generales para registrar movimientos contables.';
                 }
             }
             group(Setup)
@@ -193,84 +184,72 @@ page 96015 "Real Estate Role Center"
                 action("Real Estate Fixed Setup")
                 {
                     Caption = 'Real Estate Fixed Setup';
-                    ApplicationArea = All;
                     Image = Setup;
                     RunObject = Page 96007;
                 }
                 action("Sales & Receivables Setup")
                 {
                     Caption = 'Sales & Receivables Setup';
-                    ApplicationArea = All;
                     Image = Setup;
                     RunObject = Page 459;
                 }
                 action("FA Classes")
                 {
                     Caption = 'FA Classes';
-                    ApplicationArea = All;
                     Image = Setup;
                     RunObject = Page 5615;
                 }
                 action("FA Subclasses")
                 {
                     Caption = 'FA Subclasses';
-                    ApplicationArea = All;
                     Image = Setup;
                     RunObject = Page 5616;
                 }
                 action("FA Locations")
                 {
                     Caption = 'FA Locations';
-                    ApplicationArea = All;
                     Image = Setup;
                     RunObject = Page 5617;
                 }
                 action("Insurance Types")
                 {
                     Caption = 'Insurance Types';
-                    ApplicationArea = All;
                     Image = Setup;
                     RunObject = Page 5648;
                 }
                 action("Fixed Read Es. Web Site List")
                 {
                     Caption = 'Fixed Read Es. Web Site List';
-                    ApplicationArea = All;
                     Image = Setup;
                     RunObject = Page 96022;
                 }
                 action("Consumer Price Index")
                 {
                     Caption = 'Consumer Price Index';
-                    ApplicationArea = All;
                     Image = Setup;
                     RunObject = Page 96050;
                 }
                 action("Payment Terms")
                 {
                     Caption = 'Payment Terms';
-                    ApplicationArea = All;
                     Image = Setup;
                     RunObject = Page 4;
                 }
                 action("Payment Methods")
                 {
                     Caption = 'Payment Methods';
-                    ApplicationArea = All;
                     Image = Setup;
                     RunObject = Page 427;
                 }
                 action("FRE Excel Template Setup")
                 {
                     Caption = 'FRE Excel Template Setup';
-                    ApplicationArea = All;
                     Image = Setup;
                     RunObject = Page 96725;
                 }
                 action("FRE Jnl. Template List")
                 {
                     Caption = 'FRE Jnl. Template List';
-                    ApplicationArea = All;
                     Image = Setup;
                     RunObject = Page 96700;
                 }
@@ -280,16 +259,16 @@ page 96015 "Real Estate Role Center"
                 Caption = 'Information';
                 action("WebPropertyManagement")
                 {
-                    ApplicationArea = All;
                     Caption = 'Web Property Management';
                     Image = Web;
                     RunObject = codeunit 96200;
                 }
                 action("Documentación")
                 {
-                    ApplicationArea = All;
                     Caption = 'Documentación';
+#pragma warning disable AL0482
                     Image = Information;
+#pragma warning restore AL0482
                     RunObject = codeunit 96201;
 
                 }

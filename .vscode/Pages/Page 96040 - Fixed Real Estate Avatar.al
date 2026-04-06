@@ -6,6 +6,7 @@ page 96040 "Fixed Real Estate Avatar"
     LinksAllowed = false;
     PageType = Card;
     SourceTable = "Fixed Real Estate";
+    ApplicationArea = All;
 
     layout
     {
@@ -13,7 +14,6 @@ page 96040 "Fixed Real Estate Avatar"
         {
             field("Avatar Picture"; rec."Avatar Picture")
             {
-                ApplicationArea = All;
                 ShowCaption = false;
                 ToolTip = 'Specifies the picture that has been inserted for the real estate asset.';
             }

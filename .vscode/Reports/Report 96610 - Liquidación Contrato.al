@@ -116,7 +116,6 @@ report 96610 "Liquidacion Contrato"
                 {
                     field(UsarLineasRealesEnAnexo; UsarLineasRealesEnAnexo)
                     {
-                        ApplicationArea = All;
                         Caption = 'Usar líneas reales en Anexo I';
                     }
                 }

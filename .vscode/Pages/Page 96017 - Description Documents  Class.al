@@ -3,6 +3,7 @@ page 96017 "Description Documents Class"
     Caption = 'Descripción documentos clasificados';
     PageType = List;
     SourceTable = "Description Documents Class";
+    ApplicationArea = All;
 
     layout
     {
@@ -12,11 +13,9 @@ page 96017 "Description Documents Class"
             {
                 field(Code; rec.Code)
                 {
-                    ApplicationArea = All;
                 }
                 field(Description; rec.Description)
                 {
-                    ApplicationArea = All;
                 }
             }
         }

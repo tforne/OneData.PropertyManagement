@@ -14,41 +14,33 @@ page 96600 "Liquidacion Contrato Card"
             {
                 field("Fecha Entrega Llaves"; rec."Fecha Entrega Llaves") 
                 { 
-                    ApplicationArea = All;
                 }
                 field("Ciudad Entrega Llaves";Rec."Ciudad Entrega Llaves")
                 {
-                    ApplicationArea = All;
                 }
                 field(Motivo; rec."Motivo Liquidacion") 
                 { 
-                    ApplicationArea = All;
                 }
                 field("Fecha Liquidacion"; rec."Fecha Liquidacion") 
                 { 
-                    ApplicationArea = All;
                 }
             }
             part(LiquidacionContratoLines; 96602)
             {
-                ApplicationArea = All;
                 SubPageLink = "Contract No."=FIELD("Contract No.");
             }
             group(Economico)
             {
                 field("Amount Rental Deposit"; rec."Amount Rental Deposit") 
                 { 
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field(RentaFinal; rec."Renta Final") 
                 { 
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field(Penalizacion; rec."Penalizacion") 
                 { 
-                    ApplicationArea = All;
                     Editable = false;
                 }
             }
@@ -61,7 +53,6 @@ actions
     {
         action(ImprimirEntregaLlaves)
         {
-            ApplicationArea = All;
             Caption = 'Entrega de llaves y posesión';
             Image = Print;
 
@@ -82,7 +73,6 @@ actions
         }
         action(ImprimirLiquidacionContrato)
         {
-            ApplicationArea = All;
             Caption = 'Imprimir liquidación';
             Image = Print;
 

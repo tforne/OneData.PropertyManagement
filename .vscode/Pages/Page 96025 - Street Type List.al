@@ -3,6 +3,7 @@ page 96025 "Street Type List"
     Caption = 'Street Type List';
     PageType = List;
     SourceTable = "Street Type";
+    ApplicationArea = All;
 
     layout
     {
@@ -12,11 +13,9 @@ page 96025 "Street Type List"
             {
                 field("Id."; rec."Id.")
                 {
-                    ApplicationArea = All;
                 }
                 field(Description; rec.Description)
                 {
-                    ApplicationArea = All;
                 }
             }
         }

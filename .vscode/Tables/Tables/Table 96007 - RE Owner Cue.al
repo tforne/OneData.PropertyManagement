@@ -168,12 +168,12 @@ table 96007 "RE Owner Cue"
             Caption = 'Contratos de alquiler caducados';
             FieldClass = FlowField;
         }
-        field(96003;"Builded surface";Decimal)
-        {
-            CalcFormula = Sum("FRE Superficies"."Superficie m2" where(Construida=const(true)));
-            Editable = false;
-            FieldClass = FlowField;
-        }
+        // field(96003;"Builded surface";Decimal)
+        // {
+        //     CalcFormula = Sum("FRE Superficies"."Superficie m2" where(Construida=const(true)));
+        //     Editable = false;
+        //     FieldClass = FlowField;
+        // }
         field(96004;"Rental Fixed Real Estate";Integer)
         {
             CalcFormula = Count("Fixed Real Estate" WHERE (Type=CONST(Activo),
@@ -210,7 +210,13 @@ table 96007 "RE Owner Cue"
             Editable = false;
             FieldClass = FlowField;
         }
-
+        field(96103;"Resolved Incidents";Integer)
+        {
+            CalcFormula = Count("Incident Assets Real Estate" WHERE (StateCode=CONST(Resolved)));
+            Caption = 'Incidentes resultos';
+            Editable = false;
+            FieldClass = FlowField;
+        }
         field(7000000;"Receivable Documents";Integer)
         {
             CalcFormula = Count("Cartera Doc." WHERE (Type=CONST(Receivable),

@@ -14,7 +14,6 @@ page 96725 "FRE Excel Template Setup"
             {
                 field("Template File Name"; Rec."Template File Name")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
             }
@@ -37,19 +36,22 @@ page 96725 "FRE Excel Template Setup"
                     FileName: Text;
                     InStr: InStream;
                     OutStr: OutStream;
+                    LowerFileName: Text;
                 begin
                     UploadIntoStream(
                         'Select Excel template',
                         '',
-                        'Excel files (*.xlsx)|*.xlsx',
+                        'Excel files (*.xlsx;*.xlsm)|*.xlsx;*.xlsm',
                         FileName,
                         InStr);
 
                     if FileName = '' then
                         Error('No file was selected.');
 
-                    if not FileName.ToLower().EndsWith('.xlsx') then
-                        Error('Only .xlsx files are allowed.');
+                    LowerFileName := FileName.ToLower();
+
+                    if not (LowerFileName.EndsWith('.xlsx') or LowerFileName.EndsWith('.xlsm')) then
+                        Error('Only .xlsx and .xlsm files are allowed.');
 
                     Clear(Rec."Journal Template File");
                     Rec."Journal Template File".CreateOutStream(OutStr);
@@ -61,7 +63,7 @@ page 96725 "FRE Excel Template Setup"
                     Message('Template uploaded successfully.');
                 end;
             }
-            action(DownloadStoredTemplate)
+           action(DownloadStoredTemplate)
             {
                 Caption = 'Download Stored Template';
                 Image = Export;
@@ -93,7 +95,6 @@ page 96725 "FRE Excel Template Setup"
                 Image = Export;
                 Promoted = true;
                 PromotedCategory = Process;
-                ApplicationArea = All;
 
                 trigger OnAction()
                 var
@@ -108,7 +109,6 @@ page 96725 "FRE Excel Template Setup"
                 Image = Export;
                 Promoted = true;
                 PromotedCategory = Process;
-                ApplicationArea = All;
 
                 trigger OnAction()
                 var

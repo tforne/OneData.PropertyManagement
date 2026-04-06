@@ -8,7 +8,8 @@ page 96154 "O365 Incident Att. Pict."
     SourceTableView = where(Type = const(Image));
       Permissions = 
         tabledata "Incident Attachment" = RD;
-        
+    ApplicationArea = All;
+
     layout
     {
         area(content)

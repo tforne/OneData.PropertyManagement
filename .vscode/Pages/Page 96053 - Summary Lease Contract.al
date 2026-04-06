@@ -3,6 +3,7 @@ page 96053 "Sumary Lease Contract"
     Caption = 'Sumary Lease Contract';
     PageType = CardPart;
     SourceTable = "Lease Contract";
+    ApplicationArea = All;
 
     layout
     {
@@ -34,20 +35,17 @@ page 96053 "Sumary Lease Contract"
                 ShowCaption = false;
                 field("Annual Amount";Rec."Annual Amount")
                 {
-                    ApplicationArea = All;
                     Caption = 'Amount per Period';
                     ToolTip = 'Specifies the amount to be paid for each period of the lease contract.';
                 }
                 field("Amount Rental Deposit";Rec."Amount Rental Deposit")
                 {
-                    ApplicationArea = All;
                     Caption = 'Amount Rental Deposit';
                     ToolTip = 'Specifies the total amount of rental deposits associated with the lease contract.';
                     DrillDownPageId = 96054;
                 }
                 field("Contacts Related";Rec."Number Contacts Related")
                 {
-                    ApplicationArea = All;
                     Caption = 'Contacts Related';
                     ToolTip = 'Specifies the number of contacts related to the lease contract.';
                     DrillDownPageId = 96013;

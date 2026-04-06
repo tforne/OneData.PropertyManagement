@@ -5,6 +5,7 @@ page 96033 "Lease Comment Sheet"
     LinksAllowed = false;
     PageType = List;
     SourceTable = "Lease Comment Line";
+    ApplicationArea = All;
 
     layout
     {
@@ -14,7 +15,6 @@ page 96033 "Lease Comment Sheet"
             {
                 field(Date; rec.Date)
                 {
-                    ApplicationArea = all;
                     ToolTip = 'Specifies the date you entered the service comment.';
                 }
                 field(Comment; rec.Comment)

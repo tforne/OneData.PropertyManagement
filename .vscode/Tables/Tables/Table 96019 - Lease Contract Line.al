@@ -398,7 +398,9 @@ table 96019 "Lease Contract Line"
                 "VAT Calculation Type" := "VAT Calculation Type"::"Normal VAT";
                 IF NOT VATPostingSetup.GET("VAT Bus. Posting Group", "VAT Prod. Posting Group") THEN
                     VATPostingSetup.INIT;
+#pragma warning disable AL0603
                 "VAT Calculation Type" := VATPostingSetup."VAT Calculation Type";
+#pragma warning restore AL0603
                 CASE "VAT Calculation Type" OF
                     "VAT Calculation Type"::"Normal VAT",
                   "VAT Calculation Type"::"No Taxable VAT":

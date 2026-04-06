@@ -5,6 +5,7 @@ page 96153 "Incident Attach. FactBox"
     PageType = ListPart;
     SourceTable = "Incident Attachment Overview";
     SourceTableTemporary = true;
+    ApplicationArea = All;
 
     layout
     {

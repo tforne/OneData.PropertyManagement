@@ -5,6 +5,7 @@ page 96027 "Compose address"
     PageType = Card;
     ShowFilter = false;
     SourceTable = "Fixed Real Estate";
+    ApplicationArea = All;
 
     layout
     {
@@ -14,7 +15,6 @@ page 96027 "Compose address"
             {
                 field("Street Type Id."; Rec."Street Type Id.")
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     begin
                         Compose;
@@ -22,7 +22,6 @@ page 96027 "Compose address"
                 }
                 field("Types Street Numbering Id."; Rec."Types Street Numbering Id.")
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     begin
                         Compose;
@@ -30,7 +29,6 @@ page 96027 "Compose address"
                 }
                 field("Street Name"; rec."Street Name")
                 {
-                    applicationArea = All;
                     trigger OnValidate()
                     begin
                         Compose;
@@ -38,7 +36,6 @@ page 96027 "Compose address"
                 }
                 field("Number On Street"; rec."Number On Street")
                 {
-                    applicationArea = All;
                     trigger OnValidate()
                     begin
                         Compose;
@@ -46,7 +43,6 @@ page 96027 "Compose address"
                 }
                 field("Location Height Floor"; rec."Location Height Floor")
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     begin
                         Compose;
@@ -54,7 +50,6 @@ page 96027 "Compose address"
                 }
                 field(ComposseAddress; ComposseAddress)
                 {
-                    ApplicationArea = All;
                     Editable = true;
                 }
             }

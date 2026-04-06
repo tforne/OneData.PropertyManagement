@@ -2,6 +2,7 @@ page 96024 "Type Fixed Real Estate List"
 {
     PageType = List;
     SourceTable = "Type Fixed Real Estate";
+    ApplicationArea = All;
 
     layout
     {
@@ -11,11 +12,9 @@ page 96024 "Type Fixed Real Estate List"
             {
                 field(Code; rec.Code)
                 {
-                    ApplicationArea = All;
                 }
                 field(Description; rec.Description)
                 {
-                    ApplicationArea = All;
                 }
             }
         }

@@ -9,6 +9,7 @@ page 96004 "Fixed RE Statistics"
     SourceTable = "Fixed Real Estate";
     AboutTitle = 'About Fixed Real Estate Statistics';
     AboutText = 'Here you overview the total acquisition cost, depreciation, and book value for the asset.';
+    ApplicationArea = All;
 
     layout
     {
@@ -26,32 +27,26 @@ page 96004 "Fixed RE Statistics"
 
                     field("Val. Castastral Const. Activo"; rec."Val. Castastral Const. Activo")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies the total LCY amount of write-down entries for the real estate asset.';
                     }
                     field("Val. Catastral Activo"; rec."Val. Catastral Activo")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies the total LCY amount for custom 1 entries for the real estate asset.';
                     }
                     field("Sales Price"; rec."Sales price")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies the total LCY amount for custom 2 entries for the real estate asset.';
                     }
                     field("Minimum Sales Price"; Rec."Minimum Sales Price")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies the minimum sale price for the real estate asset.';
                     }
                     field("Last Rental Sales Price"; Rec."Last Rental Price")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies the last rental sale price for the real estate asset including tax.';
                     }
                     field("Last Rental Price Modified"; rec."Last Rental Price Modified")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies when the last rental price was last modified.';
                     }
                 }
@@ -62,7 +57,6 @@ page 96004 "Fixed RE Statistics"
                 Caption = 'Flujo de Caja';
                 usercontrol(BusinessChart; BusinessChart)
                 {
-                    ApplicationArea = All;
 
                     trigger AddInReady()
                     begin
@@ -75,7 +69,6 @@ page 96004 "Fixed RE Statistics"
                 Caption = 'Rentability';
                 field("Total Flujo Caja"; TotalFlujoCaja)
                 {
-                    ApplicationArea = All;
                     Caption = 'Total Flujo Caja';
                     ToolTip = 'Specifies the cash flow for the real estate asset.';
                     DecimalPlaces = 2 : 2;
@@ -85,7 +78,6 @@ page 96004 "Fixed RE Statistics"
 
                 field("Rentabilidad Bruta"; RentabilidadBruta)
                 {
-                    ApplicationArea = All;
                     Caption = 'Gross Rentability';
                     ToolTip = 'Specifies the gross rentability for the real estate asset.';
                     DecimalPlaces = 2 : 2;
@@ -94,7 +86,6 @@ page 96004 "Fixed RE Statistics"
                 }
                 field("Previsión Gastos Anual"; PrevisionGastosAnual)
                 {
-                    ApplicationArea = All;
                     Caption = 'Annual Expense Forecast';
                     ToolTip = 'Specifies the annual expense forecast for the real estate asset.';
                     DecimalPlaces = 2 : 2;
@@ -104,7 +95,6 @@ page 96004 "Fixed RE Statistics"
                 }
                 field("Rentabilidad Prevista Neta"; RentabilidadPrevistaNeta)
                 {
-                    ApplicationArea = All;
                     Caption = 'Net Rentability Forecast';
                     ToolTip = 'Specifies the net rentability forecast for the real estate asset.';
                     DecimalPlaces = 2 : 2;
@@ -112,7 +102,6 @@ page 96004 "Fixed RE Statistics"
                 }
                 field("Gastos Anual"; GastosAnual)
                 {
-                    ApplicationArea = All;
                     Caption = 'Annual Expense';
                     ToolTip = 'Specifies the annual expense for the real estate asset.';
                     DecimalPlaces = 2 : 2;
@@ -121,7 +110,6 @@ page 96004 "Fixed RE Statistics"
                 }
                 field("Rentabilidad Neta"; RentabilidadNeta)
                 {
-                    ApplicationArea = All;
                     Caption = 'Net Rentability';
                     ToolTip = 'Specifies the net rentability for the real estate asset.';
                     DecimalPlaces = 2 : 2;

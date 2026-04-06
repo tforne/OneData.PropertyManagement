@@ -17,12 +17,10 @@ page 96602 "Liquidacion Contrato Subform"
             {
                 field(Description; rec.Description)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the description of the service item that is subject to the contract.';
                 }
                 field(Amoun; rec.Amount)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the value of the service item line in the contract or contract quote.';
                 }
             }

@@ -51,6 +51,9 @@ page 96007 "Real Estate Fixed Setup"
                 field("Contract Lease Invoice Nos."; rec."Contract Lease Invoice Nos.")
                 {
                 }
+                field("Statement Bank Nos."; rec."Statement Bank Nos.")
+                {
+                }
             }
             group(Journal)
             {
@@ -105,9 +108,9 @@ page 96007 "Real Estate Fixed Setup"
             action(FASetup)
             {
                 ApplicationArea = FixedAssets;
-                Caption = 'Configurar FA Setup';
+                Caption = 'Configurar REF Setup';
                 Image = Setup;
-                ToolTip = 'Configure the FA Setup';
+                ToolTip = 'Configure the REF Setup';
                 trigger OnAction()
                 var
                     InitSetup: Codeunit GeneralManagementInstall;

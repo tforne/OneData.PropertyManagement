@@ -8,6 +8,7 @@ page 96003 "Fixed RE Attrib. Factbox"
     RefreshOnActivate = true;
     SourceTable = "Item Attribute Value";
     SourceTableTemporary = true;
+    ApplicationArea = All;
 
     layout
     {

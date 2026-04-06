@@ -16,7 +16,12 @@ codeunit 96001 "Customer RE-Notify by Email"
         Text100: Label 'Incidencia %1';
         Text110: Label 'The client will be notified of the incident %1';
 
-        
+        Text120: Label 'Cierre de la incidencia %1';
+        Text121: Label 'Se ha enviado el correo de cierre de la incidencia %1 al cliente.';
+        Text122: Label 'La incidencia ha sido resuelta.';
+        Text123: Label 'La incidencia ha sido cancelada.';
+
+
     procedure NotificarPorCorreoDeudaAlquiler(LeaseInvoiceHeader: Record "Lease Invoice Header")
     var
         Email: Codeunit Email;
@@ -104,6 +109,10 @@ codeunit 96001 "Customer RE-Notify by Email"
     end;
 
     
+    
+    //----------------------------------------
+    // RECEPCIÓN INCIDENCIA
+    //----------------------------------------
     procedure NotificarPorCorreoRecepciónIncidencia(Incidencia: Record "Incident Assets Real Estate")
     var
         Contract: Record "Lease Contract";
@@ -119,66 +128,32 @@ codeunit 96001 "Customer RE-Notify by Email"
         if Contract."E-Mail" = '' then
             exit;
 
-        SubjectText :=
-            StrSubstNo(
-                Text100,
-                Incidencia.Title,
-                Format(Incidencia."Incident Date", 0, '<Month Text>'));
+        SubjectText := StrSubstNo(Text100, Incidencia.Title);
 
         BodyText :=
-            '<html>' +
-            '<body style="font-family: Segoe UI, Arial, sans-serif; font-size: 14px; color: #333333; line-height: 1.6;">' +
+            '<html><body style="font-family: Segoe UI; font-size:14px;">' +
+            '<h2>Recepción de incidencia</h2>' +
+            '<p>Estimado/a cliente,</p>' +
+            '<p>Hemos recibido correctamente su incidencia.</p>' +
 
-                '<div style="max-width: 600px; margin: 0 auto; border: 1px solid #E5E5E5; border-radius: 8px; overflow: hidden;">' +
+            '<p><strong>Nº:</strong> ' + Format(Incidencia."Incident Id.") + '<br>' +
+            '<strong>Título:</strong> ' + FormatearTextoParaHTML(Incidencia.Title) + '<br>' +
+            '<strong>Fecha:</strong> ' + Format(Incidencia."Incident Date") + '</p>' +
 
-                    '<div style="background-color: #1F4E79; color: white; padding: 16px 24px;">' +
-                        '<h2 style="margin: 0; font-size: 20px;">Recepción de incidencia</h2>' +
-                    '</div>' +
+            '<p>Gracias por su colaboración.</p>' +
+            '</body></html>';
 
-                    '<div style="padding: 24px;">' +
-                        '<p style="margin-top: 0;">Estimado/a cliente,</p>' +
-
-                        '<p>Hemos recibido correctamente su incidencia y ya ha sido registrada en nuestro sistema.</p>' +
-
-                        '<div style="background-color: #F7F9FC; border: 1px solid #D9E2F3; border-radius: 6px; padding: 16px; margin: 20px 0;">' +
-                            '<p style="margin: 0 0 8px 0;"><strong>Número de incidencia:</strong> ' + Format(Incidencia."Incident Id.") + '</p>' +
-                            '<p style="margin: 0 0 8px 0;"><strong>Título:</strong> ' + Incidencia.Title + '</p>' +
-                            '<p style="margin: 0;"><strong>Fecha de registro:</strong> ' + Format(Incidencia."Incident Date") + '</p>' +
-                        '</div>' +
-
-                        '<p>Nos pondremos en contacto con usted si necesitamos más información o cuando haya novedades sobre su solicitud.</p>' +
-
-                        '<p>Gracias por su colaboración.</p>' +
-
-                        '<p style="margin-top: 24px;">' +
-                            'Atentamente,<br>' +
-                            '<strong>Equipo de gestión</strong>' +
-                        '</p>' +
-                    '</div>' +
-
-                '</div>' +
-
-            '</body>' +
-            '</html>';
-
-        Clear(Recipients);
         Recipients.Add(Contract."E-Mail");
 
-        Clear(EmailMessage);
-        EmailMessage.Create(
-            Recipients,
-            SubjectText,
-            BodyText,
-            true);
+        EmailMessage.Create(Recipients, SubjectText, BodyText, true);
 
-        if TrySendEmail(Email, EmailMessage) then
-            Message(Text110, Incidencia."Incident Id.")
-        else
-            Error(
-                'No se ha podido enviar el correo de recepción de la incidencia %1. Revise la configuración de email o la licencia/permisos del usuario.',
-                Incidencia."Incident Id.");
+        if not TrySendEmail(Email, EmailMessage) then
+            Error('Error enviando email de incidencia %1', Incidencia."Incident Id.");
     end;
 
+    //----------------------------------------
+    // ACTUALIZACIÓN INCIDENCIA
+    //----------------------------------------
     procedure NotificarPorCorreoSituaciónIncidencia(Incidencia: Record "Incident Assets Real Estate")
     var
         Contract: Record "Lease Contract";
@@ -186,8 +161,6 @@ codeunit 96001 "Customer RE-Notify by Email"
         Email: Codeunit Email;
         EmailMessage: Codeunit "Email Message";
         Recipients: List of [Text];
-        SubjectText: Text;
-        BodyText: Text;
         ComentarioText: Text;
     begin
         if not Contract.Get(Incidencia."Contract No.") then
@@ -196,80 +169,91 @@ codeunit 96001 "Customer RE-Notify by Email"
         if Contract."E-Mail" = '' then
             exit;
 
-        IncidentCommentLine.Reset();
         IncidentCommentLine.SetRange("Incident Id.", Incidencia."Incident Id.");
-
         if not IncidentCommentLine.FindLast() then
             exit;
 
         ComentarioText := FormatearTextoParaHTML(IncidentCommentLine.Comment);
 
-        SubjectText :=
-            StrSubstNo(
-                'Actualización de la incidencia %1',
-                Incidencia."Incident Id.");
-
-        BodyText :=
-            '<html>' +
-            '<body style="font-family: Segoe UI, Arial, sans-serif; font-size: 14px; color: #333333; line-height: 1.6; background-color: #F4F6F8; padding: 20px;">' +
-
-                '<div style="max-width: 650px; margin: 0 auto; background-color: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 8px; overflow: hidden;">' +
-
-                    // Cabecera
-                    '<div style="background-color: #1F4E79; color: white; padding: 20px 24px;">' +
-                        '<h2 style="margin: 0; font-size: 22px;">Actualización de su incidencia</h2>' +
-                        '<p style="margin: 8px 0 0 0; font-size: 14px;">Se ha registrado un nuevo comentario en su solicitud</p>' +
-                    '</div>' +
-
-                    // Contenido
-                    '<div style="padding: 24px;">' +
-                        '<p style="margin-top: 0;">Estimado/a cliente,</p>' +
-
-                        '<p>Le informamos de que se ha añadido un nuevo comentario a la incidencia que tiene registrada con nosotros.</p>' +
-
-                        '<div style="background-color: #F7F9FC; border: 1px solid #D9E2F3; border-radius: 6px; padding: 16px; margin: 20px 0;">' +
-                            '<p style="margin: 0 0 8px 0;"><strong>Número de incidencia:</strong> ' + Format(Incidencia."Incident Id.") + '</p>' +
-                            '<p style="margin: 0 0 8px 0;"><strong>Título:</strong> ' + Incidencia.Title + '</p>' +
-                            '<p style="margin: 0 0 8px 0;"><strong>Fecha del comentario:</strong> ' + Format(IncidentCommentLine.Date) + '</p>' +
-                            '<p style="margin: 0;"><strong>Comentario:</strong><br>' + ComentarioText + '</p>' +
-                        '</div>' +
-
-                        '<p>Si necesita más información, puede ponerse en contacto con nuestro equipo de gestión.</p>' +
-
-                        '<p style="margin-top: 24px;">' +
-                            'Atentamente,<br>' +
-                            '<strong>Equipo de gestión</strong>' +
-                        '</p>' +
-                    '</div>' +
-
-                '</div>' +
-
-            '</body>' +
-            '</html>';
-
-        Clear(Recipients);
         Recipients.Add(Contract."E-Mail");
 
-        Clear(EmailMessage);
         EmailMessage.Create(
             Recipients,
-            SubjectText,
-            BodyText,
+            'Actualización de incidencia ' + Format(Incidencia."Incident Id."),
+            '<html><body>' +
+            '<p>Nuevo comentario:</p>' +
+            '<p>' + ComentarioText + '</p>' +
+            '</body></html>',
+            true);
+
+        Email.Send(EmailMessage);
+    end;
+
+    //----------------------------------------
+    // 🔥 NUEVO: CIERRE INCIDENCIA
+    //----------------------------------------
+    procedure NotificarPorCorreoCierreIncidencia(Incidencia: Record "Incident Assets Real Estate")
+    var
+        Contract: Record "Lease Contract";
+        Email: Codeunit Email;
+        EmailMessage: Codeunit "Email Message";
+        Recipients: List of [Text];
+        EstadoTxt: Text;
+    begin
+        if not Contract.Get(Incidencia."Contract No.") then
+            exit;
+
+        if Contract."E-Mail" = '' then
+            exit;
+
+        case Incidencia.StateCode of
+            Incidencia.StateCode::Resolved:
+                EstadoTxt := Text122;
+            Incidencia.StateCode::Canceled:
+                EstadoTxt := Text123;
+            else
+                exit;
+        end;
+
+        Recipients.Add(Contract."E-Mail");
+
+        EmailMessage.Create(
+            Recipients,
+            StrSubstNo(Text120, Incidencia."Incident Id."),
+            '<html><body style="font-family: Segoe UI;">' +
+
+            '<h2>Cierre de incidencia</h2>' +
+
+            '<p>Estimado/a cliente,</p>' +
+
+            '<p>Su incidencia ha sido cerrada.</p>' +
+
+            '<p><strong>Nº:</strong> ' + Format(Incidencia."Incident Id.") + '<br>' +
+            '<strong>Título:</strong> ' + FormatearTextoParaHTML(Incidencia.Title) + '<br>' +
+            '<strong>Estado:</strong> ' + EstadoTxt + '<br>' +
+            '<strong>Fecha cierre:</strong> ' + Format(Incidencia."Resolution Date") + '</p>' +
+
+            '<p>Gracias por su confianza.</p>' +
+
+            '</body></html>',
             true);
 
         if TrySendEmail(Email, EmailMessage) then
-            Message('Se ha enviado el comentario de la incidencia %1 al cliente.', Incidencia."Incident Id.")
+            Message(Text121, Incidencia."Incident Id.")
         else
-            Error(
-                'No se ha podido enviar el correo con el comentario de la incidencia %1. Revise la configuración de email o la licencia/permisos del usuario.',
-                Incidencia."Incident Id.");
+            Error('Error enviando cierre incidencia %1', Incidencia."Incident Id.");
     end;
 
+    //----------------------------------------
+    // UTILIDADES
+    //----------------------------------------
     local procedure FormatearTextoParaHTML(InputText: Text): Text
     begin
         InputText := InputText.Replace('&', '&amp;');
         InputText := InputText.Replace('<', '&lt;');
         InputText := InputText.Replace('>', '&gt;');
+        InputText := InputText.Replace('"', '&quot;');
+        InputText := InputText.Replace('''', '&#39;');
         exit(InputText);
     end;
 

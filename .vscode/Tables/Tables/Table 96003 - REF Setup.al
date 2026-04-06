@@ -53,6 +53,12 @@ table 96003 "REF Setup"
             DataClassification = ToBeClassified;
             TableRelation = "No. Series";
         }
+        field(13; "Statement Bank Nos."; Code[20])
+        {
+            Caption = 'Statement Bank Nos.';
+            DataClassification = ToBeClassified;
+            TableRelation = "No. Series";
+        }
         field(200; "Repository Contracts Files"; Text[250])
         {
             Caption = 'Repositorio contratos';

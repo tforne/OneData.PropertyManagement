@@ -140,5 +140,20 @@ codeunit 50501 GeneralManagementInstall
             REFSetup."Lease Contract Nos." := 'PM-LEAS';
             REFSetup.MODIFY;
         end;
+        if REFSetup."Statement Bank Nos." = '' then begin
+            NoSeries.Code := 'PM-SBANK';
+            NoSeries.Description := 'Property Management Statement Bank';
+            NoSeries."Manual Nos." := true;
+            NoSeries."Default Nos." := true;
+            NoSeries.insert;
+            NoSeriesLine."Series Code" := 'PM-SBANK';
+            NoSeriesLine."Line No." := 10000;
+            NoSeriesLine."Starting Date" := today;
+            NoSeriesLine.Insert(true);
+            NoSeriesLine."Starting No." := StrSubstNo('SB-%1-00001', Date2DMY(today, 3) - 2000);
+            NoSeriesLine.modify;
+            REFSetup."Statement Bank Nos." := 'PM-SBANK';
+            REFSetup.MODIFY;
+        end;
     end;
 }

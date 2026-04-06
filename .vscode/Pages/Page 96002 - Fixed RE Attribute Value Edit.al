@@ -3,6 +3,7 @@ page 96002 "Fixed RE Attribute Value Edit."
     Caption = 'Item Attribute Values';
     PageType = List;
     SourceTable = "Fixed Real Estate";
+    ApplicationArea = All;
 
     layout
     {
@@ -21,7 +22,6 @@ page 96002 "Fixed RE Attribute Value Edit."
         {
             action("Load attributes by asset type")
             {
-                ApplicationArea = all;
                 Caption = 'Cargar atibutos por tipo de activo';
                 Image = MoveUp;
                 Promoted = true;

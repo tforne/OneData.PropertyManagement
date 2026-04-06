@@ -6,6 +6,7 @@ page 96010 "REF Income & Expenses Subform"
     MultipleNewLines = true;
     PageType = ListPart;
     SourceTable = "REF Income & Expense Lines";
+    ApplicationArea = All;
 
     layout
     {
@@ -17,41 +18,34 @@ page 96010 "REF Income & Expenses Subform"
                 IndentationControls = Description;
                 field("Row No."; rec."Row No.")
                 {
-                    ApplicationArea = All;
                 }
                 field(Type; rec.Type)
                 {
-                    ApplicationArea = All;
                     OptionCaption = 'Income,Expense,Title';
                     Style = Standard;
                     StyleExpr = Emphasize;
                 }
                 field(Description; rec.Description)
                 {
-                    ApplicationArea = All;
                     Style = Strong;
                     StyleExpr = Emphasize;
                 }
                 field(Quantity; rec.Quantity)
                 {
-                    ApplicationArea = All;
                     BlankZero = true;
                 }
                 field("Entry Category"; rec."Entry Category")
                 {
                     Caption = 'Entry Category';
-                    ApplicationArea = All;
                     Style = Standard;
                     StyleExpr = Emphasize;
                 }
                 field(Price; rec.Price)
                 {
-                    ApplicationArea = All;
                     BlankZero = true;
                 }
                 field(Amount; rec.Amount)
                 {
-                    ApplicationArea = All;
                     BlankZero = true;
                 }
             }
@@ -60,7 +54,6 @@ page 96010 "REF Income & Expenses Subform"
                 Caption = 'Total';
                 field(NetIncome; NetIncome)
                 {
-                    ApplicationArea = All;
                     AutoFormatType = 1;
                     Caption = 'Net Income';
                     Editable = false;
@@ -84,7 +77,6 @@ page 96010 "REF Income & Expenses Subform"
                     action("Insert Template")
                     {
                         AccessByPermission = TableData 279 = R;
-                        ApplicationArea = All;
                         Caption = 'Insert &Ext. Texts';
                         Image = Text;
                         ToolTip = 'Insert the extended item description that is set up for the item that is being processed on the line.';

@@ -7,6 +7,7 @@ page 96011 "REF Income & Expenses List"
     MultipleNewLines = true;
     PageType = List;
     SourceTable = "REF Income & Expense Lines";
+    ApplicationArea = All;
 
     layout
     {
@@ -18,37 +19,29 @@ page 96011 "REF Income & Expenses List"
                 IndentationControls = Description;
                 field("No. Fixed Real Estate"; rec."No. Fixed Real Estate")
                 {
-                    ApplicationArea = All;
                 }
                 field("Row No."; rec."Row No.")
                 {
-                    ApplicationArea = All;  
                 }
                 field(Type; rec.Type)
                 {
-                    ApplicationArea = All;
                 }
                 field(Description; rec.Description)
                 {
                     Style = Strong;
                     StyleExpr = Emphasize;
-                    ApplicationArea = All;
                 }
                 field("Entry Category";Rec."Entry Category")
                 {
-                        ApplicationArea = All;
                 }
                 field(Quantity; rec.Quantity)
                 {
-                    ApplicationArea = All;
                 }
                 field(Price; rec.Price)
                 {
-                    ApplicationArea = All;
                 }
                 field(Amount; rec.Amount)
                 {
-                    ApplicationArea = All;
                 }
             }
         }

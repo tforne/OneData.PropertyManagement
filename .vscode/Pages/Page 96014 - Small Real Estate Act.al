@@ -4,6 +4,7 @@ page 96014 "Small Real Estate Act."
     PageType = CardPart;
     RefreshOnActivate = true;
     SourceTable = "RE Owner Cue";
+    ApplicationArea = All;
 
     layout
     {
@@ -15,7 +16,6 @@ page 96014 "Small Real Estate Act."
                 CueGroupLayout = Wide;
                 field("Lease Contract Signed"; rec."Lease Contract Signed")
                 {
-                    ApplicationArea = All;
                     trigger OnDrillDown()
                     var
                         LeaseContractList: Page "Lease Contract List";
@@ -28,7 +28,6 @@ page 96014 "Small Real Estate Act."
                 }
                 field("Lease Contract Expired"; rec."Lease Contract Expired")
                 {
-                    ApplicationArea = All;
                     DrillDownPageID = "Lease Contract List";
                     LookupPageID = "Lease Contract List";
                     StyleExpr = ContractExpiredCueStyle;
@@ -37,33 +36,14 @@ page 96014 "Small Real Estate Act."
                 {
                     ApplicationArea = Basic, Suite;
                 }
-                field("Builded surface"; rec."Builded surface")
-                {
-                    Caption = 'Superficie construida';
-                    ApplicationArea = All;
-                }
                 field("Rental Fixed Real Estate"; rec."Rental Fixed Real Estate")
                 {
-                    ApplicationArea = All;
-                }
-                field("%NotRental"; "%NotRental")
-                {
-                    ApplicationArea = All;
-                    Caption = '% M2 no alquilados';
-                    ExtendedDatatype = Ratio;
-                }
-                field(PriceM2; PriceM2)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Precio medio M2';
-                    DecimalPlaces = 2 : 2;
                 }
 
                 actions
                 {
                     action("New Real Estate")
                     {
-                        ApplicationArea = All;
                         Caption = 'New Real Estate';
                         RunObject = Page 96000;
                         RunPageMode = Create;
@@ -76,7 +56,6 @@ page 96014 "Small Real Estate Act."
                 Caption = 'Sales';
                 field("Sales Invoices"; rec."Sales Invoices")
                 {
-                    ApplicationArea = All;
                     Caption = 'Sales Invoices';
                     DrillDown = true;
                     Lookup = true;
@@ -91,7 +70,6 @@ page 96014 "Small Real Estate Act."
                 }
                 field("Purchase Invoices"; rec."Purchase Invoices")
                 {
-                    ApplicationArea = All;
                     Caption = 'Purchase Invoices';
 
                     trigger OnDrillDown()
@@ -113,7 +91,7 @@ page 96014 "Small Real Estate Act."
       HasCamera: Boolean;
     trigger OnAfterGetRecord()
     begin
-        CalculateCueFieldValues;
+        
     end;
 
     trigger OnOpenPage()
@@ -161,28 +139,5 @@ page 96014 "Small Real Estate Act."
         RentabilidadStyle : Text;
 
 
-    local procedure CalculateCueFieldValues()
-    begin
-
-        M2NotRental := 0;
-        FixedRealEstate.RESET;
-        FixedRealEstate.SETRANGE(Status, FixedRealEstate.Status::"En alquiler");
-        IF FixedRealEstate.FINDFIRST THEN
-            REPEAT
-                FixedRealEstate.CALCFIELDS(FixedRealEstate."Superficie construida");
-                M2NotRental := M2NotRental + FixedRealEstate."Superficie construida";
-            UNTIL FixedRealEstate.NEXT = 0;
-
-        "%NotRental" := -100;
-        IF rec."Builded surface" <> 0 THEN BEGIN
-            "%NotRental" := M2NotRental / rec."Builded surface";
-            PriceM2 := rec."Lease Contract Signed" / rec."Builded surface"
-        END;
-        
-        if rec."Lease Contract Expired" = 0 then
-            ContractExpiredCueStyle := 'Favorable'
-        else
-            ContractExpiredCueStyle := 'Unfavorable';
-    end;
 }
 

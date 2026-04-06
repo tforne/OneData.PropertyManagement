@@ -142,8 +142,8 @@ table 96100 "Incident Assets Real Estate"
             Caption = 'Status';
             Description = 'Shows whether the case is active, resolved, or canceled. Resolved and canceled cases are read-only and can''t be edited unless they are reactivated.';
             InitValue = Active;
-            OptionCaption = 'Active,Resolved,Canceled';
-            OptionMembers = Active,Resolved,Canceled;
+            OptionCaption = 'Active,Resolved,Canceled,Closed';
+            OptionMembers = Active,Resolved,Canceled,Closed;
             
             trigger OnValidate()
             begin

@@ -11,6 +11,7 @@ page 96021 "FRE Attribute Value List"
         tabledata "Item Attribute" = R,
         tabledata "Item Attribute Value" = RD,
         tabledata "Item Attribute Value Mapping" = RIMD;
+    ApplicationArea = All;
 
     layout
     {
@@ -20,7 +21,6 @@ page 96021 "FRE Attribute Value List"
             {
                 field("Attribute Name"; rec."Attribute Name")
                 {
-                    ApplicationArea = All;
                     AssistEdit = false;
                     Caption = 'Attribute';
                     TableRelation = "Item Attribute".Name WHERE (Blocked = CONST (false));
@@ -50,7 +50,6 @@ page 96021 "FRE Attribute Value List"
                 }
                 field(Value; rec.Value)
                 {
-                    ApplicationArea = All;
                     Caption = 'Value';
                     TableRelation = IF ("Attribute Type"=CONST(Option)) "Item Attribute Value".Value WHERE ("Attribute ID"=FIELD("Attribute ID"),
                                                                                                           Blocked=CONST(true));
@@ -84,12 +83,10 @@ page 96021 "FRE Attribute Value List"
                 }
                 field("Unit of Measure";rec."Unit of Measure")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the name of the item or resource''s unit of measure, such as piece or hour.';
                 }
                 field(Comment;rec.Comment)
                 {
-                    ApplicationArea = All;
                     trigger OnValidate()
                     var
                         ItemAttributeValue: Record "Item Attribute Value";

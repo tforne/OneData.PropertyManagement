@@ -3,6 +3,7 @@ page 96026 "Types Street Numbering List"
     Caption = 'Types Street Numbering List';
     PageType = List;
     SourceTable = "Types Street Numbering";
+    ApplicationArea = All;
 
     layout
     {
@@ -12,11 +13,9 @@ page 96026 "Types Street Numbering List"
             {
                 field("Id."; rec."Id.")
                 {
-                    ApplicationArea = All;
                 }
                 field(Description; rec.Description)
                 {
-                    ApplicationArea = All;
                 }
             }
         }

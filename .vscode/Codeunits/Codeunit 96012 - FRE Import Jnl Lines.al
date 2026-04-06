@@ -651,4 +651,119 @@ codeunit 96012 "FRE Import Jnl. Lines"
         AssetSuggestionMgt.SuggestFixedRealEstate(PreviewRec);
         exit(ErrorText);
     end;
+
+    procedure ImportBankStatementFromStatement(var FREJnlLine: Record "FRE Jnl. Line"; var FREBankStatement: Record "FRE Bank Statement")
+    begin
+        if FREBankStatement."SharePoint URL" = '' then
+            Error('El extracto no tiene URL de SharePoint.');
+
+        ImportBankStatementFromUrl(FREJnlLine, FREBankStatement."SharePoint URL");
+
+        // Marcar como importado (opcional)
+        FREBankStatement.Imported := true;
+        FREBankStatement.Status := FREBankStatement.Status::Imported;
+        FREBankStatement.Modify();
+    end;
+
+    procedure ImportBankStatementFromUrl(var FREJnlLine: Record "FRE Jnl. Line"; FileUrl: Text)
+    var
+        TempExcelBuffer: Record "Excel Buffer" temporary;
+        ResponseMessage: HttpResponseMessage;
+        Content: HttpContent;
+        ExcelInStream: InStream;
+        SheetName: Text;
+        LastRowNo: Integer;
+        PreviewRec: Record "FRE Import Preview v2" temporary;
+        HasErrors: Boolean;
+        Client: HttpClient;
+    begin
+        CheckJournalContext(FREJnlLine);
+
+        if FileUrl = '' then
+            Error('La URL del extracto bancario es obligatoria.');
+
+        if not Client.Get(FileUrl, ResponseMessage) then
+            Error('No se ha podido conectar con la URL del extracto.');
+
+        if not ResponseMessage.IsSuccessStatusCode() then
+            Error('Error al descargar el extracto. Código HTTP: %1', ResponseMessage.HttpStatusCode());
+
+        Content := ResponseMessage.Content();
+        Content.ReadAs(ExcelInStream);
+
+        SheetName := TempExcelBuffer.SelectSheetsNameStream(ExcelInStream);
+        if SheetName = '' then
+            Error('No se ha seleccionado ninguna hoja.');
+
+        Content.ReadAs(ExcelInStream);
+        TempExcelBuffer.OpenBookStream(ExcelInStream, SheetName);
+        TempExcelBuffer.ReadSheet();
+
+        ValidateHeaders(TempExcelBuffer);
+
+        LastRowNo := GetLastRowNo(TempExcelBuffer);
+        if LastRowNo < 2 then
+            Error('El fichero Excel no contiene líneas para importar.');
+
+        BuildPreview(TempExcelBuffer, PreviewRec, HasErrors);
+        Commit();
+
+        Page.RunModal(Page::"FRE Import Preview v2", PreviewRec);
+
+        InsertPreviewLines(FREJnlLine, PreviewRec);
+
+        Message('Importación del extracto bancario completada correctamente.');
+    end;
+
+    procedure ImportBankStatementFromExcel(var FREJnlLine: Record "FRE Jnl. Line")
+    var
+        TempExcelBuffer: Record "Excel Buffer" temporary;
+        TempBlob: Codeunit "Temp Blob";
+        UploadInStream: InStream;
+        ExcelInStream: InStream;
+        OutStr: OutStream;
+        FileName: Text;
+        SheetName: Text;
+        LastRowNo: Integer;
+        PreviewRec: Record "FRE Import Preview v2" temporary;
+        HasErrors: Boolean;
+    begin
+        CheckJournalContext(FREJnlLine);
+
+        UploadIntoStream(
+            'Seleccione un fichero Excel de extracto bancario',
+            '',
+            'Excel files (*.xlsx)|*.xlsx',
+            FileName,
+            UploadInStream);
+
+        TempBlob.CreateOutStream(OutStr);
+        CopyStream(OutStr, UploadInStream);
+
+        TempBlob.CreateInStream(ExcelInStream);
+        SheetName := TempExcelBuffer.SelectSheetsNameStream(ExcelInStream);
+
+        if SheetName = '' then
+            Error('No se ha seleccionado ninguna hoja.');
+
+        TempBlob.CreateInStream(ExcelInStream);
+        TempExcelBuffer.OpenBookStream(ExcelInStream, SheetName);
+        TempExcelBuffer.ReadSheet();
+
+        ValidateHeaders(TempExcelBuffer);
+
+        LastRowNo := GetLastRowNo(TempExcelBuffer);
+
+        if LastRowNo < 2 then
+            Error('El fichero Excel no contiene líneas para importar.');
+
+        BuildPreview(TempExcelBuffer, PreviewRec, HasErrors);
+        Commit();
+
+        Page.RunModal(Page::"FRE Import Preview v2", PreviewRec);
+
+        InsertPreviewLines(FREJnlLine, PreviewRec);
+
+        Message('Importación del extracto bancario completada correctamente.');
+    end;
 }

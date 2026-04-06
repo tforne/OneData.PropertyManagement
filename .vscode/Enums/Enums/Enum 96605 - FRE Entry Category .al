@@ -1,6 +1,6 @@
 enum 96605 "FRE Entry Category"
 {
-    value(0;" "){ Caption = ' '; }
+    value(0;Undefined){ Caption = 'Undefined'; }
     value(1; Rent) { Caption = 'Rent'; }
     value(2; Deposit) { Caption = 'Deposit'; }
     value(3; CommunityFees) { Caption = 'Community Fees'; }

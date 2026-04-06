@@ -2,6 +2,7 @@ page 96200 "Capture Medium"
 {
     PageType = List;
     SourceTable = "Capture Medium";
+    ApplicationArea = All;
 
     layout
     {
@@ -11,11 +12,9 @@ page 96200 "Capture Medium"
             {
                 field(Code; Rec.Code)
                 {
-                    ApplicationArea = All;
                 }
                 field(Description; Rec.Description)
                 {
-                    ApplicationArea = All;
                 }
             }
         }

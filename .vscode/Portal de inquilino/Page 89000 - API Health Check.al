@@ -14,6 +14,7 @@ page 89000 "API Health Check"
     InsertAllowed = false;
     ModifyAllowed = false;
     DeleteAllowed = false;
+    ApplicationArea = All;
 
     layout
     {

@@ -3,6 +3,7 @@ page 96009 "REF Income & Expenses Template"
     MultipleNewLines = true;
     PageType = List;
     SourceTable = "REF Income & Expense Template";
+    ApplicationArea = All;
 
     layout
     {
@@ -14,38 +15,31 @@ page 96009 "REF Income & Expenses Template"
                 IndentationControls = Description;
                 field("Row No."; rec."Row No.")
                 {
-                    ApplicationArea = All;
                 }
                 field(Description; rec.Description)
                 {
-                    ApplicationArea = All;
                     Style = Strong;
                     StyleExpr = Emphasize;
                 }
                 field(Date; rec.Date)
                 {
-                    ApplicationArea = All;
                 }
                 field(Identation; rec.Identation)
                 {
-                    ApplicationArea = All;
                 }
                 field(Type; rec.Type)
                 {
-                    ApplicationArea = All;
                     OptionCaption = 'Income,Expense,Title';
                     Style = Standard;
                     StyleExpr = Emphasize;
                 }
                 field("Account No."; rec."Account No.")
                 {
-                    ApplicationArea = All;
                     Style = Strong;
                     StyleExpr = Emphasize;
                 }
                 field("Entry Category";rec."Entry Category")
                 {
-                    ApplicationArea = All;
                     Style = Strong;
                     StyleExpr = Emphasize;
                 }

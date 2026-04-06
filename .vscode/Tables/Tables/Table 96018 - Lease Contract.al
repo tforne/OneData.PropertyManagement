@@ -18,6 +18,7 @@ using Microsoft.Inventory.Location;
 using Microsoft.Sales.Customer;
 using Microsoft.Service.Document;
 using OneData.Property.Asset;
+using OneData.Property.Finance;
 using OneData.Property.Setup;
 using Microsoft.CRM.Contact;
 using Microsoft.Foundation.Address;
@@ -231,13 +232,13 @@ table 96018 "Lease Contract"
         {
             Caption = 'Fixed Real Estate No.';
             DataClassification = ToBeClassified;
-            TableRelation = "Fixed Real Estate";
+            TableRelation = "Fixed Real Estate"."No." where (type=const(Activo));
 
             trigger OnValidate()
             begin
                 IF FixedRealEstate.GET("Fixed Real Estate No.") THEN BEGIN
                   "Description Fixed Real Estate" := FixedRealEstate.Description;
-                  "Types Street Numbering Id." := "Types Street Numbering Id.";
+                  "Types Street Numbering Id." := FixedRealEstate."Types Street Numbering Id.";
                   "Street Name" := FixedRealEstate."Street Name";
                   "Number On Street" :=  FixedRealEstate."Number On Street";
                   "Location Height Floor" := FixedRealEstate."Location Height Floor";
@@ -866,16 +867,64 @@ table 96018 "Lease Contract"
         }
     }
     trigger OnDelete()
+    var
+        LeaseContract : record "Lease Contract";
+        LeaseContractLine : record "Lease Contract Line";
+        LeaseCommentLine : record "Lease Comment Line";
+        LeaseInvoiceHeader : record "Lease Invoice Header";
+        LeaseInvoiceLine : record "Lease Invoice Line";
+        LeaseBankAccount : record "Lease Bank Account";
+        TaxAmountLine : record "Tax Amount Line";
+        LiquidacionHeader : record "Liquidacion Contrato Header";
+        LiquidacionLines : Record "Liquidacion Contrato Lines";
+        refRelatedContactos: Record "REF Related Contactos";
+
     begin
-        TESTFIELD(Status,Status::" ");
+        // TESTFIELD(Status,Status::" ");
+
+        IF "Contract No." <> '' THEN begin
+            LeaseContractLine.Reset();;
+            LeaseContractLine.setrange("Contract No.","Contract No.");
+            if leaseContractLine.FindSet() then
+                LeaseContractLine.DeleteAll();
+
+            LeaseCommentLine.Reset();;
+            LeaseCommentLine.setrange("No.","Contract No.");
+            if LeaseCommentLine.FindSet() then
+                LeaseCommentLine.DeleteAll();
+
+            refRelatedContactos.reset;
+            refRelatedContactos.setrange("Entity Type",refRelatedContactos."Entity Type"::Contract);
+            refRelatedContactos.setrange("Source No.","Contract No.");
+            IF refRelatedContactos.FINDSET() THEN
+                refRelatedContactos.DELETEall;
+
+            LiquidacionHeader.Reset();
+            LiquidacionHeader.setrange("Contract No.","Contract No.");
+            if LiquidacionHeader.FindSet() then
+                LiquidacionHeader.DeleteAll();
+
+            LiquidacionLines.Reset();
+            LiquidacionLines.setrange("Contract No.","Contract No.");
+            if LiquidacionLines.FindSet() then
+                LiquidacionLines.DeleteAll();
+
+        end;
     end;
 
     trigger OnInsert()
     var
         NoSeriesCode: Code[20];
+        InitSetup: Codeunit GeneralManagementInstall;
     begin
         IF "Contract No." = '' THEN BEGIN
-            REFASetup.GET;
+            if not REFASetup.GET then begin
+                if confirm(Text100,true) then begin
+                    if refasetup.insert then
+                        InitSetup.ConfigurarREFSetup()
+                end else
+                    error(Text101);
+            end;
             REFASetup.TESTFIELD("Lease Contract Nos.");
             // NoSeriesMgt.InitSeries(REFASetup."Lease Contract Nos.",xRec."No. Series",0D,"Contract No.","No. Series");
             NoSeriesCode := REFASetup."Lease Contract Nos.";
@@ -905,6 +954,8 @@ table 96018 "Lease Contract"
         Text044: Label 'Contact %1 %2 is not related to customer %3.';
         Text048: Label 'There are unposted invoices linked to this contract.\\Do you want to cancel the contract?';
         Text051: Label 'Contact %1 %2 is not related to a customer.';
+        Text100: Label 'La configuración de activos inmobiliarios no existe. ¿ Quieres configurarlo por defecto?';
+        Text101: label 'Error. REF configuración no existe';
         PhoneNoCannotContainLettersErr: Label 'You cannot enter letters in this field.';
 
     local procedure SetSalespersonCode(SalesPersonCodeToCheck: Code[20];var SalesPersonCodeToAssign: Code[20])

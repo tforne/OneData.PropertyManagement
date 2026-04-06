@@ -20,6 +20,7 @@ La solución permite gestionar de forma centralizada:
 - Liquidaciones contractuales
 - Incidencias y mantenimiento
 - Control financiero por activo
+- Integración con Activos fijos
 - Integración con portales externos
 
 Todo ello dentro del mismo entorno financiero y contable de Business Central.
@@ -304,6 +305,17 @@ OneData Property Management está completamente integrada con:
 - Documentos registrados
 - Informes financieros
 
+# 🔗 Integración con Activos Fijos
+
+## Modelo de Vinculación
+
+### Vínculo Exclusivo
+- 1 activo inmobiliario ↔ 1 activo fijo  
+
+### Vínculo Compartido Controlado
+- Varios inmuebles ↔ 1 activo fijo  
+- Un activo principal  
+- Control de porcentajes ≤ 100%  
 No requiere sincronizaciones externas ni herramientas adicionales.
 
 ---

@@ -65,7 +65,6 @@ page 96729 "FRE Import Preview v2"
                 }
                 field("Entry Category"; rec."Entry Category")
                 {
-                    ApplicationArea = All;
                 }
                 field(Amount; Rec.Amount) 
                 {

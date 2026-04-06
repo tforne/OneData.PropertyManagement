@@ -18,89 +18,71 @@ page 96500 "Price Increases by Refer index"
                 ShowCaption = false;
                 field("Contract No."; Rec."Contract No.")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field("Starting Date"; rec."Starting Date")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field("Fixed Real Estate Name";Rec."Fixed Real Estate Name")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field("Contact No."; Rec."Contact No.")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field("Contact Name"; rec."Contact Name")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field("Contact E-Mail";Rec."Contact E-Mail")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }                
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field("Customer Name";Rec."Customer Name")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field(Description;Rec.Description)
                 {
-                    ApplicationArea = All;
                 }
                 field("Contract Expiration Date";Rec."Contract Expiration Date")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field("Current Unit Price";Rec."Current Unit Price")
                 {
-                    ApplicationArea = all;
                     Editable = false;
                 }
                 field("Amount Charged Last Periode";Rec."Amount Charged Last Periode")
                 {
-                    ApplicationArea = All;
                 }
                 field("Payment Method Code";Rec."Payment Method Code")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field("CPI calculation amount";Rec."CPI calculation amount")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field("Starting Date Increment";Rec."Starting Date Increment")
                 {
-                    ApplicationArea = All;
                     Editable = true;
                 }
                 field( "% Increment";Rec."% Increment")
                 {
-                    ApplicationArea = all;
                     Editable = false;
                 }
                 field(Amount;Rec.Amount)
                 {
-                    ApplicationArea = All;
                 }
                 field(Comunicate;Rec.Comunicate)
                 {
-                    ApplicationArea = All;
                 }
 
             }
