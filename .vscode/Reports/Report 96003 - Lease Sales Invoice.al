@@ -828,10 +828,12 @@ requestpage
                     }
                     field(ShowInfoIVA; infoIVA)
                     {
+                        ApplicationArea = All;
                         Caption = 'Mostrar información IVA';
                     }
                     field(Idioma; gcodeLanguageSuffix)
                     {
+                        ApplicationArea = All;
                         TableRelation = Language;
 
                         trigger OnLookup(var Text: Text): Boolean
@@ -1232,4 +1234,3 @@ requestpage
     end;
 
 }
-

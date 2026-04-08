@@ -87,12 +87,14 @@ report 96009 "Sugg. Incr. Prices Refer Index"
                     Caption = 'Options';
                     field(PostingDate; PostingDate)
                     {
+                        ApplicationArea = Service;
                         Caption = 'Posting Date';
                         ToolTip = 'Specifies the date that you want to use as the posting date on the service invoices created.';
                     }
 
                     field(Year; Year)
                     {
+                        ApplicationArea = Service;
                         Caption = 'Año';
                     }
                 }

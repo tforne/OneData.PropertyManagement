@@ -14,7 +14,7 @@ table 96810 "Gen Journal Import Buffer"
         field(7; Amount; Decimal) { }
 
         field(20; "FRE Integration"; Boolean) { }
-        field(21; "FRE Real Estate No."; Code[20]) { }
+        field(21; "FRE Fixed Real Estate No."; Code[20]) { }
         field(22; "FRE FA No."; Code[20]) { }
         field(23; "FRE Entry Category"; Text[50]) { }
         field(24; "FRE Row No."; Code[10]) { }

@@ -52,6 +52,19 @@ La extensión incorpora capacidades para automatizar la operativa económica vin
 - Cálculo automático por IPC u otros índices oficiales
 - Propuesta y aplicación masiva de incrementos
 - Seguimiento histórico de revisiones de precio
+- Registro histórico del índice de referencia de alquiler por inmueble
+- Gestión de rangos mínimo y máximo de referencia
+
+### Índice de referencia de alquiler
+
+La solución permite mantener un histórico de precios índice de referencia de alquiler por inmueble, pensado para trabajar con consultas manuales al portal oficial `SERPAVI / MIVAU` y conservar una referencia vigente operativa dentro de Business Central.
+
+- Apertura directa del portal oficial de consulta desde la ficha del inmueble
+- Registro por fecha del precio de referencia mínimo y máximo
+- Cálculo automático de la superficie construida del inmueble al informar el índice
+- Cálculo automático del precio total mínimo y máximo a partir del valor por metro cuadrado y la superficie
+- Marcado de una única referencia activa por inmueble
+- Consulta del último precio de referencia mínimo y máximo activo desde la ficha y la lista del activo inmobiliario
 
 ### Incidencias y mantenimiento
 
@@ -212,7 +225,7 @@ El modelo contempla la relación entre inmuebles y activos fijos.
 
 - Producto: `OneData Property Management`
 - Publisher: `OneData`
-- Versión actual: `3.0.26096.74`
+- Versión actual: `3.0.26099.86`
 - Plataforma objetivo: `Microsoft Dynamics 365 Business Central`
 - Aplicación: `25.0.0.0`
 - Runtime: `15.0`

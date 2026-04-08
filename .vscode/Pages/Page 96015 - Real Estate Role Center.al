@@ -8,10 +8,22 @@ page 96015 "Real Estate Role Center"
     {
         area(rolecenter)
         {
+            part(GettingStarted; "RE RC Getting Started")
+            {
+            }
             part(Control139; "Headline FFO Manager")
             {
             }
+            // part(FREHeadline; "FRE RC Headline")
+            // {
+            // }
+            part(FREActivities; "FRE RC Activities")
+            {
+            }
             part(RECashFlowChart;"RE Analisis Ingresos y Gastos")
+            {
+            }
+            part(FRELedgerEntries; "FRE Ledger Entry ListPart")
             {
             }
             part("Real Estate Incidents"; 96056)
@@ -38,6 +50,13 @@ page 96015 "Real Estate Role Center"
             {
                 Caption = 'Posted Documents';
                 Image = FiledPosted;
+                action("Bank Statements")
+                {
+                    Caption = 'Bank Statements';
+                    Image = Bank;
+                    RunObject = Page "FRE Bank Statements";
+                    ToolTip = 'Open the list of FRE bank statements.';
+                }
                 action("Posted Lease Invoices")
                 {
                     Caption = 'Posted Lease Invoices';
@@ -164,6 +183,13 @@ page 96015 "Real Estate Role Center"
             group(Journals)
             {
                 Caption = 'Journals';
+                action("Bank Statements Journal")
+                {
+                    Caption = 'Extractos bancarios';
+                    Image = Bank;
+                    RunObject = Page "FRE Bank Statements";
+                    ToolTip = 'Abrir extractos bancarios FRE para revisar, importar y contabilizar movimientos.';
+                }
                 action("Journal property")
                 {
                     Caption = 'Journal property';

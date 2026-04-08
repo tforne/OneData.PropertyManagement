@@ -255,6 +255,12 @@ page 96000 "Fixed Real Estate Card"
                 field("Minimum Rental Price"; rec."Minimum Rental Price")
                 {
                 }
+                field("Last Reference Price Min."; Rec."Last Reference Price Min.")
+                {
+                }
+                field("Last Reference Price Max."; Rec."Last Reference Price Max.")
+                {
+                }
                 field("Last Rental Sales Price"; Rec."Last Rental Price Modified")
                 {
                 }
@@ -315,7 +321,7 @@ page 96000 "Fixed Real Estate Card"
 
             part(RealEstates; "OD RE FA Link ListPart")
                 {
-                    SubPageLink = "FA No." = field("No.");
+                    SubPageLink =  "Real Estate No." = field("No.");
                 }
         }
         area(factboxes)
@@ -496,6 +502,34 @@ page 96000 "Fixed Real Estate Card"
         }
         area(processing)
         {
+            action(OpenSerpaviReferencePrice)
+            {
+                Caption = 'Consultar indice alquiler MIVAU';
+                Image = PriceWorksheet;
+                ToolTip = 'Abrir el portal oficial SERPAVI para consultar el rango de precio de alquiler de referencia del inmueble.';
+
+                trigger OnAction()
+                var
+                    SerpaviServiceMgt: Codeunit "SERPAVI Service Mgt.";
+                begin
+                    SerpaviServiceMgt.OpenSerpaviForFixedRealEstate(Rec);
+                    CurrPage.Update(true);
+                end;
+            }
+            action(UpdateFromCatastro)
+            {
+                Caption = 'Actualizar Catastro';
+                Image = UpdateDescription;
+                ToolTip = 'Consultar los servicios oficiales del Catastro para actualizar la referencia catastral y la URL oficial del inmueble.';
+
+                trigger OnAction()
+                var
+                    CatastroServiceMgt: Codeunit "Catastro Service Mgt.";
+                begin
+                    CatastroServiceMgt.UpdateFixedRealEstateFromCatastro(Rec);
+                    CurrPage.Update(true);
+                end;
+            }
             action("Calculate Totaling")
             {
                 Caption = 'Calcular sumatorio';

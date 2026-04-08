@@ -1,6 +1,6 @@
 page 96001 "Fixed Real Estate List"
 {
-    Caption = 'Fixed Real Estate';
+    Caption = 'Fixeds Real Estate';
     CardPageID = "Fixed Real Estate Card";
     PageType = List;
     PopulateAllFields = true;
@@ -122,11 +122,15 @@ page 96001 "Fixed Real Estate List"
                     StyleExpr = StyleIsStrong;
                     ToolTip = 'Specifies the built area of the real estate asset in square meters.';
                 }
-                field("Last Reference Price"; rec."Last Reference Price")
+                field("Last Reference Price Min."; rec."Last Reference Price Min.")
                 {
                     BlankZero = true;
-                    ToolTip = 'Specifies the last reference price of the real estate asset, which is the price of the last lease contract associated with this real estate asset.';
-
+                    ToolTip = 'Specifies the latest active minimum SERPAVI reference rent for the real estate asset.';
+                }
+                field("Last Reference Price Max."; rec."Last Reference Price Max.")
+                {
+                    BlankZero = true;
+                    ToolTip = 'Specifies the latest active maximum SERPAVI reference rent for the real estate asset.';
                 }
                 field("Last Price Contract"; rec."Last Price Contract")
                 {
@@ -156,6 +160,20 @@ page 96001 "Fixed Real Estate List"
     {
         area(processing)
         {
+            action(OpenSerpaviReferencePrice)
+            {
+                Caption = 'Consultar indice alquiler MIVAU';
+                Image = PriceWorksheet;
+                ToolTip = 'Abrir el portal oficial SERPAVI para consultar el rango de precio de alquiler de referencia del inmueble.';
+
+                trigger OnAction()
+                var
+                    SerpaviServiceMgt: Codeunit "SERPAVI Service Mgt.";
+                begin
+                    SerpaviServiceMgt.OpenSerpaviForFixedRealEstate(Rec);
+                    CurrPage.Update(false);
+                end;
+            }
             action(CalculateSalesAmount)
             {
                 Caption = 'Calculate Sales Amount';

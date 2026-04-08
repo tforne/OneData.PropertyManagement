@@ -13,16 +13,25 @@ page 96052 "Reference Index Rental Prices"
                 field(Date; rec.Date)
                 {
                 }
+                // field(Area; rec.Area)
+                // {
+                // }
                 field("Index Rental Price"; rec."Index Rental Price")
                 {
                 }
-                field(Active; rec.Active)
+                field("Index Rental Price Max."; rec."Index Rental Price Max.")
                 {
                 }
                 field(Price; rec.Price)
                 {
                 }
-                field(Comments;rec.Comments)
+                field("Price Max."; rec."Price Max.")
+                {
+                }
+                field(Active; rec.Active)
+                {
+                }
+                field(Comments; rec.Comments)
                 {
                 }
             }

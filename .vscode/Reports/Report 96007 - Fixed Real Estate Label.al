@@ -90,7 +90,6 @@ report 96007 "Fixed Real Estate - Label"
                 IF PrintOnlyOnePerPage THEN
                     PageGroupNo := PageGroupNo + 1;
 
-                CurrReport.NEWPAGE
             end;
 
             trigger OnPreDataItem()

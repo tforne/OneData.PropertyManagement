@@ -17,7 +17,7 @@ page 96810 "Gen Journal Import Preview"
                 field(Description; Rec.Description) { }
                 field(Amount; Rec.Amount) { }
 
-                field("FRE Real Estate No."; Rec."FRE Real Estate No.") { }
+                field("FRE Real Estate No."; Rec."FRE Fixed Real Estate No.") { }
 
                 field(Status; Rec.Status) { }
                 field(Message; Rec.Message) { }

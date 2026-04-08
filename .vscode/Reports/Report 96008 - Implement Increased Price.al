@@ -71,6 +71,7 @@ report 96008 "Implement Increased Price"
                     Caption = 'Options';
                     field(year; _year)
                     {
+                        ApplicationArea = All;
                         Caption = 'Year';
                         ToolTip = 'Specifies the year for which the price increase is to be implemented.';
                     }

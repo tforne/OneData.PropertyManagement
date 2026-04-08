@@ -1608,7 +1608,7 @@
         </trans-unit>
         <trans-unit id="Table 2693353827 - Field 1878130204 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,Item,Resource,Cost,G/L Account</source>
-          <target>,Artículo,Recurso,Costo,Cuenta de mayor</target>
+          <target> ,Artículo,Recurso,Costo,Cuenta de mayor</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Line - Field Type - Property OptionCaption</note>
         </trans-unit>
@@ -2502,7 +2502,7 @@
         </trans-unit>
         <trans-unit id="Table 1329895982 - Field 2620006610 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,Signed,Cancelled</source>
-          <target>,Firmado,Cancelado</target>
+          <target> ,Firmado,Cancelado</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Contract Line - Field Contract Status - Property OptionCaption</note>
         </trans-unit>
@@ -4605,17 +4605,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Gen Journal Import Buffer - Field FRE FA No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2406333404 - Field 1046294820 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Fixed Real Estate No.</source>
+          <target>No. activo inmobiliario</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Gen Journal Import Buffer - Field FRE Fixed Real Estate No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2406333404 - Field 3959282617 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>FRE Integration</source>
           <target>Integración</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Gen Journal Import Buffer - Field FRE Integration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2406333404 - Field 3369571394 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>FRE Real Estate No.</source>
-          <target>No. F/A</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Gen Journal Import Buffer - Field FRE Real Estate No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2406333404 - Field 3455061640 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>FRE Row No.</source>
@@ -5481,6 +5481,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table OD RE FA Link - Field Entry No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2213052293 - Field 1982396155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Descripción activo fijo</source>
+          <target>Descripción activo fijo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OD RE FA Link - Field FA Description - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2213052293 - Field 1991001892 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>FA No.</source>
           <target>Nº activo fijo</target>
@@ -5498,6 +5504,12 @@
           <target>Vínculo principal</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table OD RE FA Link - Field Primary Link - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2213052293 - Field 4110316114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Descripción inmueble</source>
+          <target>Descripción activo inmobiliario</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OD RE FA Link - Field Real Estate Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2213052293 - Field 173701737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Real Estate No.</source>
@@ -7306,7 +7318,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action G/L Analysis - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fixed Real Estate</source>
+          <source>Fixeds Real Estate</source>
           <target>Activo inmobiliario</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Property Caption</note>
@@ -9492,6 +9504,12 @@
           <target>No. contrato origen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page OD Copy Lease Contract Req. - Control SourceContractNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 982429218 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activos inmobiliarios relacionados</source>
+          <target>Activos inmobiliarios relacionados</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OD FA RE Link ListPart - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1925115218 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Lease Invoice</source>
@@ -12084,6 +12102,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sugg. Incr. Prices Refer Index - Control Year - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2797292721 - Control 3568214268 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3133908286">
+          <source>Activos inmobiliarios</source>
+          <target>Activos inmobiliarios</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension FA Card RE Links - Control Activos inmobiliarios - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1913656391 - Action 369064739 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
           <source>Import to Excel</source>
           <target>Importar desde Excel</target>
@@ -12120,6 +12144,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gen Journal FRE Ext - Action ImportFromExcel - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1686697471 - Field 3880825301 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Description Row No.</source>
+          <target>Descripción no. fila</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line FRE Ext - Field Description Row No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686697471 - Field 3833463168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Entry Category</source>
+          <target>Categoría movimiento</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line FRE Ext - Field Entry Category - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1686697471 - Field 2663975535 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
           <source>Categoría de movimiento</source>
           <target>Categoría de movimiento</target>
@@ -12132,17 +12168,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line FRE Ext - Field FRE FA No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1686697471 - Field 1046294820 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Fixed Real Estate No.</source>
+          <target>No. activo inmobiliario</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line FRE Ext - Field FRE Fixed Real Estate No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1686697471 - Field 3959282617 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
           <source>Integración FRE</source>
           <target>Integración</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line FRE Ext - Field FRE Integration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1686697471 - Field 3369571394 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Nº de inmueble</source>
-          <target>No. F/A</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line FRE Ext - Field FRE Real Estate No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1686697471 - Field 3455061640 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
           <source>Fila FRE</source>
@@ -12161,6 +12197,12 @@
           <target>Tipo de origen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line FRE Ext - Field FRE Source Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1686697471 - Field 2782707039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Row No.</source>
+          <target>No. fila</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line FRE Ext - Field Row No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4093254918 - Field 2385910316 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Periode</source>
@@ -12470,9 +12512,8 @@
         </trans-unit>
         <trans-unit id="Enum 2663975535 - EnumValue 4275046174 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Undefined</source>
-          <target>[NAB: SUGGESTION]No definido</target>
+          <target>No definido</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Entry Category - EnumValue Undefined - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 567589183 - EnumValue 1682139193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -12523,13 +12564,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Journal Source Type - EnumValue Vendor - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 1493932097 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source> </source>
-          <target>[NAB: REVIEW] </target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source contains only white-space, consider using 'Locked = true' to avoid translation of unnecessary texts. This note can be toggled with the setting 'NAB.PreferLockedTranslations'.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Line Type - EnumValue   - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Enum 1493932097 - EnumValue 3083078818 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both Budget and Invoice</source>
           <target>Ambos presupuesto y realizado</target>
@@ -12548,17 +12582,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Line Type - EnumValue Invoice - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 1493932097 - EnumValue 4275046174 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Undefined</source>
+          <target>No definido</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum FRE Line Type - EnumValue Undefined - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 677694194 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Motivo de liquidación</source>
           <target>Motivo de liquidación</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Motivo Liquidacion Contrato - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 677694194 - EnumValue 18652612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <target>[NAB: REVIEW] </target>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source contains only white-space, consider using 'Locked = true' to avoid translation of unnecessary texts. This note can be toggled with the setting 'NAB.PreferLockedTranslations'.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Motivo Liquidacion Contrato - EnumValue  - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 677694194 - EnumValue 1692428122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fin de contrato</source>
@@ -12589,6 +12623,12 @@
           <target>Rescisión anticipada</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Motivo Liquidacion Contrato - EnumValue Rescision anticipada - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 677694194 - EnumValue 4275046174 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Undefined</source>
+          <target>No definido</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Motivo Liquidacion Contrato - EnumValue Undefined - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 4046946269 - EnumValue 3421419450 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Exclusive</source>
@@ -12625,6 +12665,12 @@
           <target>Factura de Venta de Alquiler</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">EnumExtension ReportSelectionUsageExt - EnumValue Lease S.Invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 2406333404 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen Journal Import Buffer</source>
+          <target>Búfer de importación de diario general</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet Gen Journal Import Buffer - Property Caption</note>
         </trans-unit>
       </group>
     </body>

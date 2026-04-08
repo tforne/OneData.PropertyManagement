@@ -9,15 +9,19 @@ pageextension 96797 "Gen Journal FRE Ext" extends "General Journal"
                 { 
                     ApplicationArea = All;
                 }
-                field("FRE Real Estate No."; Rec."FRE Real Estate No.")
+                field("FRE Real Estate No."; Rec."FRE Fixed Real Estate No.")
                 { 
                     ApplicationArea = All;
                 }
-                field("FRE Entry Category"; Rec."FRE Entry Category")
+                field("Row No."; Rec."Row No.")
                 { 
                     ApplicationArea = All;
                 }
-                field("FRE Row No."; Rec."FRE Row No.")
+                field("Description Row No."; Rec."Description Row No.")
+                {
+                    ApplicationArea = All;
+                }
+                field("Entry Category"; Rec."Entry Category")
                 { 
                     ApplicationArea = All;
                 }
@@ -76,7 +80,7 @@ pageextension 96797 "Gen Journal FRE Ext" extends "General Journal"
                     var
                         ImportGenJnlLines: Codeunit "Gen Journal Import Mgt.";
                     begin
-                        ImportGenJnlLines.ImportFromExcel();
+                        ImportGenJnlLines.ImportFromExcel(Rec);
                         CurrPage.Update(false);
                     end;
                 }

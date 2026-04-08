@@ -12,9 +12,8 @@ table 96790 "OD RE FA Link"
 
         field(10; "Real Estate No."; Code[20])
         {
-            TableRelation = "Fixed Real Estate"."No.";
+            TableRelation = "Fixed Real Estate"."No." where ( Type = const(1));
         }
-
         field(20; "FA No."; Code[20])
         {
             TableRelation = "Fixed Asset"."No.";
@@ -44,6 +43,18 @@ table 96790 "OD RE FA Link"
         field(80; "Ending Date"; Date) { }
 
         field(90; Comment; Text[100]) { }
+        field(100; "Real Estate Description"; Text[100])
+        {
+            Caption = 'Descripción inmueble';
+            FieldClass = FlowField;
+            CalcFormula = lookup("Fixed Real Estate".Description where("No." = field("Real Estate No.")));
+        }
+        field(110; "FA Description"; Text[100])
+        {
+            Caption = 'Descripción activo fijo';
+            FieldClass = FlowField;
+            CalcFormula = lookup("Fixed Asset".Description where("No." = field("FA No.")));
+        }
     }
 
     keys

@@ -1,59 +1,61 @@
 codeunit 96801 "Gen Journal Import Mgt."
 {
-    procedure ImportFromExcel()
+    procedure ImportFromExcel(var GenJnlLine: Record "Gen. Journal Line")
     var
-        ExcelBuffer: Record "Excel Buffer" temporary;
-        InStr: InStream;
+        TempExcelBuffer: Record "Excel Buffer" temporary;
+        TempBlob: Codeunit "Temp Blob";
+        UploadInStream: InStream;
+        ExcelInStream: InStream;
+        OutStr: OutStream;
         FileName: Text;
+        SheetName: Text;
+        LastRowNo: Integer;
+        PreviewRec: Record "FRE Import Preview v2" temporary;
+        HasErrors: Boolean;
     begin
-        UploadIntoStream('Seleccionar Excel', '', '', FileName, InStr);
+        CheckJournalContext(GenJnlLine);
 
-        ExcelBuffer.OpenBookStream(InStr, '');
-        ExcelBuffer.ReadSheet();
+        UploadIntoStream(
+            'Seleccione un fichero Excel',
+            '',
+            'Excel files (*.xlsx)|*.xlsx',
+            FileName,
+            UploadInStream);
 
-        ProcessLines(ExcelBuffer);
+        TempBlob.CreateOutStream(OutStr);
+        CopyStream(OutStr, UploadInStream);
 
-        Message('Importación completada');
+        TempBlob.CreateInStream(ExcelInStream);
+        SheetName := TempExcelBuffer.SelectSheetsNameStream(ExcelInStream);
+
+        if SheetName = '' then
+            Error('No se ha seleccionado ninguna hoja.');
+
+        TempBlob.CreateInStream(ExcelInStream);
+        TempExcelBuffer.OpenBookStream(ExcelInStream, SheetName);
+        TempExcelBuffer.ReadSheet();
+
+        ValidateHeaders(TempExcelBuffer);
+
+        LastRowNo := GetLastRowNo(TempExcelBuffer);
+
+        if LastRowNo < 2 then
+            Error('El fichero Excel no contiene líneas para importar.');
+
+        BuildPreview(TempExcelBuffer, PreviewRec, HasErrors);
+        commit;
+
+        Page.RunModal(Page::"FRE Import Preview v2", PreviewRec);
+
+        // if HasErrors then
+        //     Error('No se puede importar porque existen errores en el fichero.');
+
+        InsertPreviewLines(GenJnlLine, PreviewRec);
+
+        Message('Importación completada correctamente.');
     end;
 
-    local procedure ProcessLines(var ExcelBuffer: Record "Excel Buffer")
-    var
-        RowNo: Integer;
-    begin
-        RowNo := 2;
 
-        while ExcelBuffer.Get(RowNo, 1) do begin
-            InsertLine(ExcelBuffer, RowNo);
-            RowNo += 1;
-        end;
-    end;
-
-    local procedure InsertLine(var ExcelBuffer: Record "Excel Buffer"; RowNo: Integer)
-    var
-        GenJnlLine: Record "Gen. Journal Line";
-    begin
-        GenJnlLine.Init();
-
-        // CONTABLE
-        GenJnlLine."Posting Date" := GetDate(ExcelBuffer, RowNo, 1);
-        GenJnlLine."Document No." := GetText(ExcelBuffer, RowNo, 3);
-        GenJnlLine."Account No." := GetText(ExcelBuffer, RowNo, 5);
-        GenJnlLine.Description := GetText(ExcelBuffer, RowNo, 8);
-        GenJnlLine.Amount := GetDecimal(ExcelBuffer, RowNo, 9);
-
-        // FRE
-        if GetBoolean(ExcelBuffer, RowNo, 10) then begin
-            GenJnlLine."FRE Integration" := true;
-            GenJnlLine."FRE Real Estate No." := GetText(ExcelBuffer, RowNo, 11);
-            GenJnlLine."FRE FA No." := GetText(ExcelBuffer, RowNo, 12);
-            GenJnlLine."FRE Entry Category" := GetFRECategory(GetText(ExcelBuffer, RowNo, 13));
-            GenJnlLine."FRE Row No." := GetText(ExcelBuffer, RowNo, 14);
-        end;
-
-        ValidateLine(GenJnlLine);
-
-        GenJnlLine.Insert(true);
-    end;
 
     local procedure ValidateLine(var GenJnlLine: Record "Gen. Journal Line")
     begin
@@ -62,11 +64,11 @@ codeunit 96801 "Gen Journal Import Mgt."
         GenJnlLine.TestField("Account No.");
 
         if GenJnlLine."FRE Integration" then begin
-            if (GenJnlLine."FRE Real Estate No." = '') and (GenJnlLine."FRE FA No." = '') then
+            if (GenJnlLine."FRE Fixed Real Estate No." = '') and (GenJnlLine."FRE FA No." = '') then
                 Error('Debe informar inmueble o activo fijo');
 
-            GenJnlLine.TestField("FRE Entry Category");
-            GenJnlLine.TestField("FRE Row No.");
+            GenJnlLine.TestField("Entry Category");
+            GenJnlLine.TestField("Row No.");
         end;
     end;
 
@@ -84,7 +86,7 @@ codeunit 96801 "Gen Journal Import Mgt."
             Buffer.Message := 'Falta cuenta';
         end;
 
-        if Buffer."FRE Integration" and (Buffer."FRE Real Estate No." = '') then begin
+        if Buffer."FRE Integration" and (Buffer."FRE Fixed Real Estate No." = '') then begin
             Buffer.Status := Buffer.Status::Warning;
             Buffer.Message := 'Falta inmueble (se intentará derivar)';
         end;
@@ -110,13 +112,42 @@ codeunit 96801 "Gen Journal Import Mgt."
                 // FRE
                 if TempBuffer."FRE Integration" then begin
                     GenJnlLine."FRE Integration" := true;
-                    GenJnlLine."FRE Real Estate No." := TempBuffer."FRE Real Estate No.";
+                    GenJnlLine."FRE Fixed Real Estate No." := TempBuffer."FRE Fixed Real Estate No.";
                 end;
 
                 GenJnlLine.Insert(true);
 
             until TempBuffer.Next() = 0;
     end;
+
+
+    local procedure InsertLine(var ExcelBuffer: Record "Excel Buffer"; RowNo: Integer)
+    var
+        GenJnlLine: Record "Gen. Journal Line";
+    begin
+        GenJnlLine.Init();
+
+        // CONTABLE
+        GenJnlLine."Posting Date" := GetDate(ExcelBuffer, RowNo, 1);
+        GenJnlLine."Document No." := GetText(ExcelBuffer, RowNo, 3);
+        GenJnlLine."Account No." := GetText(ExcelBuffer, RowNo, 5);
+        GenJnlLine.Description := GetText(ExcelBuffer, RowNo, 8);
+        GenJnlLine.Amount := GetDecimal(ExcelBuffer, RowNo, 9);
+
+        // FRE
+        if GetBoolean(ExcelBuffer, RowNo, 10) then begin
+            GenJnlLine."FRE Integration" := true;
+            GenJnlLine."FRE Fixed Real Estate No." := GetText(ExcelBuffer, RowNo, 11);
+            GenJnlLine."FRE FA No." := GetText(ExcelBuffer, RowNo, 12);
+            GenJnlLine."FRE Entry Category" := GetFRECategory(GetText(ExcelBuffer, RowNo, 13));
+            GenJnlLine."FRE Row No." := GetText(ExcelBuffer, RowNo, 14);
+        end;
+
+        ValidateLine(GenJnlLine);
+
+        GenJnlLine.Insert(true);
+    end;
+
 
     local procedure GetText(var ExcelBuffer: Record "Excel Buffer" temporary; RowNo: Integer; ColumnNo: Integer): Text
     begin
@@ -216,6 +247,403 @@ codeunit 96801 "Gen Journal Import Mgt."
         end;
 
         Error('Categoría FRE no válida: %1', Value);
+    end;
+
+    local procedure CheckJournalContext(var GenJnlLine: Record "Gen. Journal Line")
+    begin
+        if GenJnlLine."Journal Template Name" = '' then
+            Error('Debe informar la plantilla del diario.');
+
+        if GenJnlLine."Journal Batch Name" = '' then
+            Error('Debe informar el lote del diario.');
+
+        // GenJnlLine.TestField("Account Type");
+        // GenJnlLine.TestField("Account No.");
+    end;
+        
+    local procedure ValidateHeaders(var TempExcelBuffer: Record "Excel Buffer" temporary)
+    begin
+        CheckHeaderCell(TempExcelBuffer, 1, 1, 'Date');
+        CheckHeaderCell(TempExcelBuffer, 1, 2, 'Document Type');
+        CheckHeaderCell(TempExcelBuffer, 1, 3, 'Document No.');
+        CheckHeaderCell(TempExcelBuffer, 1, 4, 'Line Type');
+        CheckHeaderCell(TempExcelBuffer, 1, 5, 'Fixed Real Estate Description');
+        CheckHeaderCell(TempExcelBuffer, 1, 6, 'Description');
+        CheckHeaderCell(TempExcelBuffer, 1, 7, 'Description Row No.');
+        CheckHeaderCell(TempExcelBuffer, 1, 8, 'Amount');
+    end;
+
+   local procedure CheckHeaderCell(var TempExcelBuffer: Record "Excel Buffer" temporary; RowNo: Integer; ColNo: Integer; ExpectedText: Text)
+    var
+        CurrentValue: Text;
+    begin
+        CurrentValue := GetCellValue(TempExcelBuffer, RowNo, ColNo);
+        if CurrentValue <> ExpectedText then
+            Error(
+                'Cabecera incorrecta en columna %1. Esperado: %2. Actual: %3',
+                ColNo,
+                ExpectedText,
+                CurrentValue);
+    end;
+
+    local procedure GetCellValue(var TempExcelBuffer: Record "Excel Buffer" temporary; RowNo: Integer; ColNo: Integer): Text
+    begin
+        TempExcelBuffer.Reset();
+        TempExcelBuffer.SetRange("Row No.", RowNo);
+        TempExcelBuffer.SetRange("Column No.", ColNo);
+
+        if TempExcelBuffer.FindFirst() then
+            exit(TempExcelBuffer."Cell Value as Text");
+
+        exit('');
+    end;
+    
+    local procedure GetLastRowNo(var TempExcelBuffer: Record "Excel Buffer" temporary): Integer
+    begin
+        TempExcelBuffer.Reset();
+
+        if TempExcelBuffer.FindLast() then
+            exit(TempExcelBuffer."Row No.");
+
+        exit(0);
+    end;
+
+    local procedure BuildPreview(var TempExcelBuffer: Record "Excel Buffer" temporary; var PreviewRec: Record "FRE Import Preview v2" temporary; var HasErrors: Boolean)
+    var
+        AssetSuggestionMgt: Codeunit "FRE Asset Suggestion Mgt.";
+        RowNo: Integer;
+        LastRowNo: Integer;
+        ErrorText: Text[250];
+    begin
+        HasErrors := false;
+        PreviewRec.Reset();
+        PreviewRec.DeleteAll();
+
+        LastRowNo := GetLastRowNo(TempExcelBuffer);
+
+        for RowNo := 2 to LastRowNo do begin
+            if IsRowEmpty(TempExcelBuffer, RowNo) then
+                continue;
+
+            ErrorText := ValidateRow(TempExcelBuffer, RowNo);
+            if ErrorText <> '' then
+                HasErrors := true;
+
+            FillPreviewRecord(PreviewRec, TempExcelBuffer, RowNo, ErrorText);
+            if PreviewRec."Fixed Real Estate No." <> '' then           
+                AssetSuggestionMgt.LearnFromPreview(PreviewRec)
+            else
+                AssetSuggestionMgt.SuggestFixedRealEstate(PreviewRec);
+            PreviewRec.Modify();
+        end;
+    end;
+local procedure FillPreviewRecord(var PreviewRec: Record "FRE Import Preview v2" temporary; var TempExcelBuffer: Record "Excel Buffer" temporary; RowNo: Integer; ErrorText: Text[250])
+    var
+        REFincomeExpensesTemplate: Record "REF Income & Expense Template";
+        TempDate: Date;
+        TempDecimal: Decimal;
+        RowDescription: Text[100];
+        FixedRealEstateDescription :  Text[100];
+    begin
+        PreviewRec.Init();
+        PreviewRec."Excel Row No." := RowNo;
+
+        if Evaluate(TempDate, GetCellValue(TempExcelBuffer, RowNo, 1)) then
+            PreviewRec.Date := TempDate;
+
+        PreviewRec."Document No." := CopyStr(GetCellValue(TempExcelBuffer, RowNo, 3), 1, MaxStrLen(PreviewRec."Document No."));
+        
+        FixedRealEstateDescription := CopyStr(GetCellValue(TempExcelBuffer, RowNo, 5), 1, 100);
+        PreviewRec."Fixed Real Estate No." := ResolveFixedRealEstateNoByDescription(FixedRealEstateDescription);
+        PreviewRec."Fixed Real Estate Description" := FixedRealEstateDescription;
+
+        PreviewRec.Description := CopyStr(GetCellValue(TempExcelBuffer, RowNo, 6), 1, MaxStrLen(PreviewRec.Description));
+
+        RowDescription := CopyStr(GetCellValue(TempExcelBuffer, RowNo, 7), 1, 100);
+        PreviewRec."Description Row No. Text" := RowDescription;
+        PreviewRec."Row No." := ResolveRowNoByDescription(RowDescription);
+
+        // asignar Entry categoria
+        if PreviewRec."Row No." <>'' then begin
+            REFincomeExpensesTemplate.reset;
+            REFincomeExpensesTemplate.setrange("Row No.",PreviewRec."Row No.");
+            if REFincomeExpensesTemplate.FindFirst() then 
+                PreviewRec."Entry Category" := REFincomeExpensesTemplate."Entry Category";
+        end;
+
+        // Ya no viene Source Type ni Source No.
+        // PreviewRec."Source Type" := '';
+        // PreviewRec."Source No." := '';
+
+        if Evaluate(TempDecimal, GetCellValue(TempExcelBuffer, RowNo, 8)) then begin
+            PreviewRec.Amount := TempDecimal;
+            PreviewRec."Amount Including VAT" := TempDecimal;
+        end;
+
+        PreviewRec.Error := ErrorText;
+        PreviewRec.Insert();
+    end;
+
+    local procedure ResolveCustomerNoByName(CustomerName: Text[100]): Code[20]
+    var
+        Customer: Record Customer;
+    begin
+        if CustomerName = '' then
+            exit('');
+
+        Customer.Reset();
+        Customer.SetRange(Name, CustomerName);
+        if Customer.FindFirst() then
+            exit(Customer."No.");
+
+        exit('');
+    end;
+
+    local procedure ResolveFixedRealEstateNoByDescription(FREDescription: Text[100]): Code[20]
+    var
+        FixedRealEstate: Record "Fixed Real Estate";
+    begin
+        if FREDescription = '' then
+            exit('');
+
+        FixedRealEstate.Reset();
+        FixedRealEstate.SetRange(Description, FREDescription);
+
+        if not FixedRealEstate.FindFirst() then
+            exit('');
+
+        if FixedRealEstate.Count > 1 then
+            exit('');
+
+        exit(FixedRealEstate."No.");
+    end;
+
+    local procedure ResolveRowNoByDescription(RowDescription: Text[100]): Code[10]
+    var
+        REFIncomeExpenseTemplate: Record "REF Income & Expense Template";
+    begin
+        if RowDescription = '' then
+            exit('');
+
+        REFIncomeExpenseTemplate.Reset();
+        REFIncomeExpenseTemplate.SetRange(Description, RowDescription);
+
+        if not REFIncomeExpenseTemplate.FindFirst() then
+            exit('');
+
+        if REFIncomeExpenseTemplate.Count > 1 then
+            exit('');
+
+        exit(REFIncomeExpenseTemplate."Row No.");
+    end;
+
+    local procedure InsertPreviewLines(var GenJnlLine: Record "Gen. Journal Line"; var PreviewRec: Record "FRE Import Preview v2")
+    var
+        NewLine: Record "Gen. Journal Line";
+        NextLineNo: Integer;
+        AssetSuggestionMgt: Codeunit "FRE Asset Suggestion Mgt.";
+        SelectedFRENo: Code[20];
+    begin
+        NextLineNo := GetNextLineNo(GenJnlLine."Journal Template Name", GenJnlLine."Journal Batch Name");
+
+        PreviewRec.Reset();
+        PreviewRec.SetRange(Error, '');
+
+        if PreviewRec.FindSet() then
+            repeat
+                Clear(NewLine);
+                NewLine.Init();
+
+                NewLine."Journal Template Name" := GenJnlLine."Journal Template Name";
+                NewLine."Journal Batch Name" := GenJnlLine."Journal Batch Name";
+                NewLine."Line No." := NextLineNo;
+
+                NewLine.Validate("Account Type", GenJnlLine."Account Type");
+                NewLine.Validate("Account No.", GenJnlLine."Account No.");
+
+                if GenJnlLine."Bal. Account No." <> '' then begin
+                    NewLine.Validate("Bal. Account Type", GenJnlLine."Bal. Account Type");
+                    NewLine.Validate("Bal. Account No.", GenJnlLine."Bal. Account No.");
+                end;
+
+                NewLine.Validate("Posting Date", PreviewRec.Date);
+                NewLine.Validate("Document No.", PreviewRec."Document No.");
+
+                SelectedFRENo := PreviewRec."Fixed Real Estate No.";
+                if (SelectedFRENo = '') and PreviewRec."Accept Suggestion" then
+                    SelectedFRENo := PreviewRec."Suggested FRE No.";
+
+                NewLine.Validate("FRE Integration", true);
+
+                if SelectedFRENo <> '' then
+                    NewLine.Validate("FRE Fixed Real Estate No.", SelectedFRENo);
+
+                if GenJnlLine."FRE FA No." <> '' then
+                    NewLine.Validate("FRE FA No.", GenJnlLine."FRE FA No.");
+
+                NewLine."FRE Source Type" := GenJnlLine."FRE Source Type";
+                NewLine."FRE Source No." := GenJnlLine."FRE Source No.";
+
+                if PreviewRec.Description <> '' then
+                    NewLine.Validate(Description, PreviewRec.Description);
+
+                if PreviewRec."Row No." <> '' then begin
+                    NewLine.Validate("Row No.", PreviewRec."Row No.");
+                    NewLine.Validate("Entry Category", PreviewRec."Entry Category");
+                    NewLine.Validate("FRE Row No.", PreviewRec."Row No.");
+                    NewLine.Validate("FRE Entry Category", PreviewRec."Entry Category");
+                end;
+
+                if PreviewRec."Description Row No. Text" <> '' then
+                    NewLine.Validate("Description Row No.", PreviewRec."Description Row No. Text");
+                
+                NewLine.Amount := PreviewRec.Amount;
+
+                NewLine.Insert(true);
+
+                // Aprendizaje histórico
+                AssetSuggestionMgt.LearnFromPreview(PreviewRec);
+
+                NextLineNo += 10000;
+            until PreviewRec.Next() = 0;
+    end;
+    
+    local procedure IsRowEmpty(var TempExcelBuffer: Record "Excel Buffer" temporary; RowNo: Integer): Boolean
+    begin
+        exit(
+            (GetCellValue(TempExcelBuffer, RowNo, 1) = '') and
+            (GetCellValue(TempExcelBuffer, RowNo, 2) = '') and
+            (GetCellValue(TempExcelBuffer, RowNo, 3) = '') and
+            (GetCellValue(TempExcelBuffer, RowNo, 4) = '') and
+            (GetCellValue(TempExcelBuffer, RowNo, 5) = '') and
+            (GetCellValue(TempExcelBuffer, RowNo, 6) = '') and
+            (GetCellValue(TempExcelBuffer, RowNo, 7) = '') and
+            (GetCellValue(TempExcelBuffer, RowNo, 8) = ''));
+    end;
+
+    local procedure GetNextLineNo(JournalTemplateName: Code[10]; JournalBatchName: Code[10]): Integer
+    var
+        GenJnlLine2: Record "Gen. Journal Line";
+    begin
+        GenJnlLine2.SetRange("Journal Template Name", JournalTemplateName);
+        GenJnlLine2.SetRange("Journal Batch Name", JournalBatchName);
+
+        if GenJnlLine2.FindLast() then
+            exit(GenJnlLine2."Line No." + 10000);
+
+        exit(10000);
+    end;
+
+    local procedure ValidateRow(var TempExcelBuffer: Record "Excel Buffer" temporary; RowNo: Integer): Text[250]
+    var
+        ErrorText: Text[250];
+        CellValue: Text;
+        TempDate: Date;
+        TempDecimal: Decimal;
+        GenJnlDocType: Enum "Gen. Journal Document Type";
+        FRELineType: Enum "FRE Line Type";
+        ResolvedFRENo: Code[20];
+        ResolvedRowNo: Code[10];
+    begin
+        // Date
+        CellValue := GetCellValue(TempExcelBuffer, RowNo, 1);
+        if CellValue = '' then
+            AppendError(ErrorText, 'Date es obligatorio.')
+        else
+            if not Evaluate(TempDate, CellValue) then
+                AppendError(ErrorText, StrSubstNo('Date no es válido: %1.', CellValue));
+
+        // Document Type (opcional)
+        // CellValue := GetCellValue(TempExcelBuffer, RowNo, 2);
+        // if CellValue <> '' then
+        //     if not Evaluate(GenJnlDocType, CellValue) then
+        //         AppendError(ErrorText, StrSubstNo('Document Type no es válido: %1.', CellValue));
+
+        // Document No.
+        CellValue := GetCellValue(TempExcelBuffer, RowNo, 3);
+        if CellValue = '' then
+            AppendError(ErrorText, 'Document No. es obligatorio.');
+
+        // Line Type
+        // CellValue := GetCellValue(TempExcelBuffer, RowNo, 4);
+        // if CellValue = '' then
+        //    AppendError(ErrorText, 'Line Type es obligatorio.')
+        // else
+        //     if not ResolveLineType(CellValue, FRELineType) then
+        //         AppendError(ErrorText, StrSubstNo('Line Type no es válido: %1.', CellValue));
+
+        // Fixed Real Estate Description
+        CellValue := GetCellValue(TempExcelBuffer, RowNo, 5);
+        if CellValue = '' then
+            AppendError(ErrorText, 'Fixed Real Estate Description es obligatorio.')
+        else begin
+            ResolvedFRENo := ResolveFixedRealEstateNoByDescription(CopyStr(CellValue, 1, 100));
+            if ResolvedFRENo = '' then
+                if HasMultipleFixedRealEstatesByDescription(CopyStr(CellValue, 1, 100)) then
+                    AppendError(ErrorText, StrSubstNo('Existen varios activos inmobiliarios con la descripción: %1.', CellValue))
+                else
+                    AppendError(ErrorText, StrSubstNo('No se encuentra el activo para la descripción: %1.', CellValue));
+        end;
+
+        // Description
+        CellValue := GetCellValue(TempExcelBuffer, RowNo, 6);
+        if CellValue = '' then
+            AppendError(ErrorText, 'Description es obligatorio.');
+
+        // Description Row No. (opcional pero recomendable)
+        CellValue := GetCellValue(TempExcelBuffer, RowNo, 7);
+        if CellValue <> '' then begin
+            ResolvedRowNo := ResolveRowNoByDescription(CopyStr(CellValue, 1, 100));
+            if ResolvedRowNo = '' then
+                if HasMultipleRowsByDescription(CopyStr(CellValue, 1, 100)) then
+                    AppendError(ErrorText, StrSubstNo('Existen varias filas para la descripción: %1.', CellValue))
+                else
+                    AppendError(ErrorText, StrSubstNo('No se encuentra la fila para la descripción: %1.', CellValue));
+        end;
+
+        // Amount
+        CellValue := GetCellValue(TempExcelBuffer, RowNo, 8);
+        if CellValue = '' then
+            AppendError(ErrorText, 'Amount es obligatorio.')
+        else begin
+            if not Evaluate(TempDecimal, CellValue) then
+                AppendError(ErrorText, StrSubstNo('Amount no es válido: %1.', CellValue))
+            else
+                if TempDecimal = 0 then
+                    AppendError(ErrorText, 'Amount no puede ser 0.');
+        end;
+
+        exit(ErrorText);
+    end;
+
+    local procedure AppendError(var ErrorText: Text[250]; NewError: Text)
+    begin
+        if ErrorText = '' then
+            ErrorText := CopyStr(NewError, 1, MaxStrLen(ErrorText))
+        else
+            ErrorText := CopyStr(ErrorText + ' ' + NewError, 1, MaxStrLen(ErrorText));
+    end;
+
+    local procedure HasMultipleFixedRealEstatesByDescription(FREDescription: Text[100]): Boolean
+    var
+        FixedRealEstate: Record "Fixed Real Estate";
+    begin
+        if FREDescription = '' then
+            exit(false);
+
+        FixedRealEstate.SetRange(Description, FREDescription);
+        exit(FixedRealEstate.Count > 1);
+    end;
+
+    local procedure HasMultipleRowsByDescription(RowDescription: Text[100]): Boolean
+    var
+        REFIncomeExpenseTemplate: Record "REF Income & Expense Template";
+    begin
+        if RowDescription = '' then
+            exit(false);
+
+        REFIncomeExpenseTemplate.SetRange(Description, RowDescription);
+        exit(REFIncomeExpenseTemplate.Count > 1);
     end;
 
 }

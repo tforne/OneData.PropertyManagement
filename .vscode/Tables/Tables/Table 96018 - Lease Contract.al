@@ -260,7 +260,7 @@ table 96018 "Lease Contract"
                     InsREFRelatedContactos := REFRelatedContactos;
                     InsREFRelatedContactos."Entity Type" := InsREFRelatedContactos."Entity Type" :: Contract;
                     InsREFRelatedContactos."Source No." := "Contract No.";
-                    InsREFRelatedContactos.INSERT;
+                    if InsREFRelatedContactos.INSERT then;
                     UNTIL REFRelatedContactos.NEXT = 0;
                 END;
             end;

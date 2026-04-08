@@ -5,7 +5,7 @@ enum 96600 "Motivo Liquidacion Contrato"
     Extensible = true;
     Caption = 'Motivo de liquidación';
 
-    value(0; "") { Caption = ''; }
+    value(0; "Undefined") { Caption = 'Undefined'; }
     value(1; "Fin de contrato") { Caption = 'Fin de contrato'; }
     value(2; "Rescision anticipada") { Caption = 'Rescisión anticipada'; }
     value(3; Impago) { Caption = 'Impago'; }

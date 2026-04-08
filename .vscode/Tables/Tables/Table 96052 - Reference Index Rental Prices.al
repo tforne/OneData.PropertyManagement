@@ -27,12 +27,13 @@ table 96052 "Reference Index Rental Prices"
         }
         field(4; "Index Rental Price"; Decimal)
         {
+            Caption = 'SERPAVI Min. Rental Price';
             DataClassification = ToBeClassified;
 
             trigger OnValidate()
             begin
                 CalculateArea;
-                Price := "Index Rental Price" * Area;
+                RecalculatePrices();
             end;
         }
         field(5; "Area"; Decimal)
@@ -41,11 +42,29 @@ table 96052 "Reference Index Rental Prices"
 
             trigger OnValidate()
             begin
-                Price := "Index Rental Price" * Area;
+                RecalculatePrices();
+            end;
+        }
+        field(6; "Index Rental Price Max."; Decimal)
+        {
+            Caption = 'SERPAVI Max. Rental Price';
+            DataClassification = ToBeClassified;
+
+            trigger OnValidate()
+            begin
+                CalculateArea;
+                RecalculatePrices();
             end;
         }
         field(10; Price; Decimal)
         {
+            Caption = 'SERPAVI Min. Price';
+            DataClassification = ToBeClassified;
+            Editable = false;
+        }
+        field(11; "Price Max."; Decimal)
+        {
+            Caption = 'SERPAVI Max. Price';
             DataClassification = ToBeClassified;
             Editable = false;
         }
@@ -98,6 +117,12 @@ table 96052 "Reference Index Rental Prices"
             FixedRealEstate.CALCFIELDS("Superficie construida");
             VALIDATE(Area, FixedRealEstate."Superficie construida")
         END;
+    end;
+
+    local procedure RecalculatePrices()
+    begin
+        Price := "Index Rental Price" * Area;
+        "Price Max." := "Index Rental Price Max." * Area;
     end;
 }
 

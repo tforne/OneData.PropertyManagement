@@ -11,6 +11,7 @@ table 96006 "REF Related Contactos"
     DrillDownPageID = 96012;
     LookupPageID = 96012;
     Caption = 'Related Contacts';
+  
 
     fields
     {

@@ -217,11 +217,13 @@ report 96005 "RE Contract-Detail"
                     Caption = 'Options';
                     field(ShowComments; ShowComments)
                     {
+                        ApplicationArea = All;
                         Caption = 'Show Comments';
                         ToolTip = 'Specifies if you want the printed report to show any lease comments.';
                     }
                     field(PrintLogo; PrintLogo)
                     {
+                        ApplicationArea = All;
                         Caption = 'Imprimir Logo';
                     }
                 }

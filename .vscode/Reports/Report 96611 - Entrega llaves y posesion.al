@@ -76,6 +76,7 @@ report 96611 "Entrega Llaves y Posesion"
                 {
                     field(ShowEmptyAnnexLines; ShowEmptyAnnexLines)
                     {
+                        ApplicationArea = All;
                         Caption = 'Mostrar 10 líneas vacías si no hay deficiencias';
                     }
                 }

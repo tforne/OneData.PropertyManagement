@@ -25,11 +25,14 @@ codeunit 96798 "FRE Journal Integration Mgt."
 
     local procedure ValidateLine(GenJnlLine: Record "Gen. Journal Line")
     begin
-        if (GenJnlLine."FRE Real Estate No." = '') and (GenJnlLine."FRE FA No." = '') then
+        if (GenJnlLine."FRE Fixed Real Estate No." = '') and (GenJnlLine."FRE FA No." = '') then
             Error('Debe informar inmueble o activo fijo.');
 
-        GenJnlLine.TestField("FRE Entry Category");
-        GenJnlLine.TestField("FRE Row No.");
+        if GetJournalEntryCategory(GenJnlLine) = GenJnlLine."Entry Category"::Undefined then
+            Error('Debe informar Entry Category.');
+
+        if GetJournalRowNo(GenJnlLine) = '' then
+            Error('Debe informar Row No.');
     end;
 
     local procedure CreateFREEntryDirect(GenJnlLine: Record "Gen. Journal Line"; GLEntryNo: Integer)
@@ -42,14 +45,15 @@ codeunit 96798 "FRE Journal Integration Mgt."
         FRE."Posting Date" := GenJnlLine."Posting Date";
         FRE."Document No." := GenJnlLine."Document No.";
 
-        FRE."Fixed Real Estate No." := GenJnlLine."FRE Real Estate No.";
+        FRE."Fixed Real Estate No." := GenJnlLine."FRE Fixed Real Estate No.";
         FRE.Description := GenJnlLine.Description;
 
         FRE.Amount := GenJnlLine.Amount;
         FRE."Amount Including VAT" := GenJnlLine.Amount;
 
-        FRE."Row No." := GenJnlLine."FRE Row No.";
-        FRE."Entry Category" := GenJnlLine."FRE Entry Category";
+        FRE."Row No." := GetJournalRowNo(GenJnlLine);
+        FRE."Description Row No." := GenJnlLine."Description Row No.";
+        FRE."Entry Category" := GetJournalEntryCategory(GenJnlLine);
 
         FRE."Source Type" := GenJnlLine."FRE Source Type";
         FRE."Source No." := GenJnlLine."FRE Source No.";
@@ -78,8 +82,9 @@ codeunit 96798 "FRE Journal Integration Mgt."
         FRE.Amount := Amount;
         FRE."Amount Including VAT" := Amount;
 
-        FRE."Row No." := GenJnlLine."FRE Row No.";
-        FRE."Entry Category" := GenJnlLine."FRE Entry Category";
+        FRE."Row No." := GetJournalRowNo(GenJnlLine);
+        FRE."Description Row No." := GenJnlLine."Description Row No.";
+        FRE."Entry Category" := GetJournalEntryCategory(GenJnlLine);
 
         FRE."Source Type" := FRE."Source Type"::"Fixed Asset";
         FRE."Source No." := GenJnlLine."FRE FA No.";
@@ -109,10 +114,23 @@ codeunit 96798 "FRE Journal Integration Mgt."
 
     procedure CreateFREEntriesFromGLEntry(GenJnlLine: Record "Gen. Journal Line"; GLEntry: Record "G/L Entry")
     begin
-        // aquí tu lógica:
-        // validar
-        // directo por inmueble o reparto por FA
-        // insertar FRE Ledger Entry
+        CreateFREEntries(GenJnlLine, GLEntry."Entry No.");
+    end;
+
+    local procedure GetJournalEntryCategory(GenJnlLine: Record "Gen. Journal Line"): Enum "FRE Entry Category"
+    begin
+        if GenJnlLine."Entry Category" <> GenJnlLine."Entry Category"::Undefined then
+            exit(GenJnlLine."Entry Category");
+
+        exit(GenJnlLine."FRE Entry Category");
+    end;
+
+    local procedure GetJournalRowNo(GenJnlLine: Record "Gen. Journal Line"): Code[10]
+    begin
+        if GenJnlLine."Row No." <> '' then
+            exit(GenJnlLine."Row No.");
+
+        exit(GenJnlLine."FRE Row No.");
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterCreateGLEntry', '', false, false)]

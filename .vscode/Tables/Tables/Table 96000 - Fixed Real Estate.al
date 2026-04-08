@@ -434,8 +434,24 @@ table 96000 "Fixed Real Estate"
         }
         field(5058; "Last Reference Price"; Decimal)
         {
+            CalcFormula = Lookup("Reference Index Rental Prices"."Price Max." WHERE("Fixed Real Estate No." = FIELD("No."),
+                                                                                    Active = CONST(true)));
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(5060; "Last Reference Price Min."; Decimal)
+        {
             CalcFormula = Lookup("Reference Index Rental Prices".Price WHERE("Fixed Real Estate No." = FIELD("No."),
                                                                               Active = CONST(true)));
+            Caption = 'Last Reference Price Min.';
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(5061; "Last Reference Price Max."; Decimal)
+        {
+            CalcFormula = Lookup("Reference Index Rental Prices"."Price Max." WHERE("Fixed Real Estate No." = FIELD("No."),
+                                                                                    Active = CONST(true)));
+            Caption = 'Last Reference Price Max.';
             Editable = false;
             FieldClass = FlowField;
         }

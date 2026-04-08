@@ -57,11 +57,13 @@ requestpage
                     Caption = 'Options';
                     field(salesamountm2; SalesAmountM2)
                     {
+                        ApplicationArea = All;
                         Caption = 'Sales Amount per m2';
                         ToolTip = 'Specifies the sales amount per square meter to be used in the calculation.';
                     }
                     field(percentage; Percentage)
                     {
+                        ApplicationArea = All;
                         Caption = 'Percentage Discount';
                         ToolTip = 'Specifies the percentage to be applied to the calculated sales amount.';
                     }

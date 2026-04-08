@@ -14,6 +14,10 @@ page 96790 "OD RE FA Link ListPart"
                 { 
                     ApplicationArea = all;
                 }
+                field("FA Description"; Rec."FA Description") 
+                { 
+                    ApplicationArea = all;
+                }
                 field("Link Type"; Rec."Link Type") 
                 { 
                     ApplicationArea = all;

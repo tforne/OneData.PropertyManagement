@@ -7,9 +7,9 @@ tableextension 96796 "Gen. Journal Line FRE Ext" extends "Gen. Journal Line"
             Caption = 'Integración FRE';
         }
 
-        field(96721; "FRE Real Estate No."; Code[20])
+        field(96721; "FRE Fixed Real Estate No."; Code[20])
         {
-            Caption = 'Nº de inmueble';
+            Caption = 'Fixed Real Estate No.';
             TableRelation = "Fixed Real Estate";
         }
 
@@ -38,6 +38,24 @@ tableextension 96796 "Gen. Journal Line FRE Ext" extends "Gen. Journal Line"
         {
             Caption = 'Nº activo fijo';
             TableRelation = "Fixed Asset";
+        }
+
+        field(96727; "Row No."; Code[10])
+        {
+            Caption = 'Row No.';
+            DataClassification = ToBeClassified;
+            TableRelation = "REF Income & Expense Template"."Row No.";
+        }
+
+        field(96728; "Entry Category"; Enum "FRE Entry Category")
+        {
+            Caption = 'Entry Category';
+        }
+
+        field(96729; "Description Row No."; Code[100])
+        {
+            Caption = 'Description Row No.';
+            DataClassification = ToBeClassified;
         }
     }
 }
