@@ -1,14 +1,18 @@
 codeunit 96821 "SERPAVI Service Mgt."
 {
+    procedure GetSearchTextForFixedRealEstate(var FixedRealEstate: Record "Fixed Real Estate"): Text
+    begin
+        EnsureSpanishRealEstate(FixedRealEstate);
+        EnsureCadastralReference(FixedRealEstate);
+        exit(GetPreferredSearchText(FixedRealEstate));
+    end;
+
     procedure OpenSerpaviForFixedRealEstate(var FixedRealEstate: Record "Fixed Real Estate")
     var
         SearchText: Text;
     begin
-        EnsureSpanishRealEstate(FixedRealEstate);
-        EnsureCadastralReference(FixedRealEstate);
-
         FixedRealEstate.CalcFields("Superficie construida");
-        SearchText := GetPreferredSearchText(FixedRealEstate);
+        SearchText := GetSearchTextForFixedRealEstate(FixedRealEstate);
 
         HyperLink(GetConsultUrl());
         Message(
@@ -64,7 +68,7 @@ codeunit 96821 "SERPAVI Service Mgt."
 
     local procedure GetConsultUrl(): Text
     begin
-        exit('https://serpavi.mivau.gob.es/serpavi/consultar');
+        exit('https://www.mivau.gob.es/vivienda/alquila-bien-es-tu-derecho/serpavi');
     end;
 
     var

@@ -76,6 +76,42 @@ page 96151 "RE Incident Card"
                 }
             }
 
+            group(Insurance)
+            {
+                Caption = 'Insurance';
+
+                field("Insurance Policy No."; Rec."Insurance Policy No.")
+                {
+                }
+                field("Insurance Policy Description"; Rec."Insurance Policy Description")
+                {
+                }
+                field("Notify Insurance"; Rec."Notify Insurance")
+                {
+                }
+                field("Insurance Notified"; Rec."Insurance Notified")
+                {
+                }
+                field("Insurance Notification Date"; Rec."Insurance Notification Date")
+                {
+                }
+                field("Insurance Claim No."; Rec."Insurance Claim No.")
+                {
+                }
+                field("Insurance Status"; Rec."Insurance Status")
+                {
+                }
+                field("Insurance Claim E-Mail"; Rec."Insurance Claim E-Mail")
+                {
+                }
+                field("Insurance Claim Phone No."; Rec."Insurance Claim Phone No.")
+                {
+                }
+                field("Insurance Notes"; Rec."Insurance Notes")
+                {
+                }
+            }
+
             group(Audit)
             {
                 field("Incident Date"; rec."Incident Date")
@@ -120,6 +156,19 @@ page 96151 "RE Incident Card"
         {
             group(process)
             {
+            action(NotifyInsurance)
+            {
+                Caption = 'Notify Insurance';
+                Image = SendToMultiple;
+
+                trigger OnAction()
+                var
+                    REInsuranceNotifyMgt: Codeunit "RE Insurance Notify Mgt";
+                begin
+                    REInsuranceNotifyMgt.NotifyInsurance(Rec);
+                    CurrPage.Update(false);
+                end;
+            }
             action(StartProgress)
             {
                 Caption = 'Start Progress';

@@ -14,6 +14,17 @@ page 96061 "Simple Fixed Real Estate List"
     {
         area(content)
         {
+            usercontrol(ClipboardHelper; "OD Clipboard Helper")
+            {
+                ApplicationArea = All;
+                Visible = false;
+
+                trigger CopyFailed(ErrorText: Text)
+                begin
+                    Message(CopyToClipboardErr, ErrorText);
+                end;
+            }
+
             repeater(Group)
             {
                 FreezeColumn = Description;
@@ -52,6 +63,23 @@ page 96061 "Simple Fixed Real Estate List"
     {
         area(navigation)
         {
+            action(OpenSerpaviReferencePrice)
+            {
+                Caption = 'Consultar indice alquiler MIVAU';
+                Image = PriceWorksheet;
+                ToolTip = 'Abrir el portal oficial SERPAVI para consultar el rango de precio de alquiler de referencia del inmueble.';
+
+                trigger OnAction()
+                var
+                    SerpaviServiceMgt: Codeunit "SERPAVI Service Mgt.";
+                    SearchText: Text;
+                begin
+                    SearchText := SerpaviServiceMgt.GetSearchTextForFixedRealEstate(Rec);
+                    CurrPage.ClipboardHelper.CopyText(SearchText);
+                    SerpaviServiceMgt.OpenSerpaviForFixedRealEstate(Rec);
+                    CurrPage.Update(false);
+                end;
+            }
             action("Contratos relacionados")
             {
                 Caption = 'Contratos relacionados';
@@ -113,5 +141,7 @@ page 96061 "Simple Fixed Real Estate List"
     begin
     end;
 
+    var
+        CopyToClipboardErr: Label 'No se ha podido copiar automáticamente el dato de búsqueda al portapapeles.\%1';
 }
 

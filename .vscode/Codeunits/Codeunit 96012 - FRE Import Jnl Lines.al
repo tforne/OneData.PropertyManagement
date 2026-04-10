@@ -10,7 +10,7 @@ codeunit 96012 "FRE Import Jnl. Lines"
         TemplateSetup.CalcFields("Journal Template File");
 
         if not TemplateSetup."Journal Template File".HasValue then
-            Error('No template uploaded.');
+            Error(NoTemplateUploadedErr);
 
         TemplateSetup."Journal Template File".CreateInStream(InStr);
 
@@ -30,6 +30,10 @@ codeunit 96012 "FRE Import Jnl. Lines"
         LastRowNo: Integer;
         PreviewRec: Record "FRE Import Preview v2" temporary;
         HasErrors: Boolean;
+        TargetCode: Text[10];
+        JournalTemplateName: Code[10];
+        JournalBatchName: Code[10];
+        PreviewLoadMgt: Codeunit "Preview Load Mgt.";
     begin
         CheckJournalContext(FREJnlLine);
 
@@ -47,7 +51,7 @@ codeunit 96012 "FRE Import Jnl. Lines"
         SheetName := TempExcelBuffer.SelectSheetsNameStream(ExcelInStream);
 
         if SheetName = '' then
-            Error('No se ha seleccionado ninguna hoja.');
+            Error(NoSheetSelectedErr);
 
         TempBlob.CreateInStream(ExcelInStream);
         TempExcelBuffer.OpenBookStream(ExcelInStream, SheetName);
@@ -58,17 +62,24 @@ codeunit 96012 "FRE Import Jnl. Lines"
         LastRowNo := GetLastRowNo(TempExcelBuffer);
 
         if LastRowNo < 2 then
-            Error('El fichero Excel no contiene líneas para importar.');
+            Error(NoLinesToImportErr);
 
         BuildPreview(TempExcelBuffer, PreviewRec, HasErrors);
         commit;
 
-        Page.RunModal(Page::"FRE Import Preview v2", PreviewRec);
+        if not SelectPreviewDestination(PreviewRec, TargetCode, JournalTemplateName, JournalBatchName) then
+            exit;
 
         // if HasErrors then
         //     Error('No se puede importar porque existen errores en el fichero.');
 
-        InsertPreviewLines(FREJnlLine, PreviewRec);
+        if TargetCode = 'FRE' then
+            ImportPreviewToFREJournal(PreviewRec, JournalTemplateName, JournalBatchName)
+        else
+            PreviewLoadMgt.ImportPreviewToGenJournal(PreviewRec, JournalTemplateName, JournalBatchName);
+
+        if Confirm(OpenImportedJournalQst, false) then
+            PreviewLoadMgt.OpenImportedJournal(TargetCode, JournalTemplateName, JournalBatchName);
 
         Message('Importación completada correctamente.');
     end;
@@ -82,7 +93,7 @@ codeunit 96012 "FRE Import Jnl. Lines"
         TemplateSetup.CalcFields("Journal Template File");
 
         if not TemplateSetup."Journal Template File".HasValue then
-            Error('No template uploaded.');
+            Error(NoTemplateUploadedErr);
 
         TemplateSetup."Journal Template File".CreateInStream(InStr);
 
@@ -121,12 +132,12 @@ codeunit 96012 "FRE Import Jnl. Lines"
         TempOutStr: OutStream;
     begin
         if not TemplateSetup.Get('SETUP') then
-            Error('No existe la configuración de plantilla Excel.');
+            Error(ExcelTemplateSetupMissingErr);
 
         TemplateSetup.CalcFields("Journal Template File");
 
         if not TemplateSetup."Journal Template File".HasValue then
-            Error('No se ha configurado ninguna plantilla Excel.');
+            Error(NoExcelTemplateConfiguredErr);
 
         TemplateSetup."Journal Template File".CreateInStream(BlobInStr);
 
@@ -221,15 +232,32 @@ codeunit 96012 "FRE Import Jnl. Lines"
     end;
 
 
+   
     local procedure CheckJournalContext(var FREJnlLine: Record "FRE Jnl. Line")
+    var
+        FREExcelTemplateSetup: Record "FRE Excel Template Setup";
+        JournalTemplateName: Code[10];
+        JournalBatchName: Code[10];
     begin
-        if FREJnlLine."Journal Template Name" = '' then
-            Error('Debe informar la plantilla del diario.');
+        JournalTemplateName := FREJnlLine.GetRangeMax("Journal Template Name");
+        JournalBatchName := FREJnlLine.GetRangeMax("Journal Batch Name");
 
-        if FREJnlLine."Journal Batch Name" = '' then
-            Error('Debe informar el lote del diario.');
+        if FREExcelTemplateSetup.Get('SETUP') then begin
+            if (JournalTemplateName = '') and (FREExcelTemplateSetup."Default FRE Journal Template" <> '') then
+                JournalTemplateName := FREExcelTemplateSetup."Default FRE Journal Template";
+
+            if (JournalBatchName = '') and (FREExcelTemplateSetup."Default FRE Journal Batch" <> '') then
+                JournalBatchName := FREExcelTemplateSetup."Default FRE Journal Batch";
+        end;
+
+        if JournalTemplateName = '' then
+            Error(FRETemplateRequiredErr);
+
+        if JournalBatchName = '' then
+            Error(FREBatchRequiredErr);
+
     end;
-
+    
 
     local procedure GetLastRowNo(var TempExcelBuffer: Record "Excel Buffer" temporary): Integer
     begin
@@ -518,6 +546,62 @@ codeunit 96012 "FRE Import Jnl. Lines"
                 NextLineNo += 10000;
             until PreviewRec.Next() = 0;
     end;
+
+    local procedure InsertPreviewLinesFromBankStatement(var FREJnlLine: Record "FRE Jnl. Line"; var PreviewRec: Record "FRE Import Preview v2"; FREBankStatement: Record "FRE Bank Statement")
+    var
+        NewLine: Record "FRE Jnl. Line";
+        NextLineNo: Integer;
+        AssetSuggestionMgt: Codeunit "FRE Asset Suggestion Mgt.";
+    begin
+        NextLineNo := GetNextLineNo(FREJnlLine."Journal Template Name", FREJnlLine."Journal Batch Name");
+
+        PreviewRec.Reset();
+        PreviewRec.SetRange(Error, '');
+
+        if PreviewRec.FindSet() then
+            repeat
+                Clear(NewLine);
+                NewLine.Init();
+
+                NewLine."Journal Template Name" := FREJnlLine."Journal Template Name";
+                NewLine."Journal Batch Name" := FREJnlLine."Journal Batch Name";
+                NewLine."Line No." := NextLineNo;
+
+                NewLine.Validate(Date, PreviewRec.Date);
+                NewLine.Validate("Document No.", PreviewRec."Document No.");
+                NewLine."Line Type" := NewLine."Line Type"::Invoice;
+
+                if PreviewRec."Fixed Real Estate No." <> '' then
+                    NewLine.Validate("Fixed Real Estate No.", PreviewRec."Fixed Real Estate No.");
+
+                if (PreviewRec."Fixed Real Estate No." = '') and PreviewRec."Accept Suggestion" then
+                    PreviewRec."Fixed Real Estate No." := PreviewRec."Suggested FRE No.";
+
+                if PreviewRec.Description <> '' then
+                    NewLine.Validate(Description, PreviewRec.Description);
+
+                if PreviewRec."Row No." <> '' then begin
+                    NewLine.Validate("Row No.", PreviewRec."Row No.");
+                    NewLine.Validate("Entry Category", PreviewRec."Entry Category");
+                end;
+                if PreviewRec."Description Row No. Text" <> '' then
+                    NewLine.Validate("Description Row No.", PreviewRec."Description Row No. Text");
+
+                if FREBankStatement."Bank Account No." <> '' then begin
+                    NewLine.Validate("Source Type", NewLine."Source Type"::"Bank Account");
+                    NewLine.Validate("Source No.", FREBankStatement."Bank Account No.");
+                end;
+
+                NewLine.Amount := PreviewRec.Amount;
+                NewLine."Amount Including VAT" := PreviewRec."Amount Including VAT";
+
+                NewLine.Insert(true);
+
+                AssetSuggestionMgt.LearnFromPreview(PreviewRec);
+
+                NextLineNo += 10000;
+            until PreviewRec.Next() = 0;
+    end;
     
     local procedure IsRowEmpty(var TempExcelBuffer: Record "Excel Buffer" temporary; RowNo: Integer): Boolean
     begin
@@ -562,7 +646,7 @@ codeunit 96012 "FRE Import Jnl. Lines"
             exit('');
 
         if FixedRealEstate.Count > 1 then
-            Error('Existen varios activos inmobiliarios con la descripción %1.', FREDescription);
+            Error(MultipleFREDescriptionErr, FREDescription);
 
         exit(FixedRealEstate."No.");
     end;
@@ -581,7 +665,7 @@ codeunit 96012 "FRE Import Jnl. Lines"
             exit('');
 
         if REFIncomeExpenseTemplate.Count > 1 then
-            Error('Existen varias filas con la descripción %1.', RowDescription);
+            Error(MultipleRowDescriptionErr, RowDescription);
 
         exit(REFIncomeExpenseTemplate."Row No.");
     end;
@@ -652,50 +736,55 @@ codeunit 96012 "FRE Import Jnl. Lines"
         exit(ErrorText);
     end;
 
-    procedure ImportBankStatementFromStatement(var FREJnlLine: Record "FRE Jnl. Line"; var FREBankStatement: Record "FRE Bank Statement")
+    procedure BankStatementImportFromExcel(var FREJnlLine: Record "FRE Jnl. Line"; var FREBankStatement: Record "FRE Bank Statement")
     begin
         if FREBankStatement."SharePoint URL" = '' then
-            Error('El extracto no tiene URL de SharePoint.');
+            Error(BankStatementUrlMissingErr);
 
-        ImportBankStatementFromUrl(FREJnlLine, FREBankStatement."SharePoint URL");
+        ImportBankStatementFromUrlWithStatement(FREJnlLine, FREBankStatement."SharePoint URL", FREBankStatement);
+    end;
 
-        // Marcar como importado (opcional)
-        FREBankStatement.Imported := true;
-        FREBankStatement.Status := FREBankStatement.Status::Imported;
-        FREBankStatement.Modify();
+    procedure BankStatementImportFromExcelDirect(var FREJnlLine: Record "FRE Jnl. Line"; var FREBankStatement: Record "FRE Bank Statement")
+    begin
+        if FREBankStatement."SharePoint URL" = '' then
+            Error(BankStatementUrlMissingErr);
+
+        ImportBankStatementFromUrlWithStatementDirect(FREJnlLine, FREBankStatement."SharePoint URL", FREBankStatement);
+    end;
+
+    procedure ImportBankStatementFromStatement(var FREJnlLine: Record "FRE Jnl. Line"; var FREBankStatement: Record "FRE Bank Statement")
+    begin
+        BankStatementImportFromExcel(FREJnlLine, FREBankStatement);
     end;
 
     procedure ImportBankStatementFromUrl(var FREJnlLine: Record "FRE Jnl. Line"; FileUrl: Text)
     var
         TempExcelBuffer: Record "Excel Buffer" temporary;
-        ResponseMessage: HttpResponseMessage;
-        Content: HttpContent;
+        TempBlob: Codeunit "Temp Blob";
         ExcelInStream: InStream;
         SheetName: Text;
         LastRowNo: Integer;
         PreviewRec: Record "FRE Import Preview v2" temporary;
         HasErrors: Boolean;
-        Client: HttpClient;
+        TargetCode: Text[10];
+        JournalTemplateName: Code[10];
+        JournalBatchName: Code[10];
+        PreviewLoadMgt: Codeunit "Preview Load Mgt.";
     begin
         CheckJournalContext(FREJnlLine);
 
         if FileUrl = '' then
-            Error('La URL del extracto bancario es obligatoria.');
+            Error(BankStatementUrlRequiredErr);
 
-        if not Client.Get(FileUrl, ResponseMessage) then
-            Error('No se ha podido conectar con la URL del extracto.');
+        LoadBankStatementToTempBlob(FileUrl, TempBlob);
 
-        if not ResponseMessage.IsSuccessStatusCode() then
-            Error('Error al descargar el extracto. Código HTTP: %1', ResponseMessage.HttpStatusCode());
-
-        Content := ResponseMessage.Content();
-        Content.ReadAs(ExcelInStream);
+        TempBlob.CreateInStream(ExcelInStream);
 
         SheetName := TempExcelBuffer.SelectSheetsNameStream(ExcelInStream);
         if SheetName = '' then
-            Error('No se ha seleccionado ninguna hoja.');
+            Error(NoSheetSelectedErr);
 
-        Content.ReadAs(ExcelInStream);
+        TempBlob.CreateInStream(ExcelInStream);
         TempExcelBuffer.OpenBookStream(ExcelInStream, SheetName);
         TempExcelBuffer.ReadSheet();
 
@@ -703,16 +792,188 @@ codeunit 96012 "FRE Import Jnl. Lines"
 
         LastRowNo := GetLastRowNo(TempExcelBuffer);
         if LastRowNo < 2 then
-            Error('El fichero Excel no contiene líneas para importar.');
+            Error(NoLinesToImportErr);
 
         BuildPreview(TempExcelBuffer, PreviewRec, HasErrors);
         Commit();
 
-        Page.RunModal(Page::"FRE Import Preview v2", PreviewRec);
+        if not SelectPreviewDestination(PreviewRec, TargetCode, JournalTemplateName, JournalBatchName) then
+            exit;
 
-        InsertPreviewLines(FREJnlLine, PreviewRec);
+        if TargetCode = 'FRE' then
+            ImportPreviewToFREJournal(PreviewRec, JournalTemplateName, JournalBatchName)
+        else
+            PreviewLoadMgt.ImportPreviewToGenJournal(PreviewRec, JournalTemplateName, JournalBatchName);
+
+        if Confirm(OpenImportedJournalQst, false) then
+            PreviewLoadMgt.OpenImportedJournal(TargetCode, JournalTemplateName, JournalBatchName);
 
         Message('Importación del extracto bancario completada correctamente.');
+    end;
+
+    local procedure ImportBankStatementFromUrlWithStatement(var FREJnlLine: Record "FRE Jnl. Line"; FileUrl: Text; var FREBankStatement: Record "FRE Bank Statement")
+    var
+        TempExcelBuffer: Record "Excel Buffer" temporary;
+        TempBlob: Codeunit "Temp Blob";
+        ExcelInStream: InStream;
+        SheetName: Text;
+        LastRowNo: Integer;
+        PreviewRec: Record "FRE Import Preview v2" temporary;
+        HasErrors: Boolean;
+        TargetCode: Text[10];
+        JournalTemplateName: Code[10];
+        JournalBatchName: Code[10];
+        PreviewLoadMgt: Codeunit "Preview Load Mgt.";
+    begin
+        CheckJournalContext(FREJnlLine);
+
+        if FileUrl = '' then
+            Error(BankStatementUrlRequiredErr);
+
+        LoadBankStatementToTempBlob(FileUrl, TempBlob);
+
+        TempBlob.CreateInStream(ExcelInStream);
+
+        SheetName := TempExcelBuffer.SelectSheetsNameStream(ExcelInStream);
+        if SheetName = '' then
+            Error(NoSheetSelectedErr);
+
+        TempBlob.CreateInStream(ExcelInStream);
+        TempExcelBuffer.OpenBookStream(ExcelInStream, SheetName);
+        TempExcelBuffer.ReadSheet();
+
+        ValidateHeaders(TempExcelBuffer);
+
+        LastRowNo := GetLastRowNo(TempExcelBuffer);
+        if LastRowNo < 2 then
+            Error(NoLinesToImportErr);
+
+        BuildPreview(TempExcelBuffer, PreviewRec, HasErrors);
+        Commit();
+
+        if not SelectPreviewDestination(PreviewRec, TargetCode, JournalTemplateName, JournalBatchName) then
+            exit;
+
+        if TargetCode = 'FRE' then
+            ImportPreviewToFREJournalFromBankStatement(PreviewRec, JournalTemplateName, JournalBatchName, FREBankStatement)
+        else
+            PreviewLoadMgt.ImportPreviewToGenJournalFromBankStatement(PreviewRec, JournalTemplateName, JournalBatchName, FREBankStatement);
+
+        if Confirm(OpenImportedJournalQst, false) then
+            PreviewLoadMgt.OpenImportedJournal(TargetCode, JournalTemplateName, JournalBatchName);
+
+        FREBankStatement.Imported := true;
+        FREBankStatement.Status := FREBankStatement.Status::Imported;
+        FREBankStatement.Modify();
+
+        Message('Importación del extracto bancario completada correctamente.');
+    end;
+
+    local procedure ImportBankStatementFromUrlWithStatementDirect(var FREJnlLine: Record "FRE Jnl. Line"; FileUrl: Text; var FREBankStatement: Record "FRE Bank Statement")
+    var
+        TempExcelBuffer: Record "Excel Buffer" temporary;
+        TempBlob: Codeunit "Temp Blob";
+        ExcelInStream: InStream;
+        SheetName: Text;
+        LastRowNo: Integer;
+        PreviewRec: Record "FRE Import Preview v2" temporary;
+        HasErrors: Boolean;
+        PreviewLoadMgt: Codeunit "Preview Load Mgt.";
+    begin
+        CheckJournalContext(FREJnlLine);
+
+        if FileUrl = '' then
+            Error(BankStatementUrlRequiredErr);
+
+        LoadBankStatementToTempBlob(FileUrl, TempBlob);
+
+        TempBlob.CreateInStream(ExcelInStream);
+        SheetName := TempExcelBuffer.SelectSheetsNameStream(ExcelInStream);
+        if SheetName = '' then
+            Error(NoSheetSelectedErr);
+
+        TempBlob.CreateInStream(ExcelInStream);
+        TempExcelBuffer.OpenBookStream(ExcelInStream, SheetName);
+        TempExcelBuffer.ReadSheet();
+
+        ValidateHeaders(TempExcelBuffer);
+
+        LastRowNo := GetLastRowNo(TempExcelBuffer);
+        if LastRowNo < 2 then
+            Error(NoLinesToImportErr);
+
+        BuildPreview(TempExcelBuffer, PreviewRec, HasErrors);
+        Commit();
+
+        ImportPreviewToFREJournalFromBankStatement(PreviewRec, FREJnlLine.GetRangeMax("Journal Template Name"), FREJnlLine.GetRangeMax("Journal Batch Name"), FREBankStatement);
+
+        if Confirm(OpenImportedJournalQst, false) then
+            PreviewLoadMgt.OpenImportedJournal('FRE', FREJnlLine.GetRangeMax("Journal Template Name"), FREJnlLine.GetRangeMax("Journal Batch Name"));
+
+        FREBankStatement.Imported := true;
+        FREBankStatement.Status := FREBankStatement.Status::Imported;
+        FREBankStatement.Modify();
+
+        Message('Importación del extracto bancario completada correctamente.');
+    end;
+
+    local procedure LoadBankStatementToTempBlob(FileUrl: Text; var TempBlob: Codeunit "Temp Blob")
+    begin
+        if IsHttpAddress(FileUrl) then begin
+            LoadBankStatementFromHttpToTempBlob(FileUrl, TempBlob);
+            exit;
+        end;
+
+        UploadBankStatementToTempBlob(FileUrl, TempBlob);
+    end;
+
+    local procedure IsHttpAddress(FileUrl: Text): Boolean
+    var
+        LowerUrl: Text;
+    begin
+        LowerUrl := LowerCase(FileUrl);
+        exit((StrPos(LowerUrl, 'http://') = 1) or (StrPos(LowerUrl, 'https://') = 1));
+    end;
+
+    local procedure LoadBankStatementFromHttpToTempBlob(FileUrl: Text; var TempBlob: Codeunit "Temp Blob")
+    var
+        ResponseMessage: HttpResponseMessage;
+        Content: HttpContent;
+        SourceInStream: InStream;
+        TargetOutStream: OutStream;
+        Client: HttpClient;
+    begin
+        if not Client.Get(FileUrl, ResponseMessage) then
+            Error(BankStatementConnectErr);
+
+        if not ResponseMessage.IsSuccessStatusCode() then
+            Error(BankStatementDownloadErr, ResponseMessage.HttpStatusCode());
+
+        Content := ResponseMessage.Content();
+        Content.ReadAs(SourceInStream);
+
+        TempBlob.CreateOutStream(TargetOutStream);
+        CopyStream(TargetOutStream, SourceInStream);
+    end;
+
+    local procedure UploadBankStatementToTempBlob(FileUrl: Text; var TempBlob: Codeunit "Temp Blob")
+    var
+        UploadInStream: InStream;
+        TargetOutStream: OutStream;
+        SelectedFileName: Text;
+    begin
+        UploadIntoStream(
+            'Seleccione el fichero Excel del extracto bancario',
+            '',
+            'Excel files (*.xlsx)|*.xlsx',
+            SelectedFileName,
+            UploadInStream);
+
+        if SelectedFileName = '' then
+            Error(NoFileSelectedErr);
+
+        TempBlob.CreateOutStream(TargetOutStream);
+        CopyStream(TargetOutStream, UploadInStream);
     end;
 
     procedure ImportBankStatementFromExcel(var FREJnlLine: Record "FRE Jnl. Line")
@@ -727,6 +988,10 @@ codeunit 96012 "FRE Import Jnl. Lines"
         LastRowNo: Integer;
         PreviewRec: Record "FRE Import Preview v2" temporary;
         HasErrors: Boolean;
+        TargetCode: Text[10];
+        JournalTemplateName: Code[10];
+        JournalBatchName: Code[10];
+        PreviewLoadMgt: Codeunit "Preview Load Mgt.";
     begin
         CheckJournalContext(FREJnlLine);
 
@@ -744,7 +1009,7 @@ codeunit 96012 "FRE Import Jnl. Lines"
         SheetName := TempExcelBuffer.SelectSheetsNameStream(ExcelInStream);
 
         if SheetName = '' then
-            Error('No se ha seleccionado ninguna hoja.');
+            Error(NoSheetSelectedErr);
 
         TempBlob.CreateInStream(ExcelInStream);
         TempExcelBuffer.OpenBookStream(ExcelInStream, SheetName);
@@ -755,15 +1020,79 @@ codeunit 96012 "FRE Import Jnl. Lines"
         LastRowNo := GetLastRowNo(TempExcelBuffer);
 
         if LastRowNo < 2 then
-            Error('El fichero Excel no contiene líneas para importar.');
+            Error(NoLinesToImportErr);
 
         BuildPreview(TempExcelBuffer, PreviewRec, HasErrors);
         Commit();
 
-        Page.RunModal(Page::"FRE Import Preview v2", PreviewRec);
+        if not SelectPreviewDestination(PreviewRec, TargetCode, JournalTemplateName, JournalBatchName) then
+            exit;
 
-        InsertPreviewLines(FREJnlLine, PreviewRec);
+        if TargetCode = 'FRE' then
+            ImportPreviewToFREJournal(PreviewRec, JournalTemplateName, JournalBatchName)
+        else
+            PreviewLoadMgt.ImportPreviewToGenJournal(PreviewRec, JournalTemplateName, JournalBatchName);
+
+        if Confirm(OpenImportedJournalQst, false) then
+            PreviewLoadMgt.OpenImportedJournal(TargetCode, JournalTemplateName, JournalBatchName);
 
         Message('Importación del extracto bancario completada correctamente.');
     end;
+
+    procedure ImportPreviewToFREJournal(var PreviewRec: Record "FRE Import Preview v2" temporary; JournalTemplateName: Code[10]; JournalBatchName: Code[10])
+    var
+        FREJnlBatch: Record "FRE Jnl. Batch";
+        FREJnlLine: Record "FRE Jnl. Line";
+    begin
+        FREJnlBatch.Get(JournalTemplateName, JournalBatchName);
+        FREJnlLine.SetRange("Journal Template Name", JournalTemplateName);
+        FREJnlLine.SetRange("Journal Batch Name", JournalBatchName);
+        FREJnlLine."Journal Template Name" := JournalTemplateName;
+        FREJnlLine."Journal Batch Name" := JournalBatchName;
+        InsertPreviewLines(FREJnlLine, PreviewRec);
+    end;
+
+    procedure ImportPreviewToFREJournalFromBankStatement(var PreviewRec: Record "FRE Import Preview v2" temporary; JournalTemplateName: Code[10]; JournalBatchName: Code[10]; FREBankStatement: Record "FRE Bank Statement")
+    var
+        FREJnlBatch: Record "FRE Jnl. Batch";
+        FREJnlLine: Record "FRE Jnl. Line";
+    begin
+        FREJnlBatch.Get(JournalTemplateName, JournalBatchName);
+        FREJnlLine.SetRange("Journal Template Name", JournalTemplateName);
+        FREJnlLine.SetRange("Journal Batch Name", JournalBatchName);
+        FREJnlLine."Journal Template Name" := JournalTemplateName;
+        FREJnlLine."Journal Batch Name" := JournalBatchName;
+        InsertPreviewLinesFromBankStatement(FREJnlLine, PreviewRec, FREBankStatement);
+    end;
+
+    local procedure SelectPreviewDestination(var PreviewRec: Record "FRE Import Preview v2" temporary; var TargetCode: Text[10]; var JournalTemplateName: Code[10]; var JournalBatchName: Code[10]): Boolean
+    var
+        FREImportPreviewPage: Page "FRE Import Preview v2";
+    begin
+        Clear(FREImportPreviewPage);
+        FREImportPreviewPage.LoadPreview(PreviewRec);
+        FREImportPreviewPage.RunModal();
+        FREImportPreviewPage.SavePreview(PreviewRec);
+        TargetCode := FREImportPreviewPage.GetSelectedImportTarget();
+        JournalTemplateName := FREImportPreviewPage.GetDestinationTemplateName();
+        JournalBatchName := FREImportPreviewPage.GetDestinationBatchName();
+        exit(TargetCode <> '');
+    end;
+
+    var
+        NoTemplateUploadedErr: Label 'No template uploaded.';
+        NoSheetSelectedErr: Label 'No se ha seleccionado ninguna hoja.';
+        NoLinesToImportErr: Label 'El fichero Excel no contiene líneas para importar.';
+        OpenImportedJournalQst: Label '¿Desea abrir el diario cargado?';
+        ExcelTemplateSetupMissingErr: Label 'No existe la configuración de plantilla Excel.';
+        NoExcelTemplateConfiguredErr: Label 'No se ha configurado ninguna plantilla Excel.';
+        FRETemplateRequiredErr: Label 'Debe informar la plantilla del diario o configurarla por defecto en "FRE Excel Template Setup".';
+        FREBatchRequiredErr: Label 'Debe informar el lote del diario o configurarlo por defecto en "FRE Excel Template Setup".';
+        MultipleFREDescriptionErr: Label 'Existen varios activos inmobiliarios con la descripción %1.';
+        MultipleRowDescriptionErr: Label 'Existen varias filas con la descripción %1.';
+        BankStatementUrlMissingErr: Label 'El extracto no tiene URL de SharePoint.';
+        BankStatementUrlRequiredErr: Label 'La URL o ruta del extracto bancario es obligatoria.';
+        BankStatementConnectErr: Label 'No se ha podido conectar con la URL del extracto.';
+        BankStatementDownloadErr: Label 'Error al descargar el extracto. Código HTTP: %1';
+        NoFileSelectedErr: Label 'No se ha seleccionado ningún fichero.';
 }

@@ -34,6 +34,13 @@ page 96761 "FRE Bank Statement API"
                 field(company; Rec.Company) { }
                 field(year; Rec.Year) { }
                 field(month; Rec.Month) { }
+                field(bankAccountNo; Rec."Bank Account No.") { }
+                field(counterparty; Rec."Bal. Account No.") { }
+                field(targetJournal; Rec."Target Journal") { }
+                field(defaultGenJournalTemplate; Rec."Default Gen. Journal Template") { }
+                field(defaultGenJournalBatch; Rec."Default Gen. Journal Batch") { }
+                field(defaultFreJournalTemplate; Rec."Default FRE Journal Template") { }
+                field(defaultFreJournalBatch; Rec."Default FRE Journal Batch") { }
                 field(sharePointUrl; Rec."SharePoint URL") { }
 
                 field(status; Rec.Status) {}

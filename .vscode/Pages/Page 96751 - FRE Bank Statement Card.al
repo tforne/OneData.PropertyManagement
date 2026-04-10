@@ -1,30 +1,80 @@
-page 96750 "FRE Bank Statements"
+page 96751 "FRE Bank Statement Card"
 {
-    CardPageId = "FRE Bank Statement Card";
-    PageType = List;
+    PageType = Card;
     SourceTable = "FRE Bank Statement";
     ApplicationArea = All;
-    UsageCategory = Lists;
-    Caption = 'Bank Statements';
+    Caption = 'Bank Statement Card';
 
     layout
     {
         area(content)
         {
-            repeater(Group)
+            group(General)
             {
-                field(Company; Rec.Company) {}
-                field(Year; Rec.Year) {}
-                field(Month; Rec.Month) {}
-                field("Bank Account No."; Rec."Bank Account No.") {}
-                field("Bal. Account No."; Rec."Bal. Account No.") {}
-                field("Target Journal"; Rec."Target Journal") {}
-                field("Default Gen. Journal Template"; Rec."Default Gen. Journal Template") {}
-                field("Default Gen. Journal Batch"; Rec."Default Gen. Journal Batch") {}
-                field("Default FRE Journal Template"; Rec."Default FRE Journal Template") {}
-                field("Default FRE Journal Batch"; Rec."Default FRE Journal Batch") {}
-                field(Status; Rec.Status) {}
-                field("SharePoint URL"; Rec."SharePoint URL") {}
+                Caption = 'General';
+
+                field("No."; Rec."No.")
+                {
+                    Editable = false;
+                }
+                field(Company; Rec.Company)
+                {
+                }
+                field(Year; Rec.Year)
+                {
+                }
+                field(Month; Rec.Month)
+                {
+                }
+                field(Status; Rec.Status)
+                {
+                    Editable = false;
+                }
+                field(Imported; Rec.Imported)
+                {
+                    Editable = false;
+                }
+                field(Posted; Rec.Posted)
+                {
+                    Editable = false;
+                }
+            }
+
+            group(Banking)
+            {
+                Caption = 'Banking';
+
+                field("Bank Account No."; Rec."Bank Account No.")
+                {
+                }
+                field(Counterparty; Rec."Bal. Account No.")
+                {
+                }
+                field("Target Journal"; Rec."Target Journal")
+                {
+                }
+                field("SharePoint URL"; Rec."SharePoint URL")
+                {
+                    MultiLine = true;
+                }
+            }
+
+            group("Journal Defaults")
+            {
+                Caption = 'Journal Defaults';
+
+                field("Default Gen. Journal Template"; Rec."Default Gen. Journal Template")
+                {
+                }
+                field("Default Gen. Journal Batch"; Rec."Default Gen. Journal Batch")
+                {
+                }
+                field("Default FRE Journal Template"; Rec."Default FRE Journal Template")
+                {
+                }
+                field("Default FRE Journal Batch"; Rec."Default FRE Journal Batch")
+                {
+                }
             }
         }
     }
@@ -44,7 +94,6 @@ page 96750 "FRE Bank Statements"
                     Hyperlink(Rec."SharePoint URL");
                 end;
             }
-
             action(ImportExcel)
             {
                 Caption = 'Importar Excel';
@@ -85,7 +134,6 @@ page 96750 "FRE Bank Statements"
 
                 end;
             }
-
             action(ImportExcelDirect)
             {
                 Caption = 'Importar sin vista previa';

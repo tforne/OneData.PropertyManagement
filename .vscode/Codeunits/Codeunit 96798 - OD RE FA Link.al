@@ -3,11 +3,18 @@ codeunit 96798 "FRE Journal Integration Mgt."
     procedure CreateFREEntries(GenJnlLine: Record "Gen. Journal Line"; GLEntryNo: Integer)
     var
         Link: Record "OD RE FA Link";
+        NextLineNo: Integer;
+        REFSetup: Record "REF Setup";
     begin
         if not GenJnlLine."FRE Integration" then
             exit;
 
         ValidateLine(GenJnlLine);
+
+        REFSetup.Get();
+        REFSetup.TestField("Journal Template Name");
+        REFSetup.TestField("Journal Batch Name");
+        NextLineNo := GetNextFREJournalLineNo(REFSetup."Journal Template Name", REFSetup."Journal Batch Name");
 
         if GenJnlLine."FRE FA No." <> '' then begin
             Link.SetRange("FA No.", GenJnlLine."FRE FA No.");
@@ -15,11 +22,12 @@ codeunit 96798 "FRE Journal Integration Mgt."
 
             if Link.FindSet() then
                 repeat
-                    CreateFREEntry(GenJnlLine, GLEntryNo, Link);
+                    CreateFREEntry(GenJnlLine, GLEntryNo, Link, NextLineNo);
+                    NextLineNo += 10000;
                 until Link.Next() = 0;
 
         end else begin
-            CreateFREEntryDirect(GenJnlLine, GLEntryNo);
+            CreateFREEntryDirect(GenJnlLine, GLEntryNo, NextLineNo);
         end;
     end;
 
@@ -35,63 +43,37 @@ codeunit 96798 "FRE Journal Integration Mgt."
             Error('Debe informar Row No.');
     end;
 
-    local procedure CreateFREEntryDirect(GenJnlLine: Record "Gen. Journal Line"; GLEntryNo: Integer)
+    local procedure CreateFREEntryDirect(GenJnlLine: Record "Gen. Journal Line"; GLEntryNo: Integer; LineNo: Integer)
     var
-        FRE: Record "FRE Ledger Entry";
+        FREJnlLine: Record "FRE Jnl. Line";
     begin
-        FRE.Init();
-        FRE."Entry No." := GetNextEntryNo();
-
-        FRE."Posting Date" := GenJnlLine."Posting Date";
-        FRE."Document No." := GenJnlLine."Document No.";
-
-        FRE."Fixed Real Estate No." := GenJnlLine."FRE Fixed Real Estate No.";
-        FRE.Description := GenJnlLine.Description;
-
-        FRE.Amount := GenJnlLine.Amount;
-        FRE."Amount Including VAT" := GenJnlLine.Amount;
-
-        FRE."Row No." := GetJournalRowNo(GenJnlLine);
-        FRE."Description Row No." := GenJnlLine."Description Row No.";
-        FRE."Entry Category" := GetJournalEntryCategory(GenJnlLine);
-
-        FRE."Source Type" := GenJnlLine."FRE Source Type";
-        FRE."Source No." := GenJnlLine."FRE Source No.";
-
-        FRE."Ledger Entry No." := GLEntryNo;
-
-        FRE.Insert();
+        CreateAndPostFREJournalLine(
+            FREJnlLine,
+            GenJnlLine,
+            GLEntryNo,
+            LineNo,
+            GenJnlLine."FRE Fixed Real Estate No.",
+            GenJnlLine."FRE Source Type",
+            GenJnlLine."FRE Source No.",
+            -GenJnlLine.Amount);
     end;
 
-    local procedure CreateFREEntry(GenJnlLine: Record "Gen. Journal Line"; GLEntryNo: Integer; Link: Record "OD RE FA Link")
+    local procedure CreateFREEntry(GenJnlLine: Record "Gen. Journal Line"; GLEntryNo: Integer; Link: Record "OD RE FA Link"; LineNo: Integer)
     var
-        FRE: Record "FRE Ledger Entry";
+        FREJnlLine: Record "FRE Jnl. Line";
         Amount: Decimal;
     begin
         Amount := GetDistributedAmount(GenJnlLine.Amount, Link);
 
-        FRE.Init();
-        FRE."Entry No." := GetNextEntryNo();
-
-        FRE."Posting Date" := GenJnlLine."Posting Date";
-        FRE."Document No." := GenJnlLine."Document No.";
-
-        FRE."Fixed Real Estate No." := Link."Real Estate No.";
-        FRE.Description := GenJnlLine.Description;
-
-        FRE.Amount := Amount;
-        FRE."Amount Including VAT" := Amount;
-
-        FRE."Row No." := GetJournalRowNo(GenJnlLine);
-        FRE."Description Row No." := GenJnlLine."Description Row No.";
-        FRE."Entry Category" := GetJournalEntryCategory(GenJnlLine);
-
-        FRE."Source Type" := FRE."Source Type"::"Fixed Asset";
-        FRE."Source No." := GenJnlLine."FRE FA No.";
-
-        FRE."Ledger Entry No." := GLEntryNo;
-
-        FRE.Insert();
+        CreateAndPostFREJournalLine(
+            FREJnlLine,
+            GenJnlLine,
+            GLEntryNo,
+            LineNo,
+            Link."Real Estate No.",
+            FREJnlLine."Source Type"::"Fixed Asset",
+            GenJnlLine."FRE FA No.",
+            -Amount);
     end;
 
     local procedure GetDistributedAmount(BaseAmount: Decimal; Link: Record "OD RE FA Link"): Decimal
@@ -102,14 +84,61 @@ codeunit 96798 "FRE Journal Integration Mgt."
         exit(BaseAmount);
     end;
 
-    local procedure GetNextEntryNo(): Integer
+    local procedure CreateAndPostFREJournalLine(
+        var FREJnlLine: Record "FRE Jnl. Line";
+        GenJnlLine: Record "Gen. Journal Line";
+        GLEntryNo: Integer;
+        LineNo: Integer;
+        FixedRealEstateNo: Code[20];
+        FRESourceType: Enum "FRE Journal Source Type";
+        FRESourceNo: Code[20];
+        Amount: Decimal)
     var
-        FRE: Record "FRE Ledger Entry";
+        REFSetup: Record "REF Setup";
+        FREJnlPostLine: Codeunit "FRE Jnl.-Post Line";
     begin
-        if FRE.FindLast() then
-            exit(FRE."Entry No." + 1);
+        REFSetup.Get();
+        REFSetup.TestField("Journal Template Name");
+        REFSetup.TestField("Journal Batch Name");
 
-        exit(1);
+        FREJnlLine.Init();
+        FREJnlLine."Journal Template Name" := REFSetup."Journal Template Name";
+        FREJnlLine."Journal Batch Name" := REFSetup."Journal Batch Name";
+        FREJnlLine."Line No." := LineNo;
+        FREJnlLine.Date := GenJnlLine."Posting Date";
+        FREJnlLine."Line Type" := FREJnlLine."Line Type"::Invoice;
+        FREJnlLine."Fixed Real Estate No." := FixedRealEstateNo;
+        FREJnlLine.Description := GenJnlLine.Description;
+        FREJnlLine."Row No." := GetJournalRowNo(GenJnlLine);
+        FREJnlLine."Description Row No." := GenJnlLine."Description Row No.";
+        FREJnlLine."Entry Category" := GetJournalEntryCategory(GenJnlLine);
+        FREJnlLine.Amount := Amount;
+        FREJnlLine."Amount Including VAT" := Amount;
+        FREJnlLine."Document Type" := GenJnlLine."Document Type";
+        FREJnlLine."Document No." := GenJnlLine."Document No.";
+        FREJnlLine."Source Type" := FRESourceType;
+        FREJnlLine."Source No." := FRESourceNo;
+        FREJnlLine."Ledger Entry No." := GLEntryNo;
+        FREJnlLine."System-Created Entry" := true;
+
+        if FREJnlLine."Source No." <> '' then
+            FREJnlLine.Validate("Source No.", FREJnlLine."Source No.");
+
+        FREJnlLine.Insert(true);
+        FREJnlPostLine.PostLine(FREJnlLine);
+    end;
+
+    local procedure GetNextFREJournalLineNo(JournalTemplateName: Code[10]; JournalBatchName: Code[10]): Integer
+    var
+        FREJnlLine: Record "FRE Jnl. Line";
+    begin
+        FREJnlLine.SetRange("Journal Template Name", JournalTemplateName);
+        FREJnlLine.SetRange("Journal Batch Name", JournalBatchName);
+
+        if FREJnlLine.FindLast() then
+            exit(FREJnlLine."Line No." + 10000);
+
+        exit(10000);
     end;
 
     procedure CreateFREEntriesFromGLEntry(GenJnlLine: Record "Gen. Journal Line"; GLEntry: Record "G/L Entry")
@@ -133,14 +162,20 @@ codeunit 96798 "FRE Journal Integration Mgt."
         exit(GenJnlLine."FRE Row No.");
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterCreateGLEntry', '', false, false)]
-    local procedure OnAfterCreateGLEntry(
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterGLFinishPosting', '', false, false)]
+    local procedure OnAfterGLFinishPosting(
+        GLEntry: Record "G/L Entry";
         var GenJnlLine: Record "Gen. Journal Line";
-        var GLEntry: Record "G/L Entry";
-        NextEntryNo: Integer)
+        var IsTransactionConsistent: Boolean;
+        FirstTransactionNo: Integer;
+        var GLRegister: Record "G/L Register";
+        var TempGLEntryBuf: Record "G/L Entry" temporary;
+        var NextEntryNo: Integer;
+        var NextTransactionNo: Integer)
     var
         FREJournalIntegrationMgt: Codeunit "FRE Journal Integration Mgt.";
     begin
+        Message('OnAfterGLFinishPosting - Entry No: %1, FRE Integration: %2', GLEntry."Entry No.", GenJnlLine."FRE Integration");
         if not GenJnlLine."FRE Integration" then
             exit;
 

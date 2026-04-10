@@ -11,6 +11,17 @@ page 96000 "Fixed Real Estate Card"
     {
         area(content)
         {
+            usercontrol(ClipboardHelper; "OD Clipboard Helper")
+            {
+                ApplicationArea = All;
+                Visible = false;
+
+                trigger CopyFailed(ErrorText: Text)
+                begin
+                    Message(CopyToClipboardErr, ErrorText);
+                end;
+            }
+
             group(General)
             {
                 Caption = 'General';
@@ -319,6 +330,12 @@ page 96000 "Fixed Real Estate Card"
                 }
             }
 
+            part(REInsurancePolicies; "RE Insurance Policy ListPart")
+            {
+                ApplicationArea = All;
+                SubPageLink = "Fixed Real Estate No." = field("No.");
+            }
+
             part(RealEstates; "OD RE FA Link ListPart")
                 {
                     SubPageLink =  "Real Estate No." = field("No.");
@@ -414,6 +431,12 @@ page 96000 "Fixed Real Estate Card"
                 RunObject = Page "RE Incident Mobile";
                 RunPageLink = "Fixed Real Estate No." = FIELD("No.");
                 ToolTip = 'View service request cases associated with this fixed real estate.';
+            }
+            action(OpenInsurancePolicies)
+            {
+                Caption = 'Insurance Policies';
+                RunObject = Page "RE Insurance Policies";
+                RunPageLink = "Fixed Real Estate No." = FIELD("No.");
             }
             action("Related Contats")
             {
@@ -511,7 +534,10 @@ page 96000 "Fixed Real Estate Card"
                 trigger OnAction()
                 var
                     SerpaviServiceMgt: Codeunit "SERPAVI Service Mgt.";
+                    SearchText: Text;
                 begin
+                    SearchText := SerpaviServiceMgt.GetSearchTextForFixedRealEstate(Rec);
+                    CurrPage.ClipboardHelper.CopyText(SearchText);
                     SerpaviServiceMgt.OpenSerpaviForFixedRealEstate(Rec);
                     CurrPage.Update(true);
                 end;
@@ -626,6 +652,7 @@ page 96000 "Fixed Real Estate Card"
         VisiblePropertyNo: Boolean;
         ShowURLLbl: Label 'Show on URL';
         EditableField: Boolean;
+        CopyToClipboardErr: Label 'No se ha podido copiar automáticamente el dato de búsqueda al portapapeles.\%1';
 
     local procedure SetDefaultPostingGroup()
     var

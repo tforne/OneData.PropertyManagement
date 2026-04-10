@@ -13,9 +13,9 @@ page 96052 "Reference Index Rental Prices"
                 field(Date; rec.Date)
                 {
                 }
-                // field(Area; rec.Area)
-                // {
-                // }
+                field(Superficie; rec."Area")
+                {
+                }
                 field("Index Rental Price"; rec."Index Rental Price")
                 {
                 }

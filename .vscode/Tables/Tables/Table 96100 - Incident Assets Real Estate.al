@@ -210,6 +210,72 @@ table 96100 "Incident Assets Real Estate"
             Caption = 'URL';
             Editable = false;
         }
+        field(70; "Insurance Policy No."; Code[20])
+        {
+            Caption = 'Insurance Policy No.';
+            TableRelation = "RE Insurance Policy"."No." where("Fixed Real Estate No." = field("Fixed Real Estate No."), Active = const(true));
+
+            trigger OnValidate()
+            var
+                InsurancePolicy: Record "RE Insurance Policy";
+            begin
+                ClearInsuranceSnapshot();
+
+                if "Insurance Policy No." = '' then
+                    exit;
+
+                if InsurancePolicy.Get("Insurance Policy No.") then begin
+                    "Insurance Policy Description" := InsurancePolicy.Description;
+                    "Insurance Claim E-Mail" := InsurancePolicy."Claim E-Mail";
+                    "Insurance Claim Phone No." := InsurancePolicy."Claim Phone No.";
+                end;
+            end;
+        }
+        field(71; "Insurance Policy Description"; Text[100])
+        {
+            Caption = 'Insurance Policy Description';
+            Editable = false;
+        }
+        field(72; "Notify Insurance"; Boolean)
+        {
+            Caption = 'Notify Insurance';
+        }
+        field(73; "Insurance Notified"; Boolean)
+        {
+            Caption = 'Insurance Notified';
+            Editable = false;
+        }
+        field(74; "Insurance Notification Date"; DateTime)
+        {
+            Caption = 'Insurance Notification Date';
+            Editable = false;
+        }
+        field(75; "Insurance Claim No."; Code[50])
+        {
+            Caption = 'Insurance Claim No.';
+        }
+        field(76; "Insurance Status"; Option)
+        {
+            Caption = 'Insurance Status';
+            OptionMembers = " ",Pending,Reported,InReview,Accepted,Rejected,Closed;
+            OptionCaption = ' ,Pending,Reported,In Review,Accepted,Rejected,Closed';
+        }
+        field(77; "Insurance Claim E-Mail"; Text[100])
+        {
+            Caption = 'Insurance Claim E-Mail';
+            ExtendedDatatype = EMail;
+            Editable = false;
+        }
+        field(78; "Insurance Claim Phone No."; Text[30])
+        {
+            Caption = 'Insurance Claim Phone No.';
+            ExtendedDatatype = PhoneNo;
+            Editable = false;
+        }
+        field(79; "Insurance Notes"; Text[250])
+        {
+            Caption = 'Insurance Notes';
+        }
     }
 
     keys
@@ -389,6 +455,13 @@ table 96100 "Incident Assets Real Estate"
         "Contract - Contact Name" := '';
         "Contract - Phone No." := '';
         "Contract - EMail" := '';
+    end;
+
+    local procedure ClearInsuranceSnapshot()
+    begin
+        "Insurance Policy Description" := '';
+        "Insurance Claim E-Mail" := '';
+        "Insurance Claim Phone No." := '';
     end;
 }
 

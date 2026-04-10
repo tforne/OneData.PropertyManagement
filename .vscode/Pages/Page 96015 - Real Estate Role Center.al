@@ -8,28 +8,25 @@ page 96015 "Real Estate Role Center"
     {
         area(rolecenter)
         {
-            part(GettingStarted; "RE RC Getting Started")
-            {
-            }
             part(Control139; "Headline FFO Manager")
             {
             }
-            // part(FREHeadline; "FRE RC Headline")
-            // {
-            // }
             part(FREActivities; "FRE RC Activities")
+            {
+            }
+            part("Real Estate"; 96014)
+            {
+            }
+            part(GettingStarted; "RE RC Getting Started")
+            {
+            }
+            part("Real Estate Incidents"; 96056)
             {
             }
             part(RECashFlowChart;"RE Analisis Ingresos y Gastos")
             {
             }
             part(FRELedgerEntries; "FRE Ledger Entry ListPart")
-            {
-            }
-            part("Real Estate Incidents"; 96056)
-            {
-            }
-            part("Real Estate"; 96014)
             {
             }
             part("Account Manager Activities"; 9030)

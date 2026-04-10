@@ -96,12 +96,12 @@ pageextension 96797 "Gen Journal FRE Ext" extends "General Journal"
 
                     trigger OnAction()
                     var
-                        FREImportJnlLines: Codeunit "FRE Import Jnl. Lines";
+                        GenImportJnlLines: Codeunit "Gen Journal Import Mgt.";
                         FREBankStatement: Record "FRE Bank Statement";
                     begin
                         // Aquí puedes pedir selección de extracto
                         if Page.RunModal(Page::"FRE Bank Statements", FREBankStatement) = Action::LookupOK then begin
-                            // FREImportJnlLines.ImportBankStatementFromStatement(Rec, FREBankStatement);
+                            GenImportJnlLines.ImportBankStatementFromStatement(Rec, FREBankStatement);
                             CurrPage.Update(false);
                         end;
                     end;

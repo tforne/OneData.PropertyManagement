@@ -237,6 +237,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Last Reference Price - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3197180930 - Field 1503745570 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Reference Price Max.</source>
+          <target>Último precio máximo de referencia</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Last Reference Price Max. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3197180930 - Field 4259558636 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Reference Price Min.</source>
+          <target>Último precio mínimo de referencia</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Fixed Real Estate - Field Last Reference Price Min. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3197180930 - Field 4234281305 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Rental Price</source>
           <target>Último precio de alquiler</target>
@@ -609,11 +621,51 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table FRE Bank Statement - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1539634358 - Field 1891586249 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contrapartida</source>
+          <target>Contrapartida</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Bank Statement - Field Bal. Account No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1539634358 - Field 4248640148 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Código banco</source>
+          <target>Código banco</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Bank Statement - Field Bank Account No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1539634358 - Field 3133801257 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company</source>
           <target>Empresa</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table FRE Bank Statement - Field Company - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1539634358 - Field 967896865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sección diario FRE por defecto</source>
+          <target>Sección diario FRE por defecto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Bank Statement - Field Default FRE Journal Batch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1539634358 - Field 985631445 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plantilla diario FRE por defecto</source>
+          <target>Plantilla diario FRE por defecto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Bank Statement - Field Default FRE Journal Template - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1539634358 - Field 835691104 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sección diario general por defecto</source>
+          <target>Sección diario general por defecto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Bank Statement - Field Default Gen. Journal Batch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1539634358 - Field 3742402780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plantilla diario general por defecto</source>
+          <target>Plantilla diario general por defecto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Bank Statement - Field Default Gen. Journal Template - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1539634358 - Field 281352744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Imported</source>
@@ -650,6 +702,18 @@
           <target>Estado</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table FRE Bank Statement - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1539634358 - Field 2057738524 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Diario destino</source>
+          <target>Diario destino</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Bank Statement - Field Target Journal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1539634358 - Field 2057738524 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Journal,Gen Journal</source>
+          <target>Diario FRE,Diario general</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Bank Statement - Field Target Journal - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Table 1539634358 - Field 2832340769 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Year</source>
@@ -3772,6 +3836,34 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table FRE Excel Template Setup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 828762091 - Field 967896865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sección diario FRE por defecto</source>
+          <target>Sección diario FRE por defecto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Excel Template Setup - Field Default FRE Journal Batch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 828762091 - Field 985631445 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plantilla diario FRE por defecto</source>
+          <target>Plantilla diario FRE por defecto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Excel Template Setup - Field Default FRE Journal Template - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 828762091 - Field 835691104 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sección diario general por defecto</source>
+          <target>Sección diario general por defecto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Excel Template Setup - Field Default Gen. Journal Batch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 828762091 - Field 3742402780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plantilla diario general por defecto</source>
+          <target>Plantilla diario general por defecto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Excel Template Setup - Field Default Gen. Journal Template - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 828762091 - Field 644119721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Journal Template File</source>
           <target>Archivo de plantilla de diario</target>
@@ -4767,11 +4859,88 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Incident Id. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 1317180451 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Claim E-Mail</source>
+          <target>Correo electrónico del siniestro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Insurance Claim E-Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 2828978865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Claim No.</source>
+          <target>No. siniestro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Insurance Claim No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 3979068669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Claim Phone No.</source>
+          <target>No. teléfono del siniestro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Insurance Claim Phone No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 344866451 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Notes</source>
+          <target>Notas del seguro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Insurance Notes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 3973003765 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Notification Date</source>
+          <target>Fecha notificación seguro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Insurance Notification Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 3740870652 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Notified</source>
+          <target>Seguro notificado</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Insurance Notified - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 2194859784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Policy Description</source>
+          <target>Descripción póliza de seguro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Insurance Policy Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 1449706159 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Policy No.</source>
+          <target>No. póliza de seguro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Insurance Policy No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 2344445178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Status</source>
+          <target>Estado del seguro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Insurance Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 2344445178 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Pending,Reported,In Review,Accepted,Rejected,Closed</source>
+          <target> ,Pendiente,Comunicado,En revisión,Aceptado,Rechazado,Cerrado</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Insurance Status - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Table 2772947383 - Field 2247197532 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Modified On</source>
           <target>Modificado el</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field ModifiedOn - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 906109579 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notify Insurance</source>
+          <target>Notificar seguro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Notify Insurance - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2772947383 - Field 4130293374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Priority</source>
@@ -5673,6 +5842,134 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Price Increases by Refer index - Field Year - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2670195151 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RE Insurance Policy</source>
+          <target>Póliza de seguro de inmuebles</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 1090351696 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Active</source>
+          <target>[NAB: SUGGESTION]Activo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Active - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 2946862744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Broker Name</source>
+          <target>Nombre del mediador</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Broker Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 2440698725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Claim E-Mail</source>
+          <target>Correo electrónico de siniestros</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Claim E-Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 1645692171 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Claim Phone No.</source>
+          <target>No. teléfono de siniestros</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Claim Phone No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 271710510 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Coverage Amount</source>
+          <target>Importe de cobertura</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Coverage Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 261440234 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Coverage Type</source>
+          <target>Tipo de cobertura</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Coverage Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 261440234 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Building,Contents,Liability,Rent Default,Other</source>
+          <target>Continente,Contenido,Responsabilidad civil,Impago alquiler,Otro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Coverage Type - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 639915415 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deductible</source>
+          <target>Franquicia</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Deductible - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target>[NAB: SUGGESTION]Descripción</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 458406397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <target>[NAB: SUGGESTION]Fecha final</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Ending Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 2785006923 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Real Estate No.</source>
+          <target>[NAB: SUGGESTION]No. activo inmobiliario</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Fixed Real Estate No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 688875861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurer Name</source>
+          <target>Nombre de la aseguradora</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Insurer Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target>[NAB: SUGGESTION]Nº</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 222620933 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notes</source>
+          <target>Notas</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Notes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 760483281 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Policy No.</source>
+          <target>No. póliza</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Policy No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 2049976461 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Premium</source>
+          <target>Prima</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Premium - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2670195151 - Field 460889064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <target>[NAB: SUGGESTION]Fecha inicio contrato</target>
+          <target>[NAB: SUGGESTION]Fecha inicio</target>
+          <target>[NAB: SUGGESTION]Fecha de inicio</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Starting Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2729912319 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>SB Owner Cue</source>
           <target>Señal de propietario de SB</target>
@@ -5920,10 +6217,16 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Reference Index Rental Prices - Field Fixed Real Estate No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1604347789 - Field 1930602533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Index Rental Price</source>
+          <source>SERPAVI Min. Rental Price</source>
           <target>Indice precios consumo</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Reference Index Rental Prices - Field Index Rental Price - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1604347789 - Field 119675363 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SERPAVI Max. Rental Price</source>
+          <target>SERPAVI Precio máximo de alquiler</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Reference Index Rental Prices - Field Index Rental Price Max. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1604347789 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line No.</source>
@@ -5932,10 +6235,16 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Reference Index Rental Prices - Field Line No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1604347789 - Field 3635338911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Price</source>
-          <target>Precios</target>
+          <source>SERPAVI Min. Price</source>
+          <target>Precios mínimo</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Reference Index Rental Prices - Field Price - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1604347789 - Field 2715084721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SERPAVI Max. Price</source>
+          <target>SERPAVI Precio máximo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Reference Index Rental Prices - Field Price Max. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 489006372 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Rental Deposit</source>
@@ -6249,6 +6558,111 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Customer RE-Notify by Email - NamedType Text123</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 1026540972" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido conectar con la URL del extracto.</source>
+          <target>No se ha podido conectar con la URL del extracto.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType BankStatementConnectErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 1291178470" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error al descargar el extracto. Código HTTP: %1</source>
+          <target>Error al descargar el extracto. Código HTTP: %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType BankStatementDownloadErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 3813509139" size-unit="char" translate="yes" xml:space="preserve">
+          <source>El extracto no tiene URL de SharePoint.</source>
+          <target>El extracto no tiene URL de SharePoint.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType BankStatementUrlMissingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 2297945528" size-unit="char" translate="yes" xml:space="preserve">
+          <source>La URL o ruta del extracto bancario es obligatoria.</source>
+          <target>La URL o ruta del extracto bancario es obligatoria.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType BankStatementUrlRequiredErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 3643811619" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No existe la configuración de plantilla Excel.</source>
+          <target>No existe la configuración de plantilla Excel.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType ExcelTemplateSetupMissingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 1447653699" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debe informar el lote del diario o configurarlo por defecto en "FRE Excel Template Setup".</source>
+          <target>Debe informar el lote del diario o configurarlo por defecto en "FRE Excel Template Setup".</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType FREBatchRequiredErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 3570196943" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debe informar la plantilla del diario o configurarla por defecto en "FRE Excel Template Setup".</source>
+          <target>Debe informar la plantilla del diario o configurarla por defecto en "FRE Excel Template Setup".</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType FRETemplateRequiredErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 676520414" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Existen varios activos inmobiliarios con la descripción %1.</source>
+          <target>Existen varios activos inmobiliarios con la descripción %1.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType MultipleFREDescriptionErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 1741811155" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Existen varias filas con la descripción %1.</source>
+          <target>Existen varias filas con la descripción %1.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType MultipleRowDescriptionErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 3254555225" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha configurado ninguna plantilla Excel.</source>
+          <target>No se ha configurado ninguna plantilla Excel.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType NoExcelTemplateConfiguredErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 3479775157" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha seleccionado ningún fichero.</source>
+          <target>No se ha seleccionado ningún fichero.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType NoFileSelectedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 2502909441" size-unit="char" translate="yes" xml:space="preserve">
+          <source>El fichero Excel no contiene líneas para importar.</source>
+          <target>El fichero Excel no contiene líneas para importar.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType NoLinesToImportErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 3155871958" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha seleccionado ninguna hoja.</source>
+          <target>No se ha seleccionado ninguna hoja.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType NoSheetSelectedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 2980751026" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No template uploaded.</source>
+          <target>No se ha cargado ninguna plantilla.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType NoTemplateUploadedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1754258753 - NamedType 2048174817" size-unit="char" translate="yes" xml:space="preserve">
+          <source>¿Desea abrir el diario cargado?</source>
+          <target>¿Desea abrir el diario cargado?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Import Jnl. Lines - NamedType OpenImportedJournalQst</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1572046934 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
           <source>can only be a closing date for G/L entries</source>
           <target>Solo puede ser una fecha de cierre para las entradas de contabilidad general</target>
@@ -6296,6 +6710,97 @@
           <target>Diario genérico</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Journals Management - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 1026540972" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido conectar con la URL del extracto.</source>
+          <target>No se ha podido conectar con la URL del extracto.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType BankStatementConnectErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 1291178470" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error al descargar el extracto. Código HTTP: %1</source>
+          <target>Error al descargar el extracto. Código HTTP: %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType BankStatementDownloadErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 3813509139" size-unit="char" translate="yes" xml:space="preserve">
+          <source>El extracto no tiene URL de SharePoint.</source>
+          <target>El extracto no tiene URL de SharePoint.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType BankStatementUrlMissingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 2297945528" size-unit="char" translate="yes" xml:space="preserve">
+          <source>La URL o ruta del extracto bancario es obligatoria.</source>
+          <target>La URL o ruta del extracto bancario es obligatoria.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType BankStatementUrlRequiredErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 1321905689" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debe informar inmueble o activo fijo</source>
+          <target>Debe informar inmueble o activo fijo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType FixedAssetOrRealEstateRequiredErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 59695048" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debe informar el lote del diario o configurarlo por defecto en "FRE Excel Template Setup".</source>
+          <target>Debe informar el lote del diario o configurarlo por defecto en "FRE Excel Template Setup".</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType GenBatchRequiredErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 2468940964" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debe informar la plantilla del diario o configurarla por defecto en "FRE Excel Template Setup".</source>
+          <target>Debe informar la plantilla del diario o configurarla por defecto en "FRE Excel Template Setup".</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType GenTemplateRequiredErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 1433912951" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Categoría FRE no válida: %1</source>
+          <target>Categoría FRE no válida: %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType InvalidFRECategoryErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 3479775157" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha seleccionado ningún fichero.</source>
+          <target>No se ha seleccionado ningún fichero.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType NoFileSelectedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 2502909441" size-unit="char" translate="yes" xml:space="preserve">
+          <source>El fichero Excel no contiene líneas para importar.</source>
+          <target>El fichero Excel no contiene líneas para importar.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType NoLinesToImportErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 3155871958" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha seleccionado ninguna hoja.</source>
+          <target>No se ha seleccionado ninguna hoja.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType NoSheetSelectedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 2048174817" size-unit="char" translate="yes" xml:space="preserve">
+          <source>¿Desea abrir el diario cargado?</source>
+          <target>¿Desea abrir el diario cargado?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType OpenImportedJournalQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1697908812 - NamedType 403414934" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hay líneas con error</source>
+          <target>Hay líneas con error</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType ThereAreLinesWithErrorErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1987266316 - NamedType 1156462942" size-unit="char" translate="yes" xml:space="preserve">
           <source>Choose the file to upload.</source>
@@ -6458,6 +6963,18 @@
           <target>Efecto %1/%2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Real Estate Management - Method SplitLeaseInvoice - NamedType Text1100004</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 87212929 - NamedType 251142424" size-unit="char" translate="yes" xml:space="preserve">
+          <source>La consulta del índice oficial de alquiler solo está disponible para inmuebles en España.</source>
+          <target>La consulta del índice oficial de alquiler solo está disponible para inmuebles en España.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SERPAVI Service Mgt. - NamedType OnlySpainErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 87212929 - NamedType 3853609202" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Se ha abierto SERPAVI en el navegador.\Dato recomendado para la búsqueda: %1\Superficie construida actual: %2 m2.\El portal oficial requiere validación interactiva, por lo que el resultado debe registrarse manualmente en "Precios índices de referencia" del inmueble %3.</source>
+          <target>Se ha abierto SERPAVI en el navegador.\Dato recomendado para la búsqueda: %1\Superficie construida actual: %2 m2.\El portal oficial requiere validación interactiva, por lo que el resultado debe registrarse manualmente en "Precios índices de referencia" del inmueble %3.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SERPAVI Service Mgt. - NamedType SerpaviOpenedMsg</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Payment Lease Invoice</source>
@@ -6903,6 +7420,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4166615366 - NamedType 1610227593" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido copiar automáticamente el dato de búsqueda al portapapeles.\%1</source>
+          <target>No se ha podido copiar automáticamente el dato de búsqueda al portapapeles.\%1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - NamedType CopyToClipboardErr</note>
+        </trans-unit>
         <trans-unit id="Page 4166615366 - NamedType 3704376103" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show on Map</source>
           <target>Mostrar en Mapa</target>
@@ -7263,6 +7786,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Maintenance &amp;Registration - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4166615366 - Action 2304879100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Policies</source>
+          <target>Pólizas de seguro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action OpenInsurancePolicies - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4166615366 - Action 3370173147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Precios Indices de referencia</source>
           <target>Precios Indices de referencia</target>
@@ -7299,6 +7829,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action CreateExclusiveFA - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4166615366 - Action 4043597580 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir el portal oficial SERPAVI para consultar el rango de precio de alquiler de referencia del inmueble.</source>
+          <target>Abrir el portal oficial SERPAVI para consultar el rango de precio de alquiler de referencia del inmueble.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action OpenSerpaviReferencePrice - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4166615366 - Action 4043597580 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consultar indice alquiler MIVAU</source>
+          <target>Consultar indice alquiler MIVAU</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action OpenSerpaviReferencePrice - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4166615366 - Action 367086139 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Export a file with the payment information on the lines.</source>
           <target>Exportar un archivo con la información de pago en las líneas.</target>
@@ -7311,6 +7853,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Publish - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4166615366 - Action 2164817950 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consultar los servicios oficiales del Catastro para actualizar la referencia catastral y la URL oficial del inmueble.</source>
+          <target>Consultar los servicios oficiales del Catastro para actualizar la referencia catastral y la URL oficial del inmueble.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action UpdateFromCatastro - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4166615366 - Action 2164817950 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Actualizar Catastro</source>
+          <target>Actualizar Catastro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action UpdateFromCatastro - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4166615366 - Action 2248694202 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>G/L Analysis</source>
           <target>Análisis del libro mayor</target>
@@ -7322,6 +7876,12 @@
           <target>Activo inmobiliario</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3848461472 - NamedType 1610227593" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido copiar automáticamente el dato de búsqueda al portapapeles.\%1</source>
+          <target>No se ha podido copiar automáticamente el dato de búsqueda al portapapeles.\%1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - NamedType CopyToClipboardErr</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 3384699096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that the real estate asset has been acquired.</source>
@@ -7347,11 +7907,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Last Price Contract - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3848461472 - Control 980588264 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the last reference price of the real estate asset, which is the price of the last lease contract associated with this real estate asset.</source>
-          <target>Especifica el último precio de referencia del activo fijo, que es el precio del último contrato de arrendamiento asociado con este activo fijo.</target>
+        <trans-unit id="Page 3848461472 - Control 1503745570 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the latest active maximum SERPAVI reference rent for the real estate asset.</source>
+          <target>Especifica el último precio máximo de referencia SERPAVI activo para el activo inmobiliario.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Last Reference Price - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Last Reference Price Max. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3848461472 - Control 4259558636 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the latest active minimum SERPAVI reference rent for the real estate asset.</source>
+          <target>Especifica el último precio mínimo de referencia SERPAVI activo para el activo inmobiliario.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Control Last Reference Price Min. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Control 3097337210 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of the vendor who performs repairs and maintenance on the real estate asset.</source>
@@ -7503,6 +8069,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Action CalculateSalesAmount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3848461472 - Action 4043597580 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir el portal oficial SERPAVI para consultar el rango de precio de alquiler de referencia del inmueble.</source>
+          <target>Abrir el portal oficial SERPAVI para consultar el rango de precio de alquiler de referencia del inmueble.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Action OpenSerpaviReferencePrice - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3848461472 - Action 4043597580 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consultar indice alquiler MIVAU</source>
+          <target>Consultar indice alquiler MIVAU</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Action OpenSerpaviReferencePrice - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3848461472 - Action 3848461472 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the list of fixed real estate that exist in the system .</source>
           <target>Ver el listado de inmuebles fijos que existen en el sistema.</target>
@@ -7617,6 +8195,56 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Value List - Control Value - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2779214706 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Statement Card</source>
+          <target>Ficha extracto bancario</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Bank Statement Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2779214706 - Control 2451752234 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Banking</source>
+          <target>Datos bancarios</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Bank Statement Card - Control Banking - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2779214706 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target>General</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Bank Statement Card - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2779214706 - Control 2963661635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Defaults</source>
+          <target>Valores por defecto del diario</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Bank Statement Card - Control Journal Defaults - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2779214706 - Action 1147532894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Importar Excel</source>
+          <target>Importar Excel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Bank Statement Card - Action ImportExcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2779214706 - Action 3752274321 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Importar sin vista previa</source>
+          <target>Importar sin vista previa</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Bank Statement Card - Action ImportExcelDirect - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2779214706 - Action 4268418197 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir en SharePoint</source>
+          <target>Abrir en Sharepoint</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Bank Statement Card - Action OpenDocument - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2779214706 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registrar</source>
+          <target>Registrar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Bank Statement Card - Action Post - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2180369507 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Statements</source>
           <target>Extracto bancario</target>
@@ -7628,6 +8256,13 @@
           <target>Importar Excel</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Bank Statements - Action ImportExcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2180369507 - Action 3752274321 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Importar sin vista previa</source>
+          <target>Importar sin vista previa</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Bank Statements - Action ImportExcelDirect - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2180369507 - Action 4268418197 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Abrir en SharePoint</source>
@@ -7699,6 +8334,20 @@
           <target>Configuración plantilla Excel Movs. FRE</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Excel Template Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 828762091 - Control 3554608214 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Diarios FRE</source>
+          <target>Diarios FRE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Excel Template Setup - Control Diarios FRE - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 828762091 - Control 3308442669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Diarios generales</source>
+          <target>[NAB: SUGGESTION]Diarios generales</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Excel Template Setup - Control Diarios generales - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 828762091 - Action 3969018065 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Download Stored Template</source>
@@ -7820,6 +8469,98 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Finance Role Center - Action OpenFREMovs - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 880706100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Destino de carga</source>
+          <target>Destino de carga</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 880706100 - NamedType 3994495864" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debes indicar el libro del diario FRE.</source>
+          <target>Debes indicar el libro del diario FRE.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - NamedType FREBookRequiredErr</note>
+        </trans-unit>
+        <trans-unit id="Page 880706100 - NamedType 213227920" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debes indicar la sección del diario FRE.</source>
+          <target>Debes indicar la sección del diario FRE.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - NamedType FRESectionRequiredErr</note>
+        </trans-unit>
+        <trans-unit id="Page 880706100 - NamedType 2677959003" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debes indicar el libro del diario general.</source>
+          <target>Debes indicar el libro del diario general.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - NamedType GenBookRequiredErr</note>
+        </trans-unit>
+        <trans-unit id="Page 880706100 - NamedType 2522162619" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debes indicar la sección del diario general.</source>
+          <target>Debes indicar la sección del diario general.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - NamedType GenSectionRequiredErr</note>
+        </trans-unit>
+        <trans-unit id="Page 880706100 - NamedType 1416348497" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debes indicar antes el libro del diario FRE.</source>
+          <target>Debes indicar antes el libro del diario FRE.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - NamedType SelectFREBookFirstErr</note>
+        </trans-unit>
+        <trans-unit id="Page 880706100 - NamedType 1042319710" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debes indicar antes el libro del diario general.</source>
+          <target>Debes indicar antes el libro del diario general.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - NamedType SelectGenBookFirstErr</note>
+        </trans-unit>
+        <trans-unit id="Page 880706100 - Control 3322817385 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Journal</source>
+          <target>[NAB: SUGGESTION]FRE Diarios</target>
+          <target>[NAB: SUGGESTION]Diario FRE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - Control FREJournalGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 880706100 - Control 2993189805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sección</source>
+          <target>Sección</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - Control FREJournalBatchName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 880706100 - Control 943494769 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Libro</source>
+          <target>Libro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - Control FREJournalTemplateName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 880706100 - Control 1764054006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Journal</source>
+          <target>Diario general</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - Control GenJournalGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 880706100 - Control 1421520978 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sección</source>
+          <target>Sección</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - Control GenJournalBatchName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 880706100 - Control 3657324662 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Libro</source>
+          <target>Libro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Destination - Control GenJournalTemplateName - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3564166803 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Preview</source>
           <target>Vista previa importación</target>
@@ -7837,6 +8578,34 @@
           <target>Sugerencias</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Preview v2 - Action Suggestions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1029779798 - Action 2647891866 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Carga</source>
+          <target>Carga</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Preview v2 - Action Load - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1029779798 - Action 3371886574 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aceptar</source>
+          <target>Aceptar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Preview v2 - Action AcceptPreview - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1029779798 - Action 1685449135 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cargar en FRE Journal Line</source>
+          <target>Cargar en FRE Journal Line</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Preview v2 - Action LoadToFREJournal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1029779798 - Action 2754987396 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cargar en Gen. Journal Line</source>
+          <target>Cargar en Gen. Journal Line</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Import Preview v2 - Action LoadToGenJournal - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3912197647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>FRE Jnl. Batches</source>
@@ -10165,6 +10934,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Control Contract Phone No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2479975791 - Control 1538464910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance</source>
+          <target>[NAB: SUGGESTION]Seguro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Control Insurance - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2479975791 - Action 3445273183 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attach a file to the incident record.</source>
           <target>Adjuntar un archivo al registro del incidente.</target>
@@ -10219,6 +10995,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action SendCustomStatusIncident - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2479975791 - Action 3950927259 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notify Insurance</source>
+          <target>Notificar seguro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action NotifyInsurance - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2479975791 - Action 3031046439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Start Progress</source>
           <target>Iniciar proceso</target>
@@ -10230,6 +11013,20 @@
           <target>Incidencia Mobil</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Mobile - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 39356045 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Policies</source>
+          <target>Pólizas de seguro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Insurance Policies - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3752243300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Policies</source>
+          <target>Pólizas de seguro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Insurance Policy ListPart - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2231983253 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Maintenance Registration</source>
@@ -10278,6 +11075,54 @@
           <target>Especifica la fecha en la que se está prestando servicio al activo inmobiliario.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Maintenance Registration - Control Service Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1860716487 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comenzar con FRE</source>
+          <target>Comenzar con FRE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE RC Getting Started - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1860716487 - Control 3800514526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comenzar</source>
+          <target>Comenzar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE RC Getting Started - Control Welcome - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1860716487 - Control 207383479 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Revisar las plantillas y lotes de diario FRE.</source>
+          <target>Revisar las plantillas y lotes de diario FRE.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE RC Getting Started - Control JournalTemplateStatusTxt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1860716487 - Control 207383479 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>3. Configurar plantillas de diario FRE</source>
+          <target>3. Configurar plantillas de diario FRE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE RC Getting Started - Control JournalTemplateStatusTxt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1860716487 - Control 2455121909 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir la configuración base del módulo inmobiliario.</source>
+          <target>Abrir la configuración base del módulo inmobiliario.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE RC Getting Started - Control SetupStatusTxt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1860716487 - Control 2455121909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>1. Configurar REF Setup</source>
+          <target>1. Configurar REF Setup</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE RC Getting Started - Control SetupStatusTxt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1860716487 - Control 1923219696 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Subir o revisar la plantilla Excel utilizada para la importación FRE.</source>
+          <target>Subir o revisar la plantilla Excel utilizada para la importación FRE.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE RC Getting Started - Control TemplateStatusTxt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1860716487 - Control 1923219696 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>2. Cargar plantilla Excel FRE</source>
+          <target>2. Cargar plantilla Excel FRE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE RC Getting Started - Control TemplateStatusTxt - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4208396048 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Comment Sheet</source>
@@ -10585,6 +11430,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Journals - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 586345089 - Action 41619715 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir extractos bancarios FRE para revisar, importar y contabilizar movimientos.</source>
+          <target>Abrir extractos bancarios FRE para revisar, importar y contabilizar movimientos.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Bank Statements Journal - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 41619715 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Extractos bancarios</source>
+          <target>Extractos bancarios</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Bank Statements Journal - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 586345089 - Action 3372812512 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Abrir los diarios generales para registrar movimientos contables.</source>
           <target>Abrir los diarios generales para registrar movimientos contables.</target>
@@ -10734,6 +11591,18 @@
           <target>Adjuntos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Attachments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 1686721276 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the list of FRE bank statements.</source>
+          <target>Abrir la lista de extractos bancarios FRE.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Bank Statements - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 1686721276 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Statements</source>
+          <target>Extractos bancarios</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Bank Statements - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 586345089 - Action 1719084420 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the list of movements related to Fixed Real Estate.</source>
@@ -10897,6 +11766,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3010241046 - NamedType 1610227593" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido copiar automáticamente el dato de búsqueda al portapapeles.\%1</source>
+          <target>No se ha podido copiar automáticamente el dato de búsqueda al portapapeles.\%1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - NamedType CopyToClipboardErr</note>
+        </trans-unit>
         <trans-unit id="Page 3010241046 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a description of the real estate asset.</source>
           <target>Especifica una descripción del activo inmobiliario.</target>
@@ -10938,6 +11813,18 @@
           <target>Incidencias</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Action Incidents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Action 4043597580 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir el portal oficial SERPAVI para consultar el rango de precio de alquiler de referencia del inmueble.</source>
+          <target>Abrir el portal oficial SERPAVI para consultar el rango de precio de alquiler de referencia del inmueble.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Action OpenSerpaviReferencePrice - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3010241046 - Action 4043597580 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consultar indice alquiler MIVAU</source>
+          <target>Consultar indice alquiler MIVAU</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Simple Fixed Real Estate List - Action OpenSerpaviReferencePrice - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3010241046 - Action 3370173147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Precios Indices de referencia</source>

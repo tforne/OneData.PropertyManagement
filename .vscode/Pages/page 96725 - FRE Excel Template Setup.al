@@ -17,6 +17,32 @@ page 96725 "FRE Excel Template Setup"
                     Editable = false;
                 }
             }
+            group("Diarios generales")
+            {
+                Caption = 'Diarios generales';
+
+                field("Default Gen. Journal Template"; Rec."Default Gen. Journal Template")
+                {
+                    ApplicationArea = All;
+                }
+                field("Default Gen. Journal Batch"; Rec."Default Gen. Journal Batch")
+                {
+                    ApplicationArea = All;
+                }
+            }
+            group("Diarios FRE")
+            {
+                Caption = 'Diarios FRE';
+
+                field("Default FRE Journal Template"; Rec."Default FRE Journal Template")
+                {
+                    ApplicationArea = All;
+                }
+                field("Default FRE Journal Batch"; Rec."Default FRE Journal Batch")
+                {
+                    ApplicationArea = All;
+                }
+            }
         }
     }
 

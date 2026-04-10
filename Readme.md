@@ -72,6 +72,21 @@ La solución permite mantener un histórico de precios índice de referencia de 
 - Seguimiento por estado
 - Adjuntos y documentación técnica
 - Histórico por inmueble o contrato
+- Asociación de la incidencia a una póliza de seguro
+- Seguimiento de la notificación al seguro y del estado del siniestro
+
+### Seguros de activos inmobiliarios
+
+La solución incorpora la gestión básica de pólizas vinculadas al activo inmobiliario para centralizar la información aseguradora y relacionarla con incidencias operativas.
+
+- Definición de pólizas por inmueble
+- Datos de aseguradora y mediador
+- Control de número de póliza
+- Tipos de cobertura
+- Importes cubiertos y franquicia
+- Fechas de vigencia
+- Datos de contacto para comunicación de siniestros
+- Notificación manual al seguro desde la incidencia
 
 ## Gestión financiera por activo
 
@@ -117,11 +132,24 @@ La solución permite cargar movimientos financieros mediante plantillas Excel es
 - Plantilla estándar configurable
 - Hojas auxiliares con valores válidos
 - Importación directa al diario FRE
+- Importación directa al diario general
 - Vista previa antes del registro
 - Validación de cabeceras, importes y campos obligatorios
 - Detección de errores por línea
+- Configuración de diarios y secciones por defecto
 
 Este enfoque facilita la integración con extractos bancarios, gestores de fincas y otros sistemas externos.
+
+### Extractos bancarios
+
+La solución permite trabajar con extractos bancarios como origen de carga operativa y financiera.
+
+- Registro de extractos bancarios importados
+- Asociación del extracto a cuenta bancaria
+- Configuración de diario general y diario FRE por defecto
+- Importación del extracto desde SharePoint u origen documental equivalente
+- Carga automática de movimientos en diario general
+- Trazabilidad del estado del extracto: pendiente, importado y registrado
 
 ### Sugerencias inteligentes de inmueble
 
@@ -152,6 +180,26 @@ Una vez validado, el diario se registra siguiendo una lógica alineada con los d
 - Limpieza de líneas del diario
 - Trazabilidad completa
 
+### Integración con diario general
+
+Además del flujo financiero propio de FRE, la solución permite lanzar importaciones y procesos de integración desde el `Gen. Journal` estándar de Business Central.
+
+- Carga de líneas desde Excel directamente en el diario general actual
+- Uso del diario y sección activos sin volver a solicitarlos al usuario
+- Cumplimentación automática de importes, tipos de cuenta y cuenta bancaria al cargar desde extracto
+- Herencia de información FRE al crear nuevas líneas del diario general
+- Clasificación económica mediante `Row No.` y `Entry Category`
+
+### Integración contable con FRE
+
+Cuando una línea de diario general está marcada para integración FRE, el registro contable puede generar automáticamente su reflejo en la capa inmobiliaria.
+
+- Integración de `Gen. Journal Line` con `FRE Jnl. Line`
+- Generación automática de movimientos en `FRE Ledger`
+- Enlace entre movimiento contable y movimiento FRE
+- Soporte para distribución por activo fijo inmobiliario
+- Conservación de la trazabilidad entre origen contable y explotación inmobiliaria
+
 ### FRE Ledger
 
 El `FRE Ledger` constituye el histórico financiero del activo inmobiliario y permite:
@@ -160,6 +208,7 @@ El `FRE Ledger` constituye el histórico financiero del activo inmobiliario y pe
 - Auditoría financiera
 - Consulta histórica de movimientos
 - Acceso directo desde la ficha del activo
+- Integración con movimientos originados desde diario general
 
 ## Flujo funcional
 
@@ -181,6 +230,20 @@ El `FRE Ledger` constituye el histórico financiero del activo inmobiliario y pe
 - `Consulta desde la ficha del inmueble`
 - `Integración contable y financiera`
 - `Informes y análisis por activo`
+
+## Flujos adicionales
+
+### Flujo de extracto bancario a diario general
+
+`Extracto bancario` → `Importación` → `Vista previa` → `Gen. Journal` → `Registro contable`
+
+### Flujo de integración contable a FRE
+
+`Gen. Journal` → `Registro contable` → `Integración FRE` → `FRE Jnl. Line` → `FRE Ledger`
+
+### Flujo de incidencia con seguro
+
+`Activo inmobiliario` → `Póliza de seguro` → `Incidencia` → `Notificación al seguro` → `Seguimiento del siniestro`
 
 ## Integración con Business Central
 
@@ -251,8 +314,11 @@ El modelo contempla la relación entre inmuebles y activos fijos.
 - Control financiero centralizado por activo
 - Registro estructurado de cobros y pagos
 - Importación masiva de movimientos
+- Importación operativa desde extractos bancarios
 - Validación previa al registro
 - Trazabilidad histórica por inmueble
+- Integración entre contabilidad general y explotación FRE
+- Control asegurador vinculado a inmuebles e incidencias
 - Escalabilidad para carteras de gran volumen
 
 ## OneData
