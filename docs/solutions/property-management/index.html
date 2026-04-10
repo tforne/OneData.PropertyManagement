@@ -56,6 +56,10 @@
     .feature-card { position:relative; overflow:hidden; min-height:250px; }
     .feature-card::before { content:none; }
     .feature-tag { display:inline-flex; margin-bottom:12px; padding:5px 9px; border-radius:999px; background:var(--accent); color:var(--brand); font-size:.78rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; }
+    .feature-head { display:flex; align-items:flex-start; gap:12px; margin-bottom:10px; }
+    .feature-head h3 { margin:2px 0 0; }
+    .feature-icon { width:40px; height:40px; flex:0 0 40px; display:grid; place-items:center; border-radius:10px; background:#f3f9fd; border:1px solid #d6e9f8; color:var(--brand); }
+    .feature-icon svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
     .feature-list { list-style:none; padding:0; margin:16px 0 0; display:grid; gap:10px; }
     .feature-list li { display:flex; gap:10px; align-items:flex-start; color:#334155; }
     .feature-list li::before { content:""; width:6px; height:6px; margin-top:.55em; border-radius:999px; background:var(--brand); flex:0 0 6px; }
@@ -191,7 +195,12 @@
         <div class="grid-3">
           <article class="card feature-card">
             <span class="feature-tag">Activos</span>
-            <h3>Gestión de activos inmobiliarios</h3>
+            <div class="feature-head">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path><path d="M9 21v-6h6v6"></path></svg>
+              </div>
+              <h3>Gestión de activos inmobiliarios</h3>
+            </div>
             <p>Ficha avanzada de <code>Fixed Real Estate</code> con información descriptiva, datos operativos, relaciones y acceso directo a movimientos y acciones relacionadas.</p>
             <ul class="feature-list">
               <li>Card y list de activos inmobiliarios.</li>
@@ -202,7 +211,12 @@
           </article>
           <article class="card feature-card">
             <span class="feature-tag">Contratos</span>
-            <h3>Gestión de contratos de alquiler</h3>
+            <div class="feature-head">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"></path><path d="M15 3v4h4"></path><path d="M10 12h6"></path><path d="M10 16h6"></path></svg>
+              </div>
+              <h3>Gestión de contratos de alquiler</h3>
+            </div>
             <p>Modelo orientado a <code>Lease Contract</code>, <code>Lease Invoice Header</code> y procesos asociados para administrar la relación contractual y su evolución.</p>
             <ul class="feature-list">
               <li>Alta y seguimiento de contratos.</li>
@@ -213,7 +227,12 @@
           </article>
           <article class="card feature-card">
             <span class="feature-tag">Referencia</span>
-            <h3>Índice de referencia de alquiler</h3>
+            <div class="feature-head">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 18h16"></path><path d="M7 15V9"></path><path d="M12 15V6"></path><path d="M17 15v-3"></path></svg>
+              </div>
+              <h3>Índice de referencia de alquiler</h3>
+            </div>
             <p>La solución permite registrar y mantener el histórico del índice de referencia de alquiler por inmueble, con apoyo a la consulta manual del portal oficial y una referencia activa visible en la ficha del activo.</p>
             <ul class="feature-list">
               <li>Apertura del portal oficial SERPAVI / MIVAU desde el inmueble.</li>
@@ -224,7 +243,12 @@
           </article>
           <article class="card feature-card">
             <span class="feature-tag">Liquidación</span>
-            <h3>Cierre y liquidación contractual</h3>
+            <div class="feature-head">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 4h12"></path><path d="M8 8h8"></path><path d="M5 12h14"></path><path d="M7 16h10"></path><path d="M9 20h6"></path></svg>
+              </div>
+              <h3>Cierre y liquidación contractual</h3>
+            </div>
             <p>La solución incorpora páginas y estructura específica para <code>Liquidación Contrato</code>, con soporte para motivos, importes y documentación vinculada al cierre.</p>
             <ul class="feature-list">
               <li>Header y líneas de liquidación.</li>
@@ -235,7 +259,12 @@
           </article>
           <article class="card feature-card">
             <span class="feature-tag">Finanzas FRE</span>
-            <h3>FRE Journal y FRE Ledger</h3>
+            <div class="feature-head">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 18h16"></path><path d="M7 18V8"></path><path d="M12 18V5"></path><path d="M17 18v-7"></path></svg>
+              </div>
+              <h3>FRE Journal y FRE Ledger</h3>
+            </div>
             <p>Motor financiero específico para registrar movimientos por activo inmobiliario, con diario operativo, role center y libro histórico.</p>
             <ul class="feature-list">
               <li>FRE Journal templates, batches y líneas.</li>
@@ -246,7 +275,12 @@
           </article>
           <article class="card feature-card">
             <span class="feature-tag">Importación</span>
-            <h3>Excel, preview y extractos bancarios</h3>
+            <div class="feature-head">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M14 3h5v5"></path><path d="M10 14 19 5"></path><path d="M5 7v12h12"></path></svg>
+              </div>
+              <h3>Excel, preview y extractos bancarios</h3>
+            </div>
             <p>La solución ya contempla importación desde Excel tanto para FRE como para diarios generales, con vista previa, validación, sugerencia de activo y configuración de diarios por defecto.</p>
             <ul class="feature-list">
               <li>Descarga de plantilla Excel.</li>
@@ -258,7 +292,12 @@
           </article>
           <article class="card feature-card">
             <span class="feature-tag">Contabilidad</span>
-            <h3>Integración con diario general</h3>
+            <div class="feature-head">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h10"></path><path d="M18 16v4"></path><path d="M16 18h4"></path></svg>
+              </div>
+              <h3>Integración con diario general</h3>
+            </div>
             <p>Los procesos contables estándar de Business Central pueden convivir con la capa inmobiliaria para mantener trazabilidad entre el apunte contable y el movimiento FRE.</p>
             <ul class="feature-list">
               <li>Importación directa al <code>Gen. Journal</code>.</li>
@@ -269,7 +308,12 @@
           </article>
           <article class="card feature-card">
             <span class="feature-tag">Incidencias</span>
-            <h3>Incidencias y adjuntos</h3>
+            <div class="feature-head">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3 3 7v6c0 5 4 7.5 9 8 5-.5 9-3 9-8V7z"></path><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <h3>Incidencias y adjuntos</h3>
+            </div>
             <p>Existe gestión de incidencias inmobiliarias con seguimiento, comentarios, adjuntos, notificaciones y relación con la póliza del inmueble cuando procede.</p>
             <ul class="feature-list">
               <li>Incidencias por activo inmobiliario.</li>
@@ -281,7 +325,12 @@
           </article>
           <article class="card feature-card" id="seguros">
             <span class="feature-tag">Seguros</span>
-            <h3>Seguros vinculados al inmueble</h3>
+            <div class="feature-head">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.5 3 7 7 9 4-2 7-4.5 7-9V6z"></path><path d="M9.5 12.5h5"></path><path d="M12 10v5"></path></svg>
+              </div>
+              <h3>Seguros vinculados al inmueble</h3>
+            </div>
             <p>La solución amplía la ficha del activo con pólizas de seguro y permite reutilizar esa información cuando una incidencia debe comunicarse a la aseguradora.</p>
             <ul class="feature-list">
               <li>Pólizas por activo inmobiliario.</li>
