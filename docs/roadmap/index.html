@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadmap | OneData Property Management</title>
+  <meta name="description" content="Roadmap funcional y técnico de OneData Property Management para Microsoft Dynamics 365 Business Central." />
+  <style>
+    :root { --ink:#1b1b1b; --muted:#5c5c5c; --line:#e6e6e6; --brand:#0067b8; --brand-deep:#004a86; --bg:#f7f7f7; --card:#ffffff; --now:#e8f3fb; --next:#eef6ea; --later:#f7f1e8; --done:#f2f2f2; --max:1180px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:#fff; line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+    .topbar { border-bottom:1px solid var(--line); background:#fff; position:sticky; top:0; z-index:10; }
+    .topbar-inner { min-height:64px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:700; }
+    .brand-mark { width:34px; height:34px; border-radius:4px; display:grid; place-items:center; background:var(--brand); color:#fff; font-weight:800; }
+    .nav { display:flex; flex-wrap:wrap; gap:10px; }
+    .nav a { padding:8px 12px; border-radius:4px; }
+    .nav a:hover { background:#f3f3f3; }
+    .hero { padding:48px 0 28px; background:linear-gradient(90deg,#f3f9fd 0%, #ffffff 64%); border-bottom:1px solid var(--line); }
+    h1 { margin:0 0 14px; font-size:clamp(2.2rem,4vw,4rem); line-height:1.05; letter-spacing:-.03em; }
+    .hero p { margin:0; max-width:820px; color:#3f3f3f; font-size:1.1rem; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:2px; font-weight:600; }
+    .btn-primary { background:var(--brand); color:#fff; }
+    .btn-secondary { background:#fff; color:#000; border:1px solid #000; }
+    .section { padding:42px 0; }
+    .section-head { margin-bottom:20px; }
+    .section-head h2 { margin:0 0 10px; font-size:clamp(1.8rem,3vw,2.6rem); line-height:1.08; }
+    .section-head p { margin:0; color:var(--muted); max-width:860px; }
+    .pill-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .pill { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fafafa; color:#3a3a3a; font-size:.92rem; }
+    .lane-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; align-items:start; }
+    .lane { border:1px solid var(--line); border-radius:8px; background:var(--card); overflow:hidden; }
+    .lane-head { padding:16px 18px; font-weight:700; font-size:1.05rem; border-bottom:1px solid var(--line); }
+    .lane-now .lane-head { background:var(--now); }
+    .lane-next .lane-head { background:var(--next); }
+    .lane-later .lane-head { background:var(--later); }
+    .lane-done .lane-head { background:var(--done); }
+    .lane-body { padding:18px; display:grid; gap:14px; }
+    .item { padding:16px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .item strong { display:block; margin-bottom:6px; font-size:1rem; line-height:1.25; }
+    .item span { color:var(--muted); font-size:.95rem; }
+    .matrix { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .card { border:1px solid var(--line); border-radius:8px; background:#fff; padding:22px; }
+    .card h3 { margin:0 0 10px; font-size:1.2rem; }
+    .card ul { margin:0; padding-left:18px; color:var(--muted); }
+    .table-wrap { overflow:auto; border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; background:#fff; }
+    th, td { padding:14px 16px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { background:#f9f9f9; }
+    footer { padding:0 0 42px; text-align:center; color:#666; font-size:.92rem; }
+    @media (max-width:1080px) { .lane-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .matrix { grid-template-columns:1fr; } }
+    @media (max-width:720px) { .container { width:min(var(--max), calc(100% - 24px)); } .lane-grid { grid-template-columns:1fr; } .topbar-inner { flex-direction:column; align-items:flex-start; padding:14px 0; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">OD</div>
+        <span>OneData Property Management</span>
+      </div>
+      <nav class="nav" aria-label="Navegación">
+        <a href="../solutions/property-management/">Solución</a>
+        <a href="#horizontes">Horizontes</a>
+        <a href="#lineas">Líneas</a>
+        <a href="#seguimiento">Seguimiento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Roadmap de OneData Property Management</h1>
+        <p>Visión funcional y técnica para ordenar la evolución del producto por impacto, horizonte temporal y valor real para la operativa inmobiliaria dentro de Microsoft Dynamics 365 Business Central.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="../../README.md">Ver README</a>
+          <a class="btn btn-secondary" href="../solutions/property-management/">Ver landing de solución</a>
+        </div>
+        <div class="pill-row">
+          <span class="pill">Activos inmobiliarios</span>
+          <span class="pill">Contratos</span>
+          <span class="pill">Finanzas FRE</span>
+          <span class="pill">Gen. Journal</span>
+          <span class="pill">Seguros</span>
+          <span class="pill">Incidencias</span>
+          <span class="pill">Integraciones</span>
+          <span class="pill">Permisos</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="horizontes">
+      <div class="container">
+        <div class="section-head">
+          <h2>Horizontes de planificación</h2>
+          <p>La evolución del producto se organiza en bloques temporales para separar estabilización inmediata, siguientes entregas y apuestas de medio plazo.</p>
+        </div>
+        <div class="lane-grid">
+          <article class="lane lane-now">
+            <div class="lane-head">Now</div>
+            <div class="lane-body">
+              <div class="item"><strong>Amortización integrada con FRE</strong><span>Completar la imputación automática de movimientos de amortización al `FRE Ledger Entry`.</span></div>
+              <div class="item"><strong>Extractos e importación</strong><span>Consolidar la carga desde extracto bancario y la importación directa al diario general.</span></div>
+              <div class="item"><strong>Seguros fase 1</strong><span>Cerrar pólizas, selección desde incidencia y notificación manual al seguro.</span></div>
+              <div class="item"><strong>Permisos base</strong><span>Definir `ADMIN`, `USER`, `READ` y `SETUP` para la solución.</span></div>
+            </div>
+          </article>
+          <article class="lane lane-next">
+            <div class="lane-head">Next</div>
+            <div class="lane-body">
+              <div class="item"><strong>KPIs y dashboards</strong><span>Más indicadores de explotación y rentabilidad por inmueble.</span></div>
+              <div class="item"><strong>Siniestro completo</strong><span>Segunda fase de seguros con mayor trazabilidad y automatización.</span></div>
+              <div class="item"><strong>Mejor integración estándar</strong><span>Automatismos adicionales sobre activos fijos y posting de Business Central.</span></div>
+            </div>
+          </article>
+          <article class="lane lane-later">
+            <div class="lane-head">Later</div>
+            <div class="lane-body">
+              <div class="item"><strong>Portal del inquilino y propietario</strong><span>Extensión del ecosistema digital sobre APIs y procesos documentales.</span></div>
+              <div class="item"><strong>Automatización avanzada</strong><span>Sugerencias inteligentes, conciliación y reglas de imputación ampliadas.</span></div>
+              <div class="item"><strong>Portfolio management</strong><span>Cuadro de mando por cartera y visión comparada de rentabilidad.</span></div>
+            </div>
+          </article>
+          <article class="lane lane-done">
+            <div class="lane-head">Done</div>
+            <div class="lane-body">
+              <div class="item"><strong>Importación FRE y Gen. Journal</strong><span>Vista previa, extractos bancarios y apertura directa del diario importado.</span></div>
+              <div class="item"><strong>Integración contable con FRE</strong><span>Generación de movimientos FRE desde el diario general.</span></div>
+              <div class="item"><strong>Documentación y landing</strong><span>README ampliado, roadmap y landing pública actualizada.</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lineas">
+      <div class="container">
+        <div class="section-head">
+          <h2>Líneas estratégicas del producto</h2>
+          <p>Estas áreas sirven para ordenar las iniciativas del backlog funcional sin mezclar visión de producto con tareas técnicas de bajo nivel.</p>
+        </div>
+        <div class="matrix">
+          <article class="card">
+            <h3>Core inmobiliario</h3>
+            <ul>
+              <li>Activos inmobiliarios</li>
+              <li>Contratos y facturación</li>
+              <li>Incidencias y mantenimiento</li>
+              <li>Seguros vinculados al inmueble</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Core financiero</h3>
+            <ul>
+              <li>FRE Journal y FRE Ledger</li>
+              <li>Integración con diario general</li>
+              <li>Extractos bancarios e importación</li>
+              <li>Integración con activos fijos</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Plataforma y crecimiento</h3>
+            <ul>
+              <li>Permisos y administración</li>
+              <li>Fiscalidad y reporting</li>
+              <li>APIs y portal</li>
+              <li>Documentación y experiencia</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="seguimiento">
+      <div class="container">
+        <div class="section-head">
+          <h2>Formato recomendado de seguimiento</h2>
+          <p>Una vez definida la iniciativa, conviene llevar el detalle en una tabla operativa con valor, complejidad, dependencias y versión objetivo.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Iniciativa</th>
+                <th>Área</th>
+                <th>Valor</th>
+                <th>Complejidad</th>
+                <th>Dependencias</th>
+                <th>Estado</th>
+                <th>Versión objetivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Integración amortización -> FRE</td>
+                <td>Finanzas FRE</td>
+                <td>Alta</td>
+                <td>Media</td>
+                <td>REF Setup, vínculos FA-RE</td>
+                <td>In Progress</td>
+                <td>3.1</td>
+              </tr>
+              <tr>
+                <td>Permisos ODPM USER</td>
+                <td>Seguridad</td>
+                <td>Alta</td>
+                <td>Baja</td>
+                <td>Inventario de objetos</td>
+                <td>Planned</td>
+                <td>3.1</td>
+              </tr>
+              <tr>
+                <td>Fase 2 de siniestros</td>
+                <td>Seguros</td>
+                <td>Media</td>
+                <td>Media</td>
+                <td>Pólizas, incidencias, mail</td>
+                <td>Planned</td>
+                <td>3.2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 OneData · Roadmap de OneData Property Management</footer>
+</body>
+</html>

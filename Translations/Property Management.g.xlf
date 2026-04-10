@@ -2758,6 +2758,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table REF Setup - Field Contract Lease Invoice Nos. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1254748834 - Field 1227816939 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default depreciation row number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table REF Setup - Field Default Depreciation Row No - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1254748834 - Field 3434736045 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Default income row number</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2862,6 +2867,156 @@
           <source>No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Active Valuation - Field Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI Incident Intake Buffer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 2158456568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI Case Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field AI Case Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 2158456568 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Question,Problem,Request</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field AI Case Type - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 659112760 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI Confidence</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field AI Confidence - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 3964394138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI Insurance Reason</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field AI Insurance Reason - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 2738171347 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI Notify Insurance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field AI Notify Insurance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 4057129526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI Priority</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field AI Priority - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 4057129526 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,High,Normal,Low</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field AI Priority - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 2486622968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI Summary</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field AI Summary - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 768884279 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachment Names</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Attachment Names - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 1163789510 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Body Preview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Body Preview - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 4144601557 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created Incident Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Created Incident Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 1406056753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>From E-Mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field From E-Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 3091132563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>From Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field From Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 2194153492 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Has Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Has Attachments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 3205353849 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Original Message Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Original Message Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 1861518785 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing Log</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Processing Log - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 3030477902 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Received At</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Received At - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 513339096 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Analyzed,Ready to Create,Created,Error,Reviewed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Status - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 1234124704 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Subject</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Subject - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 1300697150 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggested Contact No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Suggested Contact No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 3074508476 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggested Contract No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Suggested Contract No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 2788010229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggested Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Suggested Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 1550372801 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggested Incident Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Suggested Incident Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 1096662100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggested Insurance Policy No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Suggested Insurance Policy No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 955045494 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggested Real Estate No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Suggested Real Estate No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 3495851961 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggested Resolution Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Suggested Resolution Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4139549982 - Field 1578412215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suggested Title</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AI Incident Intake Buffer - Field Suggested Title - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2557668715 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Código</source>
@@ -4728,6 +4883,86 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table OD RE FA Link - Field Starting Date - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2539536338 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ODPM Incident Agent Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 3931242731 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI Provider</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field AI Provider - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 3931242731 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Azure OpenAI,OpenAI,Custom Endpoint</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field AI Provider - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 4196742703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Auto Create Drafts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Auto Create Drafts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 2957770053 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Confidence Threshold</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Confidence Threshold - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 2891538263 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enabled</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Enabled - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 2674855550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Help URL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Help URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 1852258491 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incoming Mail Folder</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Incoming Mail Folder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 470301744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Validation At</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Last Validation At - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 2745745980 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Validation Result</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Last Validation Result - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 1193980404 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Power Automate Flow Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Power Automate Flow Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 3126375872 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Power Automate Flow URL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Power Automate Flow URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 1663593181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 2074739070 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Setup Completed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Setup Completed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 2726577327 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shared Mailbox</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Shared Mailbox - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2539536338 - Field 3254824973 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use AI</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ODPM Incident Agent Setup - Field Use AI - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 343456659 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Rental price increases by reference index</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5653,6 +5888,51 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Management - Incident - Method ImportAttachment - NamedType EmptyFileNameErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3042175890 - NamedType 2339348529" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Power Automate flow URL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ODPM Incident Agent Setup Mgt. - NamedType FlowUrlMissingLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3042175890 - NamedType 2618029958" size-unit="char" translate="yes" xml:space="preserve">
+          <source>shared mailbox</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ODPM Incident Agent Setup Mgt. - NamedType MailboxMissingLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3042175890 - NamedType 858110245" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Configure the shared mailbox, Power Automate flow and AI behavior for the incident intake agent.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ODPM Incident Agent Setup Mgt. - NamedType SetupDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3042175890 - NamedType 2214866241" size-unit="char" translate="yes" xml:space="preserve">
+          <source>https://tforne.github.io/OneData.PropertyManagement/docs/roadmap/</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ODPM Incident Agent Setup Mgt. - NamedType SetupHelpUrlLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3042175890 - NamedType 3802263609" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incident Intake Agent</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ODPM Incident Agent Setup Mgt. - NamedType SetupShortTitleLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3042175890 - NamedType 701938711" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incident Intake Agent Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ODPM Incident Agent Setup Mgt. - NamedType SetupTitleLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3042175890 - NamedType 4172811451" size-unit="char" translate="yes" xml:space="preserve">
+          <source>confidence threshold</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ODPM Incident Agent Setup Mgt. - NamedType ThresholdMissingLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3042175890 - NamedType 75498015" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Configuration validated successfully.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ODPM Incident Agent Setup Mgt. - NamedType ValidationOkLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3042175890 - NamedType 3812539626" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pending configuration: %1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ODPM Incident Agent Setup Mgt. - NamedType ValidationPendingLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 12978147 - NamedType 3577229803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quieres publicar el activo inmobiliario %1, en los webs configurados ?</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5757,6 +6037,26 @@
           <source>Se ha abierto SERPAVI en el navegador.\Dato recomendado para la búsqueda: %1\Superficie construida actual: %2 m2.\El portal oficial requiere validación interactiva, por lo que el resultado debe registrarse manualmente en "Precios índices de referencia" del inmueble %3.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SERPAVI Service Mgt. - NamedType SerpaviOpenedMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 499134795 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI Incident Intake Buffers</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AI Incident Intake Buffers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 499134795 - Action 1811137505 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Draft Incident</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AI Incident Intake Buffers - Action CreateDraftIncident - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 499134795 - Action 792647372 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the setup page for the Power Automate and AI incident intake agent.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AI Incident Intake Buffers - Action IncidentAgentSetup - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 499134795 - Action 792647372 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incident Agent Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AI Incident Intake Buffers - Action IncidentAgentSetup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1457722299 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Payment Lease Invoice</source>
@@ -7628,6 +7928,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Action CreateFromCamera - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2131679017 - Action 3282685687 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review incoming e-mails analyzed by AI before creating incidents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Action AIIntakeQueue - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2131679017 - Action 3282685687 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI Intake Queue</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Action AIIntakeQueue - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2131679017 - Action 3445273183 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attach a file to the incident document record.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7637,6 +7947,16 @@
           <source>Attach File</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Action AttachFile - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2131679017 - Action 792647372 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the setup page for the Power Automate and AI incident intake agent.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Action IncidentAgentSetup - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2131679017 - Action 792647372 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incident Agent Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Action IncidentAgentSetup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3452459383 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Incidents</source>
@@ -8493,6 +8813,251 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page OD FA RE Link ListPart - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1043518440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incident Intake Agent Setup Wizard</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 670393910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control AIStep - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 3931242731 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the planned AI provider.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control AI Provider - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 4196742703 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether draft incidents can be created automatically.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control Auto Create Drafts - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 2957770053 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the confidence threshold expected for automation.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control Confidence Threshold - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 3254824973 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the flow should request AI suggestions before creating draft incidents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control Use AI - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 1120665609 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Power Automate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control PowerAutomateStep - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 1852258491 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the folder to monitor in the shared mailbox.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control Incoming Mail Folder - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 1193980404 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the flow name shown to users.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control Power Automate Flow Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 3126375872 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the endpoint or flow URL used to receive incident intake data.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control Power Automate Flow URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 2726577327 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the mailbox to monitor for incident e-mails.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control Shared Mailbox - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 1163864020 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control ReviewStep - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 591482600 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI Threshold Ready</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control AIConfigured - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 2399536050 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Power Automate Flow Configured</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control FlowConfigured - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 1208021964 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shared Mailbox Configured</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control MailboxConfigured - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 4293902024 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Setup Ready</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control SetupReady - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 3024465532 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Welcome</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control WelcomeStep - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Control 2641685821 - Property 1968111052" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This wizard helps you configure the shared mailbox and Power Automate flow required to intake incidents from e-mail.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Control WelcomeContent - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Action 1107918703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Back</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Action BackAction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Action 871186236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Action CancelAction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Action 172912935 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finish</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Action FinishAction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - Action 148028707 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Next</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Action NextAction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ODPM Incident Agent Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 1192155572 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control AI - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 3931242731 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the AI provider planned for the intake flow.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control AI Provider - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 4196742703 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the flow can create draft incidents automatically when confidence is high enough.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control Auto Create Drafts - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 2957770053 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the minimum confidence expected before allowing automated draft creation.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control Confidence Threshold - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 3254824973 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the intake flow should use AI to enrich the incident proposal.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control Use AI - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 3851288392 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Connection Checklist</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control Checklist - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 591482600 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AI Threshold Ready</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control AIConfigured - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 2951931596 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Summary</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control ChecklistSummary - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 2399536050 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Power Automate Flow Configured</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control FlowConfigured - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 1208021964 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shared Mailbox Configured</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control MailboxConfigured - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 4293902024 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Setup Ready</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control SetupReady - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 2891538263 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the incident intake agent is enabled.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control Enabled - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 1852258491 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the mailbox folder that Power Automate should monitor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control Incoming Mail Folder - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 2726577327 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Office 365 shared mailbox that receives incident e-mails.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control Shared Mailbox - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 3617807207 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Power Automate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control PowerAutomate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 1193980404 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the display name of the Power Automate flow used for intake.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control Power Automate Flow Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Control 3126375872 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the HTTP endpoint or flow URL used to send e-mail intake data to Business Central.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Control Power Automate Flow URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Action 3399594919 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the documentation URL for the incident intake agent.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Action OpenHelp - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Action 3399594919 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open Help</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Action OpenHelp - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Action 1056512459 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the configured Power Automate flow URL.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Action OpenPowerAutomate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Action 1056512459 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open Power Automate Flow</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Action OpenPowerAutomate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Action 1980296020 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the assisted setup wizard for the incident intake agent.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Action RunAssistedSetup - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Action 1980296020 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Run Assisted Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Action RunAssistedSetup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Action 1739629770 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Validate the minimum setup required to connect Power Automate and Business Central.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Action TestConfiguration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2539536338 - Action 1739629770 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test Configuration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incident Agent Setup - Action TestConfiguration - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1925115218 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Lease Invoice</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9162,6 +9727,16 @@
           <source>Comenzar</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE RC Getting Started - Control Welcome - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1860716487 - Control 3173365056 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Configurar el buzón compartido, Power Automate y la revisión inicial del agente de incidencias.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE RC Getting Started - Control IncidentAgentSetupStatusTxt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1860716487 - Control 3173365056 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>4. Configurar agente de incidencias</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE RC Getting Started - Control IncidentAgentSetupStatusTxt - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1860716487 - Control 207383479 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Revisar las plantillas y lotes de diario FRE.</source>
@@ -11213,6 +11788,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Status Lease Invoice - EnumValue Open - Property Caption</note>
         </trans-unit>
+        <trans-unit id="EnumExtension 3206811228 - EnumValue 2308796410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 1150498218">
+          <source>OneData Property Management</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension ODPM Assisted Setup Group - EnumValue ODPM - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 3248853253 - EnumValue 2308796410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 4244706559">
+          <source>OneData Property Management</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension ODPM Manual Setup Category - EnumValue ODPM - Property Caption</note>
+        </trans-unit>
         <trans-unit id="EnumExtension 59623598 - EnumValue 1012960654 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 3528066925">
           <source>Lease Sales Invoice</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11222,6 +11807,26 @@
           <source>Gen Journal Import Buffer</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet Gen Journal Import Buffer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 1299059587 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OneData Property Management - Admin</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ODPM ADMIN - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 4242967352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OneData Property Management - Read</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ODPM READ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 592156035 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OneData Property Management - Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ODPM SETUP - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 2084770313 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OneData Property Management - User</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ODPM USER - Property Caption</note>
         </trans-unit>
       </group>
     </body>

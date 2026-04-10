@@ -102,6 +102,27 @@ page 96152 "Incidents List"
         }
         area(processing)
         { 
+            action(IncidentAgentSetup)
+            {
+                AccessByPermission = TableData "ODPM Incident Agent Setup" = R;
+                ApplicationArea = All;
+                Caption = 'Incident Agent Setup';
+                Image = Setup;
+                Promoted = true;
+                PromotedCategory = Process;
+                RunObject = Page "ODPM Incident Agent Setup";
+                ToolTip = 'Open the setup page for the Power Automate and AI incident intake agent.';
+            }
+            action(AIIntakeQueue)
+            {
+                ApplicationArea = All;
+                Caption = 'AI Intake Queue';
+                Image = List;
+                Promoted = true;
+                PromotedCategory = Process;
+                RunObject = Page "AI Incident Intake Buffers";
+                ToolTip = 'Review incoming e-mails analyzed by AI before creating incidents.';
+            }
             action(AttachFile)
             {
                 ApplicationArea = Basic, Suite;

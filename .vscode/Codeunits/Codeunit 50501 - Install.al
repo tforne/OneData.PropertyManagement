@@ -1,7 +1,8 @@
 codeunit 50501 GeneralManagementInstall
 {
     Subtype = Install;
-    Permissions = TableData "G/L Entry" = rmid;
+    Permissions = TableData "G/L Entry" = rmid,
+                  TableData "ODPM Incident Agent Setup" = rimd;
 
     trigger OnInstallAppPerDatabase()
     var
@@ -10,10 +11,13 @@ codeunit 50501 GeneralManagementInstall
 
     trigger OnInstallAppPerCompany()
     var
+        ODPMIncidentAgentSetupMgt: Codeunit "ODPM Incident Agent Setup Mgt.";
+        AgentSetup: Record "ODPM Incident Agent Setup";
     begin
         installNewVersion();
         InsertReportSelections();
         InsTenantUserMapping();
+        ODPMIncidentAgentSetupMgt.EnsureSetupExists(AgentSetup);
     end;
 
     procedure installNewVersion()

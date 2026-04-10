@@ -67,6 +67,9 @@ page 96007 "Real Estate Fixed Setup"
                 field("Default Income Row No"; rec."Default Income Row No")
                 {
                 }
+                field("Default Depreciation Row No"; Rec."Default Depreciation Row No")
+                {
+                }
             }
             group(CRM)
             {

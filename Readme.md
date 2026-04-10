@@ -299,6 +299,8 @@ El modelo contempla la relación entre inmuebles y activos fijos.
 
 - Ayuda: <https://tforne.github.io/OneData.PropertyManagement/>
 - Solución: <https://tforne.github.io/OneData.PropertyManagement/docs/solutions/property-management/>
+- Roadmap funcional: [docs/ROADMAP.md](docs/ROADMAP.md)
+- Roadmap web: <https://tforne.github.io/OneData.PropertyManagement/docs/roadmap/>
 
 ## Tecnología
 

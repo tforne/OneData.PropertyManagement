@@ -25,6 +25,8 @@ codeunit 96798 "FRE Journal Integration Mgt."
                     CreateFREEntry(GenJnlLine, GLEntryNo, Link, NextLineNo);
                     NextLineNo += 10000;
                 until Link.Next() = 0;
+            if Link.IsEmpty() then
+                Error('No existen vínculos activos entre el activo fijo %1 y ningún inmueble.', GenJnlLine."FRE FA No.");
 
         end else begin
             CreateFREEntryDirect(GenJnlLine, GLEntryNo, NextLineNo);
@@ -175,7 +177,6 @@ codeunit 96798 "FRE Journal Integration Mgt."
     var
         FREJournalIntegrationMgt: Codeunit "FRE Journal Integration Mgt.";
     begin
-        Message('OnAfterGLFinishPosting - Entry No: %1, FRE Integration: %2', GLEntry."Entry No.", GenJnlLine."FRE Integration");
         if not GenJnlLine."FRE Integration" then
             exit;
 

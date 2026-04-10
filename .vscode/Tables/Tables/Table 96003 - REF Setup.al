@@ -103,6 +103,12 @@ table 96003 "REF Setup"
             TableRelation = "REF Income & Expense Template"."Row No.";
             ValidateTableRelation = false;
         }
+        field(303; "Default Depreciation Row No"; Code[10])
+        {
+            Caption = 'Default depreciation row number';
+            TableRelation = "REF Income & Expense Template"."Row No.";
+            ValidateTableRelation = false;
+        }
         field(60000; "Interaction Template Filter"; Text[30])
         {
         }
