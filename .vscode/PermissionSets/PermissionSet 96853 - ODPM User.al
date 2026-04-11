@@ -31,7 +31,7 @@ permissionset 96853 "ODPM USER"
         table "FRE Jnl. Line" = X,
         tabledata "FRE Jnl. Line" = RIMD,
         table "FRE Ledger Entry" = X,
-        tabledata "FRE Ledger Entry" = R,
+        tabledata "FRE Ledger Entry" = RIMD,
         table "FRE Bank Statement" = X,
         tabledata "FRE Bank Statement" = RIMD,
         table "Gen Journal Import Buffer" = X,

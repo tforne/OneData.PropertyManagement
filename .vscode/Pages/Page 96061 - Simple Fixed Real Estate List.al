@@ -17,7 +17,7 @@ page 96061 "Simple Fixed Real Estate List"
             usercontrol(ClipboardHelper; "OD Clipboard Helper")
             {
                 ApplicationArea = All;
-                Visible = false;
+                Visible = true;
 
                 trigger CopyFailed(ErrorText: Text)
                 begin

@@ -14,7 +14,7 @@ page 96000 "Fixed Real Estate Card"
             usercontrol(ClipboardHelper; "OD Clipboard Helper")
             {
                 ApplicationArea = All;
-                Visible = false;
+                Visible = true;
 
                 trigger CopyFailed(ErrorText: Text)
                 begin

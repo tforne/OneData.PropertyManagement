@@ -8818,6 +8818,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1043518440 - NamedType 128038475" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The incident intake agent setup has been completed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - NamedType SetupCompletedMsgLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1043518440 - NamedType 1015711762" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Recommended quick path: configure the shared mailbox, add the Power Automate flow URL, decide whether AI will enrich the intake, and finish the validation step.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ODPM Incid. Agent Setup Wizard - NamedType WelcomeInfoLbl</note>
+        </trans-unit>
         <trans-unit id="Page 1043518440 - Control 670393910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AI</source>
           <note from="Developer" annotates="general" priority="2"></note>

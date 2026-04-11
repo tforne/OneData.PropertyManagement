@@ -64,7 +64,8 @@ codeunit 96803 "Gen Journal FRE Subscribers"
         if not REFSetup.Get() then
             exit;
 
-        REFSetup.TestField("Default Depreciation Row No");
+        if REFSetup."Default Depreciation Row No" = '' then
+            exit;
 
         GenJournalLine."FRE Integration" := true;
         GenJournalLine.Validate("FRE FA No.", FANo);

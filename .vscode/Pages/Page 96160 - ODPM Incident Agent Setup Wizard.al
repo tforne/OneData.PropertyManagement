@@ -1,7 +1,7 @@
 page 96160 "ODPM Incid. Agent Setup Wizard"
 {
     ApplicationArea = All;
-    Caption = WizardCaptionLbl;
+    Caption = 'Incident Intake Agent Setup Wizard';
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = NavigatePage;
@@ -13,11 +13,11 @@ page 96160 "ODPM Incid. Agent Setup Wizard"
         {
             group(WelcomeStep)
             {
-                Caption = WelcomeStepCaptionLbl;
+                Caption = 'Welcome';
                 Visible = Step = 1;
                 group(WelcomeContent)
                 {
-                    InstructionalText = WelcomeInstructionLbl;
+                    InstructionalText = 'This wizard helps you configure the shared mailbox and Power Automate flow required to intake incidents from e-mail.';
                     field(WelcomeInfo; WelcomeInfo)
                     {
                         ApplicationArea = All;
@@ -29,56 +29,56 @@ page 96160 "ODPM Incid. Agent Setup Wizard"
             }
             group(PowerAutomateStep)
             {
-                Caption = PowerAutomateStepCaptionLbl;
+                Caption = 'Power Automate';
                 Visible = Step = 2;
                 group(PowerAutomateContent)
                 {
                     field("Shared Mailbox"; Rec."Shared Mailbox")
                     {
-                        ToolTip = SharedMailboxToolTipLbl;
+                        ToolTip = 'Specifies the mailbox to monitor for incident e-mails.';
                     }
                     field("Incoming Mail Folder"; Rec."Incoming Mail Folder")
                     {
-                        ToolTip = IncomingMailFolderToolTipLbl;
+                        ToolTip = 'Specifies the folder to monitor in the shared mailbox.';
                     }
                     field("Power Automate Flow Name"; Rec."Power Automate Flow Name")
                     {
-                        ToolTip = PowerAutomateFlowNameToolTipLbl;
+                        ToolTip = 'Specifies the flow name shown to users.';
                     }
                     field("Power Automate Flow URL"; Rec."Power Automate Flow URL")
                     {
                         ExtendedDatatype = URL;
-                        ToolTip = PowerAutomateFlowUrlToolTipLbl;
+                        ToolTip = 'Specifies the endpoint or flow URL used to receive incident intake data.';
                     }
                 }
             }
             group(AIStep)
             {
-                Caption = AIStepCaptionLbl;
+                Caption = 'AI';
                 Visible = Step = 3;
                 group(AIContent)
                 {
                     field("Use AI"; Rec."Use AI")
                     {
-                        ToolTip = UseAIToolTipLbl;
+                        ToolTip = 'Specifies whether the flow should request AI suggestions before creating draft incidents.';
                     }
                     field("AI Provider"; Rec."AI Provider")
                     {
-                        ToolTip = AIProviderToolTipLbl;
+                        ToolTip = 'Specifies the planned AI provider.';
                     }
                     field("Auto Create Drafts"; Rec."Auto Create Drafts")
                     {
-                        ToolTip = AutoCreateDraftsToolTipLbl;
+                        ToolTip = 'Specifies whether draft incidents can be created automatically.';
                     }
                     field("Confidence Threshold"; Rec."Confidence Threshold")
                     {
-                        ToolTip = ConfidenceThresholdToolTipLbl;
+                        ToolTip = 'Specifies the confidence threshold expected for automation.';
                     }
                 }
             }
             group(ReviewStep)
             {
-                Caption = ReviewStepCaptionLbl;
+                Caption = 'Review';
                 Visible = Step = 4;
                 group(ReviewContent)
                 {
@@ -92,25 +92,25 @@ page 96160 "ODPM Incid. Agent Setup Wizard"
                     field(MailboxConfigured; MailboxConfigured)
                     {
                         ApplicationArea = All;
-                        Caption = MailboxConfiguredCaptionLbl;
+                        Caption = 'Shared Mailbox Configured';
                         Editable = false;
                     }
                     field(FlowConfigured; FlowConfigured)
                     {
                         ApplicationArea = All;
-                        Caption = FlowConfiguredCaptionLbl;
+                        Caption = 'Power Automate Flow Configured';
                         Editable = false;
                     }
                     field(AIConfigured; AIConfigured)
                     {
                         ApplicationArea = All;
-                        Caption = AIConfiguredCaptionLbl;
+                        Caption = 'AI Threshold Ready';
                         Editable = false;
                     }
                     field(SetupReady; SetupReady)
                     {
                         ApplicationArea = All;
-                        Caption = SetupReadyCaptionLbl;
+                        Caption = 'Setup Ready';
                         Editable = false;
                     }
                 }
@@ -125,7 +125,7 @@ page 96160 "ODPM Incid. Agent Setup Wizard"
             action(BackAction)
             {
                 ApplicationArea = All;
-                Caption = BackActionCaptionLbl;
+                Caption = 'Back';
                 Enabled = Step > 1;
                 Image = PreviousRecord;
                 InFooterBar = true;
@@ -139,7 +139,7 @@ page 96160 "ODPM Incid. Agent Setup Wizard"
             action(NextAction)
             {
                 ApplicationArea = All;
-                Caption = NextActionCaptionLbl;
+                Caption = 'Next';
                 Enabled = Step < 4;
                 Image = NextRecord;
                 InFooterBar = true;
@@ -154,7 +154,7 @@ page 96160 "ODPM Incid. Agent Setup Wizard"
             action(FinishAction)
             {
                 ApplicationArea = All;
-                Caption = FinishActionCaptionLbl;
+                Caption = 'Finish';
                 Enabled = Step = 4;
                 Image = Approve;
                 InFooterBar = true;
@@ -174,7 +174,7 @@ page 96160 "ODPM Incid. Agent Setup Wizard"
             action(CancelAction)
             {
                 ApplicationArea = All;
-                Caption = CancelActionCaptionLbl;
+                Caption = 'Cancel';
                 Image = Cancel;
                 InFooterBar = true;
 
@@ -208,29 +208,7 @@ page 96160 "ODPM Incid. Agent Setup Wizard"
         FlowConfigured: Boolean;
         AIConfigured: Boolean;
         SetupReady: Boolean;
-        WizardCaptionLbl: Label 'Incident Intake Agent Setup Wizard';
-        WelcomeStepCaptionLbl: Label 'Welcome';
-        WelcomeInstructionLbl: Label 'This wizard helps you configure the shared mailbox and Power Automate flow required to intake incidents from e-mail.';
         WelcomeInfoLbl: Label 'Recommended quick path: configure the shared mailbox, add the Power Automate flow URL, decide whether AI will enrich the intake, and finish the validation step.';
-        PowerAutomateStepCaptionLbl: Label 'Power Automate';
-        SharedMailboxToolTipLbl: Label 'Specifies the mailbox to monitor for incident e-mails.';
-        IncomingMailFolderToolTipLbl: Label 'Specifies the folder to monitor in the shared mailbox.';
-        PowerAutomateFlowNameToolTipLbl: Label 'Specifies the flow name shown to users.';
-        PowerAutomateFlowUrlToolTipLbl: Label 'Specifies the endpoint or flow URL used to receive incident intake data.';
-        AIStepCaptionLbl: Label 'AI';
-        UseAIToolTipLbl: Label 'Specifies whether the flow should request AI suggestions before creating draft incidents.';
-        AIProviderToolTipLbl: Label 'Specifies the planned AI provider.';
-        AutoCreateDraftsToolTipLbl: Label 'Specifies whether draft incidents can be created automatically.';
-        ConfidenceThresholdToolTipLbl: Label 'Specifies the confidence threshold expected for automation.';
-        ReviewStepCaptionLbl: Label 'Review';
-        MailboxConfiguredCaptionLbl: Label 'Shared Mailbox Configured';
-        FlowConfiguredCaptionLbl: Label 'Power Automate Flow Configured';
-        AIConfiguredCaptionLbl: Label 'AI Threshold Ready';
-        SetupReadyCaptionLbl: Label 'Setup Ready';
-        BackActionCaptionLbl: Label 'Back';
-        NextActionCaptionLbl: Label 'Next';
-        FinishActionCaptionLbl: Label 'Finish';
-        CancelActionCaptionLbl: Label 'Cancel';
         SetupCompletedMsgLbl: Label 'The incident intake agent setup has been completed.';
 
     local procedure UpdateStep()

@@ -13,7 +13,9 @@ codeunit 50501 GeneralManagementInstall
     var
         ODPMIncidentAgentSetupMgt: Codeunit "ODPM Incident Agent Setup Mgt.";
         AgentSetup: Record "ODPM Incident Agent Setup";
+        FADepreciationBook : Record "FA Depreciation Book";
     begin
+        FADepreciationBook.deleteall;
         installNewVersion();
         InsertReportSelections();
         InsTenantUserMapping();

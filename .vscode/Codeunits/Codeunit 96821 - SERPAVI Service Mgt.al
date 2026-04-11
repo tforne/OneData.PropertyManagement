@@ -68,7 +68,7 @@ codeunit 96821 "SERPAVI Service Mgt."
 
     local procedure GetConsultUrl(): Text
     begin
-        exit('https://www.mivau.gob.es/vivienda/alquila-bien-es-tu-derecho/serpavi');
+        exit('https://serpavi.mivau.gob.es/');
     end;
 
     var
