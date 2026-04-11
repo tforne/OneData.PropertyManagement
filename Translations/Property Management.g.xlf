@@ -5088,6 +5088,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Price Increases by Refer index - Field Year - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1953274202 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RE Insurance Cue</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Cue - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1953274202 - Field 2598752974 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Active Policies</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Cue - Field Active Policies - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1953274202 - Field 3021512675 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expired Policies</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Cue - Field Expired Policies - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1953274202 - Field 1663593181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Cue - Field Primary Key - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2670195151 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>RE Insurance Policy</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5143,11 +5163,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Ending Date - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2670195151 - Field 2785006923 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fixed Real Estate No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Fixed Real Estate No. - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 2670195151 - Field 688875861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Insurer Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5177,6 +5192,51 @@
           <source>Starting Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy - Field Starting Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 757086079 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RE Insurance Policy Asset</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy Asset - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 757086079 - Field 1090351696 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Active</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy Asset - Field Active - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 757086079 - Field 2440698725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Claim E-Mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy Asset - Field Claim E-Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 757086079 - Field 458406397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy Asset - Field Ending Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 757086079 - Field 2785006923 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Real Estate No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy Asset - Field Fixed Real Estate No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 757086079 - Field 688875861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurer Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy Asset - Field Insurer Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 757086079 - Field 3246510314 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Policy Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy Asset - Field Policy Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 757086079 - Field 2939590972 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Policy Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy Asset - Field Policy Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 757086079 - Field 760483281 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Policy No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table RE Insurance Policy Asset - Field Policy No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2729912319 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>SB Owner Cue</source>
@@ -5847,6 +5907,61 @@
           <source>Hay líneas con error</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType ThereAreLinesWithErrorErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 2389531293" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido conectar con el servicio oficial: %1.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType ConnectionErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 507316189" size-unit="char" translate="yes" xml:space="preserve">
+          <source>El servicio oficial %1 no ha devuelto contenido.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType EmptyResponseErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 2197075555" size-unit="char" translate="yes" xml:space="preserve">
+          <source>El servicio oficial %1 devolvió el código %2.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType HttpStatusErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 892130040" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido interpretar la respuesta oficial del IPC.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType IpcFormatErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 652186616" size-unit="char" translate="yes" xml:space="preserve">
+          <source>https://www.mivau.gob.es/vivienda/calculadora-precio-alquiler</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType IpcSourceUrl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 4223134240" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido convertir el valor oficial del IPC "%1".</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType IpcValueErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 22194515" size-unit="char" translate="yes" xml:space="preserve">
+          <source>https://www.ine.es/jaxiT3/files/t/csv_bdsc/72975.csv</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType IravCsvUrl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 2245451670" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido interpretar la respuesta oficial del IRAV.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType IravFormatErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 2159326590" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido convertir el valor oficial del IRAV "%1".</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType IravValueErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 2278331935" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha encontrado base de cálculo para generar la revisión del contrato %1.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType NoBaseAmountErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 3489244460" size-unit="char" translate="yes" xml:space="preserve">
+          <source>La categoría de índice %1 no está soportada por la automatización oficial. Usa IPC o IRAV.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType UnsupportedCategoryErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1987266316 - NamedType 1156462942" size-unit="char" translate="yes" xml:space="preserve">
           <source>Choose the file to upload.</source>
@@ -8543,6 +8658,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action SignContract - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 602873404 - Action 1042706022 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consulta el índice oficial vigente del INE según la categoría del contrato y genera o actualiza la propuesta de revisión de renta.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action UpdateRentReviewFromINE - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 602873404 - Action 1042706022 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Actualizar revisión alquiler</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action UpdateRentReviewFromINE - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 602873404 - Action 1344672713 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9598,6 +9723,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2479975791 - NamedType 3086641160" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Esta incidencia requiere notificación al proveedor del seguro. Antes de notificar, seleccione la póliza aplicable.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - NamedType InsurancePolicySelectionReminderTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 2479975791 - NamedType 309911520" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Esta incidencia requiere notificación al proveedor del seguro. Revise la póliza y utilice la acción Notify Insurance.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - NamedType InsuranceReminderTxt</note>
+        </trans-unit>
         <trans-unit id="Page 2479975791 - Control 2378863201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contract - Contact Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9678,10 +9813,45 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Mobile - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4054434970 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Insurance Activities - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4054434970 - Control 1538464910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Seguros</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Insurance Activities - Control Insurance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4054434970 - Control 2598752974 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vigentes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Insurance Activities - Control Active Policies - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4054434970 - Control 3021512675 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Caducadas</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Insurance Activities - Control Expired Policies - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3104092588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Policies</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Insurance Asset ListPart - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 39356045 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Insurance Policies</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Insurance Policies - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 39356045 - Action 4150001646 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Linked Assets</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Insurance Policies - Action LinkedAssets - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1590083754 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Policy Assets</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Insurance Policy Assets - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3752243300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Insurance Policies</source>
@@ -10127,6 +10297,11 @@
           <source>Payment Terms</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Payment Terms - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 1860716487 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RE RC Getting Started</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action RE RC Getting Started - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 586345089 - Action 2422034571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Real Estate Fixed Setup</source>

@@ -79,7 +79,10 @@ La solución permite mantener un histórico de precios índice de referencia de 
 
 La solución incorpora la gestión básica de pólizas vinculadas al activo inmobiliario para centralizar la información aseguradora y relacionarla con incidencias operativas.
 
+Cuando una póliza se vincula a un activo inmobiliario de tipo `Propiedad`, esa vinculación debe extenderse también a los activos inmobiliarios de tipo `Activo` relacionados, para mantener la cobertura accesible desde el nivel patrimonial y desde el nivel operativo.
+
 - Definición de pólizas por inmueble
+- Vinculación adicional a activos tipo `Activo` cuando la póliza nace en una `Propiedad`
 - Datos de aseguradora y mediador
 - Control de número de póliza
 - Tipos de cobertura

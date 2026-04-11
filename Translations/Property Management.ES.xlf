@@ -7017,6 +7017,83 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen Journal Import Mgt. - NamedType ThereAreLinesWithErrorErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 2389531293" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido conectar con el servicio oficial: %1.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType ConnectionErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 507316189" size-unit="char" translate="yes" xml:space="preserve">
+          <source>El servicio oficial %1 no ha devuelto contenido.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType EmptyResponseErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 2197075555" size-unit="char" translate="yes" xml:space="preserve">
+          <source>El servicio oficial %1 devolvió el código %2.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType HttpStatusErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 892130040" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido interpretar la respuesta oficial del IPC.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType IpcFormatErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 652186616" size-unit="char" translate="yes" xml:space="preserve">
+          <source>https://www.mivau.gob.es/vivienda/calculadora-precio-alquiler</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType IpcSourceUrl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 4223134240" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido convertir el valor oficial del IPC "%1".</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType IpcValueErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 22194515" size-unit="char" translate="yes" xml:space="preserve">
+          <source>https://www.ine.es/jaxiT3/files/t/csv_bdsc/72975.csv</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType IravCsvUrl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 2245451670" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido interpretar la respuesta oficial del IRAV.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType IravFormatErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 2159326590" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha podido convertir el valor oficial del IRAV "%1".</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType IravValueErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 2278331935" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No se ha encontrado base de cálculo para generar la revisión del contrato %1.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType NoBaseAmountErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2087790840 - NamedType 3489244460" size-unit="char" translate="yes" xml:space="preserve">
+          <source>La categoría de índice %1 no está soportada por la automatización oficial. Usa IPC o IRAV.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit INE Rental Index Mgt. - NamedType UnsupportedCategoryErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1987266316 - NamedType 1156462942" size-unit="char" translate="yes" xml:space="preserve">
           <source>Choose the file to upload.</source>
           <target>Elija el archivo para cargar.</target>
@@ -10249,6 +10326,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action SignContract - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 602873404 - Action 1042706022 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consulta el índice oficial vigente del INE según la categoría del contrato y genera o actualiza la propuesta de revisión de renta.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action UpdateRentReviewFromINE - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 602873404 - Action 1042706022 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Actualizar revisión alquiler</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Lease Contract Card - Action UpdateRentReviewFromINE - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 602873404 - Action 1344672713 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
           <target>Prepárese para imprimir el documento. Se abre una ventana de solicitud de informe para el documento donde puede especificar qué incluir en la impresión.</target>
@@ -11514,6 +11605,20 @@
           <target>Incidente inmobiliario</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2479975791 - NamedType 3086641160" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Esta incidencia requiere notificación al proveedor del seguro. Antes de notificar, seleccione la póliza aplicable.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - NamedType InsurancePolicySelectionReminderTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 2479975791 - NamedType 309911520" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Esta incidencia requiere notificación al proveedor del seguro. Revise la póliza y utilice la acción Notify Insurance.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - NamedType InsuranceReminderTxt</note>
         </trans-unit>
         <trans-unit id="Page 2479975791 - Control 2378863201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contract - Contact Name</source>

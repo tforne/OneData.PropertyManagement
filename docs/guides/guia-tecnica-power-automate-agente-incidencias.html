@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía técnica Power Automate | OneData Property Management</title>
+  <style>
+    body { margin:0; font-family:"Segoe UI",Arial,sans-serif; background:#f6f8fc; color:#1d2430; }
+    .container { width:min(960px, calc(100% - 32px)); margin:0 auto; }
+    .top { border-bottom:1px solid #dce4f0; background:#fff; }
+    .top .container { min-height:60px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    a { color:#0f6cbd; text-decoration:none; }
+    .paper { background:#fff; border:1px solid #dce4f0; border-radius:18px; padding:28px; margin:26px 0 48px; }
+    h1 { font-size:clamp(2rem, 5vw, 3.2rem); margin:24px 0 12px; }
+    h2 { margin-top:28px; }
+    p, li { line-height:1.8; color:#4f5d73; }
+    ul, ol { padding-left:22px; }
+    code, pre { background:#f3f6fb; border-radius:8px; }
+    code { padding:2px 6px; }
+    pre { padding:16px; overflow:auto; }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="container">
+      <strong>OneData Guides</strong>
+      <nav>
+        <a href="index.html">Índice</a> ·
+        <a href="guia-tecnica-power-automate-agente-incidencias.md">Markdown</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <h1>Guía técnica de Power Automate para el agente de incidencias</h1>
+    <article class="paper">
+      <p>Esta guía resume la configuración técnica recomendada para conectar un buzón compartido de Microsoft 365 con OneData Property Management mediante Power Automate.</p>
+      <h2>Arquitectura base</h2>
+      <ol>
+        <li>Llega un correo a un buzón compartido.</li>
+        <li>Power Automate detecta el nuevo mensaje.</li>
+        <li>Extrae asunto, remitente, cuerpo y adjuntos.</li>
+        <li>Transforma esos datos al contrato esperado.</li>
+        <li>Los envía a Business Central o a un endpoint intermedio.</li>
+      </ol>
+      <h2>Trigger recomendado</h2>
+      <p>El escenario base usa <code>When a new email arrives in a shared mailbox (V2)</code>.</p>
+      <h2>Datos mínimos del flujo</h2>
+      <ul>
+        <li><code>messageId</code></li>
+        <li><code>from</code></li>
+        <li><code>subject</code></li>
+        <li><code>body</code></li>
+        <li><code>receivedDateTime</code></li>
+        <li><code>attachments</code></li>
+      </ul>
+      <h2>Opciones de integración</h2>
+      <ul>
+        <li>Integración directa con Business Central</li>
+        <li>Endpoint HTTP intermedio</li>
+        <li>Paso adicional de IA antes del alta</li>
+      </ul>
+      <h2>Payload mínimo recomendado</h2>
+      <pre><code>{
+  "sharedMailbox": "incidencias@empresa.com",
+  "folder": "Inbox",
+  "subject": "Fuga de agua en cocina",
+  "from": "cliente@dominio.com",
+  "hasAttachments": true
+}</code></pre>
+      <h2>Validaciones clave</h2>
+      <ul>
+        <li>Permisos sobre el buzón compartido</li>
+        <li>Carpeta correcta en trigger y Business Central</li>
+        <li>Respuesta correcta del destino final</li>
+        <li>Procesamiento correcto de adjuntos</li>
+      </ul>
+      <h2>Lectura completa</h2>
+      <p>Si necesitas el detalle completo del documento técnico, puedes abrir también la versión original en <a href="guia-tecnica-power-automate-agente-incidencias.md">Markdown</a>.</p>
+    </article>
+  </main>
+</body>
+</html>

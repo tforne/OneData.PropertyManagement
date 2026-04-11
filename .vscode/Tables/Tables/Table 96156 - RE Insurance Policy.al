@@ -2,6 +2,7 @@ table 96156 "RE Insurance Policy"
 {
     Caption = 'RE Insurance Policy';
     DataPerCompany = false;
+    LookupPageId = "RE Insurance Policies";
 
     fields
     {
@@ -9,11 +10,7 @@ table 96156 "RE Insurance Policy"
         {
             Caption = 'No.';
         }
-        field(2; "Fixed Real Estate No."; Code[20])
-        {
-            Caption = 'Fixed Real Estate No.';
-            TableRelation = "Fixed Real Estate"."No.";
-        }
+
         field(3; Description; Text[100])
         {
             Caption = 'Description';
@@ -83,10 +80,15 @@ table 96156 "RE Insurance Policy"
         {
             Clustered = true;
         }
-        key(Key2; "Fixed Real Estate No.", Active)
+
+        key(Key3; "Policy No.")
         {
         }
-        key(Key3; "Policy No.")
+    }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; "No.", Description, "Policy No.", "Insurer Name", "Broker Name", "Coverage Type", "Starting Date", "Ending Date", "Claim E-Mail", "Claim Phone No.", "Coverage Amount", Deductible, Premium, Active, Notes)
         {
         }
     }
@@ -102,5 +104,63 @@ table 96156 "RE Insurance Policy"
         REFSetup.Get();
         REFSetup.TestField("Insurance Nos.");
         "No." := NoSeries.GetNextNo(REFSetup."Insurance Nos.", WorkDate(), true);
+    end;
+
+    trigger OnModify()
+    begin
+        SyncRelatedIncidents();
+    end;
+
+    procedure IsLinkedToFixedRealEstate(FixedRealEstateNo: Code[20]): Boolean
+    var
+        PolicyAsset: Record "RE Insurance Policy Asset";
+    begin
+        if FixedRealEstateNo = '' then
+            exit(false);
+
+        exit(PolicyAsset.Get("No.", FixedRealEstateNo));
+    end;
+
+    local procedure SyncRelatedIncidents()
+    var
+        Incident: Record "Incident Assets Real Estate";
+        PolicyAsset: Record "RE Insurance Policy Asset";
+    begin
+        if not Active then
+            exit;
+
+        PolicyAsset.SetRange("Policy No.", "No.");
+        if not PolicyAsset.FindSet() then
+            exit;
+
+        repeat
+            Incident.Reset();
+            Incident.SetRange("Fixed Real Estate No.", PolicyAsset."Fixed Real Estate No.");
+            Incident.SetFilter(StateCode, '<>%1', Incident.StateCode::Closed);
+
+            if Incident.FindSet() then
+                repeat
+                    if ShouldSyncIncident(Incident) then begin
+                        Incident.Validate("Insurance Policy No.", "No.");
+                        Incident."Notify Insurance" := true;
+
+                        if not Incident."Insurance Notified" then
+                            Incident."Insurance Status" := Incident."Insurance Status"::Pending;
+
+                        Incident.Modify(true);
+                    end;
+                until Incident.Next() = 0;
+        until PolicyAsset.Next() = 0;
+    end;
+
+    local procedure ShouldSyncIncident(Incident: Record "Incident Assets Real Estate"): Boolean
+    begin
+        if Incident."Insurance Policy No." = '' then
+            exit(true);
+
+        if Incident."Insurance Policy No." = "No." then
+            exit(true);
+
+        exit(false);
     end;
 }

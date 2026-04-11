@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía de seguros por activo | OneData Property Management</title>
+  <style>
+    body { margin:0; font-family:"Segoe UI",Arial,sans-serif; background:#f6f8fc; color:#1d2430; }
+    .container { width:min(960px, calc(100% - 32px)); margin:0 auto; }
+    .top { border-bottom:1px solid #dce4f0; background:#fff; }
+    .top .container { min-height:60px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    a { color:#0f6cbd; text-decoration:none; }
+    .paper { background:#fff; border:1px solid #dce4f0; border-radius:18px; padding:28px; margin:26px 0 48px; }
+    h1 { font-size:clamp(2rem, 5vw, 3.2rem); margin:24px 0 12px; }
+    h2 { margin-top:28px; }
+    p, li { line-height:1.8; color:#4f5d73; }
+    ul, ol { padding-left:22px; }
+    code { background:#f3f6fb; border-radius:8px; padding:2px 6px; }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="container">
+      <strong>OneData Guides</strong>
+      <nav>
+        <a href="index.html">Índice</a> ·
+        <a href="guia-seguros-vinculados-activos-inmobiliarios.md">Markdown</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <h1>Guía funcional para introducir seguros y vincularlos a los activos inmobiliarios</h1>
+    <article class="paper">
+      <p>Esta guía resume el proceso recomendado para registrar una póliza, relacionarla con un activo inmobiliario y dejarla preparada para su uso posterior en incidencias dentro de OneData Property Management.</p>
+
+      <h2>Datos mínimos recomendados</h2>
+      <ul>
+        <li><code>N.º de póliza</code></li>
+        <li><code>Aseguradora</code></li>
+        <li><code>Mediador</code></li>
+        <li><code>Fecha inicio</code> y <code>fecha fin</code></li>
+        <li><code>Cobertura</code> y <code>franquicia</code></li>
+        <li><code>Contacto de siniestros</code></li>
+        <li><code>Activo inmobiliario</code> o conjunto de activos asociados</li>
+      </ul>
+
+      <h2>Flujo recomendado</h2>
+      <ol>
+        <li>Abrir la ficha del activo inmobiliario.</li>
+        <li>Crear una nueva póliza desde el bloque de seguros.</li>
+        <li>Si la póliza cubre varios inmuebles, crear los vínculos con todos los activos necesarios.</li>
+        <li>Si el activo es de tipo <code>Propiedad</code>, vincular también la póliza a los activos de tipo <code>Activo</code> relacionados.</li>
+        <li>Informar identificación, cobertura, vigencia y contacto.</li>
+        <li>Revisar que la póliza queda asociada al inmueble correcto.</li>
+        <li>Guardar y validar que el usuario podrá reutilizarla en incidencias.</li>
+      </ol>
+
+      <h2>Validaciones clave</h2>
+      <ul>
+        <li>Una misma póliza puede estar vinculada a varios activos si realmente cubre ese conjunto.</li>
+        <li>Si se registra sobre una <code>Propiedad</code>, también debe quedar vinculada a sus activos tipo <code>Activo</code>.</li>
+        <li>El número de póliza debe coincidir con el documento original.</li>
+        <li>La vigencia debe estar informada y ser coherente.</li>
+        <li>Debe existir un canal de contacto útil para siniestros.</li>
+        <li>Si hay varias pólizas en un mismo activo, deben distinguirse claramente.</li>
+      </ul>
+
+      <h2>Uso posterior en incidencias</h2>
+      <p>Cuando se registra una incidencia sobre un inmueble, la solución puede marcar la necesidad de notificar al seguro si el activo tiene póliza activa. Si solo existe una póliza, puede proponerse automáticamente; si hay varias, el usuario debe elegir la aplicable antes de lanzar la notificación. Si la póliza se asigna al activo después de crear la incidencia, la incidencia existente puede actualizarse con la información de seguro.</p>
+
+      <h2>Recordatorio y control</h2>
+      <ul>
+        <li>La incidencia puede quedar marcada con <code>Notify Insurance</code>.</li>
+        <li>Al abrir la ficha, el usuario recibe un aviso de notificación pendiente.</li>
+        <li>Si no hay póliza seleccionada, el aviso debe orientar a completar esa selección.</li>
+        <li>La incidencia no debería cerrarse mientras la notificación siga pendiente, salvo que el usuario desmarque esa obligación.</li>
+        <li>Cuando una póliza se vincula a una <code>Propiedad</code>, esa relación puede extenderse automáticamente a sus activos tipo <code>Activo</code>.</li>
+      </ul>
+
+      <h2>Lectura completa</h2>
+      <p>La versión detallada con recomendaciones funcionales, criterios de vinculación y checklist operativo está disponible en <a href="guia-seguros-vinculados-activos-inmobiliarios.md">Markdown</a>.</p>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual de configuración del agente de incidencias | OneData Property Management</title>
+  <style>
+    body { margin:0; font-family:"Segoe UI",Arial,sans-serif; background:#f6f8fc; color:#1d2430; }
+    .container { width:min(960px, calc(100% - 32px)); margin:0 auto; }
+    .top { border-bottom:1px solid #dce4f0; background:#fff; }
+    .top .container { min-height:60px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    a { color:#0f6cbd; text-decoration:none; }
+    .paper { background:#fff; border:1px solid #dce4f0; border-radius:18px; padding:28px; margin:26px 0 48px; }
+    h1 { font-size:clamp(2rem, 5vw, 3.2rem); margin:24px 0 12px; }
+    h2 { margin-top:28px; }
+    p, li { line-height:1.8; color:#4f5d73; }
+    ul, ol { padding-left:22px; }
+    code { background:#f3f6fb; padding:2px 6px; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="container">
+      <strong>OneData Guides</strong>
+      <nav>
+        <a href="index.html">Índice</a> ·
+        <a href="manual-configuracion-agente-incidencias-power-automate.md">Markdown</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <h1>Manual de configuración del agente de recepción de incidencias</h1>
+    <article class="paper">
+      <p>Esta guía explica cómo configurar el agente de recepción de incidencias para que lea correos desde un buzón compartido y los procese mediante Power Automate.</p>
+      <h2>Requisitos previos</h2>
+      <ul>
+        <li>Buzón compartido de Microsoft 365</li>
+        <li>Permisos sobre el buzón</li>
+        <li>Acceso a Power Automate</li>
+        <li>Acceso a Business Central</li>
+      </ul>
+      <h2>Campos del asistente</h2>
+      <ul>
+        <li><strong>Buzón compartido</strong>: dirección del buzón de incidencias</li>
+        <li><strong>Carpeta de correo entrante</strong>: carpeta supervisada por el flujo</li>
+        <li><strong>Nombre del flujo</strong>: nombre visible en Power Automate</li>
+        <li><strong>URL del flujo</strong>: URL de referencia del flujo</li>
+      </ul>
+      <h2>Configuración mínima recomendada</h2>
+      <ol>
+        <li>Crear buzón compartido dedicado.</li>
+        <li>Usar <code>Inbox</code> o una subcarpeta específica.</li>
+        <li>Crear flujo automatizado en Power Automate.</li>
+        <li>Configurar el trigger sobre el buzón compartido.</li>
+        <li>Guardar la URL del flujo en Business Central.</li>
+      </ol>
+      <h2>Valores de ejemplo</h2>
+      <ul>
+        <li>Buzón: <code>incidencias@empresa.com</code></li>
+        <li>Carpeta: <code>Inbox</code></li>
+        <li>Nombre del flujo: <code>ODPM - Recepcion de incidencias</code></li>
+      </ul>
+      <h2>Validación final</h2>
+      <ol>
+        <li>Enviar un correo de prueba.</li>
+        <li>Confirmar que entra en la carpeta esperada.</li>
+        <li>Verificar la ejecución del flujo.</li>
+        <li>Confirmar que Business Central recibe o registra la entrada.</li>
+      </ol>
+      <p>Si necesitas la versión completa paso a paso, puedes abrir también el documento original en <a href="manual-configuracion-agente-incidencias-power-automate.md">Markdown</a>.</p>
+    </article>
+  </main>
+</body>
+</html>

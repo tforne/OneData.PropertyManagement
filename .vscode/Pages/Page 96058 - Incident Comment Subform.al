@@ -26,6 +26,11 @@ page 96058 "Incident Comment Subform"
                     ApplicationArea = Comments;
                     ToolTip = 'Specifies the comment itself.';
                 }
+                field("Comentario del sistema"; Rec."Comentario del sistema")
+                {
+                    ApplicationArea = Comments;
+                    ToolTip = 'Indica si el comentario ha sido generado por el sistema.';
+                }
             }
         }
     }

@@ -28,12 +28,23 @@ codeunit 96102 "RE Insurance Notify Mgt"
 
         Recipients.Add(InsurancePolicy."Claim E-Mail");
         EmailMessage.Create(Recipients, SubjectText, BodyText, true);
-        Email.Send(EmailMessage);
+
+        if not TrySendEmail(Email, EmailMessage) then begin
+            Message('No se ha podido enviar el correo automáticamente. Revise la configuración de cuentas de correo y complete el envío desde el editor de correo.\%1', GetLastErrorText());
+            Email.OpenInEditorModally(EmailMessage);
+            exit;
+        end;
 
         Incident."Insurance Notified" := true;
         Incident."Insurance Notification Date" := CurrentDateTime();
         Incident."Insurance Status" := Incident."Insurance Status"::Reported;
         Incident.Modify(true);
+    end;
+
+    [TryFunction]
+    local procedure TrySendEmail(var Email: Codeunit Email; var EmailMessage: Codeunit "Email Message")
+    begin
+        Email.Send(EmailMessage);
     end;
 
     local procedure EscapeHtml(InputText: Text): Text

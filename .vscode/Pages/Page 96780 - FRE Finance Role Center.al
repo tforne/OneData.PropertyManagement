@@ -18,6 +18,9 @@ page 96780 "FRE Finance Role Center"
             part(FRELedgerEntries; "FRE Ledger Entry ListPart")
             {
             }
+            part("Account Manager Activities"; 9030)
+            {
+            }
         }
     }
 

@@ -44,6 +44,7 @@ permissionset 96852 "ODPM SETUP"
         page "FRE Excel Template Setup" = X,
         page "FRE Asset Suggestion Rule" = X,
         codeunit "Catastro Service Mgt." = X,
+        codeunit "INE Rental Index Mgt." = X,
         codeunit "ODPM Incident Agent Setup Mgt." = X,
         codeunit "SERPAVI Service Mgt." = X,
         codeunit "GoDocumentation" = X,

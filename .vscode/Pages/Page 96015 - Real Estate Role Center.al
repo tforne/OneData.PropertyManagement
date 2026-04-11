@@ -17,21 +17,24 @@ page 96015 "Real Estate Role Center"
             part("Real Estate"; 96014)
             {
             }
-            part(GettingStarted; "RE RC Getting Started")
+            // part(GettingStarted; "RE RC Getting Started")
+            // {
+            // }
+            part("Real Estate Incidents"; 96056)
             {
             }
-            part("Real Estate Incidents"; 96056)
+            part(InsuranceActivities; "RE Insurance Activities")
             {
             }
             part(RECashFlowChart;"RE Analisis Ingresos y Gastos")
             {
             }
-            part(FRELedgerEntries; "FRE Ledger Entry ListPart")
-            {
-            }
-            part("Account Manager Activities"; 9030)
-            {
-            }
+            // part(FRELedgerEntries; "FRE Ledger Entry ListPart")
+            // {
+            // }
+            // part("Account Manager Activities"; 9030)
+            // {
+            // }
             part("User Tasks Activities"; 9078)
             {
             }
@@ -204,6 +207,12 @@ page 96015 "Real Estate Role Center"
             group(Setup)
             {
                 Caption = 'Setup';
+                action("RE RC Getting Started")
+                {
+                    Caption = 'RE RC Getting Started';
+                    Image = Setup;
+                    RunObject = Page 96812;
+                }
                 action("Real Estate Fixed Setup")
                 {
                     Caption = 'Real Estate Fixed Setup';
@@ -298,6 +307,7 @@ page 96015 "Real Estate Role Center"
             }
         }
     }
+
 }
 
 

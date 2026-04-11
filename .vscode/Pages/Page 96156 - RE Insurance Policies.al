@@ -13,7 +13,6 @@ page 96156 "RE Insurance Policies"
             repeater(Group)
             {
                 field("No."; Rec."No.") {}
-                field("Fixed Real Estate No."; Rec."Fixed Real Estate No.") {}
                 field(Description; Rec.Description) {}
                 field("Policy No."; Rec."Policy No.") {}
                 field("Insurer Name"; Rec."Insurer Name") {}
@@ -23,6 +22,20 @@ page 96156 "RE Insurance Policies"
                 field("Claim E-Mail"; Rec."Claim E-Mail") {}
                 field("Claim Phone No."; Rec."Claim Phone No.") {}
                 field(Active; Rec.Active) {}
+            }
+        }
+    }
+
+    actions
+    {
+        area(processing)
+        {
+            action(LinkedAssets)
+            {
+                Caption = 'Linked Assets';
+                Image = LinkAccount;
+                RunObject = Page "RE Insurance Policy Assets";
+                RunPageLink = "Policy No." = field("No.");
             }
         }
     }

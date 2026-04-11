@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Cómo funcionan los índices de alquiler? | OneData Property Management</title>
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --panel: #ffffff;
+      --text: #1c2330;
+      --muted: #5f6b7d;
+      --line: #dce4f0;
+      --brand: #0f6cbd;
+      --accent: #eaf4ff;
+      --radius: 18px;
+      --max: 960px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--text); background: var(--bg); }
+    a { color: inherit; }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .topbar { border-bottom: 1px solid var(--line); background: rgba(255,255,255,.92); position: sticky; top: 0; }
+    .topbar-inner { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-weight: 700; text-decoration: none; }
+    .nav { display: flex; gap: 12px; flex-wrap: wrap; }
+    .nav a { color: var(--muted); text-decoration: none; }
+    .hero { padding: 34px 0 20px; }
+    .eyebrow { display: inline-block; padding: 7px 12px; border-radius: 999px; background: var(--accent); color: var(--brand); font-size: .8rem; font-weight: 700; text-transform: uppercase; }
+    h1 { margin: 16px 0 12px; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.05; }
+    .lead { color: var(--muted); line-height: 1.75; font-size: 1.06rem; }
+    .article { padding: 12px 0 56px; }
+    .paper { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+    h2 { margin-top: 30px; font-size: 1.7rem; }
+    h3 { margin-top: 22px; font-size: 1.2rem; }
+    p, li { line-height: 1.8; }
+    ul, ol { padding-left: 22px; }
+    code { background: #f2f6fb; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">OneData Guides</a>
+      <nav class="nav">
+        <a href="index.html">Índice guías</a>
+        <a href="funcionamiento-indices-alquiler-odpm.md">Markdown</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">Guía funcional</span>
+        <h1>¿Cómo funcionan los índices de alquiler?</h1>
+        <p class="lead">Resumen web del funcionamiento de `IPC`, `IRAV` y `SERPAVI` dentro de OneData Property Management, orientado a usuario funcional, soporte e implantación.</p>
+      </div>
+    </section>
+    <section class="article">
+      <div class="container">
+        <article class="paper">
+          <h2>Objetivo</h2>
+          <p>La funcionalidad permite consultar índices oficiales aplicables a contratos de alquiler, generar una propuesta de revisión de renta y mantener trazabilidad del cálculo dentro de Business Central.</p>
+
+          <h2>Qué cubre la solución</h2>
+          <h3>Revisión anual de renta del contrato</h3>
+          <p>Se basa en índices oficiales publicados por el `INE`:</p>
+          <ul>
+            <li><code>IPC</code></li>
+            <li><code>IRAV</code></li>
+          </ul>
+          <p>Con ellos, el sistema puede determinar el índice aplicable, consultar el valor oficial vigente, guardar el porcentaje y generar una propuesta en <code>Price Increases by Refer index</code>.</p>
+
+          <h3>Índice de referencia del alquiler del inmueble</h3>
+          <p>Se apoya en `SERPAVI / MIVAU`. El sistema abre el portal oficial, prepara la búsqueda y permite registrar manualmente el rango mínimo y máximo obtenido para conservar histórico por inmueble.</p>
+
+          <h2>Cómo decide entre IPC e IRAV</h2>
+          <p>Cuando el contrato no tiene categoría informada, la solución la infiere automáticamente:</p>
+          <ul>
+            <li>Contratos con fecha igual o posterior al <strong>26/05/2023</strong>: <code>IRAV</code></li>
+            <li>Contratos anteriores: <code>IPC</code></li>
+          </ul>
+          <p>Para ello utiliza primero <code>Contract Date</code> y, si no existe, <code>Starting Date</code>.</p>
+
+          <h2>Flujo de revisión de renta</h2>
+          <ol>
+            <li>El usuario abre la ficha del contrato.</li>
+            <li>Lanza la acción <strong>Actualizar revisión alquiler</strong>.</li>
+            <li>El sistema garantiza que existen las categorías oficiales <code>IPC</code> e <code>IRAV</code>.</li>
+            <li>Consulta el valor oficial vigente del índice.</li>
+            <li>Calcula la base revisable del contrato.</li>
+            <li>Genera o actualiza una línea en <code>Price Increases by Refer index</code>.</li>
+            <li>Abre la worksheet para que el usuario revise la propuesta.</li>
+          </ol>
+
+          <h2>Base de cálculo</h2>
+          <p>La prioridad de cálculo es:</p>
+          <ol>
+            <li>Suma de líneas marcadas con <code>Aplicar incrementos = true</code>.</li>
+            <li>Si no existen, se usa <code>Amount per Period</code>.</li>
+          </ol>
+
+          <h2>Qué queda guardado</h2>
+          <ul>
+            <li>Categoría de índice en <code>Consumer Price Index Categorie</code></li>
+            <li>Porcentaje por año en <code>Consumer Price Index</code></li>
+            <li>Propuesta de revisión en <code>Price Increases by Refer index</code></li>
+            <li>Histórico de referencia de mercado en <code>Reference Index Rental Prices</code></li>
+          </ul>
+
+          <h2>Bloque SERPAVI</h2>
+          <p>Desde la ficha del inmueble, la acción <strong>Consultar indice alquiler MIVAU</strong> verifica el país, intenta completar la referencia catastral desde Catastro, prepara el texto de búsqueda y abre el portal oficial.</p>
+          <p>El usuario sigue haciendo manualmente la consulta final y el registro del resultado en <code>Reference Index Rental Prices</code>.</p>
+
+          <h2>Qué está automatizado</h2>
+          <ul>
+            <li>Alta de categorías oficiales <code>IPC</code> e <code>IRAV</code></li>
+            <li>Inferencia del índice aplicable</li>
+            <li>Consulta del valor oficial vigente</li>
+            <li>Generación o actualización de la propuesta de revisión</li>
+            <li>Apertura guiada de <code>SERPAVI</code></li>
+          </ul>
+
+          <h2>Qué no está automatizado todavía</h2>
+          <ul>
+            <li>Lectura directa del resultado individualizado de `SERPAVI`</li>
+            <li>Aplicación desatendida del incremento al contrato</li>
+            <li>Integración de índices autonómicos</li>
+          </ul>
+
+          <h2>Resumen</h2>
+          <p>La solución separa claramente la revisión legal anual del contrato, automatizada con <code>IPC</code> o <code>IRAV</code>, del histórico de referencia de mercado del inmueble, asistido mediante <code>SERPAVI</code>. Esto reduce trabajo manual y mejora la trazabilidad operativa.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

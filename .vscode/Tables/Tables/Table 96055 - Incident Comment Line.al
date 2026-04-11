@@ -28,6 +28,10 @@ table 96055 "Incident Comment Line"
         {
             Caption = 'Date';
         }
+        field(8; "Comentario del sistema"; Boolean)
+        {
+            Caption = 'Comentario del sistema';
+        }
     }
 
     keys

@@ -512,6 +512,31 @@ page 96031 "Lease Contract Card"
                     ToolTip = 'Muestra el histórico de copias de contratos entre empresas.';
                 }
             }
+            action(UpdateRentReviewFromINE)
+            {
+                Caption = 'Actualizar revisión alquiler';
+                Image = CalculateLines;
+                Promoted = true;
+                PromotedCategory = Process;
+                ToolTip = 'Consulta el índice oficial vigente del INE según la categoría del contrato y genera o actualiza la propuesta de revisión de renta.';
+                AccessByPermission = tabledata "Price Increases by Refer index" = IMD;
+                Enabled = Rec.Status = Rec.Status::Signed;
+
+                trigger OnAction()
+                var
+                    INERentalIndexMgt: Codeunit "INE Rental Index Mgt.";
+                    PriceIncreaseWorksheet: Record "Price Increases by Refer index";
+                    PriceIncreaseWorksheetPage: Page "Price Increases by Refer index";
+                begin
+                    CurrPage.Update(true);
+                    INERentalIndexMgt.PrepareContractRentalReview(Rec, PriceIncreaseWorksheet);
+                    PriceIncreaseWorksheet.SetRange("Contract No.", Rec."Contract No.");
+                    PriceIncreaseWorksheet.SetRange("Line No.", PriceIncreaseWorksheet."Line No.");
+                    PriceIncreaseWorksheetPage.SetTableView(PriceIncreaseWorksheet);
+                    PriceIncreaseWorksheetPage.RunModal();
+                    CurrPage.Update(false);
+                end;
+            }
             action("Copy owner from FRE")
             {
                 Caption = 'Copy owner from FRE';

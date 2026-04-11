@@ -266,13 +266,17 @@ page 96151 "RE Incident Card"
             CurrPage.Editable(false)
         else
             CurrPage.Editable(true);
-        
+
+        ShowInsuranceReminder();
     end;
 
     var
         Contract : record "Lease Contract";
         Contact : Record "Contact";
         Customer : Record Customer;
+        LastInsuranceReminderIncidentId: Guid;
+        InsuranceReminderTxt: Label 'Esta incidencia requiere notificación al proveedor del seguro. Revise la póliza y utilice la acción Notify Insurance.';
+        InsurancePolicySelectionReminderTxt: Label 'Esta incidencia requiere notificación al proveedor del seguro. Antes de notificar, seleccione la póliza aplicable.';
 
     local procedure SetStatusInProgress()
     begin
@@ -294,9 +298,39 @@ page 96151 "RE Incident Card"
         if rec.StateCode <> rec.StateCode::Resolved then
             Error('The incident must be resolved before closing.');
 
+        if Rec."Notify Insurance" and (not Rec."Insurance Notified") then
+            Error('Before closing the incident, you must notify the insurance provider or clear the Notify Insurance option.');
+
         rec.StateCode := rec.StateCode::Closed;
         rec.Modify(true);
         
         CustomerRENotifyByEmail.NotificarPorCorreoCierreIncidencia(Rec);
+    end;
+
+    local procedure ShowInsuranceReminder()
+    var
+        Notification: Notification;
+    begin
+        if IsNullGuid(Rec."Incident Id.") then
+            exit;
+
+        if LastInsuranceReminderIncidentId = Rec."Incident Id." then
+            exit;
+
+        if not Rec."Notify Insurance" then
+            exit;
+
+        if Rec."Insurance Notified" then
+            exit;
+
+        Notification.Id := CreateGuid();
+        if Rec."Insurance Policy No." = '' then
+            Notification.Message := InsurancePolicySelectionReminderTxt
+        else
+            Notification.Message := InsuranceReminderTxt;
+        Notification.Scope := NotificationScope::LocalScope;
+        Notification.Send();
+
+        LastInsuranceReminderIncidentId := Rec."Incident Id.";
     end;
 }

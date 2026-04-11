@@ -12,6 +12,7 @@ codeunit 50501 GeneralManagementInstall
     trigger OnInstallAppPerCompany()
     var
         ODPMIncidentAgentSetupMgt: Codeunit "ODPM Incident Agent Setup Mgt.";
+        INERentalIndexMgt: Codeunit "INE Rental Index Mgt.";
         AgentSetup: Record "ODPM Incident Agent Setup";
         FADepreciationBook : Record "FA Depreciation Book";
     begin
@@ -19,6 +20,7 @@ codeunit 50501 GeneralManagementInstall
         installNewVersion();
         InsertReportSelections();
         InsTenantUserMapping();
+        INERentalIndexMgt.EnsureOfficialCategories();
         ODPMIncidentAgentSetupMgt.EnsureSetupExists(AgentSetup);
     end;
 

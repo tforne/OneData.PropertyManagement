@@ -1,6 +1,6 @@
 page 96812 "RE RC Getting Started"
 {
-    PageType = CardPart;
+    PageType = Card;
     SourceTable = "Company Information";
     Caption = 'Comenzar con FRE';
     ApplicationArea = All;

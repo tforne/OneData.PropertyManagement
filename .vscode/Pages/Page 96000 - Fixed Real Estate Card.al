@@ -330,7 +330,7 @@ page 96000 "Fixed Real Estate Card"
                 }
             }
 
-            part(REInsurancePolicies; "RE Insurance Policy ListPart")
+            part(REInsurancePolicies; "RE Insurance Asset ListPart")
             {
                 ApplicationArea = All;
                 SubPageLink = "Fixed Real Estate No." = field("No.");
@@ -435,7 +435,8 @@ page 96000 "Fixed Real Estate Card"
             action(OpenInsurancePolicies)
             {
                 Caption = 'Insurance Policies';
-                RunObject = Page "RE Insurance Policies";
+                Image = Insurance;
+                RunObject = Page "RE Insurance Policy Assets";
                 RunPageLink = "Fixed Real Estate No." = FIELD("No.");
             }
             action("Related Contats")

@@ -28,12 +28,17 @@ table 96100 "Incident Assets Real Estate"
             begin 
                 ClearContractData();
                 "REF Description" := '';
+                "Insurance Policy No." := '';
+                ClearInsuranceSnapshot();
+                "Notify Insurance" := false;
 
                 if "Fixed Real Estate No." = '' then
                     exit;
 
-                if FixedRE.Get("Fixed Real Estate No.") then
+                if FixedRE.Get("Fixed Real Estate No.") then begin
                     "REF Description" := FixedRE.Description;
+                    SuggestInsuranceNotification();
+                end;
             end;
         }
         field(3; "Contract No."; Code[20])
@@ -213,7 +218,7 @@ table 96100 "Incident Assets Real Estate"
         field(70; "Insurance Policy No."; Code[20])
         {
             Caption = 'Insurance Policy No.';
-            TableRelation = "RE Insurance Policy"."No." where("Fixed Real Estate No." = field("Fixed Real Estate No."), Active = const(true));
+            TableRelation = "RE Insurance Policy"."No." where(Active = const(true));
 
             trigger OnValidate()
             var
@@ -462,6 +467,39 @@ table 96100 "Incident Assets Real Estate"
         "Insurance Policy Description" := '';
         "Insurance Claim E-Mail" := '';
         "Insurance Claim Phone No." := '';
+    end;
+
+    local procedure SuggestInsuranceNotification()
+    var
+        InsurancePolicy: Record "RE Insurance Policy";
+        PolicyAsset: Record "RE Insurance Policy Asset";
+        FirstPolicyNo: Code[20];
+        PolicyCount: Integer;
+    begin
+        PolicyAsset.SetRange("Fixed Real Estate No.", "Fixed Real Estate No.");
+        if PolicyAsset.FindSet() then
+            repeat
+                if InsurancePolicy.Get(PolicyAsset."Policy No.") then
+                    if InsurancePolicy.Active and ((InsurancePolicy."Ending Date" = 0D) or (InsurancePolicy."Ending Date" >= WorkDate())) then begin
+                        PolicyCount += 1;
+                        if FirstPolicyNo = '' then
+                            FirstPolicyNo := InsurancePolicy."No.";
+                    end;
+            until PolicyAsset.Next() = 0;
+
+        if PolicyCount = 0 then begin
+            "Notify Insurance" := false;
+            if not "Insurance Notified" then
+                "Insurance Status" := "Insurance Status"::" ";
+            exit;
+        end;
+
+        "Notify Insurance" := true;
+        if not "Insurance Notified" then
+            "Insurance Status" := "Insurance Status"::Pending;
+
+        if PolicyCount = 1 then
+            Validate("Insurance Policy No.", FirstPolicyNo);
     end;
 }
 
