@@ -48,6 +48,14 @@ page 96152 "Incidents List"
                 {
                     ToolTip = 'Specifies the value of the Contact Name field.', Comment = '%';
                 }
+                field("Contact Phone No."; Rec."Contact Phone No.")
+                {
+                    ToolTip = 'Specifies the phone number of the contact associated with the incident.', Comment = '%';
+                }
+                field("Contact E-Mail"; Rec."Contact E-Mail")
+                {
+                    ToolTip = 'Specifies the email address of the contact associated with the incident.', Comment = '%';
+                }
                 field("Case Type"; Rec."Case Type")
                 {
                     ToolTip = 'Specifies the value of the Case Type field.', Comment = '%';

@@ -121,6 +121,7 @@ codeunit 96001 "Customer RE-Notify by Email"
         Recipients: List of [Text];
         SubjectText: Text;
         BodyText: Text;
+        REIncidentManagement: Codeunit "RE Incident Management";
     begin
         if not Contract.Get(Incidencia."Contract No.") then
             exit;
@@ -149,6 +150,8 @@ codeunit 96001 "Customer RE-Notify by Email"
 
         if not TrySendEmail(Email, EmailMessage) then
             Error('Error enviando email de incidencia %1', Incidencia."Incident Id.");
+
+        REIncidentManagement.InsCommentLineSystem(Incidencia, 'Correo de recepción enviado', Format(Today));
     end;
 
     //----------------------------------------
@@ -162,6 +165,7 @@ codeunit 96001 "Customer RE-Notify by Email"
         EmailMessage: Codeunit "Email Message";
         Recipients: List of [Text];
         ComentarioText: Text;
+        REIncidentManagement: Codeunit "RE Incident Management";
     begin
         if not Contract.Get(Incidencia."Contract No.") then
             exit;
@@ -187,6 +191,7 @@ codeunit 96001 "Customer RE-Notify by Email"
             true);
 
         Email.Send(EmailMessage);
+        REIncidentManagement.InsCommentLineSystem(Incidencia, 'Correo de actualización enviado', Format(Today));
     end;
 
     //----------------------------------------
@@ -199,6 +204,7 @@ codeunit 96001 "Customer RE-Notify by Email"
         EmailMessage: Codeunit "Email Message";
         Recipients: List of [Text];
         EstadoTxt: Text;
+        REIncidentManagement: Codeunit "RE Incident Management";
     begin
         if not Contract.Get(Incidencia."Contract No.") then
             exit;
@@ -238,9 +244,10 @@ codeunit 96001 "Customer RE-Notify by Email"
             '</body></html>',
             true);
 
-        if TrySendEmail(Email, EmailMessage) then
-            Message(Text121, Incidencia."Incident Id.")
-        else
+        if TrySendEmail(Email, EmailMessage) then begin
+            REIncidentManagement.InsCommentLineSystem(Incidencia, 'Correo de cierre enviado', Format(Today));
+            Message(Text121, Incidencia."Incident Id.");
+        end else
             Error('Error enviando cierre incidencia %1', Incidencia."Incident Id.");
     end;
 

@@ -142,6 +142,30 @@ codeunit 96101 "RE Incident Management"
         CheckStatusConsistency(Incident);
     end;
 
+    procedure InsCommentLineSystem(Incidencia: Record "Incident Assets Real Estate"; CommentText: Text; DateText: Text)
+    var
+        IncidentCommentLine: Record "Incident Comment Line";
+        DateValue: Date;
+        NextLineNo: Integer;
+    begin
+        if not EVALUATE(DateValue, DateText) then
+            DateValue := WORKDATE;
+
+        IncidentCommentLine.SetRange("Incident Id.", Incidencia."Incident Id.");
+        if IncidentCommentLine.FindLast() then
+            NextLineNo := IncidentCommentLine."Line No." + 1
+        else
+            NextLineNo := 1;
+
+        IncidentCommentLine.Init();
+        IncidentCommentLine."Incident Id." := Incidencia."Incident Id.";
+        IncidentCommentLine."Line No." := NextLineNo;
+        IncidentCommentLine.Comment := CommentText;
+        IncidentCommentLine.Date := DateValue;
+        IncidentCommentLine."Comentario del sistema" := true;
+        IncidentCommentLine.Insert();
+    end;
+
     local procedure CheckDateConsistency(var Incident: Record "Incident Assets Real Estate")
     begin
         if (Incident."Incident Date" <> 0D) and (Incident."Expected Resolution Date" <> 0D) then

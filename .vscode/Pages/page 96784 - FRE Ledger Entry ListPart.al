@@ -21,6 +21,9 @@ page 96784 "FRE Ledger Entry ListPart"
                 field("Fixed Real Estate No."; Rec."Fixed Real Estate No.")
                 {
                 }
+                field("Company Name"; Rec."Company Name")
+                {
+                }
                 field(Description; Rec.Description)
                 {
                 }

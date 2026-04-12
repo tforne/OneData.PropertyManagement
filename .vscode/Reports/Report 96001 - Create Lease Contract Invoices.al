@@ -100,19 +100,19 @@ report 96001 "Create Lease Contract Invoices"
                     Caption = 'Options';
                     field(PostingDate; PostingDate)
                     {
-                        ApplicationArea = Service;
+                        ApplicationArea = all;
                         Caption = 'Posting Date';
                         ToolTip = 'Specifies the date that you want to use as the posting date on the service invoices created.';
                     }
                     field(InvoiceToDate; InvoiceToDate)
                     {
-                        ApplicationArea = Service;
+                        ApplicationArea = all;
                         Caption = 'Invoice to Date';
                         ToolTip = 'Specifies the date up to which you want to invoice contracts. The batch job includes contracts with next invoice dates on or before this date.';
                     }
                     field(CreateInvoices; CreateInvoices)
                     {
-                        ApplicationArea = Service;
+                        ApplicationArea = all;
                         Caption = 'Action';
                         OptionCaption = 'Create Invoices,Print Only';
                         ToolTip = 'Specifies the desired action for service contracts that are due for invoicing.';

@@ -99,13 +99,27 @@ table 96100 "Incident Assets Real Estate"
             begin   
                 if not ContactRec.Get(rec."Contact No") then
                     ContactRec.init;    
-                rec."Contact - Name" := ContactRec.Name;    
+                rec."Contact - Name" := ContactRec.Name;
+                rec."Contact Phone No." := ContactRec."Phone No.";
+                rec."Contact E-Mail" := ContactRec."E-Mail";
             end;
         }
         field(16; "Contact - Name"; Text[100])
         {
             Caption = 'Contact Name';
             Description = 'Name of the contact associated with the case.';
+        }
+        field(18; "Contact Phone No."; Text[30])
+        {
+            Caption = 'Contact Phone No.';
+            ExtendedDatatype = PhoneNo;
+            Editable = false;
+        }
+        field(21; "Contact E-Mail"; Text[80])
+        {
+            Caption = 'Contact E-Mail';
+            ExtendedDatatype = EMail;
+            Editable = false;
         }
         field(17; CreatedOn; DateTime)
         {

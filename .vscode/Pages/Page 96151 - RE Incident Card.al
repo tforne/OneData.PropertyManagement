@@ -51,6 +51,18 @@ page 96151 "RE Incident Card"
                     Editable = false;
 
                 }
+                field("Contact Phone No."; rec."Contact Phone No.")
+                {
+                    Caption = 'Contact Phone No.';
+                    ExtendedDatatype = PhoneNo;
+                    Editable = false;
+                }
+                field("Contact E-Mail"; rec."Contact E-Mail")
+                {
+                    Caption = 'Contact E-Mail';
+                    ExtendedDatatype = EMail;
+                    Editable = false;
+                }
                 field("Contract Phone No."; rec."Contract - Phone No.")
                 {
                     Caption = 'Contract - Phone No.';
@@ -156,6 +168,35 @@ page 96151 "RE Incident Card"
         {
             group(process)
             {
+            Caption = 'Process';
+            action(StartProgress)
+            {
+                Caption = 'Start Progress';
+                Image = Start;
+
+                trigger OnAction()
+                begin
+                    SetStatusInProgress();
+                end;
+            }
+            action(SendCustomOpenIncident)
+            {
+                Caption = 'Send Open Incident';
+                Ellipsis = true;
+                Image = SendToMultiple;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                ToolTip = 'Prepare to send the document according to the customer''s sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.';
+
+                trigger OnAction()
+                var
+                    LeaseInvoiceHeader: Record "Lease Invoice Header";
+                    CustomerRENotifybyEmail: Codeunit "Customer RE-Notify by Email";
+                begin
+                    CustomerRENotifybyEmail."NotificarPorCorreoRecepciónIncidencia"(Rec);
+                end;
+            }
             action(NotifyInsurance)
             {
                 Caption = 'Notify Insurance';
@@ -169,17 +210,24 @@ page 96151 "RE Incident Card"
                     CurrPage.Update(false);
                 end;
             }
-            action(StartProgress)
+            action(SendCustomStatusIncident)
             {
-                Caption = 'Start Progress';
-                Image = Start;
+                Caption = 'Send Status Incident';
+                Ellipsis = true;
+                Image = SendToMultiple;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                ToolTip = 'Prepare to send the document according to the customer''s sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.';
 
                 trigger OnAction()
+                var
+                    LeaseInvoiceHeader: Record "Lease Invoice Header";
+                    CustomerRENotifybyEmail: Codeunit "Customer RE-Notify by Email";
                 begin
-                    SetStatusInProgress();
+                    CustomerRENotifybyEmail."NotificarPorCorreoSituaciónIncidencia"(Rec);
                 end;
             }
-
             action(MarkResolved)
             {
                 Caption = 'Mark as Resolved';
@@ -200,46 +248,6 @@ page 96151 "RE Incident Card"
                 begin
                     CloseIncidentAction();
                 end;
-            }
-            group(Notificaciones)
-            {
-                Caption = 'Notificaciones';
-                action(SendCustomOpenIncident)
-                {
-                    Caption = 'Send Open Incident';
-                    Ellipsis = true;
-                    Image = SendToMultiple;
-                    Promoted = true;
-                    PromotedCategory = Process;
-                    PromotedIsBig = true;
-                    ToolTip = 'Prepare to send the document according to the customer''s sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.';
-
-                    trigger OnAction()
-                    var
-                        LeaseInvoiceHeader: Record "Lease Invoice Header";
-                        CustomerRENotifybyEmail: Codeunit "Customer RE-Notify by Email";
-                    begin
-                        CustomerRENotifybyEmail."NotificarPorCorreoRecepciónIncidencia"(Rec);
-                    end;
-                }
-                action(SendCustomStatusIncident)
-                {
-                    Caption = 'Send Status Incident';
-                    Ellipsis = true;
-                    Image = SendToMultiple;
-                    Promoted = true;
-                    PromotedCategory = Process;
-                    PromotedIsBig = true;
-                    ToolTip = 'Prepare to send the document according to the customer''s sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.';
-
-                    trigger OnAction()
-                    var
-                        LeaseInvoiceHeader: Record "Lease Invoice Header";
-                        CustomerRENotifybyEmail: Codeunit "Customer RE-Notify by Email";
-                    begin
-                        CustomerRENotifybyEmail."NotificarPorCorreoSituaciónIncidencia"(Rec);
-                    end;
-                }
             }
 
         }

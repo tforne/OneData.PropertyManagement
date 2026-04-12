@@ -4128,10 +4128,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Contact - Name - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 1043218467 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact E-Mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Contact E-Mail - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2772947383 - Field 2557466315 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contact</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Contact No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 3390705917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Contact Phone No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2772947383 - Field 186975748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contract - Contact Name</source>
@@ -4542,6 +4552,11 @@
           <source>Incident Comment Line</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Comment Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1336426021 - Field 1714973278 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comentario del sistema</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Comment Line - Field Comentario del sistema - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1336426021 - Field 2790486453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Comment</source>
@@ -7958,6 +7973,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incident Comment Subform - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3562040353 - Control 1714973278 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indica si el comentario ha sido generado por el sistema.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incident Comment Subform - Control Comentario del sistema - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3562040353 - Control 2790486453 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the comment itself.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7978,6 +7998,11 @@
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Control Case Type - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2131679017 - Control 1043218467 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the email address of the contact associated with the incident.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Control Contact E-Mail - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2131679017 - Control 2378863201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Contact Name field.</source>
           <note from="Developer" annotates="general" priority="2">%</note>
@@ -7987,6 +8012,11 @@
           <source>Specifies the value of the Contact field.</source>
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Control Contact No - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2131679017 - Control 3390705917 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the phone number of the contact associated with the incident.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Control Contact Phone No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2131679017 - Control 3609111399 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Contract field.</source>
@@ -9478,6 +9508,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Control Status - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2811265567 - Control 334623485 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Importe de impuestos calculado como la diferencia entre el importe con IVA y el importe sin IVA.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Control VAT - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2811265567 - Control 334623485 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Importe impuestos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Control VAT - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2811265567 - Action 3698833421 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the fixed real estate related to this invoice.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9733,10 +9773,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - NamedType InsuranceReminderTxt</note>
         </trans-unit>
+        <trans-unit id="Page 2479975791 - Control 1043218467 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact E-Mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Control Contact E-Mail - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2479975791 - Control 2378863201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contract - Contact Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Control Contact Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2479975791 - Control 3390705917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Control Contact Phone No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2479975791 - Control 1256526845 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contract Email</source>
@@ -9763,6 +9813,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action AttachFile - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2479975791 - Action 2544808301 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2479975791 - Action 2944974228 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Close Incident</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9773,10 +9828,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action MarkResolved - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2479975791 - Action 955134568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Notificaciones</source>
+        <trans-unit id="Page 2479975791 - Action 3950927259 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notify Insurance</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action Notificaciones - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action NotifyInsurance - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2479975791 - Action 2221245231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to send the document according to the customer's sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.</source>
@@ -9797,11 +9852,6 @@
           <source>Send Status Incident</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action SendCustomStatusIncident - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2479975791 - Action 3950927259 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Notify Insurance</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page RE Incident Card - Action NotifyInsurance - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2479975791 - Action 3031046439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Start Progress</source>
