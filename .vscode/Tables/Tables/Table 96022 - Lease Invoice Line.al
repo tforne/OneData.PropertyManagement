@@ -277,6 +277,27 @@ table 96022 "Lease Invoice Line"
         {
             Caption = 'Posting Date';
         }
+        field(502; "Aplicar Impuestos"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+            trigger OnValidate()
+            var
+                RealEstateManagement: Codeunit "Real Estate Management";
+                LeaseInvoice: Record "Lease Invoice Header";
+            begin
+                LeaseInvoice.GET(rec."Document No.");
+                RealEstateManagement.RecalculateIRPFLeaseInvoiceLine(LeaseInvoice, rec);
+            end;
+        }
+        field(10100; "Tax Amount Line"; Decimal)
+        {
+            AutoFormatType = 1;
+            Caption = 'Tax Amount Line';
+            Editable = false;
+            CalcFormula = Sum("Tax Amount Line"."Tax Amount" WHERE ("Document No."=FIELD("Document No."),"Line No."=FIELD("Line No.")));
+            FieldClass = FlowField;
+        }
+
         field(96000;"Contract No.";Code[20])
         {
             DataClassification = ToBeClassified;

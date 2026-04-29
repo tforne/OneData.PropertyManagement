@@ -68,6 +68,14 @@ page 96036 "Posted Lease Invoice Subform"
                     ToolTip = 'Specifies the discount amount that is granted for the item on the line.';
                     Visible = false;
                 }
+                field("Aplicar Impuestos";Rec."Aplicar Impuestos")
+                {
+                    ToolTip = 'Indicates whether taxes should be applied to this invoice line. If you clear this field, tax fields will be hidden on the invoice line, and no taxes will be calculated for this line.';
+                }
+                field("Tax Amount Line";Rec."Tax Amount Line")
+                {
+                    ToolTip = 'Shows the tax details for this invoice line. Click the AssistEdit button to view the related tax details.';
+                }
             }
         }
     }

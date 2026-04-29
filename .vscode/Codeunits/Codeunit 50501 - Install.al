@@ -19,7 +19,7 @@ codeunit 50501 GeneralManagementInstall
         FADepreciationBook.deleteall;
         installNewVersion();
         InsertReportSelections();
-        InsTenantUserMapping();
+        // InsTenantUserMapping();
         INERentalIndexMgt.EnsureOfficialCategories();
         ODPMIncidentAgentSetupMgt.EnsureSetupExists(AgentSetup);
     end;
@@ -53,15 +53,15 @@ codeunit 50501 GeneralManagementInstall
     end;
 
     
-    local procedure InsTenantUserMapping()
-    var
-        TenantUserMApping: Record "Tenant User Mapping";
-    begin
-        TenantUserMApping.Init();
-        TenantUserMApping."User Email" := 'office@forne.family';
-        TenantUserMApping."Customer No." := 'C00300';
-        if TenantUserMApping.Insert() then;
-    end;
+    // local procedure InsTenantUserMapping()
+    // var
+    //     TenantUserMApping: Record "Tenant User Mapping";
+    // begin
+    //     TenantUserMApping.Init();
+    //     TenantUserMApping."User Email" := 'office@forne.family';
+    //     TenantUserMApping."Customer No." := 'C00300';
+    //     if TenantUserMApping.Insert() then;
+    // end;
 
     procedure ConfigurarREFSetup()
     var

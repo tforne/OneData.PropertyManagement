@@ -11,7 +11,7 @@ report 96003 "Lease Sales - Invoice"
     {
         dataitem("Lease Invoice Header"; "Lease Invoice Header")
         {
-            DataItemTableView = SORTING ("No.");
+            DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.";
             RequestFilterHeading = 'Posted Sales Invoice';
             column(No_SalesInvHdr; "No.")
@@ -56,6 +56,14 @@ report 96003 "Lease Sales - Invoice"
             column(OwnerTextCaption; OwnerText)
             {
             }
+            column(IRPFAmountCaptionHeader; IRPFAmountCaptionLbl)
+            {
+            }
+            column(TotalAmountIRPFHeader; TotalAmountIRPF)
+            {
+                AutoFormatExpression = "Lease Invoice Header"."Currency Code";
+                AutoFormatType = 1;
+            }
 
             column(ContractNo_LeaseInvHdr; "Contract No.")
             {
@@ -82,6 +90,9 @@ report 96003 "Lease Sales - Invoice"
             {
             }
             column(OwnerVatCaption; OwnerVatCaptionLbl)
+            {
+            }
+            column(VATAmountCaptionHeader; VATAmountCaptionLbl)
             {
             }
             column(PropertySummaryText; PropertySummaryText)
@@ -132,11 +143,11 @@ report 96003 "Lease Sales - Invoice"
             }
             dataitem(CopyLoop; Integer)
             {
-                DataItemTableView = SORTING (Number);
+                DataItemTableView = SORTING(Number);
                 dataitem(PageLoop; Integer)
                 {
-                    DataItemTableView = SORTING (Number)
-                                        WHERE (Number = CONST (1));
+                    DataItemTableView = SORTING(Number)
+                                        WHERE(Number = CONST(1));
                     column(CompanyInfo2Picture; CompanyInfo2.Picture)
                     {
                     }
@@ -268,9 +279,9 @@ report 96003 "Lease Sales - Invoice"
                     }
                     dataitem("Lease Invoice Line"; "Lease Invoice Line")
                     {
-                        DataItemLink ="Document No."=FIELD("No.");
+                        DataItemLink = "Document No." = FIELD("No.");
                         DataItemLinkReference = "Lease Invoice Header";
-                        DataItemTableView = SORTING ("Document No.","Line No.");
+                        DataItemTableView = SORTING("Document No.", "Line No.");
                         // column(GetCarteraInvoice; GetCarteraInvoice)
                         // {
                         // }
@@ -287,6 +298,7 @@ report 96003 "Lease Sales - Invoice"
                         }
                         column(Quantity_SalesInvoiceLine; Quantity)
                         {
+                            AutoFormatType = 2;
                         }
                         column(UOM_SalesInvoiceLine; "Unit of Measure")
                         {
@@ -365,6 +377,8 @@ report 96003 "Lease Sales - Invoice"
                         }
                         column(TotalAmountIRPF; TotalAmountIRPF)
                         {
+                            AutoFormatExpression = "Lease Invoice Header"."Currency Code";
+                            AutoFormatType = 1;
                         }
                         column(TotalPaymentDiscountOnVAT; TotalPaymentDiscountOnVAT)
                         {
@@ -465,14 +479,12 @@ report 96003 "Lease Sales - Invoice"
                                 TotalAmountVAT += "Amount Including VAT" - Amount;
                                 TotalAmountInclVAT += "Amount Including VAT";
                                 TotalPaymentDiscountOnVAT += -("Line Amount" - "Amount Including VAT");
-                                IF COPYSTR("No.", 1, 3) = '475' THEN
-                                    TotalAmountIRPF += Amount;
 
                             END;
                             IF (Type = Type::"G/L Account") AND (NOT ShowInternalInfo) THEN
                                 "No." := '';
 
-
+                            
                             itemDescription := "Lease Invoice Line".Description;
                         end;
 
@@ -495,7 +507,7 @@ report 96003 "Lease Sales - Invoice"
                     }
                     dataitem(VATCounter; Integer)
                     {
-                        DataItemTableView = SORTING (Number);
+                        DataItemTableView = SORTING(Number);
                         column(VATAmountLineVATBase; VATAmountLine."VAT Base")
                         {
                             AutoFormatExpression = "Lease Invoice Line".GetCurrencyCode;
@@ -553,6 +565,9 @@ report 96003 "Lease Sales - Invoice"
                         column(VATIdentCaption; VATIdentCaptionLbl)
                         {
                         }
+                        column(IRPFAmountCaption; IRPFAmountCaptionLbl)
+                        {
+                        }
                         column(InvDiscBaseAmtCaption; InvDiscBaseAmtCaptionLbl)
                         {
                         }
@@ -592,7 +607,7 @@ report 96003 "Lease Sales - Invoice"
                     }
                     dataitem(VATClauseEntryCounter; Integer)
                     {
-                        DataItemTableView = SORTING (Number);
+                        DataItemTableView = SORTING(Number);
                         column(VATClauseVATIdentifier; VATAmountLine."VAT Identifier")
                         {
                         }
@@ -637,7 +652,7 @@ report 96003 "Lease Sales - Invoice"
                     }
                     dataitem(VatCounterLCY; Integer)
                     {
-                        DataItemTableView = SORTING (Number);
+                        DataItemTableView = SORTING(Number);
                         column(VALSpecLCYHeader; VALSpecLCYHeader)
                         {
                         }
@@ -692,7 +707,7 @@ report 96003 "Lease Sales - Invoice"
                     }
                     dataitem(PaymentReportingArgument; "Payment Reporting Argument")
                     {
-                        DataItemTableView = SORTING (Key);
+                        DataItemTableView = SORTING(Key);
                         UseTemporary = true;
                         column(PaymentServiceLogo; Logo)
                         {
@@ -718,8 +733,8 @@ report 96003 "Lease Sales - Invoice"
                     }
                     dataitem(Total; Integer)
                     {
-                        DataItemTableView = SORTING (Number)
-                                            WHERE (Number = CONST (1));
+                        DataItemTableView = SORTING(Number)
+                                            WHERE(Number = CONST(1));
                     }
                 }
 
@@ -730,15 +745,6 @@ report 96003 "Lease Sales - Invoice"
                         OutputNo += 1;
                     END;
                     // CurrReport.PAGENO := 1;
-
-                    TotalSubTotal := 0;
-                    TotalInvoiceDiscountAmount := 0;
-                    TotalAmount := 0;
-                    TotalAmountVAT := 0;
-                    TotalAmountIRPF := 0;
-                    TotalAmountInclVAT := 0;
-                    TotalGivenAmount := 0;
-                    TotalPaymentDiscountOnVAT := 0;
                 end;
 
                 trigger OnPostDataItem()
@@ -758,6 +764,16 @@ report 96003 "Lease Sales - Invoice"
                     CopyText := '';
                     SETRANGE(Number, 1, NoOfLoops);
                     OutputNo := 1;
+
+                    TotalSubTotal := 0;
+                    TotalInvoiceDiscountAmount := 0;
+                    TotalAmount := 0;
+                    TotalAmountVAT := 0;
+                    TotalAmountIRPF := 0;
+                    TotalAmountInclVAT := 0;
+                    TotalGivenAmount := 0;
+                    TotalPaymentDiscountOnVAT := 0;
+                    CalcTotalIRPFLCY("Lease Invoice Header");
                 end;
             }
 
@@ -803,8 +819,8 @@ report 96003 "Lease Sales - Invoice"
         }
     }
 
-requestpage
-{
+    requestpage
+    {
         SaveValues = true;
 
         layout
@@ -999,6 +1015,7 @@ requestpage
         VATAmountCaptionLbl: Label 'VAT Amount';
         VATAmtSpecCaptionLbl: Label 'VAT Amount Specification';
         VATIdentCaptionLbl: Label 'VAT Identifier';
+        IRPFAmountCaptionLbl: Label 'IRPF';
         InvDiscBaseAmtCaptionLbl: Label 'Invoice Discount Base Amount';
         LineAmtCaption1Lbl: Label 'Line Amount';
         InvPmtDiscCaptionLbl: Label 'Invoice and Payment Discounts';
@@ -1144,8 +1161,8 @@ requestpage
         VATEntry.SETRANGE("Document Type", VATEntry."Document Type"::"Sales Invoice");
         IF VATEntry.FINDSET THEN
             REPEAT
-                // IF VATEntry."VAT Cash Regime" THEN
-                //    CACCaptionLbl := CACTxt;
+            // IF VATEntry."VAT Cash Regime" THEN
+            //    CACCaptionLbl := CACTxt;
             UNTIL (VATEntry.NEXT = 0) OR (CACCaptionLbl <> '');
         EXIT(CACCaptionLbl);
     end;
@@ -1181,12 +1198,12 @@ requestpage
         // FormatAddr.GetCompanyAddr(LeaseInvoiceHeader."Responsibility Center", RespCenter, CompanyInfo, CompanyAddr);
         if not ContactOwner.GET(ContactOwnerCode) then
             ContactOwner.init;
-        FormatAddr.FormatAddr(CompanyAddr,ContactOwner.Name,ContactOwner."Name 2",'',
-            ContactOwner.Address,ContactOwner."Address 2", ContactOwner.City,ContactOwner."Post Code",
-            ContactOwner.County,ContactOwner."Country/Region Code");
-        FormatAddr.FormatAddr(CustAddr,LeaseInvoiceHeader.Name,LeaseInvoiceHeader."Name 2",LeaseInvoiceHeader."Contact Name",
-            LeaseInvoiceHeader.Address,LeaseInvoiceHeader."Address 2",LeaseInvoiceHeader.City,LeaseInvoiceHeader."Post Code",
-            LeaseInvoiceHeader.County,LeaseInvoiceHeader."Country/Region Code");
+        FormatAddr.FormatAddr(CompanyAddr, ContactOwner.Name, ContactOwner."Name 2", '',
+            ContactOwner.Address, ContactOwner."Address 2", ContactOwner.City, ContactOwner."Post Code",
+            ContactOwner.County, ContactOwner."Country/Region Code");
+        FormatAddr.FormatAddr(CustAddr, LeaseInvoiceHeader.Name, LeaseInvoiceHeader."Name 2", LeaseInvoiceHeader."Contact Name",
+            LeaseInvoiceHeader.Address, LeaseInvoiceHeader."Address 2", LeaseInvoiceHeader.City, LeaseInvoiceHeader."Post Code",
+            LeaseInvoiceHeader.County, LeaseInvoiceHeader."Country/Region Code");
     end;
 
     local procedure GetUOMText(UOMCode: Code[10]): Text[10]
@@ -1204,7 +1221,7 @@ requestpage
     end;
 
 #pragma warning disable AL0432
-    local procedure CalcVATAmountLineLCY(LeaseInvoiceHeader: Record "Lease Invoice Header"; TempVATAmountLine2: Record "VAT Amount Line"temporary; var TempVATAmountLineLCY2: Record "VAT Amount Line" temporary; var VATBaseRemainderAfterRoundingLCY2: Decimal; var AmtInclVATRemainderAfterRoundingLCY2: Decimal)
+    local procedure CalcVATAmountLineLCY(LeaseInvoiceHeader: Record "Lease Invoice Header"; TempVATAmountLine2: Record "VAT Amount Line" temporary; var TempVATAmountLineLCY2: Record "VAT Amount Line" temporary; var VATBaseRemainderAfterRoundingLCY2: Decimal; var AmtInclVATRemainderAfterRoundingLCY2: Decimal)
 #pragma warning restore AL0432
     var
         VATBaseLCY: Decimal;
@@ -1231,6 +1248,23 @@ requestpage
 
         VATBaseRemainderAfterRoundingLCY2 := VATBaseLCY - TempVATAmountLineLCY2."VAT Base";
         AmtInclVATRemainderAfterRoundingLCY2 := AmtInclVATLCY - TempVATAmountLineLCY2."Amount Including VAT";
+    end;
+
+    local procedure CalcTotalIRPFLCY(LeaseInvoiceHeader: Record "Lease Invoice Header")
+    var
+        TaxAmountLine: Record "Tax Amount Line";
+    begin
+        TotalAmountIRPF := 0;
+        TaxAmountLine.Reset();
+        TaxAmountLine.SetRange("Document Type", TaxAmountLine."Document Type"::"Lease Invoice");
+        TaxAmountLine.SetRange("Document No.", LeaseInvoiceHeader."No.");
+        TaxAmountLine.SetRange("Tax Group Code", 'IRPF');
+        IF TaxAmountLine.FindFirst() THEN
+            REPEAT
+                TotalAmountIRPF += TaxAmountLine."Tax Amount";
+            UNTIL TaxAmountLine.Next() = 0;
+        TotalAmountIRPF := - TotalAmountIRPF;
+        TotalAmountInclVAT := TotalAmountInclVAT + TotalAmountIRPF;
     end;
 
 }

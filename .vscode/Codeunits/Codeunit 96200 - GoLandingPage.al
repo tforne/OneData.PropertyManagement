@@ -3,7 +3,7 @@ codeunit 96200 "GoLandingPage"
     
 trigger OnRun()
     begin
-        Hyperlink('https://tforne.github.io/OneData.PropertyManagement/');
+        Hyperlink('https://www.onedata.one/solutions/property-management/index.html');
     end;
 
 }            

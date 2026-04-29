@@ -24,6 +24,7 @@ using Microsoft.Sales.Document;
 using Microsoft.Sales.History;
 using Microsoft.Sales.Pricing;
 using Microsoft.Sales.Receivables;
+using OneData.Fiscal;
 using OneData.Property.Asset;
 using OneData.Property.Lease;
 using OneData.Property.Setup;
@@ -355,6 +356,22 @@ table 96021 "Lease Invoice Header"
             OptionCaption = 'No,By Phone 1,By Phone 2,By Fax,By Email';
             OptionMembers = No,"By Phone 1","By Phone 2","By Fax","By Email";
         }
+        field(99500; "Grupo IRPF"; Code[20])
+        {
+            Editable = true;
+            TableRelation = "OneData Grupos IRPF".Codigo;
+            Caption = 'Grupo IRPF';
+            
+            trigger OnValidate();
+            var
+                IRPFManagement : Codeunit "IRPF Management";
+            begin
+                if rec."Grupo IRPF" <> xrec."Grupo IRPF" then begin
+                    RecalculateIRPFLeaseInvoice(rec);
+                end;
+            end;
+        }
+
         field(96000;"Contract No.";Code[20])
         {
             DataClassification = ToBeClassified;
@@ -536,6 +553,19 @@ table 96021 "Lease Invoice Header"
         NavigateForm.RUN;
     end;
 
+    procedure RecalculateIRPFLeaseInvoice(var LeaseInvoice : Record "Lease Invoice Header")
+    var 
+    RealEstateManagement : Codeunit "Real Estate Management";
+    LeaseInvoiceLine : Record "Lease Invoice Line";
+    begin
+        LeaseInvoiceLine.reset;
+        LeaseInvoiceLine.SetRange("Document No.","No.");
+        if LeaseInvoiceLine.FindFirst() then repeat
+            RealEstateManagement.RecalculateIRPFLeaseInvoiceLine(LeaseInvoice, LeaseInvoiceLine);
+            LeaseInvoiceLine.Modify();
+        until LeaseInvoiceLine.next = 0;
+    end;
+
     procedure SendRecords()
     var
         DocumentSendingProfile: Record "Document Sending Profile";
@@ -553,15 +583,9 @@ table 96021 "Lease Invoice Header"
               DummyReportSelections.Usage::"Lease S.Invoice".AsInteger(), Rec, DocumentTypeTxt, "Customer No.", "No.",
               FieldNo("Customer No."), FieldNo("No."));
     end;
-    // procedure PrintRecords(ShowRequestPage: Boolean)
-    // var
-    //     DocumentSendingProfile: Record "Document Sending Profile";
-    //     IsHandled: Boolean;
-    // begin
-    //     IF FINDFIRST THEN
-    //       REPORT.RUNMODAL(96003,ShowRequestPage,TRUE,Rec);
-    // end;
-        procedure PrintRecords(ShowRequestPage: Boolean)
+
+
+    procedure PrintRecords(ShowRequestPage: Boolean)
     var
         DocumentSendingProfile: Record "Document Sending Profile";
         DummyReportSelections: Record "Report Selections";

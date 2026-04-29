@@ -1,6 +1,6 @@
 page 96002 "Fixed RE Attribute Value Edit."
 {
-    Caption = 'Item Attribute Values';
+    Caption = 'FRE Attribute Values';
     PageType = List;
     SourceTable = "Fixed Real Estate";
     ApplicationArea = All;
@@ -24,7 +24,7 @@ page 96002 "Fixed RE Attribute Value Edit."
             {
                 Caption = 'Cargar atibutos por tipo de activo';
                 Image = MoveUp;
-                Promoted = true;
+                // Promoted = true;
 
                 trigger OnAction()
                 begin

@@ -105,6 +105,8 @@ page 96030 "Lease Contract List"
                         DocumentAttachmentDetails: Page "Document Attachment Details";
                         RecRef: RecordRef;
                     begin
+                        CurrPage.SAVERECORD;
+
                         RecRef.GETTABLE(Rec);
                         DocumentAttachmentDetails.OpenForRecRef(RecRef);
                         DocumentAttachmentDetails.RUNMODAL;

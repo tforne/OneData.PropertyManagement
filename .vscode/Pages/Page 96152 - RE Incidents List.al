@@ -40,6 +40,10 @@ page 96152 "Incidents List"
                 {
                     ToolTip = 'Specifies the value of the Contract field.', Comment = '%';
                 }
+                field("Customer No.";Rec."Customer No.")
+                {
+                    ToolTip = 'Specifies the value of the Customer No. field.', Comment = '%';
+                }
                 field("Contact No"; Rec."Contact No")
                 {
                     ToolTip = 'Specifies the value of the Contact field.', Comment = '%';

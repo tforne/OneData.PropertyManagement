@@ -935,7 +935,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>=First(Fields!VATAmountCaption.Value, "InvoiceGroup")</Value>
+                                          <Value>=First(Fields!VATAmountCaptionHeader.Value, "InvoiceGroup")</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
                                             <FontSize>9pt</FontSize>
@@ -996,10 +996,10 @@
                                       <Style />
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>2.1cm</Top>
+                                  <Top>2.655cm</Top>
                                   <Left>0.2cm</Left>
-                                  <Height>0.55cm</Height>
-                                  <Width>3.4cm</Width>
+                                  <Height>0.65cm</Height>
+                                  <Width>3.5cm</Width>
                                   <ZIndex>5</ZIndex>
                                   <Style />
                                 </Textbox>
@@ -1023,8 +1023,8 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>2.02cm</Top>
-                                  <Left>3.6cm</Left>
+                                  <Top>2.655cm</Top>
+                                  <Left>3.73528cm</Left>
                                   <Height>0.65cm</Height>
                                   <Width>3.3cm</Width>
                                   <ZIndex>6</ZIndex>
@@ -1032,10 +1032,60 @@
                                     <Format>N2</Format>
                                   </Style>
                                 </Textbox>
+                                <Textbox Name="VATLblBox2">
+                                  <CanGrow>true</CanGrow>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=First(Fields!IRPFAmountCaptionHeader.Value, "InvoiceGroup")</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>9pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>1.94111cm</Top>
+                                  <Left>0.2cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>3.4cm</Width>
+                                  <ZIndex>7</ZIndex>
+                                  <Style />
+                                </Textbox>
+                                <Textbox Name="VATValueBox2">
+                                  <CanGrow>true</CanGrow>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=Max(Fields!TotalAmountIRPFHeader.Value, "InvoiceGroup")</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>9pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style>
+                                        <TextAlign>Right</TextAlign>
+                                      </Style>
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>1.94111cm</Top>
+                                  <Left>4.13528cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>2.9cm</Width>
+                                  <ZIndex>8</ZIndex>
+                                  <Style>
+                                    <Format>N2</Format>
+                                  </Style>
+                                </Textbox>
                               </ReportItems>
                               <Top>17.8cm</Top>
                               <Left>10.6cm</Left>
-                              <Height>3cm</Height>
+                              <Height>3.71438cm</Height>
                               <Width>7.18cm</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
@@ -1125,7 +1175,7 @@
             <Style />
           </Tablix>
         </ReportItems>
-        <Height>24.8cm</Height>
+        <Height>22.76271cm</Height>
         <Style />
       </Body>
       <Width>18.33848cm</Width>
@@ -1165,7 +1215,7 @@
           <Style />
         </PageHeader>
         <PageFooter>
-          <Height>2.57242cm</Height>
+          <Height>0.05888cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <Style>
@@ -1390,6 +1440,15 @@ b4M49oFWvrL5QC3rk6zjBDTA2ms78pMWOIXf4/Uyzbup6kI2GFH9SBfGVXdc3eMRf/EI7dDUPmeH9B55
         <Field Name="OwnerTextCaption">
           <DataField>OwnerTextCaption</DataField>
         </Field>
+        <Field Name="IRPFAmountCaptionHeader">
+          <DataField>IRPFAmountCaptionHeader</DataField>
+        </Field>
+        <Field Name="TotalAmountIRPFHeader">
+          <DataField>TotalAmountIRPFHeader</DataField>
+        </Field>
+        <Field Name="TotalAmountIRPFHeaderFormat">
+          <DataField>TotalAmountIRPFHeaderFormat</DataField>
+        </Field>
         <Field Name="ContractNo_LeaseInvHdr">
           <DataField>ContractNo_LeaseInvHdr</DataField>
         </Field>
@@ -1416,6 +1475,9 @@ b4M49oFWvrL5QC3rk6zjBDTA2ms78pMWOIXf4/Uyzbup6kI2GFH9SBfGVXdc3eMRf/EI7dDUPmeH9B55
         </Field>
         <Field Name="OwnerVatCaption">
           <DataField>OwnerVatCaption</DataField>
+        </Field>
+        <Field Name="VATAmountCaptionHeader">
+          <DataField>VATAmountCaptionHeader</DataField>
         </Field>
         <Field Name="PropertySummaryText">
           <DataField>PropertySummaryText</DataField>
@@ -1839,6 +1901,9 @@ b4M49oFWvrL5QC3rk6zjBDTA2ms78pMWOIXf4/Uyzbup6kI2GFH9SBfGVXdc3eMRf/EI7dDUPmeH9B55
         </Field>
         <Field Name="VATIdentCaption">
           <DataField>VATIdentCaption</DataField>
+        </Field>
+        <Field Name="IRPFAmountCaption">
+          <DataField>IRPFAmountCaption</DataField>
         </Field>
         <Field Name="InvDiscBaseAmtCaption">
           <DataField>InvDiscBaseAmtCaption</DataField>

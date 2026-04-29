@@ -145,9 +145,9 @@ page 96019 "RE Analisis Ingresos y Gastos"
         if FRELedgerEntry.FindSet() then
             repeat
                 if FRELedgerEntry.Amount < 0 then
-                    Total += Abs(FRELedgerEntry.Amount); // 👈 mejor visual
+                    Total += Abs(FRELedgerEntry.Amount); // los gastos se devuelven como negativo para que el gráfico use color negativo
             until FRELedgerEntry.Next() = 0;
 
-        exit(Total);
+        exit(-Total);
     end;
 }

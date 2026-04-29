@@ -1287,6 +1287,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Gen. Bus. Posting Group - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3899176924 - Field 649862550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Grupo IRPF</source>
+          <target>Grupo IRPF</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Header - Field Grupo IRPF - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3899176924 - Field 2095078121 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice Disc. Code</source>
           <target>Disco de factura. Código</target>
@@ -1521,6 +1527,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Line - Field Amount Including VAT - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2693353827 - Field 2681758717 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aplicar Impuestos</source>
+          <target>Aplicar Impuestos</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Line - Field Aplicar Impuestos - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2693353827 - Field 2110823953 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Base Contract</source>
           <target>Base contrato</target>
@@ -1659,6 +1671,12 @@
           <target>Cód. acceso directo dimensión 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Line - Field Shortcut Dimension 2 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2693353827 - Field 3041732497 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tax Amount Line</source>
+          <target>Importe impuesto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Lease Invoice Line - Field Tax Amount Line - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2693353827 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Type</source>
@@ -3718,6 +3736,404 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table FRE Asset Suggestion Rule - Field Row No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1527010440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attr. Value Translation</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attr. Value Translation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1527010440 - Field 1692399443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute ID</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attr. Value Translation - Field Attribute ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1527010440 - Field 3641927271 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ID</source>
+          <target>Id</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attr. Value Translation - Field ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1527010440 - Field 2273653569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language Code</source>
+          <target>Cód. idioma</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attr. Value Translation - Field Language Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1527010440 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target>Nombre</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attr. Value Translation - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attribute</source>
+          <target>Atributo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - NamedType 2537457620" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Predefined values can be defined only for FRE attributes of type Option.\\Do you want to change the type of this FRE attribute to Option?</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - NamedType ChangeToOptionQst</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - NamedType 2298386984" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This FRE attribute has been assigned to at least one FRE.\\Are you sure you want to change its unit of measure?</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - NamedType ChangeUsedAttributeUoMQst</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - NamedType 3519429870" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot change the type of FRE attribute '%1', because it is either in use or it has predefined values.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%1 - arbirtrary text</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - NamedType ChangingAttributeTypeErr</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - NamedType 2035599432" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This FRE attribute has been assigned to at least one FRE.\\Are you sure you want to delete it?</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - NamedType DeleteUsedAttributeQst</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - NamedType 467393568" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The FRE attribute with name '%1' already exists.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%1 - arbitrary name</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - NamedType NameAlreadyExistsErr</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - NamedType 1724590159" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This FRE attribute has been assigned to at least one FRE.\\Are you sure you want to rename it?</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - NamedType RenameUsedAttributeQst</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - NamedType 1838268467" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There are values and translations for FRE attribute '%1'.\\Do you want to reuse them after changing the FRE attribute name to '%2'?</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%1 - arbitrary name,%2 - arbitrary name</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - NamedType ReuseValueTranslationsQst</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - Field 3543129988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Blocked</source>
+          <target>Bloqueado</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - Field Blocked - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - Field 225805034 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tipo de activo</source>
+          <target>Tipo de activo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - Field Fixed Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - Field 3641927271 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ID</source>
+          <target>Id</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - Field ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target>Nombre</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <target>Tipo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - Field Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - Field 1878130204 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option,Text,Integer,Decimal,Date</source>
+          <target>Opción,Texto,Entero,Decimal,Fecha</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - Field Type - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - Field 1920046521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure</source>
+          <target>Unidad de medida</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - Field Unit of Measure - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632674007 - Field 3053694588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Utilizado en</source>
+          <target>Utilizado en</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute - Field Used in - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1401986626 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attribute Translation</source>
+          <target>Traducción atributo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Translation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1401986626 - Field 1692399443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute ID</source>
+          <target>Atributo Id</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Translation - Field Attribute ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1401986626 - Field 2273653569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language Code</source>
+          <target>Cód. idioma</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Translation - Field Language Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1401986626 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target>Nombre</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Translation - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attribute Value</source>
+          <target>Valor atributo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - NamedType 1295890757" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The FRE category structure is not valid. The category %1 is a parent of itself or any of its children.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Category Name</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - NamedType CategoryStructureNotValidErr</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - NamedType 2630833193" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This FRE attribute value has been assigned to at least one item.\\Are you sure you want to delete it?</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - NamedType DeleteUsedAttributeValueQst</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - NamedType 467393568" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The FREE attribute value with value '%1' already exists.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%1 - arbitrary name</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - NamedType NameAlreadyExistsErr</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - NamedType 1963285194" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This FRE attribute value has been assigned to at least one item.\\Are you sure you want to rename it?</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - NamedType RenameUsedAttributeValueQst</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - NamedType 1838268467" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There are translations for FRE attribute value '%1'.\\Do you want to reuse these translations for the new value '%2'?</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%1 - arbitrary name,%2 - arbitrary name</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - NamedType ReuseValueTranslationsQst</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - Field 1692399443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute ID</source>
+          <target>Atributo Id.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - Field Attribute ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - Field 2006108605 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute Name</source>
+          <target>Nombre atributo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - Field Attribute Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - Field 3543129988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Blocked</source>
+          <target>Bloqueado</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - Field Blocked - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - Field 2790486453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comment</source>
+          <target>Comentarios</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - Field Comment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - Field 3301323505 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date Value</source>
+          <target>Valor fecha</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - Field Date Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - Field 3641927271 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ID</source>
+          <target>ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - Field ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - Field 1758538756 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Numeric Value</source>
+          <target>Valor numerico</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - Field Numeric Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2278198858 - Field 1131619133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value</source>
+          <target>Valor</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value - Field Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 434963406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attribute Value Mapping</source>
+          <target>FRE Attribute Value Mapping</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Mapping - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 434963406 - Field 2790486453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comment</source>
+          <target>Comentarios</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Mapping - Field Comment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 434963406 - Field 2447685988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attribute ID</source>
+          <target>Atributo Id</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Mapping - Field FRE Attribute ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 434963406 - Field 1606630445 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attribute Value ID</source>
+          <target>Valor atributo Id</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Mapping - Field FRE Attribute Value ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 434963406 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target>No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Mapping - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 434963406 - Field 3135334477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Table ID</source>
+          <target>Tabla Id.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Mapping - Field Table ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attribute Value Selection</source>
+          <target>Attribute Value Selection</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - NamedType 431092131" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The FRE attribute '%1' is blocked.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%1 - arbitrary name</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - NamedType AttributeBlockedErr</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - NamedType 1386066255" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The FRE attribute '%1' doesn't exist.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%1 - arbitrary name</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - NamedType AttributeDoesntExistErr</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - NamedType 1133447322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You have already specified a value for FRE attribute '%1'.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%1 - attribute name</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - NamedType AttributeValueAlreadySpecifiedErr</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - NamedType 1382719166" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The FRE attribute value '%1' is blocked.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%1 - arbitrary name</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - NamedType AttributeValueBlockedErr</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - NamedType 4178418586" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The FRE attribute value '%1' doesn't exist.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%1 - arbitrary name</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - NamedType AttributeValueDoesntExistErr</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - NamedType 3135649354" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The value '%1' does not match the FRE attribute of type %2.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"> %1 is arbitrary string, %2 is type name</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - NamedType AttributeValueTypeMismatchErr</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - Field 1692399443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute ID</source>
+          <target>Attributo Id.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - Field Attribute ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - Field 2006108605 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute Name</source>
+          <target>Atributo nombre</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - Field Attribute Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - Field 2709262848 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attribute Type</source>
+          <target>Tipo atributo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - Field Attribute Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - Field 2709262848 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option,Text,Integer,Decimal,Date</source>
+          <target>Opción,Texto,Entero,Decimal,Fecha</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - Field Attribute Type - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - Field 3543129988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Blocked</source>
+          <target>Bloqueado</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - Field Blocked - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - Field 2790486453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comment</source>
+          <target>Comentarios</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - Field Comment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - Field 4030571174 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inheritance Level</source>
+          <target>Inherirance Level</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - Field Inheritance Level - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - Field 1932908325 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inherited-From Key Value</source>
+          <target>Inherited-From Key Value</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - Field Inherited-From Key Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - Field 1038951400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inherited-From Table ID</source>
+          <target>Inherited-From Table ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - Field Inherited-From Table ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - Field 1920046521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure</source>
+          <target>Unidad de medida</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - Field Unit of Measure - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1708819922 - Field 1131619133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value</source>
+          <target>Valor</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FRE Attribute Value Selection - Field Value - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4218612179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>FRE Detailed Ledger Entry</source>
           <target>Movs. detallados Activos inmobiliarios</target>
@@ -5000,6 +5416,12 @@
           <target>Creado el</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field CreatedOn - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2772947383 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <target>No. cliente</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Incident Assets Real Estate - Field Customer No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2772947383 - Field 1042715271 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Satisfaction</source>
@@ -6789,18 +7211,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Tax Amount Line - Field Use Tax - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 937890771 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Customer No.</source>
-          <target>No. Cliente</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Tenant User Mapping - Field Customer No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 937890771 - Field 532659567 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>User Email</source>
-          <target>Correo electrónico del usuario</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Tenant User Mapping - Field User Email - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Codeunit 946219275 - NamedType 430733052" size-unit="char" translate="yes" xml:space="preserve">
           <source>This invoice was posted from a sales order. To cancel it, a sales credit memo will be created and posted. The quantities from the original sales order will be restored, provided the sales order still exists.\ \Do you want to continue?</source>
           <target>Esta factura se registró a partir de un pedido de ventas. Para cancelarla, se creará y registrará una nota de crédito de ventas. Las cantidades del pedido de ventas original se restaurarán, siempre que el pedido de ventas aún exista. ¿Desea continuar?</target>
@@ -7630,9 +8040,10 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Attrib. Factbox - Action Edit - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3650738976 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Item Attribute Values</source>
-          <target>Valores de atributos de artículos</target>
+          <source>FRE Attribute Values</source>
+          <target>[NAB: REVIEW]Valores de atributos de artículos</target>
           <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed RE Attribute Value Edit. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3650738976 - Action 543248582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -8265,6 +8676,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action Statistics - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4166615366 - Action 2144299747 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Upload one or more files and attach them to this Fixed Real Estate record.</source>
+          <target>Suba uno o más archivos y adjúntelos a este registro de activo inmobiliario.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action UploadAttachments - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4166615366 - Action 2144299747 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Upload files</source>
+          <target>Cargar ficheros</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action UploadAttachments - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4166615366 - Action 3233977138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Calcular sumatorio</source>
           <target>Calcular sumatorio</target>
@@ -8607,6 +9030,110 @@
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Asset Suggestion Rule - Control SystemModifiedBy - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 632674007 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attribute</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 632674007 - Control 1034300564 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the values of the item attribute.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute - Control Values - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 632674007 - Control 1034300564 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Values</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute - Control Values - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 632674007 - Control 1920046521 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the item or resource's unit of measure, such as piece or hour.</source>
+          <target>[NAB: SUGGESTION]Especifica el nombre de la unidad de medida del artículo o recurso, como pieza u hora.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute - Control Unit of Measure - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 632674007 - Control 3543129988 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that the attribute cannot be assigned to an item. Items to which the attribute is already assigned are not affected.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute - Control Blocked - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 632674007 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the item attribute.</source>
+          <target>[NAB: SUGGESTION]Especifica el nombre del atributo del artículo.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 632674007 - Control 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the item attribute.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute - Control Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 632674007 - Action 196413227 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens a window in which you can define the translations for the selected item attribute.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute - Action ItemAttributeTranslations - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 632674007 - Action 196413227 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Translations</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute - Action ItemAttributeTranslations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 632674007 - Action 2871444499 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens a window in which you can define the values for the selected item attribute.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute - Action ItemAttributeValues - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 632674007 - Action 2871444499 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Attribute &amp;Values</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute - Action ItemAttributeValues - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 632674007 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target>Proceso</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2383659439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attribute Translations</source>
+          <target>Traducciones atributo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Translations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2383659439 - Control 2273653569 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the language that is used when translating specified text on documents to foreign business partner, such as FRE description on an order confirmation.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Translations - Control Language Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2383659439 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the translated name of the FRE attribute.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Translations - Control Name - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3049426280 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>FRE Attribute Values</source>
           <target>Valores de atributos FRE</target>
@@ -8614,7 +9141,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Value List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3049426280 - Control 2006108605 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the item attribute.</source>
+          <source>Specifies the FRE attribute.</source>
           <target>Especifica el atributo del artículo.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Value List - Control Attribute Name - Property ToolTip</note>
@@ -8626,13 +9153,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Value List - Control Attribute Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3049426280 - Control 1920046521 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the item or resource's unit of measure, such as piece or hour.</source>
-          <target>Especifica el nombre de la unidad de medida del artículo o recurso, como pieza u hora.</target>
+          <source>Specifies the name of the FRE or resource's unit of measure, such as piece or hour.</source>
+          <target>[NAB: REVIEW]Especifica el nombre de la unidad de medida del artículo o recurso, como pieza u hora.</target>
           <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Value List - Control Unit of Measure - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3049426280 - Control 1131619133 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the item attribute.</source>
+          <source>Specifies the value of the FRE attribute.</source>
           <target>Especifica el valor del atributo del artículo.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Value List - Control Value - Property ToolTip</note>
@@ -8642,6 +9170,147 @@
           <target>Valor</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Value List - Control Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3049426280 - Control 578951713 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the FRE attribute.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Value List - Control RelatedRecordCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3049426280 - Control 578951713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Related Record Code</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Value List - Control RelatedRecordCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2789934327 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attribute Values</source>
+          <target>Valores de atributos FRE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Values - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2789934327 - Control 3543129988 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that the attribute value cannot be assigned to an item. Items to which the attribute value is already assigned are not affected.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Values - Control Blocked - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2789934327 - Control 1131619133 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the item attribute.</source>
+          <target>Especifica el valor del atributo del artículo.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Values - Control Value - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2789934327 - Action 2675496269 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target>Proceso</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Values - Action Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2789934327 - Action 2061904062 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens a window in which you can specify the translations of the selected item attribute value.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Values - Action ItemAttributeValueTranslations - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2789934327 - Action 2061904062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Translations</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Values - Action ItemAttributeValueTranslations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2789934327 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target>Proceso</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attribute Values - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 792234530 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attributes</source>
+          <target>Atributos</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attributes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 792234530 - Control 3543129988 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that the attribute cannot be assigned to an FRE. FREs to which the attribute is already assigned are not affected.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attributes - Control Blocked - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 792234530 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the FRE attribute.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attributes - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 792234530 - Control 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the FRE attribute.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attributes - Control Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 792234530 - Control 1034300564 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the values of the FRE attribute.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attributes - Control Values - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 792234530 - Control 1034300564 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Values</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attributes - Control Values - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 792234530 - Action 770251374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Attribute</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attributes - Action &amp;Attribute - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 792234530 - Action 486757647 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens a window in which you can define the translations for the selected item attribute.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attributes - Action FREAttributeTranslations - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 792234530 - Action 486757647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Translations</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attributes - Action FREAttributeTranslations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 792234530 - Action 309879127 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens a window in which you can define the values for the selected FRE attribute.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attributes - Action FREAttributeValues - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 792234530 - Action 309879127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Attribute &amp;Values</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attributes - Action FREAttributeValues - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 792234530 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target>Proceso</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Attributes - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2779214706 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Statement Card</source>
@@ -9624,6 +10293,13 @@
           <target>Especifica el valor del campo Contrato.</target>
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Control Contract No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2131679017 - Control 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Customer No. field.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Incidents List - Control Customer No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2131679017 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Description field.</source>
@@ -11227,6 +11903,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoice Subform - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 202653304 - Control 2681758717 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indicates whether taxes should be applied to this invoice line. If you clear this field, tax fields will be hidden on the invoice line, and no taxes will be calculated for this line.</source>
+          <target>Indica si se deben aplicar impuestos a esta línea de factura. Si borra este campo, los campos de impuestos se ocultarán en la línea de factura y no se calcularán impuestos para esta línea.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoice Subform - Control Aplicar Impuestos - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 202653304 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of an item, resource, cost, general ledger account description, or some descriptive text on the service invoice line.</source>
           <target>Especifica el nombre de un artículo, recurso, costo, descripción de la cuenta del libro mayor o algún texto descriptivo en la línea de la factura del servicio.</target>
@@ -11262,6 +11944,12 @@
           <target>Especifica el número de unidades de artículos, horas de recursos, pagos de cuentas del libro mayor o costos especificados en la línea de factura.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoice Subform - Control Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 202653304 - Control 3041732497 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shows the tax details for this invoice line. Click the AssistEdit button to view the related tax details.</source>
+          <target>Muestra los detalles de impuestos de esta línea de factura. Haga clic en el botón `AssistEdit` para ver los detalles de impuestos relacionados.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoice Subform - Control Tax Amount Line - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 202653304 - Control 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of this invoice line.</source>
@@ -11406,18 +12094,6 @@
           <target>Especifica el estado de la factura.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Control Status - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2811265567 - Control 334623485 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Importe de impuestos calculado como la diferencia entre el importe con IVA y el importe sin IVA.</source>
-          <target>Importe de impuestos calculado como la diferencia entre el importe con IVA y el importe sin IVA.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Control VAT - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2811265567 - Control 334623485 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Importe impuestos</source>
-          <target>Importe impuestos</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Lease Invoices - Control VAT - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2811265567 - Action 3698833421 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the fixed real estate related to this invoice.</source>
@@ -13016,7 +13692,7 @@
         </trans-unit>
         <trans-unit id="Report 121448598 - Control 475068594 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice to Date</source>
-          <target>Factura hasta la fecha</target>
+          <target>Fecha factura</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Create Lease Contract Invoices - Control InvoiceToDate - Property Caption</note>
         </trans-unit>
@@ -13330,6 +14006,13 @@
           <target>Descuentos en facturas y pagos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType InvPmtDiscCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2652458214 - NamedType 2096874183" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRPF</source>
+          <target>[NAB: REVIEW]Importe IRPF</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType IRPFAmountCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2652458214 - NamedType 2773606650" size-unit="char" translate="yes" xml:space="preserve">
           <source>New Code</source>
@@ -14200,6 +14883,13 @@
           <target>Contrato de alquiler</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Enum_DocsPropertyManagement - EnumValue Lease Contract - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1507081341 - EnumValue 3865240697 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lease Invoice</source>
+          <target>[NAB: REVIEW]Factura de alquiler</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Enum_DocsPropertyManagement - EnumValue Lease Invoice - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2663975535 - EnumValue 153585834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Collection</source>

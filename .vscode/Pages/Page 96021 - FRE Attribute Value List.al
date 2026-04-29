@@ -4,101 +4,107 @@ page 96021 "FRE Attribute Value List"
     DelayedInsert = true;
     LinksAllowed = false;
     PageType = ListPart;
-    SourceTable = "Item Attribute Value Selection";
+    SourceTable = "FRE Attribute Value Selection";
     SourceTableTemporary = true;
     Permissions = 
         tabledata "Fixed Real Estate" = R,
-        tabledata "Item Attribute" = R,
-        tabledata "Item Attribute Value" = RD,
-        tabledata "Item Attribute Value Mapping" = RIMD;
+        tabledata "FRE Attribute" = R,
+        tabledata "FRE Attribute Value" = RD,
+        tabledata "FRE Attribute Value Mapping" = RIMD;
     ApplicationArea = All;
 
     layout
     {
         area(content)
         {
+            field(RelatedRecordCode;RelatedRecordCode)
+            {
+                AssistEdit = false;
+                Caption = 'Related Record Code';
+                ToolTip = 'Specifies the FRE attribute.';
+            }
             repeater(Group)
             {
                 field("Attribute Name"; rec."Attribute Name")
                 {
                     AssistEdit = false;
                     Caption = 'Attribute';
-                    TableRelation = "Item Attribute".Name WHERE (Blocked = CONST (false));
-                    ToolTip = 'Specifies the item attribute.';
+                    TableRelation = "FRE Attribute".Name WHERE (Blocked = CONST (false));
+                    ToolTip = 'Specifies the FRE attribute.';
 
                     trigger OnValidate()
                     var
-                        ItemAttributeValue: Record "Item Attribute Value";
-                        ItemAttributeValueMapping: Record "Item Attribute Value Mapping";
+                        FREAttributeValue: Record "FRE Attribute Value";
+                        FREAttributeValueMapping: Record "FRE Attribute Value Mapping";
                     begin
                         IF xRec."Attribute Name" <> '' THEN
-                            DeleteItemAttributeValueMapping(xRec."Attribute ID");
+                            DeleteFREAttributeValueMapping(xRec."Attribute ID");
 
-                        IF NOT rec.FindAttributeValue(ItemAttributeValue) THEN
-                            rec.InsertItemAttributeValue(ItemAttributeValue, Rec);
+                        IF NOT rec.FindAttributeValue(FREAttributeValue) THEN
+                            rec.InsertFREAttributeValue(FREAttributeValue, Rec);
 
-                        IF ItemAttributeValue.GET(ItemAttributeValue."Attribute ID", ItemAttributeValue.ID) THEN BEGIN
-                            ItemAttributeValueMapping.RESET;
-                            ItemAttributeValueMapping.INIT;
-                            ItemAttributeValueMapping."Table ID" := 96000;
-                            ItemAttributeValueMapping."No." := RelatedRecordCode;
-                            ItemAttributeValueMapping."Item Attribute ID" := ItemAttributeValue."Attribute ID";
-                            ItemAttributeValueMapping."Item Attribute Value ID" := ItemAttributeValue.ID;
-                            ItemAttributeValueMapping.INSERT;
+                        IF FREAttributeValue.GET(FREAttributeValue."Attribute ID", FREAttributeValue.ID) THEN BEGIN
+                            FREAttributeValueMapping.RESET;
+                            FREAttributeValueMapping.INIT;
+                            FREAttributeValueMapping."Table ID" := 96000;
+                            FREAttributeValueMapping."No." := RelatedRecordCode;
+                            FREAttributeValueMapping."FRE Attribute ID" := FREAttributeValue."Attribute ID";
+                            FREAttributeValueMapping."FRE Attribute Value ID" := FREAttributeValue.ID;
+                            FREAttributeValueMapping.INSERT;
                         END;
                     end;
                 }
                 field(Value; rec.Value)
                 {
                     Caption = 'Value';
-                    TableRelation = IF ("Attribute Type"=CONST(Option)) "Item Attribute Value".Value WHERE ("Attribute ID"=FIELD("Attribute ID"),
+                    TableRelation = IF ("Attribute Type"=CONST(Option)) "FRE Attribute Value".Value WHERE ("Attribute ID"=FIELD("Attribute ID"),
                                                                                                           Blocked=CONST(true));
-                    ToolTip = 'Specifies the value of the item attribute.';
+                    ToolTip = 'Specifies the value of the FRE attribute.';
 
                     trigger OnValidate()
                     var
-                        ItemAttributeValue: Record "Item Attribute Value";
-                        ItemAttributeValueMapping: Record "Item Attribute Value Mapping";
-                        ItemAttribute: Record "Item Attribute";
+                        FREAttributeValue: Record "FRE Attribute Value";
+                        FREAttributeValueMapping: Record "FRE Attribute Value Mapping";
+                        FREAttribute: Record "FRE Attribute";
                     begin
-                        IF NOT rec.FindAttributeValue(ItemAttributeValue) THEN
-                          rec.InsertItemAttributeValue(ItemAttributeValue,Rec);
+                        IF NOT rec.FindAttributeValue(FREAttributeValue) THEN
+                          rec.InsertFREAttributeValue(FREAttributeValue,Rec);
 
-                        ItemAttributeValueMapping.SETRANGE("Table ID",DATABASE::"Fixed Real Estate");
-                        ItemAttributeValueMapping.SETRANGE("No.",RelatedRecordCode);
-                        ItemAttributeValueMapping.SETRANGE("Item Attribute ID",ItemAttributeValue."Attribute ID");
+                        FREAttributeValueMapping.SETRANGE("Table ID",DATABASE::"Fixed Real Estate");
+                        FREAttributeValueMapping.SETRANGE("No.",RelatedRecordCode);
+                        FREAttributeValueMapping.SETRANGE("FRE Attribute ID",FREAttributeValue."Attribute ID");
 
-                        IF ItemAttributeValueMapping.FINDFIRST THEN BEGIN
-                          ItemAttributeValueMapping."Item Attribute Value ID" := ItemAttributeValue.ID;
-                          OnBeforeItemAttributeValueMappingModify(ItemAttributeValueMapping,ItemAttributeValue,RelatedRecordCode);
-                          ItemAttributeValueMapping.MODIFY;
+                        IF FREAttributeValueMapping.FINDFIRST THEN BEGIN
+                          FREAttributeValueMapping."FRE Attribute Value ID" := FREAttributeValue.ID;
+                          OnBeforeFREAttributeValueMappingModify(FREAttributeValueMapping,FREAttributeValue,RelatedRecordCode);
+                          FREAttributeValueMapping.MODIFY;
                         END;
 
-                        ItemAttribute.GET(rec."Attribute ID");
-                        IF ItemAttribute.Type <> ItemAttribute.Type::Option THEN
-                          IF rec.FindAttributeValueFromRecord(ItemAttributeValue,xRec) THEN
-                            IF NOT ItemAttributeValue.HasBeenUsed THEN
-                              ItemAttributeValue.DELETE;
+                        FREAttribute.GET(rec."Attribute ID");
+                        IF FREAttribute.Type <> FREAttribute.Type::Option THEN
+                          IF rec.FindAttributeValueFromRecord(FREAttributeValue,xRec) THEN
+                            IF NOT FREAttributeValue.HasBeenUsed THEN
+                              FREAttributeValue.DELETE;
                     end;
                 }
                 field("Unit of Measure";rec."Unit of Measure")
                 {
-                    ToolTip = 'Specifies the name of the item or resource''s unit of measure, such as piece or hour.';
+                    ToolTip = 'Specifies the name of the FRE or resource''s unit of measure, such as piece or hour.';
                 }
                 field(Comment;rec.Comment)
                 {
                     trigger OnValidate()
                     var
-                        ItemAttributeValue: Record "Item Attribute Value";
-                        ItemAttributeValueMapping: Record "Item Attribute Value Mapping";
-                        ItemAttribute: Record "Item Attribute";
+                        FREAttributeValue: Record "FRE Attribute Value";
+                        FREAttributeValueMapping: Record "FRE Attribute Value Mapping";
+                        FREAttribute: Record "FRE Attribute";
                     begin
-                        ItemAttributeValueMapping.SETRANGE("Table ID",DATABASE::"Fixed Real Estate");
-                        ItemAttributeValueMapping.SETRANGE("No.",RelatedRecordCode);
-                        ItemAttributeValueMapping.SETRANGE("Item Attribute ID",rec."Attribute ID");
-                        IF ItemAttributeValueMapping.FINDFIRST THEN BEGIN
-                          ItemAttributeValueMapping.Comment := rec.Comment;
-                          ItemAttributeValueMapping.MODIFY;
+                        FREAttributeValueMapping.SETRANGE("Table ID",DATABASE::"Fixed Real Estate");
+                        FREAttributeValueMapping.SETRANGE("No.",RelatedRecordCode);
+                        FREAttributeValueMapping.SETRANGE("FRE Attribute ID",rec."Attribute ID");
+                        IF FREAttributeValueMapping.FINDFIRST THEN BEGIN
+                          FREAttributeValueMapping.Comment := rec.Comment;
+                          FREAttributeValueMapping.MODIFY;
                         END;
                     end;
                 }
@@ -112,7 +118,7 @@ page 96021 "FRE Attribute Value List"
 
     trigger OnDeleteRecord(): Boolean
     begin
-        DeleteItemAttributeValueMapping(rec."Attribute ID");
+        DeleteFREAttributeValueMapping(rec."Attribute ID");
     end;
 
     trigger OnOpenPage()
@@ -123,97 +129,100 @@ page 96021 "FRE Attribute Value List"
     var
         RelatedRecordCode: Code[20];
 
-    procedure LoadAttributes(ItemNo: Code[20])
+    procedure LoadAttributes(FRENo: Code[20])
     var
-        ItemAttributeValueMapping: Record "Item Attribute Value Mapping";
-        TempItemAttributeValue: Record "Item Attribute Value" temporary;
-        ItemAttributeValue: Record "Item Attribute Value";
+        FREAttributeValueMapping: Record "FRE Attribute Value Mapping";
+        TempFREAttributeValue: Record "FRE Attribute Value" temporary;
+        FREAttributeValue: Record "FRE Attribute Value";
     begin
-        RelatedRecordCode := ItemNo;
-        ItemAttributeValueMapping.SETRANGE("Table ID",DATABASE::"Fixed Real Estate");
-        ItemAttributeValueMapping.SETRANGE("No.",ItemNo);
-        IF ItemAttributeValueMapping.FINDSET THEN
+        RelatedRecordCode := FRENo;
+        FREAttributeValueMapping.SETRANGE("Table ID",DATABASE::"Fixed Real Estate");
+        FREAttributeValueMapping.SETRANGE("No.",FRENo);
+        IF FREAttributeValueMapping.FINDSET THEN
           REPEAT
-            ItemAttributeValue.GET(ItemAttributeValueMapping."Item Attribute ID",ItemAttributeValueMapping."Item Attribute Value ID");
-            TempItemAttributeValue.TRANSFERFIELDS(ItemAttributeValue);
-            TempItemAttributeValue.Comment := ItemAttributeValueMapping.Comment;
-            TempItemAttributeValue.INSERT;
-          UNTIL ItemAttributeValueMapping.NEXT = 0;
+            TempFREAttributeValue."Attribute ID" := FREAttributeValueMapping."FRE Attribute ID";
+            // TempFREAttributeValue."Attribute Name" := FREAttributeValueMapping.
+            TempFREAttributeValue.Comment := FREAttributeValueMapping.Comment;
+            if FREAttributeValue.GET(FREAttributeValueMapping."FRE Attribute ID",FREAttributeValueMapping."FRE Attribute Value ID") then
+                TempFREAttributeValue.TRANSFERFIELDS(FREAttributeValue);
+            
+            TempFREAttributeValue.INSERT;
+          UNTIL FREAttributeValueMapping.NEXT = 0;
 
-        rec.PopulateItemAttributeValueSelection(TempItemAttributeValue);
+        rec.PopulateFREAttributeValueSelection(TempFREAttributeValue);
     end;
 
-    procedure DeleteItemAttributeValueMapping(AttributeToDeleteID: Integer)
+    procedure DeleteFREAttributeValueMapping(AttributeToDeleteID: Integer)
     var
-        ItemAttributeValueMapping: Record "Item Attribute Value Mapping";
-        ItemAttribute: Record "Item Attribute";
+        FREAttributeValueMapping: Record "FRE Attribute Value Mapping";
+        FREAttribute: Record "FRE Attribute";
     begin
-        ItemAttributeValueMapping.SETRANGE("Table ID",DATABASE::"Fixed Real Estate");
-        ItemAttributeValueMapping.SETRANGE("No.",RelatedRecordCode);
-        ItemAttributeValueMapping.SETRANGE("Item Attribute ID",AttributeToDeleteID);
-        IF ItemAttributeValueMapping.FINDFIRST THEN BEGIN
-          ItemAttributeValueMapping.DELETE;
-          OnAfterItemAttributeValueMappingDelete(AttributeToDeleteID,RelatedRecordCode);
+        FREAttributeValueMapping.SETRANGE("Table ID",DATABASE::"Fixed Real Estate");
+        FREAttributeValueMapping.SETRANGE("No.",RelatedRecordCode);
+        FREAttributeValueMapping.SETRANGE("FRE Attribute ID",AttributeToDeleteID);
+        IF FREAttributeValueMapping.FINDFIRST THEN BEGIN
+          FREAttributeValueMapping.DELETE;
+          OnAfterFREAttributeValueMappingDelete(AttributeToDeleteID,RelatedRecordCode);
         END;
 
-        ItemAttribute.GET(AttributeToDeleteID);
-        ItemAttribute.RemoveUnusedArbitraryValues;
+        FREAttribute.GET(AttributeToDeleteID);
+        FREAttribute.RemoveUnusedArbitraryValues;
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterItemAttributeValueMappingDelete(AttributeToDeleteID: Integer;RelatedRecordCode: Code[20])
+    local procedure OnAfterFREAttributeValueMappingDelete(AttributeToDeleteID: Integer;RelatedRecordCode: Code[20])
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeItemAttributeValueMappingModify(var ItemAttributeValueMapping: Record "Item Attribute Value Mapping";ItemAttributeValue: Record "Item Attribute Value";RelatedRecordCode: Code[20])
+    local procedure OnBeforeFREAttributeValueMappingModify(var FREAttributeValueMapping: Record "FRE Attribute Value Mapping";FREAttributeValue: Record "FRE Attribute Value";RelatedRecordCode: Code[20])
     begin
     end;
 
     procedure LoadAttributeForTypeFixeRealEstate(FRENo: Code[20])
     var
-        ItemAttribute: Record "Item Attribute";
+        FREAttribute: Record "FRE Attribute";
         TempFixedRealEstate: Record "Fixed Real Estate";
-        TempItemAttributeValue: Record "Item Attribute Value" temporary;
-        ItemAttributeValueMapping: Record "Item Attribute Value Mapping";
-        ItemAttributeValue: Record "Item Attribute Value";
+        TempFREAttributeValue: Record "FRE Attribute Value" temporary;
+        FREAttributeValueMapping: Record "FRE Attribute Value Mapping";
+        FREAttributeValue: Record "FRE Attribute Value";
     begin
         RelatedRecordCode := FRENo;
-        ItemAttribute.RESET;
-        IF ItemAttribute.FINDSET THEN
+        FREAttribute.RESET;
+        IF FREAttribute.FINDSET THEN
           REPEAT
-            IF ItemAttribute."Fixed Type"<>'' THEN BEGIN
-              TempFixedRealEstate.RESET;
-              TempFixedRealEstate.SETRANGE("No.",FRENo);
-              TempFixedRealEstate.SETFILTER("Asset Type",ItemAttribute."Fixed Type");
-              IF TempFixedRealEstate.FINDFIRST THEN BEGIN
-                  TempItemAttributeValue."Attribute ID" := ItemAttribute.ID;
-                  TempItemAttributeValue."Attribute Name" := ItemAttribute.Name;
-                  IF TempItemAttributeValue.INSERT THEN;
+            // IF FREAttribute."Fixed Type"<>'' THEN BEGIN
+                TempFixedRealEstate.RESET;
+                TempFixedRealEstate.SETRANGE("No.",FRENo);
+                TempFixedRealEstate.SETFILTER("Asset Type",FREAttribute."Fixed Type");
+                IF TempFixedRealEstate.FINDFIRST THEN BEGIN
+                    TempFREAttributeValue."Attribute ID" := FREAttribute.ID;
+                    TempFREAttributeValue."Attribute Name" := FREAttribute.Name;
+                    IF TempFREAttributeValue.INSERT THEN;
                 END;
-              END;
-          UNTIL ItemAttribute.NEXT = 0;
-        //  PopulateItemAttributeValueSelection(TempItemAttributeValue);
-        IF TempItemAttributeValue.FINDFIRST THEN REPEAT
-          rec."Attribute ID" := TempItemAttributeValue."Attribute ID";
-          ItemAttribute.GET(TempItemAttributeValue."Attribute ID");
-          rec."Attribute Name" := ItemAttribute.Name;
-          rec."Attribute Type" := ItemAttribute.Type;
-          rec.Value := TempItemAttributeValue.GetValueInCurrentLanguageWithoutUnitOfMeasure;
-          rec.Blocked := TempItemAttributeValue.Blocked;
-          rec."Unit of Measure" := ItemAttribute."Unit of Measure";
+            //END;
+          UNTIL FREAttribute.NEXT = 0;
+        //  PopulateFREAttributeValueSelection(TempFREAttributeValue);
+        IF TempFREAttributeValue.FINDFIRST THEN REPEAT
+          rec."Attribute ID" := TempFREAttributeValue."Attribute ID";
+          FREAttribute.GET(TempFREAttributeValue."Attribute ID");
+          rec."Attribute Name" := FREAttribute.Name;
+          rec."Attribute Type" := FREAttribute.Type;
+          rec.Value := TempFREAttributeValue.GetValueInCurrentLanguageWithoutUnitOfMeasure;
+          rec.Blocked := TempFREAttributeValue.Blocked;
+          rec."Unit of Measure" := FREAttribute."Unit of Measure";
           // "Inherited-From Table ID" := DefinedOnTableID;
           // "Inherited-From Key Value" := DefinedOnKeyValue;
           IF rec.INSERT THEN BEGIN
-            rec.InsertItemAttributeValue(ItemAttributeValue,Rec);
-            ItemAttributeValueMapping.INIT;
-            ItemAttributeValueMapping."Table ID" := 96000;
-            ItemAttributeValueMapping."No." := FRENo;
-            ItemAttributeValueMapping."Item Attribute ID" := TempItemAttributeValue."Attribute ID";
-            ItemAttributeValueMapping."Item Attribute Value ID" := ItemAttributeValue.ID;
-            IF ItemAttributeValueMapping.INSERT THEN;
+            rec.InsertFREAttributeValue(FREAttributeValue,Rec);
+            FREAttributeValueMapping.INIT;
+            FREAttributeValueMapping."Table ID" := 96000;
+            FREAttributeValueMapping."No." := FRENo;
+            FREAttributeValueMapping."FRE Attribute ID" := TempFREAttributeValue."Attribute ID";
+            FREAttributeValueMapping."FRE Attribute Value ID" := FREAttributeValue.ID;
+            IF FREAttributeValueMapping.INSERT THEN;
             END;
-          UNTIL TempItemAttributeValue.NEXT = 0;
+          UNTIL TempFREAttributeValue.NEXT = 0;
     end;
 }
 

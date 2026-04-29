@@ -13,7 +13,7 @@ page 96031 "Lease Contract Card"
             {
                 SubPageLink = "Contract No." = field("Contract No.");
 
-            }            
+            }
             group(General)
             {
                 field("Contract No."; rec."Contract No.")
@@ -264,7 +264,7 @@ page 96031 "Lease Contract Card"
                 field("Payment Terms Code"; rec."Payment Terms Code")
                 {
                 }
-                field("Grupo IRPF";Rec."Grupo IRPF")
+                field("Grupo IRPF"; Rec."Grupo IRPF")
                 {
                 }
                 group("Detalle Factura")
@@ -279,7 +279,7 @@ page 96031 "Lease Contract Card"
                     field("Prices Services Including VAT"; rec."Prices Services Including VAT")
                     {
                     }
-                    field("Generic Prod. Posting Gr.";Rec."Generic Prod. Posting Gr.")
+                    field("Generic Prod. Posting Gr."; Rec."Generic Prod. Posting Gr.")
                     {
                     }
                     field("Customer Template Code"; rec."Customer Template Code")
@@ -301,14 +301,14 @@ page 96031 "Lease Contract Card"
                             rec.SetBailDescription(BailDescription);
                         end;
                     }
-                    field("Consumer Price Index Category";Rec."Consumer Price Index Category")
+                    field("Consumer Price Index Category"; Rec."Consumer Price Index Category")
                     {
                     }
                 }
             }
             part(LeaseContractLines; 96032)
             {
-                SubPageLink = "Contract No."=FIELD("Contract No.");
+                SubPageLink = "Contract No." = FIELD("Contract No.");
             }
             group(Pagos)
             {
@@ -332,6 +332,7 @@ page 96031 "Lease Contract Card"
                 UpdatePropagation = Both;
                 SubPageLink = "Table ID" = const(Database::"Lease Contract"),
                             "No." = field("Contract No.");
+                Visible = ShowAttachmentFactbox;
             }
         }
     }
@@ -346,17 +347,17 @@ page 96031 "Lease Contract Card"
                 Image = ViewComments;
                 Promoted = true;
                 RunObject = Page 96033;
-                RunPageLink = "Table Name"=CONST("Lease Contract"),
-                              "No."=FIELD("Contract No."),
-                              "Table Line No."=CONST(0);
-                            ToolTip = 'View or add comments for the record.';
+                RunPageLink = "Table Name" = CONST("Lease Contract"),
+                              "No." = FIELD("Contract No."),
+                              "Table Line No." = CONST(0);
+                ToolTip = 'View or add comments for the record.';
             }
             action("Rentals Deposit")
             {
                 Caption = 'Rentals Deposit';
                 Image = Prepayment;
                 RunObject = Page 96054;
-                RunPageLink = "Contract No."=FIELD("Contract No.");
+                RunPageLink = "Contract No." = FIELD("Contract No.");
                 ToolTip = 'View and manage rental deposits for this lease contract.';
             }
             action("Related Contats")
@@ -365,8 +366,8 @@ page 96031 "Lease Contract Card"
                 Image = ContactReference;
                 Promoted = true;
                 RunObject = Page 96013;
-                RunPageLink = "Entity Type"=CONST(Contract),
-                              "Source No."=FIELD("Contract No.");
+                RunPageLink = "Entity Type" = CONST(Contract),
+                              "Source No." = FIELD("Contract No.");
             }
             action(Attachments)
             {
@@ -380,6 +381,8 @@ page 96031 "Lease Contract Card"
                     DocumentAttachmentDetails: Page "Document Attachment Details";
                     RecRef: RecordRef;
                 begin
+                    CurrPage.SAVERECORD;
+
                     RecRef.GETTABLE(Rec);
                     DocumentAttachmentDetails.OpenForRecRef(RecRef);
                     DocumentAttachmentDetails.RUNMODAL;
@@ -453,7 +456,7 @@ page 96031 "Lease Contract Card"
                         RealEstateMangement.CancelContract(Rec);
                         CurrPage.UPDATE
                     end;
-                }            
+                }
             }
             action(LiquidarContrato)
             {
@@ -476,7 +479,7 @@ page 96031 "Lease Contract Card"
                         exit;
                     if not LiquidacionContrato.Get(rec."Contract No.") then begin
                         LiquidacionContrato."Contract No." := rec."Contract No.";
-                        if LiquidacionContrato.Insert() then ;
+                        if LiquidacionContrato.Insert() then;
                     end;
                     commit;
                     // Lanza el asistente de liquidación
@@ -587,8 +590,8 @@ page 96031 "Lease Contract Card"
                 begin
 
                     LeaseContract.RESET;
-                    LeaseContract.SETRANGE("Contract No.",rec."Contract No.");
-                    REPORT.RUNMODAL(96005,TRUE,TRUE,LeaseContract);
+                    LeaseContract.SETRANGE("Contract No.", rec."Contract No.");
+                    REPORT.RUNMODAL(96005, TRUE, TRUE, LeaseContract);
                     CurrPage.UPDATE;
                 end;
             }
@@ -599,12 +602,15 @@ page 96031 "Lease Contract Card"
     begin
         BailDescription := rec.GetBailDescription;
         Visible2Arrendador := Obligar2Arrendador or (rec."Second Name" <> '');
+        ShowAttachmentFactbox := IsRecordPersisted;
     end;
-    
+
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
         Visible2Arrendador := true;
+        ShowAttachmentFactbox := false;
     end;
+
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
         Visible2Arrendador := true;
@@ -613,6 +619,7 @@ page 96031 "Lease Contract Card"
 
     var
         RealEstateMangement: Codeunit "Real Estate Management";
+        ShowAttachmentFactbox: Boolean;
         ShowMapLbl: Label 'Show on Map';
         BailDescription: Text;
         Visible2Arrendador: Boolean;
@@ -621,6 +628,17 @@ page 96031 "Lease Contract Card"
     local procedure CustomerNoOnAfterValidate()
     begin
         // CurrPage.UPDATE;
+    end;
+
+    local procedure IsRecordPersisted(): Boolean
+    var
+        LeaseContract: Record "Lease Contract";
+    begin
+        if Rec."Contract No." = '' then
+            exit(false);
+
+        LeaseContract.SetRange("Contract No.", Rec."Contract No.");
+        exit(LeaseContract.FindFirst());
     end;
 }
 

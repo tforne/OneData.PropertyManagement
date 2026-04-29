@@ -53,7 +53,7 @@ page 96000 "Fixed Real Estate Card"
 
                     trigger OnValidate()
                     begin
-                        
+
                     end;
                 }
                 field(Description; rec.Description)
@@ -64,7 +64,7 @@ page 96000 "Fixed Real Estate Card"
 
                     trigger OnValidate()
                     begin
-                        
+
                     end;
                 }
                 field("Phone No."; rec."Phone No.")
@@ -114,7 +114,7 @@ page 96000 "Fixed Real Estate Card"
                             SetDefaultPostingGroup;
                         end;
                     }
-                    field("Asset Type";Rec."Asset Type")
+                    field("Asset Type"; Rec."Asset Type")
                     {
                         Caption = 'Asset Type';
                         Importance = Promoted;
@@ -337,9 +337,9 @@ page 96000 "Fixed Real Estate Card"
             }
 
             part(RealEstates; "OD RE FA Link ListPart")
-                {
-                    SubPageLink =  "Real Estate No." = field("No.");
-                }
+            {
+                SubPageLink = "Real Estate No." = field("No.");
+            }
         }
         area(factboxes)
         {
@@ -347,8 +347,10 @@ page 96000 "Fixed Real Estate Card"
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 Caption = 'Attachments';
-                SubPageLink = "Table ID" = CONST(5600),
+                UpdatePropagation = Both;
+                SubPageLink = "Table ID" = CONST(96000),
                               "No." = FIELD("No.");
+                Visible = ShowAttachmentFactbox;
             }
             systempart("Links"; Links)
             {
@@ -474,9 +476,32 @@ page 96000 "Fixed Real Estate Card"
                     DocumentAttachmentDetails: Page "Document Attachment Details";
                     RecRef: RecordRef;
                 begin
+                    CurrPage.SAVERECORD;
+
                     RecRef.GETTABLE(Rec);
                     DocumentAttachmentDetails.OpenForRecRef(RecRef);
                     DocumentAttachmentDetails.RUNMODAL;
+                end;
+            }
+            fileuploadaction(UploadAttachments)
+            {
+                Caption = 'Upload files';
+                Image = Import;
+                ApplicationArea = Basic, Suite;
+                AllowMultipleFiles = true;
+                ToolTip = 'Upload one or more files and attach them to this Fixed Real Estate record.';
+
+                trigger OnAction(files: List of [FileUpload])
+                var
+                    DocumentAttachment: Record "Document Attachment";
+                    RecRef: RecordRef;
+                begin
+                    CurrPage.SAVERECORD;
+
+                    RecRef.GETTABLE(Rec);
+                    DocumentAttachment.SaveAttachment(files, RecRef);
+
+                    CurrPage.UPDATE;
                 end;
             }
             action(Contratos)
@@ -631,17 +656,20 @@ page 96000 "Fixed Real Estate Card"
 
         FAEDescription := rec.GetFREDescription;
         EditableField := (rec.Type <> rec.Type::Propiedad);
+        ShowAttachmentFactbox := IsRecordPersisted;
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
         CurrPage.UPDATE(FALSE);
+        ShowAttachmentFactbox := false;
     end;
 
     trigger OnOpenPage()
     begin
         Simple := TRUE;
         SetNoFieldVisible;
+        ShowAttachmentFactbox := IsRecordPersisted;
     end;
 
     var
@@ -649,6 +677,7 @@ page 96000 "Fixed Real Estate Card"
         Simple: Boolean;
         Acquirable: Boolean;
         FAEDescription: Text;
+        ShowAttachmentFactbox: Boolean;
         ShowMapLbl: Label 'Show on Map';
         VisiblePropertyNo: Boolean;
         ShowURLLbl: Label 'Show on URL';
@@ -672,6 +701,17 @@ page 96000 "Fixed Real Estate Card"
     var
     begin
         VisiblePropertyNo := (rec.Type <> rec.Type::Propiedad);
+    end;
+
+    local procedure IsRecordPersisted(): Boolean
+    var
+        FixedRealEstate: Record "Fixed Real Estate";
+    begin
+        if Rec."No." = '' then
+            exit(false);
+
+        FixedRealEstate.SetRange("No.", Rec."No.");
+        exit(FixedRealEstate.FindFirst());
     end;
 
     local procedure UpdatesEditableField()

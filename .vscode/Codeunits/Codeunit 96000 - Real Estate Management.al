@@ -51,10 +51,10 @@ codeunit 96000 "Real Estate Management"
     begin
         //*****
         IF LeaseContract2."Invoice Period" = LeaseContract2."Invoice Period"::None THEN
-        EXIT;
+            EXIT;
 
         IF PostDate = 0D THEN
-        PostDate := WORKDATE;
+            PostDate := WORKDATE;
 
         FixedRealEstate.GET(LeaseContract2."Fixed Real Estate No.");
 
@@ -63,16 +63,16 @@ codeunit 96000 "Real Estate Management"
             InvoiceHeader2.INIT;
             InvoiceHeader2.SetHideValidationDialog(TRUE);
             InvoiceHeader2."Document Type" := InvoiceHeader2."Document Type"::Invoice;
-            REFSetup.GET ;
+            REFSetup.GET;
             REFSetup.TESTFIELD("Contract Invoice Nos.");
             InvoiceHeader2.INSERT(TRUE);
             ServInvNo := InvoiceHeader2."No.";
 
             InvoiceHeader2."Order Date" := WORKDATE;
-            InvoiceHeader2."Posting Description" :='Recibo alquiler No.: ' + InvoiceHeader2."No.";
-            InvoiceHeader2.VALIDATE("Sell-to Customer No.",LeaseContract2."Customer No.");
-            IF LeaseContract2."Second Customer No."<>'' THEN
-                InvoiceHeader2.VALIDATE("Bill-to Customer No.",LeaseContract2."Second Customer No.");
+            InvoiceHeader2."Posting Description" := 'Recibo alquiler No.: ' + InvoiceHeader2."No.";
+            InvoiceHeader2.VALIDATE("Sell-to Customer No.", LeaseContract2."Customer No.");
+            IF LeaseContract2."Second Customer No." <> '' THEN
+                InvoiceHeader2.VALIDATE("Bill-to Customer No.", LeaseContract2."Second Customer No.");
 
 
             InvoiceHeader2."Prices Including VAT" := FALSE;
@@ -80,7 +80,7 @@ codeunit 96000 "Real Estate Management"
             Cust.GET(InvoiceHeader2."Sell-to Customer No.");
             InvoiceHeader2."Responsibility Center" := Cust."Responsibility Center";
 
-            Cust.CheckBlockedCustOnDocs(Cust,InvoiceHeader2."Document Type",FALSE,FALSE);
+            Cust.CheckBlockedCustOnDocs(Cust, InvoiceHeader2."Document Type", FALSE, FALSE);
 
             Cust.TESTFIELD("Gen. Bus. Posting Group");
             InvoiceHeader2."Sell-to Customer Name" := Cust.Name;
@@ -100,34 +100,34 @@ codeunit 96000 "Real Estate Management"
             InvoiceHeader2."Grupo IRPF" := LeaseContract2."Grupo IRPF";
 
             IF NOT ContractExists THEN
-            InvoiceHeader2.VALIDATE("Posting Date",PostDate);
-            InvoiceHeader2.VALIDATE("Document Date",PostDate);
+                InvoiceHeader2.VALIDATE("Posting Date", PostDate);
+            InvoiceHeader2.VALIDATE("Document Date", PostDate);
             InvoiceHeader2."Contract No." := LeaseContract2."Contract No.";
             InvoiceHeader2."Gen. Bus. Posting Group" := Cust."Gen. Bus. Posting Group";
-            InvoiceHeader2.VALIDATE("Payment Terms Code",LeaseContract2."Payment Terms Code");
-            InvoiceHeader2.VALIDATE("Payment Method Code",LeaseContract2."Payment Method Code");
+            InvoiceHeader2.VALIDATE("Payment Terms Code", LeaseContract2."Payment Terms Code");
+            InvoiceHeader2.VALIDATE("Payment Method Code", LeaseContract2."Payment Method Code");
 
 
-            IF LeaseContract2."Second Customer No."<>'' THEN BEGIN
+            IF LeaseContract2."Second Customer No." <> '' THEN BEGIN
                 Cust2.GET(LeaseContract2."Second Customer No.");
                 InvoiceHeader2."VAT Bus. Posting Group" := Cust2."VAT Bus. Posting Group";
             END ELSE
                 InvoiceHeader2."VAT Bus. Posting Group" := Cust."VAT Bus. Posting Group";
 
-            InvoiceHeader2.VALIDATE("Payment Terms Code",LeaseContract2."Payment Terms Code");
+            InvoiceHeader2.VALIDATE("Payment Terms Code", LeaseContract2."Payment Terms Code");
             InvoiceHeader2."Your Reference" := LeaseContract2."Your Reference";
             InvoiceHeader2.MODIFY
         END;
         CLEAR(LeaseInvoiceHeader2);
         LeaseInvoiceHeader2.INIT;
-        REFSetup.GET ;
+        REFSetup.GET;
         REFSetup.TESTFIELD("Contract Lease Invoice Nos.");
 
         LeaseInvoiceHeader2.INSERT(TRUE);
         ServInvNo := LeaseInvoiceHeader2."No.";
 
         LeaseInvoiceHeader2."Posting Description" := 'Recibo alquiler No.: ' + LeaseInvoiceHeader2."No.";
-        LeaseInvoiceHeader2.VALIDATE("Customer No.",LeaseContract2."Customer No.");
+        LeaseInvoiceHeader2.VALIDATE("Customer No.", LeaseContract2."Customer No.");
 
         LeaseInvoiceHeader2."Prices Including VAT" := FALSE;
 
@@ -149,24 +149,25 @@ codeunit 96000 "Real Estate Management"
         LeaseInvoiceHeader2."VAT Registration No." := Cust."VAT Registration No.";
         LeaseInvoiceHeader2."E-Mail" := Cust."E-Mail";
         LeaseInvoiceHeader2."Notify Customer" := LeaseContract2."Notify Customer";
-        
+
 
         IF NOT ContractExists THEN
-        LeaseInvoiceHeader2.VALIDATE("Posting Date",PostDate);
-        LeaseInvoiceHeader2.VALIDATE("Document Date",PostDate);
+            LeaseInvoiceHeader2.VALIDATE("Posting Date", PostDate);
+        LeaseInvoiceHeader2.VALIDATE("Document Date", PostDate);
         LeaseInvoiceHeader2."Contract No." := LeaseContract2."Contract No.";
         LeaseInvoiceHeader2."Fixed Real Estate No." := LeaseContract2."Fixed Real Estate No.";
         LeaseInvoiceHeader2."Gen. Bus. Posting Group" := Cust."Gen. Bus. Posting Group";
-        LeaseInvoiceHeader2.VALIDATE("Payment Terms Code",LeaseContract2."Payment Terms Code");
-        LeaseInvoiceHeader2.VALIDATE("Payment Method Code",LeaseContract2."Payment Method Code");
+        LeaseInvoiceHeader2.VALIDATE("Payment Terms Code", LeaseContract2."Payment Terms Code");
+        LeaseInvoiceHeader2.VALIDATE("Payment Method Code", LeaseContract2."Payment Method Code");
 
-        IF LeaseContract2."Second Customer No."<>'' THEN BEGIN
+        IF LeaseContract2."Second Customer No." <> '' THEN BEGIN
             Cust2.GET(LeaseContract2."Second Customer No.");
             LeaseInvoiceHeader2."VAT Bus. Posting Group" := Cust2."VAT Bus. Posting Group";
         END ELSE
             LeaseInvoiceHeader2."VAT Bus. Posting Group" := Cust."VAT Bus. Posting Group";
 
-        LeaseInvoiceHeader2.VALIDATE("Payment Terms Code",LeaseContract2."Payment Terms Code");
+        LeaseInvoiceHeader2."Grupo IRPF" := LeaseContract2."Grupo IRPF";
+        LeaseInvoiceHeader2.VALIDATE("Payment Terms Code", LeaseContract2."Payment Terms Code");
         LeaseInvoiceHeader2."Your Reference" := LeaseContract2."Your Reference";
         LeaseInvoiceHeader2.MODIFY;
     end;
@@ -291,7 +292,7 @@ codeunit 96000 "Real Estate Management"
             UNTIL LeaseContractLine.NEXT = 0;
         LeaseContractToInvoice.VALIDATE("Last Invoice Date", LeaseContractToInvoice."Next Invoice Date");
         LeaseContractToInvoice.MODIFY;
-    
+
     end;
 
     procedure CreateLeaseContractLine(InvoiceHeader: Record "Sales Header"; ContractNo: Code[20]; LeaseContractLine: Record "Lease Contract Line"; InvFrom: Date; InvTo: Date; SignningContract: Boolean)
@@ -527,7 +528,7 @@ codeunit 96000 "Real Estate Management"
             PaymentMethod.FIELDCAPTION("Invoices to Cartera"),
             PaymentMethod.TABLECAPTION);
 
-        LeaseInvoiceHeader.CALCFIELDS(Amount,"Amount Including VAT");
+        LeaseInvoiceHeader.CALCFIELDS(Amount, "Amount Including VAT");
         TotalAmount := LeaseInvoiceHeader."Amount Including VAT";
         TotalAmountLCY := LeaseInvoiceHeader."Amount Including VAT";
         RemainingAmount := TotalAmount;
@@ -538,15 +539,15 @@ codeunit 96000 "Real Estate Management"
             GenJnlLine.INIT;
             GenJnlLine."Posting Date" := LeaseInvoiceHeader."Posting Date";
             GenJnlLine."Document Date" := LeaseInvoiceHeader."Document Date";
-            GenJnlLine.VALIDATE("Account Type",GenJnlLine."Account Type"::Customer);
-            GenJnlLine.VALIDATE("Account No.",LeaseInvoiceHeader."Customer No.");
+            GenJnlLine.VALIDATE("Account Type", GenJnlLine."Account Type"::Customer);
+            GenJnlLine.VALIDATE("Account No.", LeaseInvoiceHeader."Customer No.");
             GenJnlLine."Document Type" := GenJnlLine."Document Type"::" ";
             GenJnlLine."Document No." := LeaseInvoiceHeader."No.";
-            GenJnlLine.Description := COPYSTR(STRSUBSTNO(Text1100002,LeaseInvoiceHeader."No.",LeaseInvoiceHeader.Name),1,MAXSTRLEN(GenJnlLine.Description));
+            GenJnlLine.Description := COPYSTR(STRSUBSTNO(Text1100002, LeaseInvoiceHeader."No.", LeaseInvoiceHeader.Name), 1, MAXSTRLEN(GenJnlLine.Description));
             GenJnlLine."Shortcut Dimension 1 Code" := LeaseInvoiceHeader."Shortcut Dimension 1 Code";
             GenJnlLine."Shortcut Dimension 2 Code" := LeaseInvoiceHeader."Shortcut Dimension 2 Code";
             GenJnlLine."External Document No." := LeaseInvoiceHeader."No.";
-            GenJnlLine.VALIDATE("Currency Code",LeaseInvoiceHeader."Currency Code");
+            GenJnlLine.VALIDATE("Currency Code", LeaseInvoiceHeader."Currency Code");
             GenJnlLine.Amount := -TotalAmount;
             GenJnlLine."Amount (LCY)" := -TotalAmountLCY;
             GenJnlLine."System-Created Entry" := TRUE;
@@ -558,9 +559,9 @@ codeunit 96000 "Real Estate Management"
             GenJnlLine."Amount (LCY)" := -TotalAmountLCY;
 
             IF GLSetup."Unrealized VAT" AND ExistsVATNoReal THEN
-            GenJnlLine2.COPY(GenJnlLine)
+                GenJnlLine2.COPY(GenJnlLine)
             ELSE
-            GenJnlPostLine.RUN(GenJnlLine);
+                GenJnlPostLine.RUN(GenJnlLine);
         END;
 
         // create bills
@@ -568,15 +569,15 @@ codeunit 96000 "Real Estate Management"
             Currency."Invoice Rounding Type" := GLSetup."Inv. Rounding Type (LCY)";
             Currency."Amount Rounding Precision" := GLSetup."Amount Rounding Precision";
             IF SalesSetup."Invoice Rounding" THEN
-            GLSetup.TESTFIELD("Inv. Rounding Precision (LCY)")
+                GLSetup.TESTFIELD("Inv. Rounding Precision (LCY)")
             ELSE
-            GLSetup.TESTFIELD("Amount Rounding Precision");
+                GLSetup.TESTFIELD("Amount Rounding Precision");
         END ELSE BEGIN
             Currency.GET(LeaseInvoiceHeader."Currency Code");
             IF SalesSetup."Invoice Rounding" THEN
-            Currency.TESTFIELD("Invoice Rounding Precision")
+                Currency.TESTFIELD("Invoice Rounding Precision")
             ELSE
-            Currency.TESTFIELD("Amount Rounding Precision");
+                Currency.TESTFIELD("Amount Rounding Precision");
         END;
 
 
@@ -585,14 +586,14 @@ codeunit 96000 "Real Estate Management"
         GenJnlLine.INIT;
         GenJnlLine."Posting Date" := LeaseInvoiceHeader."Posting Date";
         GenJnlLine."Document Date" := LeaseInvoiceHeader."Document Date";
-        GenJnlLine.VALIDATE("Account Type",GenJnlLine."Account Type"::Customer);
-        GenJnlLine.VALIDATE("Account No.",LeaseInvoiceHeader."Customer No.");
+        GenJnlLine.VALIDATE("Account Type", GenJnlLine."Account Type"::Customer);
+        GenJnlLine.VALIDATE("Account No.", LeaseInvoiceHeader."Customer No.");
         GenJnlLine."Document Type" := GenJnlLine."Document Type"::Bill;
         GenJnlLine."Document No." := LeaseInvoiceHeader."No.";
         GenJnlLine."Shortcut Dimension 1 Code" := LeaseInvoiceHeader."Shortcut Dimension 1 Code";
         GenJnlLine."Shortcut Dimension 2 Code" := LeaseInvoiceHeader."Shortcut Dimension 2 Code";
         GenJnlLine."External Document No." := LeaseInvoiceHeader."No.";
-        GenJnlLine.VALIDATE("Currency Code",LeaseInvoiceHeader."Currency Code");
+        GenJnlLine.VALIDATE("Currency Code", LeaseInvoiceHeader."Currency Code");
         GenJnlLine."System-Created Entry" := TRUE;
         GenJnlLine."Currency Factor" := CurrencyFactor;
         GenJnlLine."Payment Terms Code" := LeaseInvoiceHeader."Payment Terms Code";
@@ -600,7 +601,7 @@ codeunit 96000 "Real Estate Management"
         GenJnlLine."Salespers./Purch. Code" := LeaseInvoiceHeader."Salesperson Code";
         GenJnlLine."Bill No." := FORMAT(CurrDocNo);
         GenJnlLine.Description :=
-            COPYSTR(STRSUBSTNO(Text1100004,LeaseInvoiceHeader."No.",CurrDocNo),1,MAXSTRLEN(GenJnlLine.Description));
+            COPYSTR(STRSUBSTNO(Text1100004, LeaseInvoiceHeader."No.", CurrDocNo), 1, MAXSTRLEN(GenJnlLine.Description));
         GenJnlLine."Due Date" := NextDueDate;
         GenJnlLine.Amount := TotalAmount;
         GenJnlLine."Amount (LCY)" := TotalAmountLCY;
@@ -608,7 +609,7 @@ codeunit 96000 "Real Estate Management"
             GenJnlPostLine.RUN(GenJnlLine);
         MESSAGE('Se ha registrado el efecto');
     end;
-    
+
     procedure GetNextInvoicePeriod(LeaseContract: Record "Lease Contract"; var InvFrom: Date; var InvTo: Date)
     begin
         InvFrom := LeaseContract."Next Invoice Period Start";
@@ -707,23 +708,24 @@ codeunit 96000 "Real Estate Management"
         UNTIL Wdate > Day2;
     end;
 
-    procedure LoadItemFREAttributesFactBoxData(KeyValue : Code[20])
+    procedure LoadItemFREAttributesFactBoxData(KeyValue: Code[20])
     var
-    ItemAttributeValue : record "Item Attribute Value";
-    ItemAttributeValueMapping : record "Item Attribute Value Mapping";
+        ItemAttributeValue: record "Item Attribute Value";
+        ItemAttributeValueMapping: record "Item Attribute Value Mapping";
     begin
         ItemAttributeValue.RESET;
         ItemAttributeValue.DELETEALL;
-        ItemAttributeValueMapping.SETRANGE("Table ID",DATABASE::"Fixed Real Estate");
-        ItemAttributeValueMapping.SETRANGE("No.",KeyValue);
+        ItemAttributeValueMapping.SETRANGE("Table ID", DATABASE::"Fixed Real Estate");
+        ItemAttributeValueMapping.SETRANGE("No.", KeyValue);
         IF ItemAttributeValueMapping.FINDSET THEN
-        REPEAT
-            IF ItemAttributeValue.GET(ItemAttributeValueMapping."Item Attribute ID",ItemAttributeValueMapping."Item Attribute Value ID") THEN BEGIN
-                ItemAttributeValue.TRANSFERFIELDS(ItemAttributeValue);
-                ItemAttributeValue.INSERT;
-            END
-    UNTIL ItemAttributeValueMapping.NEXT = 0;
+            REPEAT
+                IF ItemAttributeValue.GET(ItemAttributeValueMapping."Item Attribute ID", ItemAttributeValueMapping."Item Attribute Value ID") THEN BEGIN
+                    ItemAttributeValue.TRANSFERFIELDS(ItemAttributeValue);
+                    ItemAttributeValue.INSERT;
+                END
+            UNTIL ItemAttributeValueMapping.NEXT = 0;
     end;
+
     procedure NoOfMonthsAndMPartsInPeriod(Day1: Date; Day2: Date) MonthsAndMParts: Decimal
     var
         WDate: Date;
@@ -753,7 +755,7 @@ codeunit 96000 "Real Estate Management"
         UNTIL WDate > Day2;
     end;
 
-    
+
 
     [EventSubscriber(ObjectType::Codeunit, 802, 'OnAfterValidAddress', '', false, false)]
     local procedure "Codeunit802.OnAfterValidAddress"(TableID: Integer; var IsValid: Boolean)
@@ -784,7 +786,7 @@ codeunit 96000 "Real Estate Management"
         END;
     end;
 
-   procedure CopyTemplateToREF(NoFRE: Code[20])
+    procedure CopyTemplateToREF(NoFRE: Code[20])
     var
         REFIncomeExpensesTemplate: Record "REF Income & Expense Template";
         REFIncomeExpensesLines: Record "REF Income & Expense Lines";
@@ -882,7 +884,7 @@ codeunit 96000 "Real Estate Management"
         Window.CLOSE;
     end;
 
-procedure CancelContract(FromLeaseContract: Record "Lease Contract")
+    procedure CancelContract(FromLeaseContract: Record "Lease Contract")
     var
         LeaseContract: Record "Lease Contract";
         LeaseContractLine: Record "Lease Contract Line";
@@ -1000,10 +1002,10 @@ procedure CancelContract(FromLeaseContract: Record "Lease Contract")
     local procedure OnBeforeInsertAttachment(var DocumentAttachment: Record "Document Attachment"; var RecRef: RecordRef)
     begin
     end;
-    
+
     [EventSubscriber(ObjectType::Table, 1173, 'OnAfterInitFieldsFromRecRef', '', false, false)]
     local procedure OnAfterInitFieldsFromRecRef(var DocumentAttachment: Record "Document Attachment"; var RecRef: RecordRef)
-        var
+    var
         DocumentAttachmentMgmt: Codeunit "Document Attachment Mgmt";
         FieldRef: FieldRef;
         RecNo: Code[20];
@@ -1011,29 +1013,29 @@ procedure CancelContract(FromLeaseContract: Record "Lease Contract")
         FieldNo: Integer;
         LineNo: Integer;
         VATRepConfigType: Enum "VAT Report Configuration";
-    begin 
+    begin
     end;
 
     procedure RecalculateIRPFLeaseLine(LeaseContract: Record "Lease Contract"; var LeaseContractLine: Record "Lease Contract Line")
     var
-        IRPFGrupo : Record "OneData Grupos IRPF";
-        TaxAmountLine : Record "Tax Amount Line";
+        IRPFGrupo: Record "OneData Grupos IRPF";
+        TaxAmountLine: Record "Tax Amount Line";
     begin
         TaxAmountLine.reset;
         TaxAmountLine.setrange("Document Type", TaxAmountLine."Document Type"::"Lease Contract");
         TaxAmountLine.setrange("Document No.", LeaseContract."Contract No.");
         TaxAmountLine.setrange("Line No.", LeaseContractLine."Line No.");
-        TaxAmountLine.setrange("Tax Group Code",'IRPF');
+        TaxAmountLine.setrange("Tax Group Code", 'IRPF');
         IF TaxAmountLine.findfirst then
-             TaxAmountLine.deleteAll;
+            TaxAmountLine.deleteAll;
         TaxAmountLine."Document Type" := TaxAmountLine."Document Type"::"Lease Contract";
         TaxAmountLine."Document No." := LeaseContract."Contract No.";
         TaxAmountLine."Line No." := LeaseContractLine."Line No.";
-        TaxAmountLine."Tax Group Code" := 'IRPF'; 
+        TaxAmountLine."Tax Group Code" := 'IRPF';
         TaxAmountLine.INSERT;
         if IRPFGrupo.get(LeaseContract."Grupo IRPF") then begin
             TaxAmountLine."Tax %" := IRPFGrupo."% Retencion";
-            if (IRPFGrupo."Importe Origen" = IRPFGrupo."Importe Origen"::" ") or 
+            if (IRPFGrupo."Importe Origen" = IRPFGrupo."Importe Origen"::" ") or
                 (IRPFGrupo."Importe Origen" = IRPFGrupo."Importe Origen"::Importe) then begin
                 TaxAmountLine."Tax Base" := LeaseContractLine."VAT Base Amount";
                 TaxAmountLine."Tax Amount" := LeaseContractLine."VAT Base Amount" * IRPFGrupo."% Retencion" / 100;
@@ -1046,9 +1048,43 @@ procedure CancelContract(FromLeaseContract: Record "Lease Contract")
         end;
         TaxAmountLine.MODIFY;
     END;
+
+    procedure RecalculateIRPFLeaseInvoiceLine(LeaseInvoice: Record "Lease Invoice Header"; var LeaseInvoiceLine: Record "Lease Invoice Line")
+    var
+        IRPFGrupo: Record "OneData Grupos IRPF";
+        TaxAmountLine: Record "Tax Amount Line";
+    begin
+        TaxAmountLine.reset;
+        TaxAmountLine.setrange("Document Type", TaxAmountLine."Document Type"::"Lease Invoice");
+        TaxAmountLine.setrange("Document No.", LeaseInvoice."No.");
+        TaxAmountLine.setrange("Line No.", LeaseInvoiceLine."Line No.");
+        TaxAmountLine.setrange("Tax Group Code", 'IRPF');
+        IF TaxAmountLine.findfirst then
+            TaxAmountLine.deleteAll;
+        TaxAmountLine."Document Type" := TaxAmountLine."Document Type"::"Lease Invoice";
+        TaxAmountLine."Document No." := LeaseInvoice."No.";
+        TaxAmountLine."Line No." := LeaseInvoiceLine."Line No.";
+        TaxAmountLine."Tax Group Code" := 'IRPF';
+        TaxAmountLine.INSERT;
+        if IRPFGrupo.get(LeaseInvoice."Grupo IRPF") then begin
+            TaxAmountLine."Tax %" := IRPFGrupo."% Retencion";
+            if (IRPFGrupo."Importe Origen" = IRPFGrupo."Importe Origen"::" ") or
+                (IRPFGrupo."Importe Origen" = IRPFGrupo."Importe Origen"::Importe) then begin
+                TaxAmountLine."Tax Base" := LeaseInvoiceLine."VAT Base Amount";
+                TaxAmountLine."Tax Amount" := LeaseInvoiceLine."VAT Base Amount" * IRPFGrupo."% Retencion" / 100;
+            end;
+            if IRPFGrupo."Importe Origen" = IRPFGrupo."Importe Origen"::"Importe IVA Incl." then begin
+                TaxAmountLine."Tax Base" := LeaseInvoiceLine.Amount;
+                // LeaseContractLine."VAT Base Amount" + LeaseContractLine."VAT Amount";
+                TaxAmountLine."Tax Amount" := TaxAmountLine."Tax Base" * IRPFGrupo."% Retencion" / 100;
+            end;
+        end;
+        TaxAmountLine.MODIFY;
+    END;
+
     procedure CalcSalesAmount("Fixed Real Estate": Record "Fixed Real Estate"; SalesAmountM2: Decimal; Percentage: Decimal)
     var
-        FixedRealEstate : record "Fixed Real Estate";
+        FixedRealEstate: record "Fixed Real Estate";
     begin
         // Implementation for calculating sales amount
         if FixedRealEstate.GET("Fixed Real Estate"."No.") then begin
@@ -1066,6 +1102,10 @@ procedure CancelContract(FromLeaseContract: Record "Lease Contract")
             FieldNo := 1;
             Result := true
         end;
+        if TableNo = DATABASE::"Fixed Real Estate" then begin
+            FieldNo := 1;
+            Result := true
+        end;
     end;
 
     [IntegrationEvent(false, false)]
@@ -1077,6 +1117,7 @@ procedure CancelContract(FromLeaseContract: Record "Lease Contract")
     local procedure OnBeforeCancelContract(var LeaseContract: Record "Lease Contract")
     begin
     end;
+
     [IntegrationEvent(false, false)]
     local procedure OnBeforeSignContractQuote(var LeaseContract: Record "Lease Contract")
     begin

@@ -62,6 +62,7 @@ table 96100 "Incident Assets Real Estate"
                     "Contract - Phone No." := LeaseContract."Phone No.";
                     "Contract - EMail" := LeaseContract."E-Mail";
                     Validate("Contact No", LeaseContract."Contact No.");
+                    "Customer No." := LeaseContract."Customer No.";
                 end;
                 end;
         }
@@ -87,6 +88,12 @@ table 96100 "Incident Assets Real Estate"
         {
             Caption = 'Case Title';
             Description = 'Type a subject or descriptive name, such as the request, issue, or company name, to identify the case in Microsoft Dynamics CRM views.';
+        }
+        field(11; "Customer No."; Code[20])
+        {
+            Caption = 'Customer No.';
+            TableRelation   = Customer."No.";
+            Description = 'Unique identifier of the customer involved in the case. This field is used for informational purposes and is not linked to any customer records.';
         }
         field(15; "Contact No"; Code[20])
         {

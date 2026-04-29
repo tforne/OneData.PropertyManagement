@@ -42,6 +42,10 @@ page 96151 "RE Incident Card"
                 field("Contract No."; rec."Contract No.")
                 {
                 }
+                field("Customer No."; rec."Customer No.")
+                {
+                    TableRelation = Customer."No.";
+                }
                 field("Contact No"; rec."Contact No")
                 {
                 }

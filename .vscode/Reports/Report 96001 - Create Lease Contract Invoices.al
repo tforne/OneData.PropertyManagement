@@ -37,6 +37,7 @@ report 96001 "Create Lease Contract Invoices"
                 END;
                 ResultDescription := InvoiceNo;
                 RealEstateMangement.CreateAllLeaseContractLines(InvoiceNo, LeaseContract, InvoiceHeader, LeaseInvoiceHeader);
+                LeaseInvoiceHeader.RecalculateIRPFLeaseInvoice(LeaseInvoiceHeader);
                 LastCustomer := LeaseContract."Second Customer No.";
                 LastContractCombined := LeaseContract."Combine Invoices";
                 FREJnlPostLine.PostFRELedgerEntryFromLeaseInvoice(LeaseInvoiceHeader);
