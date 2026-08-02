@@ -10,6 +10,7 @@ codeunit 96000 "Real Estate Management"
         Text004: Label 'You cannot sign service contract %1,\because some Service Contract Lines have a missing %2.';
         Text008: Label 'The specified record could not be found.';
         Text009: Label 'Quieres borrar las lineas existentes actualmente';
+        AllocationAccountInvoicingNotSupportedErr: Label 'The lease contract line %1 uses type %2. Invoice generation only supports G/L Account lines.';
         REFSetup: Record "REF Setup";
         CarteraSetup: Record "Cartera Setup";
         NoSeriesMgt: Codeunit "No. Series";
@@ -57,12 +58,66 @@ codeunit 96000 "Real Estate Management"
             PostDate := WORKDATE;
 
         FixedRealEstate.GET(LeaseContract2."Fixed Real Estate No.");
+       
+        CLEAR(LeaseInvoiceHeader2);
+        LeaseInvoiceHeader2.INIT;
+        REFSetup.GET;
+        REFSetup.TESTFIELD("Contract Lease Invoice Nos.");
+
+        LeaseInvoiceHeader2.INSERT(TRUE);
+        ServInvNo := LeaseInvoiceHeader2."No.";
+
+        LeaseInvoiceHeader2."Posting Description" := 'Recibo alquiler No.: ' + LeaseInvoiceHeader2."No.";
+        LeaseInvoiceHeader2.VALIDATE("Customer No.", LeaseContract2."Customer No.");
+
+        LeaseInvoiceHeader2."Prices Including VAT" := FALSE;
+
+        Cust.GET(LeaseInvoiceHeader2."Customer No.");
+        LeaseInvoiceHeader2."Responsibility Center" := Cust."Responsibility Center";
+
+        Cust.TESTFIELD("Gen. Bus. Posting Group");
+        LeaseInvoiceHeader2."Customer No." := Cust."No.";
+        LeaseInvoiceHeader2.Name := Cust.Name;
+        LeaseInvoiceHeader2."Name 2" := Cust."Name 2";
+        LeaseInvoiceHeader2.Address := Cust.Address;
+        LeaseInvoiceHeader2."Address 2" := Cust."Address 2";
+        LeaseInvoiceHeader2.City := Cust.City;
+        LeaseInvoiceHeader2."Post Code" := Cust."Post Code";
+        LeaseInvoiceHeader2.County := Cust.County;
+        LeaseInvoiceHeader2."Country/Region Code" := Cust."Country/Region Code";
+        LeaseInvoiceHeader2."Contact Name" := LeaseContract2."Contact Name";
+        LeaseInvoiceHeader2."Contact No." := LeaseContract2."Contact No.";
+        LeaseInvoiceHeader2."VAT Registration No." := Cust."VAT Registration No.";
+        LeaseInvoiceHeader2."E-Mail" := Cust."E-Mail";
+        LeaseInvoiceHeader2."Notify Customer" := LeaseContract2."Notify Customer";
+
+
+        IF NOT ContractExists THEN
+            LeaseInvoiceHeader2.VALIDATE("Posting Date", PostDate);
+        LeaseInvoiceHeader2.VALIDATE("Document Date", PostDate);
+        LeaseInvoiceHeader2."Contract No." := LeaseContract2."Contract No.";
+        LeaseInvoiceHeader2."Fixed Real Estate No." := LeaseContract2."Fixed Real Estate No.";
+        LeaseInvoiceHeader2."Gen. Bus. Posting Group" := Cust."Gen. Bus. Posting Group";
+        LeaseInvoiceHeader2.VALIDATE("Payment Terms Code", LeaseContract2."Payment Terms Code");
+        LeaseInvoiceHeader2.VALIDATE("Payment Method Code", LeaseContract2."Payment Method Code");
+
+        IF LeaseContract2."Second Customer No." <> '' THEN BEGIN
+            Cust2.GET(LeaseContract2."Second Customer No.");
+            LeaseInvoiceHeader2."VAT Bus. Posting Group" := Cust2."VAT Bus. Posting Group";
+        END ELSE
+            LeaseInvoiceHeader2."VAT Bus. Posting Group" := Cust."VAT Bus. Posting Group";
+
+        LeaseInvoiceHeader2."Grupo IRPF" := LeaseContract2."Grupo IRPF";
+        LeaseInvoiceHeader2.VALIDATE("Payment Terms Code", LeaseContract2."Payment Terms Code");
+        LeaseInvoiceHeader2."Your Reference" := LeaseContract2."Your Reference";
+        LeaseInvoiceHeader2.MODIFY;
 
         IF FixedRealEstate.Acquired THEN BEGIN
             CLEAR(InvoiceHeader2);
             InvoiceHeader2.INIT;
             InvoiceHeader2.SetHideValidationDialog(TRUE);
             InvoiceHeader2."Document Type" := InvoiceHeader2."Document Type"::Invoice;
+
             REFSetup.GET;
             REFSetup.TESTFIELD("Contract Invoice Nos.");
             InvoiceHeader2.INSERT(TRUE);
@@ -116,60 +171,10 @@ codeunit 96000 "Real Estate Management"
 
             InvoiceHeader2.VALIDATE("Payment Terms Code", LeaseContract2."Payment Terms Code");
             InvoiceHeader2."Your Reference" := LeaseContract2."Your Reference";
+            invoiceHeader2."Posting No." := LeaseInvoiceHeader2."No.";
             InvoiceHeader2.MODIFY
         END;
-        CLEAR(LeaseInvoiceHeader2);
-        LeaseInvoiceHeader2.INIT;
-        REFSetup.GET;
-        REFSetup.TESTFIELD("Contract Lease Invoice Nos.");
 
-        LeaseInvoiceHeader2.INSERT(TRUE);
-        ServInvNo := LeaseInvoiceHeader2."No.";
-
-        LeaseInvoiceHeader2."Posting Description" := 'Recibo alquiler No.: ' + LeaseInvoiceHeader2."No.";
-        LeaseInvoiceHeader2.VALIDATE("Customer No.", LeaseContract2."Customer No.");
-
-        LeaseInvoiceHeader2."Prices Including VAT" := FALSE;
-
-        Cust.GET(LeaseInvoiceHeader2."Customer No.");
-        LeaseInvoiceHeader2."Responsibility Center" := Cust."Responsibility Center";
-
-        Cust.TESTFIELD("Gen. Bus. Posting Group");
-        LeaseInvoiceHeader2."Customer No." := Cust."No.";
-        LeaseInvoiceHeader2.Name := Cust.Name;
-        LeaseInvoiceHeader2."Name 2" := Cust."Name 2";
-        LeaseInvoiceHeader2.Address := Cust.Address;
-        LeaseInvoiceHeader2."Address 2" := Cust."Address 2";
-        LeaseInvoiceHeader2.City := Cust.City;
-        LeaseInvoiceHeader2."Post Code" := Cust."Post Code";
-        LeaseInvoiceHeader2.County := Cust.County;
-        LeaseInvoiceHeader2."Country/Region Code" := Cust."Country/Region Code";
-        LeaseInvoiceHeader2."Contact Name" := LeaseContract2."Contact Name";
-        LeaseInvoiceHeader2."Contact No." := LeaseContract2."Contact No.";
-        LeaseInvoiceHeader2."VAT Registration No." := Cust."VAT Registration No.";
-        LeaseInvoiceHeader2."E-Mail" := Cust."E-Mail";
-        LeaseInvoiceHeader2."Notify Customer" := LeaseContract2."Notify Customer";
-
-
-        IF NOT ContractExists THEN
-            LeaseInvoiceHeader2.VALIDATE("Posting Date", PostDate);
-        LeaseInvoiceHeader2.VALIDATE("Document Date", PostDate);
-        LeaseInvoiceHeader2."Contract No." := LeaseContract2."Contract No.";
-        LeaseInvoiceHeader2."Fixed Real Estate No." := LeaseContract2."Fixed Real Estate No.";
-        LeaseInvoiceHeader2."Gen. Bus. Posting Group" := Cust."Gen. Bus. Posting Group";
-        LeaseInvoiceHeader2.VALIDATE("Payment Terms Code", LeaseContract2."Payment Terms Code");
-        LeaseInvoiceHeader2.VALIDATE("Payment Method Code", LeaseContract2."Payment Method Code");
-
-        IF LeaseContract2."Second Customer No." <> '' THEN BEGIN
-            Cust2.GET(LeaseContract2."Second Customer No.");
-            LeaseInvoiceHeader2."VAT Bus. Posting Group" := Cust2."VAT Bus. Posting Group";
-        END ELSE
-            LeaseInvoiceHeader2."VAT Bus. Posting Group" := Cust."VAT Bus. Posting Group";
-
-        LeaseInvoiceHeader2."Grupo IRPF" := LeaseContract2."Grupo IRPF";
-        LeaseInvoiceHeader2.VALIDATE("Payment Terms Code", LeaseContract2."Payment Terms Code");
-        LeaseInvoiceHeader2."Your Reference" := LeaseContract2."Your Reference";
-        LeaseInvoiceHeader2.MODIFY;
     end;
 
     // procedure CreateInvoiceLeaseContract(LeaseContract2: Record "Lease Contract"; PostDate: Date; ContractExists: Boolean; var InvoiceHeader2: Record "Sales Header") ServInvNo: Code[20]
@@ -263,7 +268,7 @@ codeunit 96000 "Real Estate Management"
     //     END;
     // end;
 
-    procedure CreateAllLeaseContractLines(InvNo: Code[20]; LeaseContractToInvoice: Record "Lease Contract"; InvoiceHeader: Record "Sales Header"; LeaseInvoiceHeader: Record "Lease Invoice Header")
+    procedure CreateAllLeaseContractLines(InvNo: Code[20]; LeaseContractToInvoice: Record "Lease Contract"; InvoiceHeader: Record "Sales Header"; LeaseInvoiceHeader: Record "Lease Invoice Header"; ResultDescription: Text[80])
     var
         FixedRealEstate: Record "Fixed Real Estate";
         LeaseContractLine: Record "Lease Contract Line";
@@ -280,7 +285,7 @@ codeunit 96000 "Real Estate Management"
             IF LeaseContractLine.FIND('-') THEN
                 REPEAT
                     CreateLeaseContractLine(
-                        InvoiceHeader, LeaseContractToInvoice."Contract No.", LeaseContractLine, InvoiceFrom, InvoiceTo, FALSE)
+                        InvoiceHeader, LeaseContractToInvoice."Contract No.", LeaseContractLine, InvoiceFrom, InvoiceTo, FALSE, ResultDescription)
                 UNTIL LeaseContractLine.NEXT = 0;
         END;
         LeaseContractLine.RESET;
@@ -288,14 +293,14 @@ codeunit 96000 "Real Estate Management"
         IF LeaseContractLine.FIND('-') THEN
             REPEAT
                 CreateLeaseContractLine2(
-                    LeaseInvoiceHeader, LeaseContractToInvoice."Contract No.", LeaseContractLine, InvoiceFrom, InvoiceTo, FALSE)
+                    LeaseInvoiceHeader, LeaseContractToInvoice."Contract No.", LeaseContractLine, InvoiceFrom, InvoiceTo, FALSE, ResultDescription)
             UNTIL LeaseContractLine.NEXT = 0;
         LeaseContractToInvoice.VALIDATE("Last Invoice Date", LeaseContractToInvoice."Next Invoice Date");
         LeaseContractToInvoice.MODIFY;
 
     end;
 
-    procedure CreateLeaseContractLine(InvoiceHeader: Record "Sales Header"; ContractNo: Code[20]; LeaseContractLine: Record "Lease Contract Line"; InvFrom: Date; InvTo: Date; SignningContract: Boolean)
+    procedure CreateLeaseContractLine(InvoiceHeader: Record "Sales Header"; ContractNo: Code[20]; LeaseContractLine: Record "Lease Contract Line"; InvFrom: Date; InvTo: Date; SignningContract: Boolean; ResultDescription: Text[80])
     var
         LeaseContract: Record "Lease Contract";
         InvoiceLine: Record "Sales Line";
@@ -306,6 +311,7 @@ codeunit 96000 "Real Estate Management"
     begin
 
         LeaseContract.GET(ContractNo);
+        EnsureSupportedLeaseContractLineForInvoicing(LeaseContractLine);
 
         IF LeaseContract."Invoice Period" = LeaseContract."Invoice Period"::None THEN
             EXIT;
@@ -336,7 +342,8 @@ codeunit 96000 "Real Estate Management"
             InvoiceLine."Document No." := InvoiceHeader."No.";
             InvoiceLine."Line No." := InvoiceLineNo;
             InvoiceLine.Type := InvoiceLine.Type::" ";
-            InvoiceLine.Description := STRSUBSTNO('Contrato no.: %1', LeaseContractLine."Contract No.");
+            // InvoiceLine.Description := STRSUBSTNO('Contrato no.: %1', LeaseContractLine."Contract No.");
+            InvoiceLine.Description := ResultDescription;
             InvoiceLine.INSERT;
         END;
 
@@ -352,6 +359,8 @@ codeunit 96000 "Real Estate Management"
         InvoiceLine.VALIDATE(Quantity, 1);
         InvoiceLine.VALIDATE("VAT Prod. Posting Group", LeaseContractLine."VAT Prod. Posting Group");
         InvoiceLine.VALIDATE("Unit Price", LeaseContractLine.Amount);
+        if leaseContractLine."Allocation Account No." <> '' then
+            InvoiceLine.VALIDATE("Allocation Account No.", leaseContractLine."Allocation Account No.");
         InvoiceLine.INSERT;
         IF LeaseContractLine."Shortcut Dimension 1 Code" <> '' THEN BEGIN
             InvoiceLine.VALIDATE("Shortcut Dimension 1 Code", LeaseContractLine."Shortcut Dimension 1 Code");
@@ -359,7 +368,7 @@ codeunit 96000 "Real Estate Management"
         END;
     end;
 
-    procedure CreateLeaseContractLine2(InvoiceHeader: Record "Lease Invoice Header"; ContractNo: Code[20]; LeaseContractLine: Record "Lease Contract Line"; InvFrom: Date; InvTo: Date; SignningContract: Boolean)
+    procedure CreateLeaseContractLine2(InvoiceHeader: Record "Lease Invoice Header"; ContractNo: Code[20]; LeaseContractLine: Record "Lease Contract Line"; InvFrom: Date; InvTo: Date; SignningContract: Boolean; ResultDescription: Text[80])
     var
         LeaseContract: Record "Lease Contract";
         InvoiceLine: Record "Lease Invoice Line";
@@ -370,6 +379,7 @@ codeunit 96000 "Real Estate Management"
     begin
 
         LeaseContract.GET(ContractNo);
+        EnsureSupportedLeaseContractLineForInvoicing(LeaseContractLine);
 
         IF LeaseContract."Invoice Period" = LeaseContract."Invoice Period"::None THEN
             EXIT;
@@ -398,7 +408,8 @@ codeunit 96000 "Real Estate Management"
             InvoiceLine."Document No." := InvoiceHeader."No.";
             InvoiceLine."Line No." := InvoiceLineNo;
             InvoiceLine.Type := InvoiceLine.Type::" ";
-            InvoiceLine.Description := STRSUBSTNO('Contrato no.: %1', LeaseContractLine."Contract No.");
+            // InvoiceLine.Description := STRSUBSTNO('Contrato no.: %1', LeaseContractLine."Contract No.");
+            InvoiceLine.Description := ResultDescription;
             InvoiceLine.INSERT;
         END;
 
@@ -959,6 +970,7 @@ codeunit 96000 "Real Estate Management"
 
         LeaseContractLine.RESET;
         LeaseContractLine.SETRANGE("Contract No.", LeaseContract."Contract No.");
+        LeaseContractLine.SetFilter(Type, '<>%1', LeaseContractLine.Type::" ");
         LeaseContractLine.SETRANGE(Amount, 0);
         IF NOT LeaseContractLine.ISEMPTY THEN
             ERROR(
@@ -1082,6 +1094,59 @@ codeunit 96000 "Real Estate Management"
         TaxAmountLine.MODIFY;
     END;
 
+    local procedure EnsureSupportedLeaseContractLineForInvoicing(LeaseContractLine: Record "Lease Contract Line")
+    begin
+        if LeaseContractLine.Type = LeaseContractLine.Type::"Allocation Account" then
+            Error(
+                AllocationAccountInvoicingNotSupportedErr,
+                LeaseContractLine."Line No.",
+                Format(LeaseContractLine.Type));
+    end;
+
+    procedure CopyContractAttachmentsFromFixedRealEstate(var LeaseContract: Record "Lease Contract")
+    var
+        SourceFixedRealEstate: Record "Fixed Real Estate";
+        SourceAttachment: Record "Document Attachment";
+        TargetAttachment: Record "Document Attachment";
+        CopiedCount: Integer;
+    begin
+        LeaseContract.TestField("Contract No.");
+        LeaseContract.TestField("Fixed Real Estate No.");
+
+        if not SourceFixedRealEstate.Get(LeaseContract."Fixed Real Estate No.") then
+            Error('No existe el activo inmobiliario %1.', LeaseContract."Fixed Real Estate No.");
+
+        SourceAttachment.SetRange("Table ID", Database::"Fixed Real Estate");
+        SourceAttachment.SetRange("No.", SourceFixedRealEstate."No.");
+        if SourceAttachment.IsEmpty() then begin
+            Message('El activo inmobiliario %1 no tiene documentos adjuntos para copiar.', SourceFixedRealEstate."No.");
+            exit;
+        end;
+
+        if not Confirm(
+            'Se copiarán al contrato %1 los adjuntos del activo inmobiliario %2.\\¿Desea continuar?',
+            false,
+            LeaseContract."Contract No.",
+            SourceFixedRealEstate."No.")
+        then
+            exit;
+
+        if SourceAttachment.FindSet() then
+            repeat
+                if not ContractAttachmentExists(LeaseContract."Contract No.", SourceAttachment) then begin
+                    TargetAttachment.Init();
+                    TargetAttachment.TransferFields(SourceAttachment, false);
+                    TargetAttachment.ID := 0;
+                    TargetAttachment.Validate("Table ID", Database::"Lease Contract");
+                    TargetAttachment.Validate("No.", LeaseContract."Contract No.");
+                    TargetAttachment.Insert(true);
+                    CopiedCount += 1;
+                end;
+            until SourceAttachment.Next() = 0;
+
+        Message('%1 adjunto(s) copiados al contrato %2.', CopiedCount, LeaseContract."Contract No.");
+    end;
+
     procedure CalcSalesAmount("Fixed Real Estate": Record "Fixed Real Estate"; SalesAmountM2: Decimal; Percentage: Decimal)
     var
         FixedRealEstate: record "Fixed Real Estate";
@@ -1121,6 +1186,17 @@ codeunit 96000 "Real Estate Management"
     [IntegrationEvent(false, false)]
     local procedure OnBeforeSignContractQuote(var LeaseContract: Record "Lease Contract")
     begin
+    end;
+
+    local procedure ContractAttachmentExists(ContractNo: Code[20]; SourceAttachment: Record "Document Attachment"): Boolean
+    var
+        TargetAttachment: Record "Document Attachment";
+    begin
+        TargetAttachment.SetRange("Table ID", Database::"Lease Contract");
+        TargetAttachment.SetRange("No.", ContractNo);
+        TargetAttachment.SetRange("File Name", SourceAttachment."File Name");
+        TargetAttachment.SetRange("File Extension", SourceAttachment."File Extension");
+        exit(TargetAttachment.FindFirst());
     end;
 }
 

@@ -272,6 +272,10 @@ page 96000 "Fixed Real Estate Card"
                 field("Last Reference Price Max."; Rec."Last Reference Price Max.")
                 {
                 }
+                field("Last Rental Price";Rec."Last Rental Price")
+                {
+                    
+                }
                 field("Last Rental Sales Price"; Rec."Last Rental Price Modified")
                 {
                 }
@@ -285,6 +289,12 @@ page 96000 "Fixed Real Estate Card"
                     //The GridLayout property is only supported on controls of type Grid
                     //GridLayout = Columns;
                     Visible = VisiblePropertyNo;
+                    field(Title;Rec.Title)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Importance = Promoted;
+                        ToolTip = 'Specifies the title of the real estate asset that will be used in commercial offers.';
+                    }
                     field(FAEDescription; FAEDescription)
                     {
                         ApplicationArea = Basic, Suite;
@@ -298,6 +308,32 @@ page 96000 "Fixed Real Estate Card"
                             rec.SetFREDescription(FAEDescription);
                         end;
                     }
+                }
+            }
+            group(Posting)
+            {
+                Caption = 'Posting';
+                field("Global Dimension 1 Code";Rec."Global Dimension 1 Code")
+                {
+                    ApplicationArea = Dimensions;
+                    Editable = true;
+                }
+                field("Global Dimension 2 Code";Rec."Global Dimension 2 Code")
+                {
+                    ApplicationArea = Dimensions;
+                    Editable = true;
+                }
+                field("Distribution Owner Type"; Rec."Distribution Owner Type")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Editable = true;
+                    ToolTip = 'Specifies if the distribution owner is a member or an entity. This field is used to determine the type of dimensions that will be used in the allocation accounts related to this real estate asset.';
+                }   
+                field("Allocation Account Code"; rec."Allocation Account Code")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Editable = true;
+                    ToolTip = 'Specifies the code of the allocation accounts that will be created for this real estate asset. The allocation accounts are used to allocate costs from the real estate asset to other records, such as projects or departments, based on dimensions. This field is used to determine the type of accounts that will be used in the allocation accounts related to this real estate asset.';
                 }
             }
             part(Lines; 96010)
@@ -370,6 +406,21 @@ page 96000 "Fixed Real Estate Card"
     {
         area(navigation)
         {
+            action(AllocationAccounts)
+            {
+                Caption = 'Allocation Accounts';
+                Image = ChartOfAccounts;
+                ToolTip = 'View allocation accounts related to this fixed real estate.';
+
+                trigger OnAction()
+                var
+                    AllocationAccount: Record "Allocation Account";
+                begin
+                    Rec.TestField("No.");
+                    AllocationAccount.SetRange("No.", Rec."No.");
+                    Page.Run(0, AllocationAccount);
+                end;
+            }
             action(Attributes)
             {
                 AccessByPermission = TableData 7500 = R;

@@ -5,6 +5,7 @@ page 96055 "FRE Equipments"
     PageType = List;
     SourceTable = "FRE Equipment";
     UsageCategory = Lists;
+    AutoSplitKey = true;
     
     layout
     {
@@ -19,6 +20,10 @@ page 96055 "FRE Equipments"
                 field(Description; Rec.Description)
                 {
                     ToolTip = 'Specifies the value of the Description field.', Comment = '%';
+                }
+                field(Estancia; Rec.Estancia)
+                {
+                    ToolTip = 'Specifies the value of the Estancia field.', Comment = '%';
                 }
                 field("Acquisition Date"; Rec."Acquisition Date")
                 {
@@ -39,6 +44,14 @@ page 96055 "FRE Equipments"
                 field("Acquisition Cost"; Rec."Acquisition Cost")
                 {
                     ToolTip = 'Specifies the value of the Acquisition Cost field.', Comment = '%';
+                }
+                field("Need Maintenance?";Rec."Need Maintenance?")
+                {
+                    ToolTip = 'Specifies the value of the Need Maintenance? field.', Comment = '%';
+                }
+                field("Maintenance Contract No.";Rec."Maintenance Contract No.")
+                {
+                    ToolTip = 'Specifies the value of the Maintenance Contract No. field.', Comment = '%';
                 }
             }
         }

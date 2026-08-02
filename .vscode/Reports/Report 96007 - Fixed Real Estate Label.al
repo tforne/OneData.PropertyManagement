@@ -1,7 +1,7 @@
 report 96007 "Fixed Real Estate - Label"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/Reports/Report 96007 - Fixed Estate Label.rdl';
+    RDLCLayout = 'assets/Reports/Report 96007 - Fixed Estate Label.rdl';
     ApplicationArea = FixedAssets;
     Caption = 'Fixed Real Estate List';
     PreviewMode = Normal;

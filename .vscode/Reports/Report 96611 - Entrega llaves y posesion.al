@@ -4,14 +4,13 @@ report 96611 "Entrega Llaves y Posesion"
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = Word;
-    WordLayout = '.vscode/Reports/Report 96611 - Entrega llaves y posesion.docx';
+    WordLayout = 'assets/Reports/Report 96611 - Entrega llaves y posesion.docx';
 
     dataset
     {
         dataitem(LiquidacionHeader; "Liquidacion Contrato Header")
         {
             RequestFilterFields = "Contract No.";
-
             column(ContractNo; "Contract No.") { }
             column(FechaEntregaLlaves; "Fecha Entrega Llaves") { }
             column(FechaLiquidacion; "Fecha Liquidacion") { }

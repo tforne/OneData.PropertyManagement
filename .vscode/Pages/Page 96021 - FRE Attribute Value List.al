@@ -58,7 +58,7 @@ page 96021 "FRE Attribute Value List"
                 {
                     Caption = 'Value';
                     TableRelation = IF ("Attribute Type"=CONST(Option)) "FRE Attribute Value".Value WHERE ("Attribute ID"=FIELD("Attribute ID"),
-                                                                                                          Blocked=CONST(true));
+                                                                                                          Blocked=CONST(false));
                     ToolTip = 'Specifies the value of the FRE attribute.';
 
                     trigger OnValidate()

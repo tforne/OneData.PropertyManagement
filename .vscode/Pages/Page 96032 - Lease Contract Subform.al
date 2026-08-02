@@ -15,6 +15,9 @@ page 96032 "Lease Contract Subform"
         {
             repeater(Group)
             {
+                field(type; rec.Type)
+                {
+                }
                 field("Account No."; rec."Account No.")
                 {
                 }
@@ -100,6 +103,28 @@ page 96032 "Lease Contract Subform"
                 
                 }
             }
+            group(Totals)
+            {
+                ShowCaption = false;
+                field(TotalVATBaseAmount; TotalVATBaseAmount)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Total Importe base IVA';
+                    Editable = false;
+                }
+                field(TotalVATAmount; TotalVATAmount)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Total Importe IVA';
+                    Editable = false;
+                }
+                field(TotalTaxAmountLine; TotalTaxAmountLine)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Total Importe impuesto';
+                    Editable = false;
+                }
+            }
         }
     }
 
@@ -137,6 +162,17 @@ page 96032 "Lease Contract Subform"
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
         rec.SetupNewLine;
+        UpdateTotals();
+    end;
+
+    trigger OnAfterGetRecord()
+    begin
+        UpdateTotals();
+    end;
+
+    trigger OnAfterGetCurrRecord()
+    begin
+        UpdateTotals();
     end;
 
     var
@@ -144,5 +180,26 @@ page 96032 "Lease Contract Subform"
         ServContractLine: Record "Service Contract Line";
         CreateCreditfromContractLines: Codeunit createCreditfromContractLines;
         NoOfSelectedLines: Integer;
+        TotalVATBaseAmount: Decimal;
+        TotalVATAmount: Decimal;
+        TotalTaxAmountLine: Decimal;
+
+    local procedure UpdateTotals()
+    var
+        LeaseContractLine: Record "Lease Contract Line";
+    begin
+        LeaseContractLine.Copy(Rec);
+        LeaseContractLine.CalcSums("VAT Base Amount", "VAT Amount");
+
+        TotalVATBaseAmount := LeaseContractLine."VAT Base Amount";
+        TotalVATAmount := LeaseContractLine."VAT Amount";
+        TotalTaxAmountLine := 0;
+
+        if LeaseContractLine.FindSet() then
+            repeat
+                LeaseContractLine.CalcFields("Tax Amount Line");
+                TotalTaxAmountLine += LeaseContractLine."Tax Amount Line";
+            until LeaseContractLine.Next() = 0;
+    end;
 }
 

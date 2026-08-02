@@ -5,7 +5,7 @@ page 96061 "Simple Fixed Real Estate List"
     PageType = List;
     PopulateAllFields = true;
     SourceTable = "Fixed Real Estate";
-    SourceTableView = SORTING("Property Description", "Property No.", Type, Description);
+    SourceTableView = SORTING("Property Description", "Property No.", Type, Description) WHERE(Type = CONST(Activo));
     UsageCategory = Lists;
     ApplicationArea = All;
 

@@ -1,6 +1,6 @@
 controladdin "OD Clipboard Helper"
 {
-    Scripts = '.vscode/ControlAddIns/ODClipboardHelper.js';
+    Scripts = 'assets/ControlAddIns/ODClipboardHelper.js';
 
     RequestedHeight = 1;
     RequestedWidth = 1;

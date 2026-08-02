@@ -4,7 +4,7 @@ report 96610 "Liquidacion Contrato"
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = Word;
-    WordLayout = '.vscode/Reports/Report 96610 - Liquidación Contrato.docx';
+    WordLayout = 'assets/Reports/Report 96610 - Liquidación Contrato.docx';
 
 
 

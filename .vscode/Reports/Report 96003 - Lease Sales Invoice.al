@@ -1,7 +1,7 @@
 report 96003 "Lease Sales - Invoice"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/Reports/Report 96003 - Lease Sales Invoice.rdl';
+    RDLCLayout = 'assets/Reports/Report 96003 - Lease Sales Invoice.rdl';
     Caption = 'Lease Sales - Invoice';
     EnableHyperlinks = true;
     PreviewMode = PrintLayout;

@@ -34,6 +34,31 @@ page 96060 "Real Estate Incident RC"
     {
         area(sections)
         {
+            group(NoticeGroup)
+            {
+                Caption = 'Avisos a inquilinos';
+
+                action(OpenNotices)
+                {
+                    Caption = 'Avisos';
+                    RunObject = page "FRE Tenant Notice List";
+                }
+
+                action(OpenDraftNotices)
+                {
+                    Caption = 'Avisos en borrador';
+                    RunObject = page "FRE Tenant Notice List";
+                    RunPageView = where(Status = const(Draft));
+                }
+
+                action(OpenUrgentNotices)
+                {
+                    Caption = 'Avisos urgentes';
+                    RunObject = page "FRE Tenant Notice List";
+                    RunPageView = where(Priority = const(Urgent));
+                }
+            }
+
             group("Posted Documents")
             {
                 Caption = 'Posted Documents';

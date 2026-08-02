@@ -4,7 +4,7 @@ report 96600 "Liquidación Contrato"
     Caption = 'Liquidación Contrato';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = Word;
-    WordLayout = '.vscode/Reports/Report 96600 - Liquidación Contrato.docx';
+    WordLayout = 'assets/Reports/Report 96600 - Liquidación Contrato.docx';
     dataset
     {
         dataitem(LiquidacionContratoHeader; "Liquidacion Contrato Header")

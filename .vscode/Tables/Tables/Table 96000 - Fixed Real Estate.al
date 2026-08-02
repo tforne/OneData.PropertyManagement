@@ -5,6 +5,7 @@
 namespace OneData.Property.Asset;
 
 using Microsoft.FixedAssets.Setup;
+using Microsoft.Finance.AllocationAccount;
 using Microsoft.Finance.Dimension;
 using Microsoft.Purchases.Vendor;
 using Microsoft.FixedAssets.Insurance;
@@ -295,6 +296,17 @@ table 96000 "Fixed Real Estate"
             DataClassification = ToBeClassified;
             OptionMembers = " ","En alquiler",Alquilado,"En venta",Vendido,"En alquiler o en venta","En alquiler con opción a compra",Bloqueado;
         }
+        field(62; "Distribution Owner Type"; enum "Distribution Owner Type")
+        {
+            Caption = 'Distribution Owner Type';
+            DataClassification = ToBeClassified;
+        }
+        field(63; "Allocation Account Code"; Code[20])
+        {
+            Caption = 'Allocation Account Code';
+            DataClassification = ToBeClassified;
+            TableRelation = "Allocation Account";
+        }
         field(140; Image; Media)
         {
             Caption = 'Image';
@@ -302,6 +314,11 @@ table 96000 "Fixed Real Estate"
         field(200; "Comercial Description"; BLOB)
         {
             Caption = 'Work Description';
+            DataClassification = ToBeClassified;
+        }
+        field(201; Title; Text[250])
+        {
+            Caption = 'Title';
             DataClassification = ToBeClassified;
         }
         field(300; "Street Type Id."; Code[10])
@@ -850,6 +867,7 @@ table 96000 "Fixed Real Estate"
     begin
         PublishedFixedRealEstate.Publish(Rec);
     end;
+
 
     local procedure ComposeAddress()
     var

@@ -52,6 +52,19 @@ table 96054 "FRE Equipment"
         {
             Caption = 'Equipment Warranty Period';
         }
+        field(20;"Need Maintenance?"; Boolean)
+        {
+            Caption = 'Need Maintenance?';
+        }
+        field(21;"Maintenance Contract No.";Code[20]    )
+        {
+            Caption = 'Maintenance Contract No.';
+        }
+        field(22; Estancia; Code[20])
+        {
+            Caption = 'Estancia';
+            TableRelation = "Estancia";
+        }
     }
 
     keys

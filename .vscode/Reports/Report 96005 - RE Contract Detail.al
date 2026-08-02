@@ -1,7 +1,7 @@
 report 96005 "RE Contract-Detail"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/Reports/Report 96005 - RE Contract Detail.rdl';
+    RDLCLayout = 'assets/Reports/Report 96005 - RE Contract Detail.rdl';
     Caption = 'Lease Contract-Detail';
     ApplicationArea = All;
 
@@ -79,9 +79,42 @@ report 96005 "RE Contract-Detail"
                 column(NextInvDate_ServeContrHdr; FORMAT("Lease Contract"."Next Invoice Date"))
                 {
                 }
+                column(ContractDateTxt; Format("Lease Contract"."Contract Date"))
+                {
+                }
+                column(ExpirationDateTxt; Format("Lease Contract"."Expiration Date"))
+                {
+                }
                 column(AnnualAmt_ServeContrHdr; "Lease Contract"."Amount per Period")
                 {
                     IncludeCaption = true;
+                }
+                column(PaymentSummary; BuildPaymentSummary("Lease Contract"))
+                {
+                }
+                column(IBANSummary; BuildIBANSummary())
+                {
+                }
+                column(ContractHeaderSummary; BuildContractHeaderSummary("Lease Contract"))
+                {
+                }
+                column(ContractPeriodSummary; BuildContractPeriodSummary("Lease Contract"))
+                {
+                }
+                column(EconomicSummary; BuildEconomicSummary("Lease Contract"))
+                {
+                }
+                column(AmountPerPeriodTxt; Format("Lease Contract"."Amount per Period"))
+                {
+                }
+                column(AnnualAmountTxt; Format("Lease Contract"."Annual Amount"))
+                {
+                }
+                column(PropertySummary; BuildPropertySummary("Lease Contract"))
+                {
+                }
+                column(StatusSummary; BuildStatusSummary("Lease Contract"))
+                {
                 }
                 column(Status_ServeContrHdr; FORMAT("Lease Contract".Status))
                 {
@@ -168,6 +201,9 @@ report 96005 "RE Contract-Detail"
                     column(LCL_Description; Description)
                     {
                     }
+                    column(LCL_HideAmounts; "Lease Contract Line".Type = "Lease Contract Line".Type::" ")
+                    {
+                    }
                     column(LCL_Amount; "Lease Contract Line".Amount)
                     {
                     }
@@ -199,8 +235,8 @@ report 96005 "RE Contract-Detail"
                 CompanyInfo.GET;
 
                 FormatAddr.GetCompanyAddr("Responsibility Center", RespCenter, CompanyInfo, CompanyAddr);
-                // Tomas FormatAddr.REContractSellto(CustAddr, "Lease Contract");
                 IF NOT LeaseBankAccount.GET("Lease Contract"."Contract No.", "Lease Contract"."Preferred Bank Account Code") THEN LeaseBankAccount.INIT;
+                LoadTenantAddress("Lease Contract");
             end;
         }
     }
@@ -269,5 +305,108 @@ report 96005 "RE Contract-Detail"
         StatusCaptionLbl: Label 'Status';
         InvoicePeriodCaptionLbl: Label 'Invoice Period';
         PrintLogo: Boolean;
+
+    local procedure LoadTenantAddress(LeaseContract: Record "Lease Contract")
+    begin
+        Clear(CustAddr);
+        CustAddr[1] := CopyStr(GetFirstNonEmpty(LeaseContract."Second Name", LeaseContract.Name), 1, MaxStrLen(CustAddr[1]));
+        CustAddr[2] := CopyStr(JoinText(LeaseContract."Second Address", LeaseContract."Second Address 2", ' '), 1, MaxStrLen(CustAddr[2]));
+        CustAddr[3] := CopyStr(JoinText(LeaseContract."Second Post Code", LeaseContract."Second City", ' '), 1, MaxStrLen(CustAddr[3]));
+        CustAddr[4] := CopyStr(GetFirstNonEmpty(LeaseContract."Second Country/Region Code", LeaseContract."Country/Region Code"), 1, MaxStrLen(CustAddr[4]));
+        CustAddr[5] := CopyStr(
+            GetFirstNonEmpty(
+                JoinText(LeaseContract."Phone No. 2", LeaseContract."E-Mail 2", ' | '),
+                JoinText(LeaseContract."Phone No.", LeaseContract."E-Mail", ' | ')),
+            1,
+            MaxStrLen(CustAddr[5]));
+        CustAddr[6] := CopyStr(BuildTenantReferenceLine(LeaseContract), 1, MaxStrLen(CustAddr[6]));
+    end;
+
+    local procedure BuildPaymentSummary(LeaseContract: Record "Lease Contract"): Text
+    begin
+        exit(JoinText(LeaseContract."Payment Method Code", LeaseContract."Payment Terms Code", ' | '));
+    end;
+
+    local procedure BuildIBANSummary(): Text
+    begin
+        if LeaseBankAccount.IBAN <> '' then
+            exit(LeaseBankAccount.IBAN);
+
+        exit('No informado');
+    end;
+
+    local procedure BuildContractHeaderSummary(LeaseContract: Record "Lease Contract"): Text
+    var
+        Summary: Text;
+    begin
+        Summary := LeaseContract."Contract No.";
+        if LeaseContract."Your Reference" <> '' then
+            Summary += StrSubstNo(' | Ref. %1', LeaseContract."Your Reference");
+        exit(Summary);
+    end;
+
+    local procedure BuildContractPeriodSummary(LeaseContract: Record "Lease Contract"): Text
+    begin
+        exit(StrSubstNo('Desde %1 hasta %2', Format(LeaseContract."Starting Date"), Format(LeaseContract."Expiration Date")));
+    end;
+
+    local procedure BuildEconomicSummary(LeaseContract: Record "Lease Contract"): Text
+    begin
+        exit(
+            StrSubstNo(
+                '%1 por %2',
+                Format(LeaseContract."Amount per Period"),
+                Format(LeaseContract."Invoice Period"),
+                Format(LeaseContract."Annual Amount")));
+    end;
+
+    local procedure BuildPropertySummary(LeaseContract: Record "Lease Contract"): Text
+    var
+        PropertyTitle: Text;
+        PropertyAddress: Text;
+    begin
+        PropertyTitle := JoinText(LeaseContract."Fixed Real Estate No.", LeaseContract."Description Fixed Real Estate", ' - ');
+        PropertyAddress := LeaseContract."FRE Address";
+
+        if PropertyTitle = '' then
+            exit(PropertyAddress);
+        if PropertyAddress = '' then
+            exit(PropertyTitle);
+
+        exit(StrSubstNo('%1 | %2', PropertyTitle, PropertyAddress));
+    end;
+
+    local procedure BuildStatusSummary(LeaseContract: Record "Lease Contract"): Text
+    begin
+        exit(StrSubstNo('Estado: %1', Format(LeaseContract.Status)));
+    end;
+
+    local procedure BuildTenantReferenceLine(LeaseContract: Record "Lease Contract"): Text
+    var
+        TenantRef: Text;
+    begin
+        TenantRef := '';
+        if LeaseContract."Second Customer No." <> '' then
+            TenantRef := StrSubstNo('Cliente %1', LeaseContract."Second Customer No.");
+        if LeaseContract."Your Reference" <> '' then
+            TenantRef := JoinText(TenantRef, StrSubstNo('Ref. %1', LeaseContract."Your Reference"), ' | ');
+        exit(TenantRef);
+    end;
+
+    local procedure GetFirstNonEmpty(PrimaryValue: Text; SecondaryValue: Text): Text
+    begin
+        if PrimaryValue <> '' then
+            exit(PrimaryValue);
+        exit(SecondaryValue);
+    end;
+
+    local procedure JoinText(LeftValue: Text; RightValue: Text; Separator: Text): Text
+    begin
+        if LeftValue = '' then
+            exit(RightValue);
+        if RightValue = '' then
+            exit(LeftValue);
+        exit(LeftValue + Separator + RightValue);
+    end;
 }
 

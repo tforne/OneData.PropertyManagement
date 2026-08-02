@@ -135,6 +135,12 @@ page 96007 "Real Estate Fixed Setup"
                 Image = Description;
                 RunObject = Page 96020;
             }
+            action(Estancias)
+            {
+                Caption = 'Estancias';
+                Image = List;
+                RunObject = Page "Estancias";
+            }
         }
     }
 

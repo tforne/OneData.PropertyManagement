@@ -122,6 +122,7 @@ codeunit 96041 "OD Lease Contract Copy Helper"
                 TargetLine.Init();
                 TargetLine."Contract No." := TargetContractNo;
                 TargetLine."Line No." := NextLineNo;
+                TargetLine.Validate(Type, SourceLine.Type);
 
                 if SourceLine."Account No." <> '' then
                     TargetLine.Validate("Account No.", SourceLine."Account No.");

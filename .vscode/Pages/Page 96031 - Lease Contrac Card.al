@@ -175,7 +175,7 @@ page 96031 "Lease Contract Card"
                 group("2o. arrendador")
                 {
                     Caption = '2o. arrendador';
-                    Visible = Visible2Arrendador;
+                    Visible = true;
 
                     field("Second Customer No."; rec."Second Customer No.")
                     {
@@ -257,6 +257,30 @@ page 96031 "Lease Contract Card"
                 }
                 field("Expiration Date"; rec."Expiration Date")
                 {
+                }
+                field(CurrentContractAmount; CurrentContractAmount)
+                {
+                    Caption = 'Contrato actual';
+                    BlankZero = true;
+                    Editable = false;
+                }
+                field(LastRentalPrice; LastRentalPrice)
+                {
+                    Caption = 'Último precio de alquiler';
+                    BlankZero = true;
+                    Editable = false;
+                }
+                field(ReferencePriceMin; ReferencePriceMin)
+                {
+                    Caption = 'Índice de referencia mínimo';
+                    BlankZero = true;
+                    Editable = false;
+                }
+                field(ReferencePriceMax; ReferencePriceMax)
+                {
+                    Caption = 'Índice de referencia máximo';
+                    BlankZero = true;
+                    Editable = false;
                 }
                 field("Payment Method Code"; rec."Payment Method Code")
                 {
@@ -341,62 +365,50 @@ page 96031 "Lease Contract Card"
     {
         area(navigation)
         {
-            action("Co&mments")
+            group(Related)
             {
-                Caption = 'Co&mments';
-                Image = ViewComments;
-                Promoted = true;
-                RunObject = Page 96033;
-                RunPageLink = "Table Name" = CONST("Lease Contract"),
-                              "No." = FIELD("Contract No."),
-                              "Table Line No." = CONST(0);
-                ToolTip = 'View or add comments for the record.';
-            }
-            action("Rentals Deposit")
-            {
-                Caption = 'Rentals Deposit';
-                Image = Prepayment;
-                RunObject = Page 96054;
-                RunPageLink = "Contract No." = FIELD("Contract No.");
-                ToolTip = 'View and manage rental deposits for this lease contract.';
-            }
-            action("Related Contats")
-            {
-                Caption = 'Related Contats';
-                Image = ContactReference;
-                Promoted = true;
-                RunObject = Page 96013;
-                RunPageLink = "Entity Type" = CONST(Contract),
-                              "Source No." = FIELD("Contract No.");
-            }
-            action(Attachments)
-            {
-                Caption = 'Attachments';
-                Promoted = true;
-                Image = Attach;
-                ToolTip = 'Add a file as an attachment. You can attach images as well as documents.';
-
-                trigger OnAction()
-                var
-                    DocumentAttachmentDetails: Page "Document Attachment Details";
-                    RecRef: RecordRef;
-                begin
-                    CurrPage.SAVERECORD;
-
-                    RecRef.GETTABLE(Rec);
-                    DocumentAttachmentDetails.OpenForRecRef(RecRef);
-                    DocumentAttachmentDetails.RUNMODAL;
-                end;
-            }
-            group(Visualizar2oArrendadores)
-            {
-                Caption = 'Visualizar 2o arrendador';
+                Caption = 'Related';
+                action("Co&mments")
+                {
+                    Caption = 'Co&mments';
+                    Image = ViewComments;
+                    RunObject = Page 96033;
+                    RunPageLink = "Table Name" = CONST("Lease Contract"),
+                                    "No." = FIELD("Contract No."),
+                                    "Table Line No." = CONST(0);
+                    ToolTip = 'View or add comments for the record.';
+                }
+                action("Rentals Deposit")
+                {
+                    Caption = 'Rentals Deposit';
+                    Image = Prepayment;
+                    RunObject = Page 96054;
+                    RunPageLink = "Contract No." = FIELD("Contract No.");
+                    ToolTip = 'View and manage rental deposits for this lease contract.';
+                }
+                action("Related Contats")
+                {
+                    Caption = 'Related contacts';
+                    Image = ContactReference;
+                    RunObject = Page 96013;
+                    RunPageLink = "Entity Type" = CONST(Contract),
+                                    "Source No." = FIELD("Contract No.");
+                }
+                action(PagePostedLeaseInvoiceLines)
+                {
+                    Caption = 'Posted Lease Invoice Lines';
+                    Image = PostDocument;
+                    ShortCutKey = 'Ctrl+F7';
+                    ToolTip = 'View a list of posted lease invoice lines related to this document.';
+                    RunObject = Page 96057;
+                    RunPageLink = "Contract No." = FIELD("Contract No.");
+                }
                 action(Visualizar2oArrendador)
                 {
-                    Caption = 'Visualizar';
+                    Caption = 'Show';
                     Image = ContactReference;
-                    Promoted = true;
-                    Visible = not Obligar2Arrendador;
+                    Visible = true;
+
                     trigger OnAction()
                     begin
                         Visible2Arrendador := true;
@@ -404,35 +416,72 @@ page 96031 "Lease Contract Card"
                     end;
                 }
             }
-            group(History)
+            group(Adjuntos)
             {
-                Caption = 'History';
-                action(PagePostedLeaseInvoiceLines)
+                Caption = 'Adjuntos';
+                action(Attachments)
                 {
-                    Caption = 'Posted Lease Invoice Lines';
-                    Image = PostDocument;
-                    Promoted = true;
-                    //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
-                    //PromotedCategory = New;
-                    ShortCutKey = 'Ctrl+F7';
-                    ToolTip = 'View a list of posted lease invoice lines related to this document.';
-                    RunObject = Page 96057;
-                    RunPageLink = "Contract No." = FIELD("Contract No.");
+                    Caption = 'Attachments';
+                    Image = Attach;
+                    ToolTip = 'Add a file as an attachment. You can attach images as well as documents.';
+                    Enabled = ShowAttachmentActions;
+
+                    trigger OnAction()
+                    var
+                        DocumentAttachmentDetails: Page "Document Attachment Details";
+                        RecRef: RecordRef;
+                    begin
+                        GetAttachmentRecRef(RecRef);
+                        DocumentAttachmentDetails.OpenForRecRef(RecRef);
+                        DocumentAttachmentDetails.RUNMODAL;
+                    end;
+                }
+                fileuploadaction(UploadAttachments)
+                {
+                    Caption = 'Upload files';
+                    Image = Import;
+                    ApplicationArea = Basic, Suite;
+                    AllowMultipleFiles = true;
+                    Enabled = ShowAttachmentActions;
+                    ToolTip = 'Upload one or more files and attach them to this lease contract.';
+
+                    trigger OnAction(files: List of [FileUpload])
+                    var
+                        DocumentAttachment: Record "Document Attachment";
+                        RecRef: RecordRef;
+                    begin
+                        GetAttachmentRecRef(RecRef);
+                        DocumentAttachment.SaveAttachment(files, RecRef);
+                        CurrPage.UPDATE(false);
+                    end;
+                }
+                action(CopyAttachmentsFromFRE)
+                {
+                    Caption = 'Copiar adjuntos desde inmueble';
+                    Image = CopyDocument;
+                    Enabled = ShowAttachmentActions;
+                    ToolTip = 'Copia a este contrato los archivos adjuntos del activo inmobiliario relacionado.';
+
+                    trigger OnAction()
+                    begin
+                        CurrPage.SAVERECORD;
+                        RealEstateMangement.CopyContractAttachmentsFromFixedRealEstate(Rec);
+                        CurrPage.UPDATE(false);
+                    end;
                 }
             }
         }
         area(processing)
         {
-            group(Sign)
+            group(Contract)
             {
-                Caption = 'Sign';
+                Caption = 'Contract';
                 action(SignContract)
                 {
                     Caption = 'Si&gn Contract';
                     Image = Signature;
-                    Promoted = true;
-                    PromotedCategory = Process;
                     ToolTip = 'Confirm the contract.';
+
                     trigger OnAction()
                     var
                     begin
@@ -441,13 +490,10 @@ page 96031 "Lease Contract Card"
                         CurrPage.UPDATE;
                     end;
                 }
-
                 action(CancelContract)
                 {
                     Caption = '&Cancel Contract';
                     Image = Lock;
-                    Promoted = true;
-                    PromotedCategory = Process;
                     ToolTip = 'Make sure that the changes will be part of the contract.';
 
                     trigger OnAction()
@@ -457,42 +503,65 @@ page 96031 "Lease Contract Card"
                         CurrPage.UPDATE
                     end;
                 }
-            }
-            action(LiquidarContrato)
-            {
-                Caption = 'Liquidar contrato';
-                Image = Close;
-                ToolTip = 'Cierra definitivamente el contrato y realiza la liquidación final.';
-                Enabled = Rec.Status = Rec.Status::Signed;
+                action(LiquidarContrato)
+                {
+                    Caption = 'Liquidar contrato';
+                    Image = Close;
+                    ToolTip = 'Cierra definitivamente el contrato y realiza la liquidación final.';
+                    Enabled = Rec.Status = Rec.Status::Signed;
 
-                trigger OnAction()
-                var
-                    LiquidacionContrato: Record "Liquidacion Contrato Header";
-                    Wizard: Page "Liquidacion Contrato Card";
-                begin
-                    // Confirmación explícita (buena práctica)
-                    if not Confirm(
-                        'Esta acción cerrará definitivamente el contrato.\' +
-                        '¿Desea continuar?',
-                        false)
-                    then
-                        exit;
-                    if not LiquidacionContrato.Get(rec."Contract No.") then begin
-                        LiquidacionContrato."Contract No." := rec."Contract No.";
-                        if LiquidacionContrato.Insert() then;
+                    trigger OnAction()
+                    var
+                        LiquidacionContrato: Record "Liquidacion Contrato Header";
+                        Wizard: Page "Liquidacion Contrato Card";
+                    begin
+                        if not Confirm(
+                            'Esta acción cerrará definitivamente el contrato.\' +
+                            '¿Desea continuar?',
+                            false)
+                        then
+                            exit;
+                        if not LiquidacionContrato.Get(rec."Contract No.") then begin
+                            LiquidacionContrato."Contract No." := rec."Contract No.";
+                            if LiquidacionContrato.Insert() then;
+                        end;
+                        commit;
+                        Wizard.SetContrato(Rec."Contract No.");
+                        Wizard.RunModal();
+                        CurrPage.Update();
                     end;
-                    commit;
-                    // Lanza el asistente de liquidación
-                    Wizard.SetContrato(Rec."Contract No.");
-                    Wizard.RunModal();
-
-                    // Refresca la página tras la liquidación
-                    CurrPage.Update();
-                end;
+                }
             }
-
-            group(CopyLines)
+            group(RentReview)
             {
+                Caption = 'Rent review';
+                action(UpdateRentReviewFromINE)
+                {
+                    Caption = 'Actualizar revisión alquiler';
+                    Image = CalculateLines;
+                    ToolTip = 'Consulta el índice oficial vigente del INE según la categoría del contrato y genera o actualiza la propuesta de revisión de renta.';
+                    AccessByPermission = tabledata "Price Increases by Refer index" = IMD;
+                    Enabled = Rec.Status = Rec.Status::Signed;
+
+                    trigger OnAction()
+                    var
+                        INERentalIndexMgt: Codeunit "INE Rental Index Mgt.";
+                        PriceIncreaseWorksheet: Record "Price Increases by Refer index";
+                        PriceIncreaseWorksheetPage: Page "Price Increases by Refer index";
+                    begin
+                        CurrPage.Update(true);
+                        INERentalIndexMgt.PrepareContractRentalReview(Rec, PriceIncreaseWorksheet);
+                        PriceIncreaseWorksheet.SetRange("Contract No.", Rec."Contract No.");
+                        PriceIncreaseWorksheet.SetRange("Line No.", PriceIncreaseWorksheet."Line No.");
+                        PriceIncreaseWorksheetPage.SetTableView(PriceIncreaseWorksheet);
+                        PriceIncreaseWorksheetPage.RunModal();
+                        CurrPage.Update(false);
+                    end;
+                }
+            }
+            group(DataManagement)
+            {
+                Caption = 'Data management';
                 action(CopyFromAnotherCompany)
                 {
                     Caption = 'Copiar desde otra empresa';
@@ -506,7 +575,6 @@ page 96031 "Lease Contract Card"
                         CopyMgt.RunCopyContract(Rec);
                     end;
                 }
-
                 action(OpenLeaseContractCopyLog)
                 {
                     Caption = 'Log copia contratos';
@@ -514,64 +582,18 @@ page 96031 "Lease Contract Card"
                     RunObject = page "OD Lease Contract Copy Log";
                     ToolTip = 'Muestra el histórico de copias de contratos entre empresas.';
                 }
+                action("Copy owner from FRE")
+                {
+                    Caption = 'Copy owner from FRE';
+                    Image = Copy;
+
+                    trigger OnAction()
+                    begin
+                        rec.CopyContactsOwnerFromFRE();
+                        CurrPage.UPDATE(TRUE);
+                    end;
+                }
             }
-            action(UpdateRentReviewFromINE)
-            {
-                Caption = 'Actualizar revisión alquiler';
-                Image = CalculateLines;
-                Promoted = true;
-                PromotedCategory = Process;
-                ToolTip = 'Consulta el índice oficial vigente del INE según la categoría del contrato y genera o actualiza la propuesta de revisión de renta.';
-                AccessByPermission = tabledata "Price Increases by Refer index" = IMD;
-                Enabled = Rec.Status = Rec.Status::Signed;
-
-                trigger OnAction()
-                var
-                    INERentalIndexMgt: Codeunit "INE Rental Index Mgt.";
-                    PriceIncreaseWorksheet: Record "Price Increases by Refer index";
-                    PriceIncreaseWorksheetPage: Page "Price Increases by Refer index";
-                begin
-                    CurrPage.Update(true);
-                    INERentalIndexMgt.PrepareContractRentalReview(Rec, PriceIncreaseWorksheet);
-                    PriceIncreaseWorksheet.SetRange("Contract No.", Rec."Contract No.");
-                    PriceIncreaseWorksheet.SetRange("Line No.", PriceIncreaseWorksheet."Line No.");
-                    PriceIncreaseWorksheetPage.SetTableView(PriceIncreaseWorksheet);
-                    PriceIncreaseWorksheetPage.RunModal();
-                    CurrPage.Update(false);
-                end;
-            }
-            action("Copy owner from FRE")
-            {
-                Caption = 'Copy owner from FRE';
-                Image = Copy;
-
-                trigger OnAction()
-                begin
-                    rec.CopyContactsOwnerFromFRE();
-                    CurrPage.UPDATE(TRUE);
-                end;
-            }
-            // group("F&unctions")
-            // {
-            //     Caption = 'F&unctions';
-            //     Image = "Action";
-
-            //     action("Create &Interaction")
-            //     {
-            //         ApplicationArea = RelationshipMgmt;
-            //         Caption = 'Create &Interaction';
-            //         Image = CreateInteraction;
-            //         promoted = true;
-            //         ToolTip = 'Create an interaction with a specified contact.';
-
-            //         trigger OnAction()
-            //         var
-            //             SegmentLine: Record "Segment Line" temporary;
-            //         begin
-            //             SegmentLine.CreateInteractionFromLeaseContract(Rec);
-            //         end;
-            //     }
-            // }
         }
         area(reporting)
         {
@@ -580,8 +602,6 @@ page 96031 "Lease Contract Card"
                 Caption = '&Print';
                 Ellipsis = true;
                 Image = Print;
-                Promoted = true;
-                PromotedCategory = Process;
                 ToolTip = 'Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.';
 
                 trigger OnAction()
@@ -600,15 +620,19 @@ page 96031 "Lease Contract Card"
 
     trigger OnAfterGetCurrRecord()
     begin
+        LoadFixedRealEstateRentInfo();
         BailDescription := rec.GetBailDescription;
         Visible2Arrendador := Obligar2Arrendador or (rec."Second Name" <> '');
         ShowAttachmentFactbox := IsRecordPersisted;
+        ShowAttachmentActions := ShowAttachmentFactbox;
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
+        LoadFixedRealEstateRentInfo();
         Visible2Arrendador := true;
         ShowAttachmentFactbox := false;
+        ShowAttachmentActions := false;
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
@@ -618,12 +642,38 @@ page 96031 "Lease Contract Card"
     end;
 
     var
+        FixedRealEstate: Record "Fixed Real Estate";
         RealEstateMangement: Codeunit "Real Estate Management";
+        CurrentContractAmount: Decimal;
+        LastRentalPrice: Decimal;
+        ReferencePriceMin: Decimal;
+        ReferencePriceMax: Decimal;
         ShowAttachmentFactbox: Boolean;
+        ShowAttachmentActions: Boolean;
         ShowMapLbl: Label 'Show on Map';
         BailDescription: Text;
         Visible2Arrendador: Boolean;
         Obligar2Arrendador: Boolean;
+
+    local procedure LoadFixedRealEstateRentInfo()
+    begin
+        Clear(CurrentContractAmount);
+        Clear(LastRentalPrice);
+        Clear(ReferencePriceMin);
+        Clear(ReferencePriceMax);
+
+        if Rec."Fixed Real Estate No." = '' then
+            exit;
+
+        if not FixedRealEstate.Get(Rec."Fixed Real Estate No.") then
+            exit;
+
+        FixedRealEstate.CalcFields("Last Price Contract", "Last Reference Price Min.", "Last Reference Price Max.");
+        CurrentContractAmount := FixedRealEstate."Last Price Contract";
+        LastRentalPrice := FixedRealEstate."Last Rental Price";
+        ReferencePriceMin := FixedRealEstate."Last Reference Price Min.";
+        ReferencePriceMax := FixedRealEstate."Last Reference Price Max.";
+    end;
 
     local procedure CustomerNoOnAfterValidate()
     begin
@@ -639,6 +689,19 @@ page 96031 "Lease Contract Card"
 
         LeaseContract.SetRange("Contract No.", Rec."Contract No.");
         exit(LeaseContract.FindFirst());
+    end;
+
+    local procedure GetAttachmentRecRef(var RecRef: RecordRef)
+    var
+        LeaseContract: Record "Lease Contract";
+    begin
+        CurrPage.SAVERECORD;
+
+        if Rec."Contract No." = '' then
+            Error('The contract must be saved before attaching files.');
+
+        LeaseContract.Get(Rec."Contract No.");
+        RecRef.GetTable(LeaseContract);
     end;
 }
 

@@ -7,13 +7,13 @@
             "type": "al",
             "environmentType": "Sandbox",
             "environmentName": "FFO02",
-            "startupObjectId": 96030,
+            "startupObjectId": 96061,
             "startupObjectType": "Page",
             // "breakOnError": "All",
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,
-            "schemaUpdateMode" : "ForceSync",
+            "schemaUpdateMode" : "Synchronize",
         }
     ] 
 }

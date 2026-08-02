@@ -105,15 +105,44 @@ page 96030 "Lease Contract List"
                         DocumentAttachmentDetails: Page "Document Attachment Details";
                         RecRef: RecordRef;
                     begin
-                        CurrPage.SAVERECORD;
-
-                        RecRef.GETTABLE(Rec);
+                        GetAttachmentRecRef(RecRef);
                         DocumentAttachmentDetails.OpenForRecRef(RecRef);
                         DocumentAttachmentDetails.RUNMODAL;
+                    end;
+                }
+                fileuploadaction(UploadAttachments)
+                {
+                    Caption = 'Upload files';
+                    Image = Import;
+                    ApplicationArea = Basic, Suite;
+                    AllowMultipleFiles = true;
+                    ToolTip = 'Upload one or more files and attach them to the selected lease contract.';
+
+                    trigger OnAction(files: List of [FileUpload])
+                    var
+                        DocumentAttachment: Record "Document Attachment";
+                        RecRef: RecordRef;
+                    begin
+                        GetAttachmentRecRef(RecRef);
+                        DocumentAttachment.SaveAttachment(files, RecRef);
+                        CurrPage.UPDATE(false);
                     end;
                 }
             }
         }
     }
+
+    local procedure GetAttachmentRecRef(var RecRef: RecordRef)
+    var
+        LeaseContract: Record "Lease Contract";
+    begin
+        CurrPage.SAVERECORD;
+
+        if Rec."Contract No." = '' then
+            Error('The contract must be saved before attaching files.');
+
+        LeaseContract.Get(Rec."Contract No.");
+        RecRef.GetTable(LeaseContract);
+    end;
 }
 

@@ -4,6 +4,7 @@
 
 namespace OneData.Property.Lease;
 
+using Microsoft.Finance.AllocationAccount;
 using Microsoft.Finance.Currency;
 using Microsoft.Finance.Dimension;
 using Microsoft.Finance.GeneralLedger.Account;
@@ -11,7 +12,9 @@ using Microsoft.Finance.GeneralLedger.Setup;
 using Microsoft.Finance.VAT.Setup;
 using Microsoft.Foundation.UOM;
 using Microsoft.Sales.Customer;
+using Microsoft.Sales.Document;
 using Microsoft.Service.Ledger;
+using Microsoft.Utilities;
 using OneData.Property.Setup;
 
 table 96019 "Lease Contract Line"
@@ -33,33 +36,97 @@ table 96019 "Lease Contract Line"
         {
             Caption = 'Account No.';
             DataClassification = ToBeClassified;
-            TableRelation = "G/L Account";
+            TableRelation = if (Type = const(" ")) "Standard Text"
+            else
+            if (Type = const("G/L Account")) "G/L Account" where("Direct Posting" = const(true), "Account Type" = const(Posting), Blocked = const(false))
+            else
+            if (Type = const("Allocation Account")) "Allocation Account";
 
             trigger OnValidate()
+            var
+                TempLeaseLine: Record "Lease Contract Line" temporary;
+                IsHandled: Boolean;
             begin
+
+                IsHandled := false;
+                OnBeforeValidateNo(Rec, xRec, CurrFieldNo, IsHandled);
+                if IsHandled then
+                    exit;
 
                 IF "Account No." = '' THEN BEGIN
                     CleanLine;
                     EXIT;
                 END;
-                GLAcc.GET("Account No.");
-                CheckGLAcc(GLAcc);
-                Description := GLAcc.Name;
 
-                "Gen. Bus. Posting Group" := GLAcc."Gen. Bus. Posting Group";
-                "Gen. Prod. Posting Group" := GLAcc."Gen. Prod. Posting Group";
-                "VAT Bus. Posting Group" := GLAcc."VAT Bus. Posting Group";
-                "VAT Prod. Posting Group" := GLAcc."VAT Prod. Posting Group";
+                TestStatusOpen();
+                
+                if (xRec."Account No." <> "Account No.")  then begin
+                    TestField(Value, 0);
+                end;
+
+                TempLeaseLine := Rec;
+                Init();
+                SystemId := TempLeaseLine.SystemId;
+                Type := TempLeaseLine.Type;
+                "Account No." := TempLeaseLine."Account No.";
+                
+                GetLeaseHeader();
+                InitHeaderDefaults(LeaseContractHeader);
+                
+                
+                case Type of
+                    Type::" ":
+                        CopyFromStandardText();
+                    Type::"G/L Account":
+                        CopyFromGLAccount(TempLeaseLine);
+                    Type::"Allocation Account":
+                        CopyFromAllocationAccount(TempLeaseLine);
+                end;
+
 
                 VALIDATE("VAT Prod. Posting Group");
+
+               
+
             end;
         }
+
         field(4; "Contract Status"; Option)
         {
             Caption = 'Contract Status';
             OptionCaption = ' ,Signed,Cancelled';
             OptionMembers = " ",Signed,Cancelled;
         }
+        field(5; Type; Enum "Lease Contract Line Type")
+        {
+            Caption = 'Type';
+            ToolTip = 'Specifies the type of entity that will be posted for this lease contract line, such as G/L Account or Allocation Account. The type that you enter in this field determines what you can select in the No. field.';
+
+            trigger OnValidate()
+            var
+                TempLeaseLine: Record "Lease Contract Line" temporary;
+                IsHandled: Boolean;
+            begin
+                IsHandled := false;
+                OnBeforeValidateType(Rec, xRec, CurrFieldNo, IsHandled);
+                if IsHandled then
+                    exit;
+
+                TestStatusOpen();
+                GetLeaseContractHeader();
+
+                TestField("Value", 0);
+                TestField(Amount, 0);
+                
+                OnValidateTypeOnBeforeInitRec(Rec, xRec, CurrFieldNo);
+                TempLeaseLine := Rec;
+                Init();
+                SystemId := TempLeaseLine.SystemId;
+
+                Type := TempLeaseLine.Type;
+            end;
+        }
+    
         field(6; Description; Text[50])
         {
             Caption = 'Description';
@@ -483,6 +550,12 @@ table 96019 "Lease Contract Line"
             CalcFormula = Sum("Tax Amount Line"."Tax Amount" WHERE ("Document No."=FIELD("Contract No."),"Line No."=FIELD("Line No.")));
             FieldClass = FlowField;
         }
+        field(2678; "Allocation Account No."; Code[20])
+        {
+            Caption = 'Posting Allocation Account No.';
+            DataClassification = CustomerContent;
+            TableRelation = "Allocation Account";
+        }
     }
 
     keys
@@ -531,9 +604,11 @@ table 96019 "Lease Contract Line"
         GLSetup: Record "General Ledger Setup";
         Currency: Record Currency;
         GLAcc: Record "G/L Account";
+        SalesLine: Record "Sales Line";
         ServLedgEntry: Record "Service Ledger Entry";
         LeaseContractHeader: Record "Lease Contract";
         LeaseContractLine: Record "Lease Contract Line";
+        AllocationAccount: Record "Allocation Account";    
         Text000: Label 'This service item does not belong to customer no. %1.';
         Text001: Label 'Service item %1 has a different ship-to code for this customer.\\Do you want to continue?';
         Text003: Label 'This service item already exists in this service contract.';
@@ -687,6 +762,7 @@ table 96019 "Lease Contract Line"
         LeaseContractLine."Contract Expiration Date" := LeaseContract."Expiration Date";
         LeaseContractLine.INSERT;
 
+        LeaseContractLine.Validate(Type, LeaseContractLine.Type::"G/L Account");
         LeaseContractLine.Validate("Account No.", REFSetup."Service Charge Acc.");
         LeaseContractLine."Contract Status" := LeaseContract.Status;
         LeaseContractLine."Consumer Price Index Category" := consumerPriceIndex."Consumer Price Index Category";
@@ -788,9 +864,111 @@ table 96019 "Lease Contract Line"
             "Shortcut Dimension 1 Code", "Shortcut Dimension 2 Code");
     end;
 
+    /// <summary>
+    /// Gets the sales header associated with the sales line.
+    /// Ensures the global SalesHeader variable is correctly set.
+    /// </summary>
+    /// <returns>The sales header of the current line.</returns>
+    procedure GetLeaseHeader(): Record "Lease Contract"
+    begin
+        TestField("Contract No.");
+        if ("Contract No." <> LeaseContractHeader."Contract No.") then
+            if not LeaseContractHeader.Get("Contract No.") then
+                Clear(LeaseContractHeader);
+
+        exit(LeaseContractHeader);
+    end;
+
+    procedure InitHeaderDefaults(LeaseContractHeader: Record "Lease Contract")
+    var
+        IsHandled: Boolean;
+    begin
+
+
+        // "Shortcut Dimension 1 Code" := LeaseContractHeader."Shortcut Dimension 1 Code";
+        // "Shortcut Dimension 2 Code" := LeaseContractHeader."Shortcut Dimension 2 Code";
+        // "Dimension Set ID" := LeaseContractHeader."Dimension Set ID";
+
+    end;
+
     local procedure CheckGLAcc(GLAcc: Record "G/L Account")
     begin
         GLAcc.CheckGLAcc;
+    end;
+
+    local procedure CopyFromStandardText()
+    var
+        StandardText: Record "Standard Text";
+    begin
+        StandardText.Get("Account No.");
+        Description := StandardText.Description;
+    end;
+
+    local procedure CopyFromGLAccount(var TempLeaseLine: Record "Lease Contract Line" temporary)
+    begin
+        GLAcc.Get("Account No.");
+        GLAcc.CheckGLAcc();
+        Description := GLAcc.Name;
+
+        "Gen. Bus. Posting Group" := GLAcc."Gen. Bus. Posting Group";
+        "Gen. Prod. Posting Group" := GLAcc."Gen. Prod. Posting Group";
+        "VAT Bus. Posting Group" := GLAcc."VAT Bus. Posting Group";
+        "VAT Prod. Posting Group" := GLAcc."VAT Prod. Posting Group";
+    end;
+
+    local procedure CopyFromAllocationAccount(var TempLeaseLine: Record "Lease Contract Line" temporary)
+    begin
+        AllocationAccount.Get("Account No.");
+//        AllocationAccount.CheckAllocationAccount();
+        Description := AllocationAccount.Name;
+
+        // "Gen. Bus. Posting Group" := AllocationAccount."Gen. Bus. Posting Group";
+        // "Gen. Prod. Posting Group" := AllocationAccount."Gen. Prod. Posting Group";
+        // "VAT Bus. Posting Group" := AllocationAccount."VAT Bus. Posting Group";
+        // "VAT Prod. Posting Group" := AllocationAccount."VAT Prod. Posting Group";
+    end;
+
+    procedure SaveLookupSelection(SelectedRecordRef: RecordRef)
+    var
+        GLAccount: Record "G/L Account";
+        AllocationAccount: Record "Allocation Account";
+        LookupStateManager: Codeunit "Lookup State Manager";
+        NewNo: Code[20];
+        RecVariant: Variant;
+    begin
+        case Rec.Type of
+            Rec.Type::"G/L Account":
+                begin
+                    SelectedRecordRef.SetTable(GLAccount);
+                    RecVariant := GLAccount;
+                    NewNo := GLAccount."No.";
+                    LookupStateManager.SaveRecord(RecVariant);
+                end;
+            Rec.Type::"Allocation Account":
+                begin
+                    SelectedRecordRef.SetTable(AllocationAccount);
+                    RecVariant := AllocationAccount;
+                    NewNo := AllocationAccount."No.";
+                    LookupStateManager.SaveRecord(RecVariant);
+                end;
+        end;
+        if (Rec."Contract No." = '') and (NewNo <> '') then
+            Rec.Validate("Contract No.", NewNo);
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeValidateType(var LeaseLine: Record "Lease Contract Line"; xLeaseLine: Record "Lease Contract Line"; CurrentFieldNo: Integer; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnValidateTypeOnBeforeInitRec(var LeaseLine: Record "Lease Contract Line"; xLeaseLine: Record "Lease Contract Line"; CurrentFieldNo: Integer)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeValidateNo(var LeaseLine: Record "Lease Contract Line"; xLeaseLine: Record "Lease Contract Line"; CurrentFieldNo: Integer; var IsHandled: Boolean)
+    begin
     end;
 }
 
