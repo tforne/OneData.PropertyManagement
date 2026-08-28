@@ -2,6 +2,8 @@ codeunit 50501 GeneralManagementInstall
 {
     Subtype = Install;
     Permissions = TableData "G/L Entry" = rmid,
+                  TableData "Fixed Real Estate" = r,
+                  TableData "OD RE FA Link" = rimd,
                   TableData "ODPM Incident Agent Setup" = rimd,
                   TableData "Lease Contract Line" = rimd;
 
@@ -21,6 +23,7 @@ codeunit 50501 GeneralManagementInstall
         installNewVersion();
         InitializeLeaseContractLineType();
         InsertReportSelections();
+        DeleteOrphanRealEstateLinks();
         // InsTenantUserMapping();
         INERentalIndexMgt.EnsureOfficialCategories();
         ODPMIncidentAgentSetupMgt.EnsureSetupExists(AgentSetup);
@@ -179,5 +182,24 @@ codeunit 50501 GeneralManagementInstall
             REFSetup."Statement Bank Nos." := 'PM-SBANK';
             REFSetup.MODIFY;
         end;
+    end;
+
+    procedure DeleteOrphanRealEstateLinks(): Integer
+    var
+        RealEstateLink: Record "OD RE FA Link";
+        FixedRealEstate: Record "Fixed Real Estate";
+        DeletedCount: Integer;
+    begin
+        if RealEstateLink.FindSet(true) then
+            repeat
+                if (RealEstateLink."Real Estate No." = '') or
+                   (not FixedRealEstate.Get(RealEstateLink."Real Estate No."))
+                then begin
+                    RealEstateLink.Delete();
+                    DeletedCount += 1;
+                end;
+            until RealEstateLink.Next() = 0;
+
+        exit(DeletedCount);
     end;
 }

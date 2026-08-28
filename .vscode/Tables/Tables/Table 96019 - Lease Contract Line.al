@@ -115,15 +115,18 @@ table 96019 "Lease Contract Line"
                 TestStatusOpen();
                 GetLeaseContractHeader();
 
-                TestField("Value", 0);
-                TestField(Amount, 0);
+                if Type <> Type::" " then begin
+                    TestField("Value", 0);
+                    TestField(Amount, 0);
+                end;
                 
                 OnValidateTypeOnBeforeInitRec(Rec, xRec, CurrFieldNo);
                 TempLeaseLine := Rec;
                 Init();
                 SystemId := TempLeaseLine.SystemId;
-
                 Type := TempLeaseLine.Type;
+                Description := TempLeaseLine.Description;
+                ApplyTypeDefaults(TempLeaseLine);
             end;
         }
     
@@ -710,6 +713,64 @@ table 96019 "Lease Contract Line"
             Amount := 0;
             Cost := 0;
         END;
+    end;
+
+    local procedure ApplyTypeDefaults(TempLeaseLine: Record "Lease Contract Line" temporary)
+    begin
+        GetLeaseContractHeader();
+        "Customer No." := LeaseContractHeader."Customer No.";
+        "Contract Status" := LeaseContractHeader.Status;
+
+        if Type = Type::" " then begin
+            ClearCommentLineFields();
+            exit;
+        end;
+
+        "Contract Expiration Date" := LeaseContractHeader."Expiration Date";
+        "Credit Memo Date" := "Contract Expiration Date";
+        "Service Period" := LeaseContractHeader."Lease Period";
+        "Starting Date" := WorkDate();
+
+        if TempLeaseLine."Aplicar incrementos" then
+            "Aplicar incrementos" := TempLeaseLine."Aplicar incrementos";
+        if TempLeaseLine."Base Contract" then
+            "Base Contract" := TempLeaseLine."Base Contract";
+        if TempLeaseLine."Aplicar Impuestos" then
+            "Aplicar Impuestos" := TempLeaseLine."Aplicar Impuestos";
+    end;
+
+    local procedure ClearCommentLineFields()
+    begin
+        "Account No." := '';
+        "Unit of Measure Code" := '';
+        "Response Time (Hours)" := 0;
+        Value := 0;
+        Amount := 0;
+        Cost := 0;
+        Profit := 0;
+        "VAT Prod. Posting Group" := '';
+        "VAT Bus. Posting Group" := '';
+        "Gen. Bus. Posting Group" := '';
+        "Gen. Prod. Posting Group" := '';
+        "VAT %" := 0;
+        "VAT Amount" := 0;
+        "VAT Base Amount" := 0;
+        "VAT Difference" := 0;
+        Clear("Service Period");
+        "Starting Date" := 0D;
+        "Contract Expiration Date" := 0D;
+        "Credit Memo Date" := 0D;
+        "Shortcut Dimension 1 Code" := '';
+        "Shortcut Dimension 2 Code" := '';
+        "Dimension Set ID" := 0;
+        "Aplicar incrementos" := false;
+        "Base Contract" := false;
+        "Aplicar Impuestos" := false;
+        "Consumer Price Index Category" := '';
+        Year := 0;
+        "% Increment" := 0;
+        "CPI calculation amount" := 0;
+        "Allocation Account No." := '';
     end;
 
     procedure CreateLineIPC(LeaseContract: Record "Lease Contract" ; _StartingDate : Date; _Year: Integer; BaseAmount: Decimal)

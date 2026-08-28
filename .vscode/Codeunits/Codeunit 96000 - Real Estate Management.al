@@ -10,7 +10,6 @@ codeunit 96000 "Real Estate Management"
         Text004: Label 'You cannot sign service contract %1,\because some Service Contract Lines have a missing %2.';
         Text008: Label 'The specified record could not be found.';
         Text009: Label 'Quieres borrar las lineas existentes actualmente';
-        AllocationAccountInvoicingNotSupportedErr: Label 'The lease contract line %1 uses type %2. Invoice generation only supports G/L Account lines.';
         REFSetup: Record "REF Setup";
         CarteraSetup: Record "Cartera Setup";
         NoSeriesMgt: Codeunit "No. Series";
@@ -349,20 +348,43 @@ codeunit 96000 "Real Estate Management"
 
         InvoiceLine.INIT;
         InvoiceLineNo := InvoiceLineNo + 10000;
+        InvoiceLine."Document Type" := InvoiceHeader."Document Type";
         InvoiceLine."Document No." := InvoiceHeader."No.";
         InvoiceLine."Line No." := InvoiceLineNo;
-        InvoiceLine.Type := InvoiceLine.Type::"G/L Account";
-        InvoiceLine.VALIDATE("No.", LeaseContractLine."Account No.");
-        InvoiceLine.Description := STRSUBSTNO(LeaseContractLine.Description,
-          FORMAT(InvoiceHeader."Posting Date", 0, '<Month Text>'));
-        InvoiceLine.VALIDATE("VAT Bus. Posting Group", InvoiceHeader."VAT Bus. Posting Group");
-        InvoiceLine.VALIDATE(Quantity, 1);
-        InvoiceLine.VALIDATE("VAT Prod. Posting Group", LeaseContractLine."VAT Prod. Posting Group");
-        InvoiceLine.VALIDATE("Unit Price", LeaseContractLine.Amount);
-        if leaseContractLine."Allocation Account No." <> '' then
-            InvoiceLine.VALIDATE("Allocation Account No.", leaseContractLine."Allocation Account No.");
+        case LeaseContractLine.Type of
+            LeaseContractLine.Type::" ":
+                begin
+                    InvoiceLine.Type := InvoiceLine.Type::" ";
+                    InvoiceLine.Description := LeaseContractLine.Description;
+                end;
+            LeaseContractLine.Type::"Allocation Account":
+                begin
+                    InvoiceLine.Type := InvoiceLine.Type::"G/L Account";
+                    InvoiceLine.VALIDATE("No.", LeaseContractLine."Account No.");
+                    InvoiceLine.Description := STRSUBSTNO(LeaseContractLine.Description,
+                      FORMAT(InvoiceHeader."Posting Date", 0, '<Month Text>'));
+                    InvoiceLine.VALIDATE("VAT Bus. Posting Group", InvoiceHeader."VAT Bus. Posting Group");
+                    InvoiceLine.VALIDATE(Quantity, 1);
+                    InvoiceLine.VALIDATE("VAT Prod. Posting Group", LeaseContractLine."VAT Prod. Posting Group");
+                    InvoiceLine.VALIDATE("Unit Price", LeaseContractLine.Amount);
+                    if leaseContractLine."Allocation Account No." <> '' then
+                        InvoiceLine.VALIDATE("Allocation Account No.", leaseContractLine."Allocation Account No.");
+                end;
+            else begin
+                InvoiceLine.Type := InvoiceLine.Type::"G/L Account";
+                InvoiceLine.VALIDATE("No.", LeaseContractLine."Account No.");
+                InvoiceLine.Description := STRSUBSTNO(LeaseContractLine.Description,
+                  FORMAT(InvoiceHeader."Posting Date", 0, '<Month Text>'));
+                InvoiceLine.VALIDATE("VAT Bus. Posting Group", InvoiceHeader."VAT Bus. Posting Group");
+                InvoiceLine.VALIDATE(Quantity, 1);
+                InvoiceLine.VALIDATE("VAT Prod. Posting Group", LeaseContractLine."VAT Prod. Posting Group");
+                InvoiceLine.VALIDATE("Unit Price", LeaseContractLine.Amount);
+                if leaseContractLine."Allocation Account No." <> '' then
+                    InvoiceLine.VALIDATE("Allocation Account No.", leaseContractLine."Allocation Account No.");
+            end;
+        end;
         InvoiceLine.INSERT;
-        IF LeaseContractLine."Shortcut Dimension 1 Code" <> '' THEN BEGIN
+        IF (LeaseContractLine.Type <> LeaseContractLine.Type::" ") and (LeaseContractLine."Shortcut Dimension 1 Code" <> '') THEN BEGIN
             InvoiceLine.VALIDATE("Shortcut Dimension 1 Code", LeaseContractLine."Shortcut Dimension 1 Code");
             InvoiceLine.MODIFY;
         END;
@@ -417,15 +439,35 @@ codeunit 96000 "Real Estate Management"
         InvoiceLineNo := InvoiceLineNo + 10000;
         InvoiceLine."Document No." := InvoiceHeader."No.";
         InvoiceLine."Line No." := InvoiceLineNo;
-        InvoiceLine.Type := InvoiceLine.Type::"G/L Account";
-        InvoiceLine.VALIDATE("No.", LeaseContractLine."Account No.");
-        InvoiceLine.Description := STRSUBSTNO(LeaseContractLine.Description,
-          FORMAT(InvoiceHeader."Posting Date", 0, '<Month Text>'));
+        case LeaseContractLine.Type of
+            LeaseContractLine.Type::" ":
+                begin
+                    InvoiceLine.Type := InvoiceLine.Type::" ";
+                    InvoiceLine.Description := LeaseContractLine.Description;
+                end;
+            LeaseContractLine.Type::"Allocation Account":
+                begin
+                    InvoiceLine.Type := InvoiceLine.Type::"Allocation Account";
+                    InvoiceLine.VALIDATE("No.", LeaseContractLine."Account No.");
+                    InvoiceLine.Description := STRSUBSTNO(LeaseContractLine.Description,
+                      FORMAT(InvoiceHeader."Posting Date", 0, '<Month Text>'));
+                    InvoiceLine.VALIDATE("VAT Bus. Posting Group", InvoiceHeader."VAT Bus. Posting Group");
+                    InvoiceLine.VALIDATE(Quantity, 1);
+                    InvoiceLine.VALIDATE("VAT Prod. Posting Group", LeaseContractLine."VAT Prod. Posting Group");
+                    InvoiceLine.VALIDATE("Unit Price", LeaseContractLine.Amount);
+                end;
+            else begin
+                InvoiceLine.Type := InvoiceLine.Type::"G/L Account";
+                InvoiceLine.VALIDATE("No.", LeaseContractLine."Account No.");
+                InvoiceLine.Description := STRSUBSTNO(LeaseContractLine.Description,
+                  FORMAT(InvoiceHeader."Posting Date", 0, '<Month Text>'));
 
-        InvoiceLine.VALIDATE("VAT Bus. Posting Group", InvoiceHeader."VAT Bus. Posting Group");
-        InvoiceLine.VALIDATE(Quantity, 1);
-        InvoiceLine.VALIDATE("VAT Prod. Posting Group", LeaseContractLine."VAT Prod. Posting Group");
-        InvoiceLine.VALIDATE("Unit Price", LeaseContractLine.Amount);
+                InvoiceLine.VALIDATE("VAT Bus. Posting Group", InvoiceHeader."VAT Bus. Posting Group");
+                InvoiceLine.VALIDATE(Quantity, 1);
+                InvoiceLine.VALIDATE("VAT Prod. Posting Group", LeaseContractLine."VAT Prod. Posting Group");
+                InvoiceLine.VALIDATE("Unit Price", LeaseContractLine.Amount);
+            end;
+        end;
         InvoiceLine."Posting Date" := InvoiceHeader."Posting Date";
         InvoiceLine."Customer No." := InvoiceHeader."Customer No.";
         InvoiceLine."Contract No." := InvoiceHeader."Contract No.";
@@ -982,6 +1024,188 @@ codeunit 96000 "Real Estate Management"
         LeaseContract.TESTFIELD("Salesperson Code");
     end;
 
+    procedure GetLeaseContractValidationIssues(var LeaseContract: Record "Lease Contract"): Text
+    var
+        TempValidationBuffer: Record "OD Lease Ctr. Val. Buffer" temporary;
+    begin
+        BuildLeaseContractValidationBuffer(LeaseContract, TempValidationBuffer);
+        exit(BuildLeaseContractValidationText(TempValidationBuffer));
+    end;
+
+    procedure BuildLeaseContractValidationBuffer(var LeaseContract: Record "Lease Contract"; var TempValidationBuffer: Record "OD Lease Ctr. Val. Buffer" temporary)
+    var
+        FixedRealEstate: Record "Fixed Real Estate";
+        LeaseContractLine: Record "Lease Contract Line";
+        ExpectedAmountPerPeriod: Decimal;
+        ExpectedAnnualAmount: Decimal;
+    begin
+        TempValidationBuffer.Reset();
+        TempValidationBuffer.DeleteAll();
+
+        if LeaseContract."Contract No." = '' then begin
+            AddLeaseContractValidationIssue(TempValidationBuffer, '', TempValidationBuffer."Issue Type"::General, 0, 'El contrato debe estar guardado antes de poder comprobarlo.');
+            exit;
+        end;
+
+        LeaseContract.CalcFields("Description Fixed Real Estate", Name);
+
+        if LeaseContract.Description = '' then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Header, 0, 'Falta la descripción del contrato.');
+        if LeaseContract."Customer No." = '' then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Header, 0, 'Falta el arrendador principal (Customer No.).');
+        if LeaseContract."Contact No." = '' then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Header, 0, 'Falta el contacto principal del contrato.');
+        if LeaseContract."Fixed Real Estate No." = '' then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Header, 0, 'Falta el activo inmobiliario principal.');
+        if LeaseContract."Description Fixed Real Estate" = '' then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Header, 0, 'No se ha resuelto la descripción del activo inmobiliario.');
+        if LeaseContract."Starting Date" = 0D then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Header, 0, 'Falta la fecha de inicio.');
+        if (LeaseContract."Expiration Date" = 0D) and (Format(LeaseContract."Lease Period") = '') then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Header, 0, 'Debe informar la fecha de vencimiento o el periodo del contrato.');
+        if (LeaseContract."Starting Date" <> 0D) and
+           (LeaseContract."Expiration Date" <> 0D) and
+           (LeaseContract."Expiration Date" < LeaseContract."Starting Date")
+        then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Header, 0, 'La fecha de vencimiento no puede ser anterior a la fecha de inicio.');
+        if LeaseContract."Salesperson Code" = '' then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Header, 0, 'Falta el comercial responsable.');
+        if LeaseContract."Payment Method Code" = '' then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Header, 0, 'Falta la forma de pago.');
+        if LeaseContract."Payment Terms Code" = '' then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Header, 0, 'Faltan los términos de pago.');
+        if LeaseContract."Preferred Bank Account Code" = '' then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Header, 0, 'Falta la cuenta bancaria preferida para el cobro/pago del contrato.');
+
+        if LeaseContract."Fixed Real Estate No." <> '' then
+            if not FixedRealEstate.Get(LeaseContract."Fixed Real Estate No.") then
+                AddLeaseContractValidationIssue(
+                  TempValidationBuffer,
+                  LeaseContract."Contract No.",
+                  TempValidationBuffer."Issue Type"::Header,
+                  0,
+                  StrSubstNo('No existe el activo inmobiliario %1.', LeaseContract."Fixed Real Estate No."));
+
+        LeaseContractLine.Reset();
+        LeaseContractLine.SetRange("Contract No.", LeaseContract."Contract No.");
+        if LeaseContractLine.IsEmpty() then
+            AddLeaseContractValidationIssue(TempValidationBuffer, LeaseContract."Contract No.", TempValidationBuffer."Issue Type"::Line, 0, 'El contrato no tiene líneas económicas.')
+        else begin
+            if LeaseContractLine.FindSet() then
+                repeat
+                    if LeaseContractLine.Type = LeaseContractLine.Type::" " then
+                        AddLeaseContractValidationIssue(
+                          TempValidationBuffer,
+                          LeaseContract."Contract No.",
+                          TempValidationBuffer."Issue Type"::Line,
+                          LeaseContractLine."Line No.",
+                          StrSubstNo('La línea %1 no tiene tipo informado.', LeaseContractLine."Line No."));
+                    if LeaseContractLine."Account No." = '' then
+                        AddLeaseContractValidationIssue(
+                          TempValidationBuffer,
+                          LeaseContract."Contract No.",
+                          TempValidationBuffer."Issue Type"::Line,
+                          LeaseContractLine."Line No.",
+                          StrSubstNo('La línea %1 no tiene cuenta o recurso contable informado.', LeaseContractLine."Line No."));
+                    if LeaseContractLine.Description = '' then
+                        AddLeaseContractValidationIssue(
+                          TempValidationBuffer,
+                          LeaseContract."Contract No.",
+                          TempValidationBuffer."Issue Type"::Line,
+                          LeaseContractLine."Line No.",
+                          StrSubstNo('La línea %1 no tiene descripción.', LeaseContractLine."Line No."));
+                    if LeaseContractLine.Amount = 0 then
+                        AddLeaseContractValidationIssue(
+                          TempValidationBuffer,
+                          LeaseContract."Contract No.",
+                          TempValidationBuffer."Issue Type"::Line,
+                          LeaseContractLine."Line No.",
+                          StrSubstNo('La línea %1 tiene importe 0.', LeaseContractLine."Line No."));
+                    if (LeaseContractLine."Starting Date" <> 0D) and
+                       (LeaseContractLine."Contract Expiration Date" <> 0D) and
+                       (LeaseContractLine."Contract Expiration Date" < LeaseContractLine."Starting Date")
+                    then
+                        AddLeaseContractValidationIssue(
+                          TempValidationBuffer,
+                          LeaseContract."Contract No.",
+                          TempValidationBuffer."Issue Type"::Line,
+                          LeaseContractLine."Line No.",
+                          StrSubstNo('La línea %1 tiene una fecha de fin anterior a la fecha de inicio.', LeaseContractLine."Line No."));
+                    if (LeaseContractLine.Type = LeaseContractLine.Type::"G/L Account") and
+                       (LeaseContractLine."VAT Prod. Posting Group" = '')
+                    then
+                        AddLeaseContractValidationIssue(
+                          TempValidationBuffer,
+                          LeaseContract."Contract No.",
+                          TempValidationBuffer."Issue Type"::Line,
+                          LeaseContractLine."Line No.",
+                          StrSubstNo('La línea %1 no tiene grupo registro IVA producto.', LeaseContractLine."Line No."));
+                    if LeaseContractLine."Aplicar Impuestos" and (LeaseContract."Grupo IRPF" = '') then
+                        AddLeaseContractValidationIssue(
+                          TempValidationBuffer,
+                          LeaseContract."Contract No.",
+                          TempValidationBuffer."Issue Type"::Line,
+                          LeaseContractLine."Line No.",
+                          StrSubstNo('La línea %1 aplica impuestos pero el contrato no tiene grupo IRPF.', LeaseContractLine."Line No."));
+                    if LeaseContractLine."Aplicar incrementos" and (LeaseContract."Consumer Price Index Category" = '') then
+                        AddLeaseContractValidationIssue(
+                          TempValidationBuffer,
+                          LeaseContract."Contract No.",
+                          TempValidationBuffer."Issue Type"::Line,
+                          LeaseContractLine."Line No.",
+                          StrSubstNo('La línea %1 aplica incrementos pero el contrato no tiene categoría IPC.', LeaseContractLine."Line No."));
+                until LeaseContractLine.Next() = 0;
+        end;
+
+        if (LeaseContract."Starting Date" <> 0D) and (LeaseContract."Expiration Date" <> 0D) then begin
+            ExpectedAmountPerPeriod := CalcContractAmount(LeaseContract, LeaseContract."Starting Date", LeaseContract."Expiration Date");
+            ExpectedAnnualAmount := ExpectedAmountPerPeriod * 12;
+
+            if ExpectedAmountPerPeriod <= 0 then
+                AddLeaseContractValidationIssue(
+                  TempValidationBuffer,
+                  LeaseContract."Contract No.",
+                  TempValidationBuffer."Issue Type"::Amount,
+                  0,
+                  'El importe calculado del contrato es 0 o negativo. Revise las líneas económicas.');
+
+            if LeaseContract."Amount per Period" <> ExpectedAmountPerPeriod then
+                AddLeaseContractValidationIssue(
+                  TempValidationBuffer,
+                  LeaseContract."Contract No.",
+                  TempValidationBuffer."Issue Type"::Amount,
+                  0,
+                  StrSubstNo(
+                    'El importe por periodo no está sincronizado. Actual: %1. Calculado: %2.',
+                    LeaseContract."Amount per Period",
+                    ExpectedAmountPerPeriod));
+
+            if LeaseContract."Annual Amount" <> ExpectedAnnualAmount then
+                AddLeaseContractValidationIssue(
+                  TempValidationBuffer,
+                  LeaseContract."Contract No.",
+                  TempValidationBuffer."Issue Type"::Amount,
+                  0,
+                  StrSubstNo(
+                    'El importe anual no está sincronizado. Actual: %1. Calculado: %2.',
+                    LeaseContract."Annual Amount",
+                    ExpectedAnnualAmount));
+        end;
+    end;
+
+    local procedure BuildLeaseContractValidationText(var TempValidationBuffer: Record "OD Lease Ctr. Val. Buffer" temporary): Text
+    var
+        IssuesText: Text;
+    begin
+        TempValidationBuffer.Reset();
+        if TempValidationBuffer.FindSet() then
+            repeat
+                IssuesText := AppendValidationIssue(IssuesText, TempValidationBuffer.Message);
+            until TempValidationBuffer.Next() = 0;
+
+        exit(IssuesText);
+    end;
+
     local procedure SetInvoicing(LeaseContract: Record "Lease Contract")
     var
         TempDate: Date;
@@ -1096,11 +1320,6 @@ codeunit 96000 "Real Estate Management"
 
     local procedure EnsureSupportedLeaseContractLineForInvoicing(LeaseContractLine: Record "Lease Contract Line")
     begin
-        if LeaseContractLine.Type = LeaseContractLine.Type::"Allocation Account" then
-            Error(
-                AllocationAccountInvoicingNotSupportedErr,
-                LeaseContractLine."Line No.",
-                Format(LeaseContractLine.Type));
     end;
 
     procedure CopyContractAttachmentsFromFixedRealEstate(var LeaseContract: Record "Lease Contract")
@@ -1186,6 +1405,59 @@ codeunit 96000 "Real Estate Management"
     [IntegrationEvent(false, false)]
     local procedure OnBeforeSignContractQuote(var LeaseContract: Record "Lease Contract")
     begin
+    end;
+
+    local procedure AppendValidationIssue(CurrentIssues: Text; NewIssue: Text): Text
+    var
+        TypeHelper: Codeunit "Type Helper";
+        LineBreak: Text[2];
+        IssueNo: Integer;
+    begin
+        if NewIssue = '' then
+            exit(CurrentIssues);
+
+        LineBreak := TypeHelper.LFSeparator();
+        IssueNo := CountValidationIssues(CurrentIssues, LineBreak) + 1;
+
+        if CurrentIssues = '' then
+            exit(LineBreak + StrSubstNo('%1. %2', IssueNo, NewIssue));
+
+        exit(CurrentIssues + LineBreak + StrSubstNo('%1. %2', IssueNo, NewIssue));
+    end;
+
+    local procedure CountValidationIssues(CurrentIssues: Text; LineBreak: Text[2]): Integer
+    var
+        SearchPosition: Integer;
+        FoundPosition: Integer;
+        IssueCount: Integer;
+    begin
+        if CurrentIssues = '' then
+            exit(0);
+
+        SearchPosition := 1;
+        repeat
+            FoundPosition := StrPos(CopyStr(CurrentIssues, SearchPosition), LineBreak);
+            if FoundPosition > 0 then begin
+                IssueCount += 1;
+                SearchPosition += FoundPosition + StrLen(LineBreak) - 1;
+            end;
+        until FoundPosition = 0;
+
+        exit(IssueCount);
+    end;
+
+    local procedure AddLeaseContractValidationIssue(var TempValidationBuffer: Record "OD Lease Ctr. Val. Buffer" temporary; ContractNo: Code[20]; IssueType: Option General,Header,Line,Amount; RelatedLineNo: Integer; IssueMessage: Text)
+    begin
+        if IssueMessage = '' then
+            exit;
+
+        TempValidationBuffer.Init();
+        TempValidationBuffer."Line No." := TempValidationBuffer.Count + 1;
+        TempValidationBuffer."Contract No." := ContractNo;
+        TempValidationBuffer."Issue Type" := IssueType;
+        TempValidationBuffer."Related Line No." := RelatedLineNo;
+        TempValidationBuffer.Message := CopyStr(IssueMessage, 1, MaxStrLen(TempValidationBuffer.Message));
+        TempValidationBuffer.Insert();
     end;
 
     local procedure ContractAttachmentExists(ContractNo: Code[20]; SourceAttachment: Record "Document Attachment"): Boolean

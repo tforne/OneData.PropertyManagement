@@ -9376,8 +9376,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate Card - Action G/L Analysis - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3848461472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fixeds Real Estate</source>
-          <target>Activo inmobiliario</target>
+          <source>Real Estate Assets</source>
+          <target>Activos inmobiliarios</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Fixed Real Estate List - Property Caption</note>
         </trans-unit>

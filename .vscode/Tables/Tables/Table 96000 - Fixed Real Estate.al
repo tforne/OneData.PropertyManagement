@@ -417,6 +417,7 @@ table 96000 "Fixed Real Estate"
                     IF "Property No." <> '' THEN BEGIN
                         REFA.RESET;
                         REFA.SETRANGE("Property No.", "Property No.");
+                        REFA.SETFILTER("No.", '<>%1', "No.");
                         IF REFA.FINDSET THEN
                             REFA.MODIFYALL("Property Description", "Property Description");
                     END;
@@ -856,7 +857,6 @@ table 96000 "Fixed Real Estate"
         rec."Last Rental Price" := TotalRentalAmount;
         rec."Val. Catastral Activo" := TotalValCatastralActivo;
         rec."Val. Castastral Const. Activo" := TotalValCastastralConstActivo;
-        rec.MODIFY();
     end;
 
     procedure PublicToWebSite()

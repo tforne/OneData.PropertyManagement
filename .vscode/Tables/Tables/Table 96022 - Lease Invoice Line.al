@@ -3,6 +3,7 @@
 // ------------------------------------------------------------------------------------------------
 namespace OneData.Property.Finance;
 
+using Microsoft.Finance.AllocationAccount;
 using Microsoft.Finance.Currency;
 using Microsoft.Finance.Dimension;
 using Microsoft.Finance.GeneralLedger.Account;
@@ -47,8 +48,8 @@ table 96022 "Lease Invoice Line"
         field(5; Type; Option)
         {
             Caption = 'Type';
-            OptionCaption = ' ,Item,Resource,Cost,G/L Account';
-            OptionMembers = " ",Item,Resource,Cost,"G/L Account";
+            OptionCaption = ' ,Item,Resource,Cost,G/L Account,Allocation Account';
+            OptionMembers = " ",Item,Resource,Cost,"G/L Account","Allocation Account";
         }
         field(6; "No."; Code[20])
         {
@@ -61,7 +62,9 @@ table 96022 "Lease Invoice Line"
             ELSE
             IF (Type = CONST (Cost)) "Service Cost"
             ELSE
-            IF (Type = CONST ("G/L Account")) "G/L Account";
+            IF (Type = CONST ("G/L Account")) "G/L Account"
+            ELSE
+            IF (Type = CONST ("Allocation Account")) "Allocation Account";
         }
         field(8; "Posting Group"; Code[20])
         {

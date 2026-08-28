@@ -1,5 +1,6 @@
 page 96010 "REF Income & Expenses Subform"
 {
+    Caption = 'Ingresos y gastos';
     DelayedInsert = false;
     DeleteAllowed = false;
     InsertAllowed = false;

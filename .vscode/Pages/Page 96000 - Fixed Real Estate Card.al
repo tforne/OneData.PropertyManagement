@@ -25,183 +25,168 @@ page 96000 "Fixed Real Estate Card"
             group(General)
             {
                 Caption = 'General';
-                field(Type; rec.Type)
+                group(Identification)
                 {
-
-                    trigger OnValidate()
-                    begin
-                        UpdatesNoFieldVisible();
-                        UpdatesEditableField();
-                    end;
-                }
-                field("Property No."; rec."Property No.")
-                {
-                    Editable = VisiblePropertyNo and EditableField;
-                }
-                field("Property Description"; rec."Property Description")
-                {
-                    Editable = false;
-                }
-                field("No."; rec."No.")
-                {
-                    Importance = Additional;
-                    ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
-
-                    trigger OnAssistEdit()
-                    begin
-                    end;
-
-                    trigger OnValidate()
-                    begin
-
-                    end;
-                }
-                field(Description; rec.Description)
-                {
-                    Importance = Promoted;
-                    ShowMandatory = true;
-                    ToolTip = 'Specifies a description of the real estate asset.';
-
-                    trigger OnValidate()
-                    begin
-
-                    end;
-                }
-                field("Phone No."; rec."Phone No.")
-                {
-                    ApplicationArea = Service;
-                    Editable = EditableField;
-                    ToolTip = 'Specifies the customer phone number.';
-                }
-                field(Status; rec.Status)
-                {
-                    Importance = Promoted;
-                    Editable = EditableField;
-                    ToolTip = 'Specifies the status of the real estate asset.';
-                }
-                group("Clasificación")
-                {
-                    Caption = 'Clasificación';
-                    field("FRE Class Code"; rec."FRE Class Code")
+                    Caption = 'Identificación';
+                    field("No."; rec."No.")
                     {
-                        Caption = 'Class Code';
                         Importance = Promoted;
-                        ToolTip = 'Specifies the class that the real estate asset belongs to.';
-                    }
-                    field("FRE Subclass Code"; rec."FRE Subclass Code")
-                    {
-                        Caption = 'Subclass Code';
-                        Importance = Promoted;
-                        ShowMandatory = true;
-                        ToolTip = 'Specifies the subclass of the class that the real estate asset belongs to.';
+                        ToolTip = 'Especifica el número identificador principal del activo inmobiliario.';
 
-                        trigger OnLookup(var Text: Text): Boolean
-                        var
-                            FASubclass: Record "FA Subclass";
+                        trigger OnAssistEdit()
                         begin
-                            IF rec."FRE Class Code" <> '' THEN
-                                FASubclass.SETFILTER("FA Class Code", '%1|%2', '', rec."FRE Class Code");
-
-                            IF FASubclass.GET(rec."FRE Subclass Code") THEN;
-                            IF PAGE.RUNMODAL(0, FASubclass) = ACTION::LookupOK THEN BEGIN
-                                Text := FASubclass.Code;
-                                EXIT(TRUE);
-                            END;
                         end;
 
                         trigger OnValidate()
                         begin
-                            SetDefaultPostingGroup;
+
                         end;
+                    }
+                    field(Description; rec.Description)
+                    {
+                        Importance = Promoted;
+                        ShowMandatory = true;
+                        ToolTip = 'Especifica la descripción principal del activo inmobiliario.';
+
+                        trigger OnValidate()
+                        begin
+
+                        end;
+                    }
+                    field(Type; rec.Type)
+                    {
+                        ShowMandatory = true;
+                        Importance = Promoted;
+                        ToolTip = 'Especifica el tipo de activo inmobiliario.';
+
+                        trigger OnValidate()
+                        begin
+                            UpdatesNoFieldVisible();
+                            UpdatesEditableField();
+                        end;
+                    }
+                    field(Status; rec.Status)
+                    {
+                        Importance = Promoted;
+                        Editable = EditableField;
+                        ToolTip = 'Especifica el estado actual del activo inmobiliario.';
                     }
                     field("Asset Type"; Rec."Asset Type")
                     {
-                        Caption = 'Asset Type';
+                        Caption = 'Tipo de activo';
                         Importance = Promoted;
                         ShowMandatory = true;
-                        ToolTip = 'Specifies the asset type that the real estate asset belongs to.';
+                        ToolTip = 'Especifica la tipología del activo inmobiliario.';
                     }
-                    field(Totaling; Rec.Totaling)
+                    field("Responsible Employee"; rec."Responsible Employee")
                     {
-                        Editable = false;
-                        ToolTip = 'Specifies the totaling code used to group real estate asset with similar characteristics for reporting and analysis purposes. The totaling code can be used to create totals on real estate asset reports, such as a total for all real estate asset with the same totaling code.';
+                        Importance = Promoted;
+                        ToolTip = 'Especifica el empleado responsable del activo inmobiliario.';
+                    }
+                    field("Phone No."; rec."Phone No.")
+                    {
+                        ApplicationArea = Service;
+                        Editable = EditableField;
+                        ToolTip = 'Especifica el número de teléfono relacionado con el activo inmobiliario, cuando corresponda.';
+                    }
+                    field("Search Description"; rec."Search Description")
+                    {
+                        Importance = Additional;
+                        ToolTip = 'Especifica una descripción de búsqueda para localizar el activo inmobiliario.';
                     }
                 }
-                field("Cadastral reference"; rec."Cadastral reference")
-                {
-                    Importance = Promoted;
-                    ToolTip = 'Specifies the real estate asset''s serial number.';
-                }
-                field("Search Description"; rec."Search Description")
-                {
-                    ToolTip = 'Specifies a search description for the real estate asset.';
-                }
-                field("Responsible Employee"; rec."Responsible Employee")
-                {
-                    Importance = Promoted;
-                    ToolTip = 'Specifies which employee is responsible for the real estate asset.';
-                }
-                field(Blocked; rec.Blocked)
-                {
-                    Importance = Additional;
-                    Editable = EditableField;
-                    ToolTip = 'Specifies that the related record is blocked from being posted in transactions, for example a customer that is declared insolvent or an item that is placed in quarantine.';
-                }
-                field(Acquired; rec.Acquired)
-                {
-                    Importance = Additional;
-                    Editable = EditableField;
-                    ToolTip = 'Specifies if the real estate asset has been acquired.';
-                }
-                field(Managed; rec.Managed)
-                {
-                    Importance = Additional;
-                    Editable = EditableField;
-                    ToolTip = 'Specifies if the real estate asset is managed by the system. If this field is not selected, the system will not create or update any related records such as general ledger entries or depreciation books for the real estate asset.';
-                }
-                field("Last Date Modified"; rec."Last Date Modified")
-                {
-                    Importance = Additional;
-                    ToolTip = 'Specifies when the real estate asset card was last modified.';
-                }
-
             }
-            group(Maintenance2)
+
+            group("ClassificationStructure")
             {
-                Caption = 'Maintenance';
+                Caption = 'Clasificación y estructura';
+                field("Property No."; rec."Property No.")
+                {
+                    Editable = VisiblePropertyNo and EditableField;
+                    Importance = Promoted;
+                    ToolTip = 'Especifica el inmueble principal relacionado con este registro.';
+                }
+                field("Property Description"; rec."Property Description")
+                {
+                    Editable = false;
+                    ToolTip = 'Muestra la descripción del inmueble principal relacionado.';
+                }
+                field("FRE Class Code"; rec."FRE Class Code")
+                {
+                    Caption = 'Código clase';
+                    Importance = Promoted;
+                    ToolTip = 'Especifica la clase a la que pertenece el activo inmobiliario.';
+                }
+                field("FRE Subclass Code"; rec."FRE Subclass Code")
+                {
+                    Caption = 'Código subclase';
+                    Importance = Promoted;
+                    ShowMandatory = true;
+                    ToolTip = 'Especifica la subclase a la que pertenece el activo inmobiliario.';
+
+                    trigger OnLookup(var Text: Text): Boolean
+                    var
+                        FASubclass: Record "FA Subclass";
+                    begin
+                        IF rec."FRE Class Code" <> '' THEN
+                            FASubclass.SETFILTER("FA Class Code", '%1|%2', '', rec."FRE Class Code");
+
+                        IF FASubclass.GET(rec."FRE Subclass Code") THEN;
+                        IF PAGE.RUNMODAL(0, FASubclass) = ACTION::LookupOK THEN BEGIN
+                            Text := FASubclass.Code;
+                            EXIT(TRUE);
+                        END;
+                    end;
+
+                    trigger OnValidate()
+                    begin
+                        SetDefaultPostingGroup;
+                    end;
+                }
+                field(Totaling; Rec.Totaling)
+                {
+                    Editable = false;
+                    ToolTip = 'Especifica el código de agrupación utilizado para informes y análisis del activo inmobiliario.';
+                }
+            }
+
+            group(PropertyDetails)
+            {
+                Caption = 'Ubicación y construcción';
                 group(AddressDetails)
                 {
-                    Caption = 'Address';
+                    Caption = 'Dirección';
                     field(Address; rec.Address)
                     {
                         ApplicationArea = Basic, Suite;
-                        ToolTip = 'Specifies the customer''s address. This address will appear on all sales documents for the customer.';
+                        ShowMandatory = true;
+                        ToolTip = 'Dirección postal del activo inmobiliario.';
                     }
                     field("Address 2"; rec."Address 2")
                     {
                         ApplicationArea = Basic, Suite;
-                        ToolTip = 'Specifies additional address information.';
-                    }
-                    field(City; rec.City)
-                    {
-                        ApplicationArea = Basic, Suite;
-                        ToolTip = 'Specifies the customer''s city.';
-                    }
-                    field(County; rec.County)
-                    {
-                        ApplicationArea = Basic, Suite;
-                        ToolTip = 'Specifies the state, province or county as a part of the address.';
+                        ToolTip = 'Especifica información adicional de la dirección del activo inmobiliario.';
                     }
                     field("Post Code"; rec."Post Code")
                     {
                         ApplicationArea = Basic, Suite;
                         Importance = Promoted;
-                        ToolTip = 'Specifies the postal code.';
+                        ToolTip = 'Especifica el código postal del activo inmobiliario.';
+                    }
+                    field(City; rec.City)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        ToolTip = 'Especifica la ciudad del activo inmobiliario.';
+                    }
+                    field(County; rec.County)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        ToolTip = 'Especifica la provincia, estado o condado del activo inmobiliario.';
                     }
                     field("Country/Region Code"; rec."Country/Region Code")
                     {
                         ApplicationArea = Basic, Suite;
-                        ToolTip = 'Specifies the country/region of the address.';
+                        ToolTip = 'Especifica el país o región del activo inmobiliario.';
                     }
                     field(ShowMap; ShowMapLbl)
                     {
@@ -210,7 +195,7 @@ page 96000 "Fixed Real Estate Card"
                         ShowCaption = false;
                         Style = StrongAccent;
                         StyleExpr = TRUE;
-                        ToolTip = 'Specifies the customer''s address on your preferred map website.';
+                        ToolTip = 'Abre la ubicación del activo inmobiliario en el mapa.';
 
                         trigger OnDrillDown()
                         begin
@@ -220,16 +205,26 @@ page 96000 "Fixed Real Estate Card"
                     }
                     field("Google URL"; rec."Google URL")
                     {
+                        Importance = Additional;
+                        ToolTip = 'Especifica la URL de mapa asociada al activo inmobiliario.';
                     }
                 }
-                group("Construcción")
+                group(ConstructionDetails)
                 {
-                    Caption = 'Construcción';
+                    Caption = 'Construcción y Catastro';
+                    field("Cadastral reference"; rec."Cadastral reference")
+                    {
+                        Importance = Promoted;
+                        ShowMandatory = true;
+                        ToolTip = 'Referencia catastral oficial asociada al inmueble.';
+                    }
                     field("Year of construction"; rec."Year of construction")
                     {
+                        ToolTip = 'Especifica el año de construcción del activo inmobiliario.';
                     }
                     field("Superficie construida"; rec."Superficie construida")
                     {
+                        ToolTip = 'Especifica la superficie construida del activo inmobiliario.';
                     }
                     field(ShowURL; ShowURLLbl)
                     {
@@ -238,7 +233,7 @@ page 96000 "Fixed Real Estate Card"
                         ShowCaption = false;
                         Style = StrongAccent;
                         StyleExpr = TRUE;
-                        ToolTip = 'Specifies the customer''s address on your preferred map website.';
+                        ToolTip = 'Abre la sede electrónica del Catastro asociada al inmueble.';
 
                         trigger OnDrillDown()
                         begin
@@ -248,60 +243,78 @@ page 96000 "Fixed Real Estate Card"
                     }
                     field("URL Sede electrónica catastro"; rec."URL Sede electrónica catastro")
                     {
+                        Importance = Additional;
+                        ToolTip = 'Especifica la URL oficial de la sede electrónica del Catastro para este inmueble.';
                     }
                 }
             }
-            group(Precios)
+
+            group(CommercialPrices)
             {
-                Caption = 'Precios';
+                Caption = 'Información comercial y precios';
                 Visible = VisiblePropertyNo;
                 Editable = EditableField;
-                field("Sales price"; rec."Sales price")
+                group(SalesPrices)
                 {
-
+                    Caption = 'Venta';
+                    field("Sales price"; rec."Sales price")
+                    {
+                        ToolTip = 'Especifica el precio de venta del activo inmobiliario.';
+                    }
+                    field("Minimum Sales Price"; rec."Minimum Sales Price")
+                    {
+                        ToolTip = 'Especifica el precio mínimo de venta del activo inmobiliario.';
+                    }
                 }
-                field("Minimum Sales Price"; rec."Minimum Sales Price")
+                group(RentalPrices)
                 {
+                    Caption = 'Alquiler';
+                    field("Minimum Rental Price"; rec."Minimum Rental Price")
+                    {
+                        ToolTip = 'Especifica el precio mínimo de alquiler del activo inmobiliario.';
+                    }
+                    field("Last Rental Price"; Rec."Last Rental Price")
+                    {
+                        ToolTip = 'Especifica el último precio de alquiler registrado para el activo inmobiliario.';
+                    }
+                    field("Last Rental Sales Price"; Rec."Last Rental Price Modified")
+                    {
+                        ToolTip = 'Muestra la fecha de modificación del último precio de alquiler registrado.';
+                    }
+                    field("Last Rental Price Modified"; rec."Last Rental Price Modified")
+                    {
+                        ToolTip = 'Especifica la fecha de modificación del último precio de alquiler.';
+                    }
                 }
-                field("Minimum Rental Price"; rec."Minimum Rental Price")
+                group(ReferenceIndexes)
                 {
+                    Caption = 'Índices de referencia';
+                    field("Last Reference Price Min."; Rec."Last Reference Price Min.")
+                    {
+                        ToolTip = 'Especifica el valor mínimo del índice de referencia de alquiler.';
+                    }
+                    field("Last Reference Price Max."; Rec."Last Reference Price Max.")
+                    {
+                        ToolTip = 'Especifica el valor máximo del índice de referencia de alquiler.';
+                    }
                 }
-                field("Last Reference Price Min."; Rec."Last Reference Price Min.")
-                {
-                }
-                field("Last Reference Price Max."; Rec."Last Reference Price Max.")
-                {
-                }
-                field("Last Rental Price";Rec."Last Rental Price")
-                {
-                    
-                }
-                field("Last Rental Sales Price"; Rec."Last Rental Price Modified")
-                {
-                }
-                field("Last Rental Price Modified"; rec."Last Rental Price Modified")
-                {
-                }
-
                 group("Descripción comercial")
                 {
                     Caption = 'Descripción comercial';
-                    //The GridLayout property is only supported on controls of type Grid
-                    //GridLayout = Columns;
                     Visible = VisiblePropertyNo;
-                    field(Title;Rec.Title)
+                    field(Title; Rec.Title)
                     {
                         ApplicationArea = Basic, Suite;
                         Importance = Promoted;
-                        ToolTip = 'Specifies the title of the real estate asset that will be used in commercial offers.';
+                        ToolTip = 'Especifica el título comercial utilizado en ofertas y publicaciones.';
                     }
                     field(FAEDescription; FAEDescription)
                     {
                         ApplicationArea = Basic, Suite;
                         Importance = Additional;
+                        Caption = 'Descripción comercial';
                         MultiLine = true;
-                        ShowCaption = false;
-                        ToolTip = 'Specifies the products or service being offered.';
+                        ToolTip = 'Especifica la descripción comercial del activo inmobiliario.';
 
                         trigger OnValidate()
                         begin
@@ -310,79 +323,114 @@ page 96000 "Fixed Real Estate Card"
                     }
                 }
             }
+
+            group(Maintenance)
+            {
+                Caption = 'Gestión y mantenimiento';
+                field("Vendor No."; rec."Vendor No.")
+                {
+                    Importance = Promoted;
+                    ToolTip = 'Especifica el proveedor principal asociado al activo inmobiliario.';
+                }
+                field("Maintenance Vendor No."; rec."Maintenance Vendor No.")
+                {
+                    Importance = Promoted;
+                    ToolTip = 'Especifica el proveedor encargado del mantenimiento del activo inmobiliario.';
+                }
+                field("Under Maintenance"; rec."Under Maintenance")
+                {
+                    ToolTip = 'Especifica si el activo inmobiliario se encuentra actualmente en mantenimiento.';
+                }
+                field(Insured; rec.Insured)
+                {
+                    ToolTip = 'Especifica si el activo inmobiliario está vinculado a una póliza de seguro.';
+                }
+            }
+
             group(Posting)
             {
-                Caption = 'Posting';
-                field("Global Dimension 1 Code";Rec."Global Dimension 1 Code")
+                Caption = 'Contabilidad y dimensiones';
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = Dimensions;
                     Editable = true;
+                    ToolTip = 'Especifica la dimensión global 1 asociada al activo inmobiliario.';
                 }
-                field("Global Dimension 2 Code";Rec."Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                     ApplicationArea = Dimensions;
                     Editable = true;
+                    ToolTip = 'Especifica la dimensión global 2 asociada al activo inmobiliario.';
                 }
                 field("Distribution Owner Type"; Rec."Distribution Owner Type")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = true;
-                    ToolTip = 'Specifies if the distribution owner is a member or an entity. This field is used to determine the type of dimensions that will be used in the allocation accounts related to this real estate asset.';
-                }   
+                    ToolTip = 'Especifica si el titular de distribución es un miembro o una entidad para la imputación contable del activo.';
+                }
                 field("Allocation Account Code"; rec."Allocation Account Code")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = true;
-                    ToolTip = 'Specifies the code of the allocation accounts that will be created for this real estate asset. The allocation accounts are used to allocate costs from the real estate asset to other records, such as projects or departments, based on dimensions. This field is used to determine the type of accounts that will be used in the allocation accounts related to this real estate asset.';
+                    ToolTip = 'Especifica el código de cuentas de reparto asociado al activo inmobiliario.';
                 }
             }
+
             part(Lines; 96010)
             {
                 ApplicationArea = Basic, Suite;
+                Caption = 'Detalle económico del activo';
                 SubPageLink = "No. Fixed Real Estate" = FIELD("No.");
                 UpdatePropagation = Both;
                 Visible = VisiblePropertyNo;
-            }
-            group(Maintenance)
-            {
-                Caption = 'Maintenance';
-                field("Vendor No."; rec."Vendor No.")
-                {
-                    Importance = Promoted;
-                    ToolTip = 'Specifies the number of the vendor from which you purchased this real estate asset.';
-                }
-                field("Maintenance Vendor No."; rec."Maintenance Vendor No.")
-                {
-                    Importance = Promoted;
-                    ToolTip = 'Specifies the number of the vendor who performs repairs and maintenance on the real estate asset.';
-                }
-                field("Under Maintenance"; rec."Under Maintenance")
-                {
-                    ToolTip = 'Specifies if the real estate asset is currently being repaired.';
-                }
-                field(Insured; rec.Insured)
-                {
-                    ToolTip = 'Specifies that the real estate asset is linked to an insurance policy.';
-                }
             }
 
             part(REInsurancePolicies; "RE Insurance Asset ListPart")
             {
                 ApplicationArea = All;
+                Caption = 'Pólizas de seguro';
                 SubPageLink = "Fixed Real Estate No." = field("No.");
             }
 
             part(RealEstates; "OD RE FA Link ListPart")
             {
+                Caption = 'Activos fijos relacionados';
                 SubPageLink = "Real Estate No." = field("No.");
+            }
+
+            group(Control)
+            {
+                Caption = 'Control';
+                field(Blocked; rec.Blocked)
+                {
+                    Importance = Additional;
+                    Editable = EditableField;
+                    ToolTip = 'Especifica si el activo inmobiliario está bloqueado para determinadas operaciones.';
+                }
+                field(Acquired; rec.Acquired)
+                {
+                    Importance = Additional;
+                    Editable = EditableField;
+                    ToolTip = 'Especifica si el activo inmobiliario ya ha sido adquirido.';
+                }
+                field(Managed; rec.Managed)
+                {
+                    Importance = Additional;
+                    Editable = EditableField;
+                    ToolTip = 'Especifica si el activo inmobiliario se gestiona desde el sistema.';
+                }
+                field("Last Date Modified"; rec."Last Date Modified")
+                {
+                    Importance = Additional;
+                    ToolTip = 'Especifica la última fecha en la que se modificó la ficha del activo inmobiliario.';
+                }
             }
         }
         area(factboxes)
         {
-
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
-                Caption = 'Attachments';
+                Caption = 'Adjuntos';
                 UpdatePropagation = Both;
                 SubPageLink = "Table ID" = CONST(96000),
                               "No." = FIELD("No.");
@@ -406,189 +454,189 @@ page 96000 "Fixed Real Estate Card"
     {
         area(navigation)
         {
-            action(AllocationAccounts)
+            group(LeaseContracts)
             {
-                Caption = 'Allocation Accounts';
-                Image = ChartOfAccounts;
-                ToolTip = 'View allocation accounts related to this fixed real estate.';
+                Caption = 'Contratos y alquiler';
+                action(CreateLeaseContractWizard)
+                {
+                    Caption = 'Nuevo contrato de alquiler';
+                    ApplicationArea = All;
+                    Image = NewDocument;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    ToolTip = 'Crea un nuevo contrato de alquiler a partir del activo inmobiliario actual.';
 
-                trigger OnAction()
-                var
-                    AllocationAccount: Record "Allocation Account";
-                begin
-                    Rec.TestField("No.");
-                    AllocationAccount.SetRange("No.", Rec."No.");
-                    Page.Run(0, AllocationAccount);
-                end;
+                    trigger OnAction()
+                    var
+                        LeaseWizardMgt: Codeunit "OD AM Lease Wizard Mgt.";
+                    begin
+                        LeaseWizardMgt.RunWizard(Rec);
+                    end;
+                }
+                action(Contratos)
+                {
+                    Caption = 'Contratos';
+                    Image = ContractPayment;
+                    Promoted = true;
+                    RunObject = Page "Lease Contract List";
+                    RunPageLink = "Fixed Real Estate No." = FIELD("No.");
+                    RunPageView = SORTING("Contract No.")
+                                  WHERE(Status = CONST(Signed));
+                }
+                action("FacturasAlquiler")
+                {
+                    Caption = 'Facturas alquiler';
+                    Image = Invoice;
+                    Promoted = true;
+                    RunObject = Page "Posted Lease Invoices";
+                    RunPageLink = "Fixed Real Estate No." = FIELD("No.");
+                    ToolTip = 'Muestra las facturas de alquiler registradas del activo inmobiliario.';
+                }
+                action("Precios Indices de referencia")
+                {
+                    Caption = 'Precios índices de referencia';
+                    Image = PriceWorksheet;
+                    RunObject = Page "Reference Index Rental Prices";
+                    RunPageLink = "Fixed Real Estate No." = FIELD("No.");
+                    RunPageView = SORTING("Fixed Real Estate No.", "Line No.");
+                    ToolTip = 'Muestra el histórico de índices de referencia de alquiler del activo inmobiliario.';
+                }
             }
-            action(Attributes)
+            group(PropertyManagement)
             {
-                AccessByPermission = TableData 7500 = R;
-                ApplicationArea = Basic, Suite;
-                Caption = 'Attributes';
-                Image = Category;
-                Promoted = false;
-                ToolTip = 'View or edit the item''s attributes, such as color, size, or other characteristics that help to describe the item.';
+                Caption = 'Gestión del inmueble';
+                action(Statistics)
+                {
+                    Caption = 'Estadísticas';
+                    Image = Statistics;
+                    Promoted = true;
+                    RunObject = Page "Fixed RE Statistics";
+                    RunPageLink = "No." = FIELD("No.");
+                    ShortCutKey = 'F7';
+                    ToolTip = 'Muestra información histórica y estadística del activo inmobiliario.';
+                }
+                action(Incidents)
+                {
+                    Caption = 'Incidencias';
+                    Image = Interaction;
+                    Promoted = true;
+                    RunObject = Page "RE Incident Mobile";
+                    RunPageLink = "Fixed Real Estate No." = FIELD("No.");
+                    ToolTip = 'Muestra las incidencias o solicitudes de servicio asociadas al activo inmobiliario.';
+                }
+                action("Maintenance &Registration")
+                {
+                    Caption = 'Mantenimiento y registros';
+                    Image = MaintenanceRegistrations;
+                    RunObject = Page 96016;
+                    RunPageLink = "FRE No." = FIELD("No.");
+                    ToolTip = 'Muestra los mantenimientos, reparaciones y registros asociados al activo inmobiliario.';
+                }
+                action(OpenInsurancePolicies)
+                {
+                    Caption = 'Pólizas de seguro';
+                    Image = Insurance;
+                    RunObject = Page "RE Insurance Policy Assets";
+                    RunPageLink = "Fixed Real Estate No." = FIELD("No.");
+                    ToolTip = 'Muestra las pólizas de seguro vinculadas al activo inmobiliario.';
+                }
+                action("Equipamientos")
+                {
+                    Caption = 'Equipamientos';
+                    Image = FixedAssets;
+                    RunObject = Page "FRE Equipments";
+                    RunPageLink = "FRE No." = FIELD("No.");
+                    RunPageView = SORTING("FRE No.", "Line No.");
+                }
+                action("Related Contats")
+                {
+                    Caption = 'Contactos relacionados';
+                    Image = ContactReference;
+                    RunObject = Page "REF Related Contactos";
+                    RunPageLink = "Entity Type" = CONST("Fixed Real Estate"),
+                                "Source No." = FIELD("No.");
+                }
+                action("Co&mments")
+                {
+                    ApplicationArea = Comments;
+                    Caption = 'Co&mments';
+                    Image = ViewComments;
+                    RunObject = Page 96008;
+                    ToolTip = 'Muestra o permite registrar comentarios del activo inmobiliario.';
+                }
+            }
+            group(ExternalData)
+            {
+                Caption = 'Datos externos';
+                action(UpdateFromCatastro)
+                {
+                    Caption = 'Actualizar Catastro';
+                    Image = UpdateDescription;
+                    Promoted = true;
+                    ToolTip = 'Consulta los servicios oficiales del Catastro para actualizar la referencia catastral y la URL oficial del inmueble.';
 
-                trigger OnAction()
-                begin
-                    PAGE.RUNMODAL(PAGE::"Fixed RE Attribute Value Edit.", Rec);
-                    CurrPage.SAVERECORD;
-                    CurrPage.FixedREAttributesFactbox.PAGE.LoadItemAttributesData(rec."No.");
-                end;
-            }
-            action(Statistics)
-            {
-                Caption = 'Statistics';
-                Image = Statistics;
-                Promoted = true;
-                RunObject = Page "Fixed RE Statistics";
-                RunPageLink = "No." = FIELD("No.");
-                ShortCutKey = 'F7';
-                ToolTip = 'View detailed historical information about the real estate asset.';
-            }
-            action(Dimensions)
-            {
-                ApplicationArea = Dimensions;
-                Caption = 'Dimensions';
-                Image = Dimensions;
-                RunObject = Page 540;
-                RunPageLink = "Table ID" = CONST(96000),
-                            "No." = FIELD("No.");
-                ShortCutKey = 'Shift+Ctrl+D';
-                ToolTip = 'View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.';
-            }
-            action("Maintenance &Registration")
-            {
-                Caption = 'Maintenance &Registration';
-                Image = MaintenanceRegistrations;
-                RunObject = Page 96016;
-                RunPageLink = "FRE No." = FIELD("No.");
-                ToolTip = 'View or edit maintenance codes for the various types of maintenance, repairs, and services performed on your real estate assets. You can then enter the code in the Maintenance Code field on journals.';
-            }
-            action("Co&mments")
-            {
-                ApplicationArea = Comments;
-                Caption = 'Co&mments';
-                Image = ViewComments;
-                RunObject = Page 96008;
-                //RunPageLink = "Table Name"=CONST('Fixed Real Estate'),
-                //            "No."=FIELD("No.");
-                ToolTip = 'View or add comments for the record.';
-            }
-            action(Incidents)
-            {
-                Caption = 'Incidents';
-                Image = Interaction;
-                Promoted = true;
-                RunObject = Page "RE Incident Mobile";
-                RunPageLink = "Fixed Real Estate No." = FIELD("No.");
-                ToolTip = 'View service request cases associated with this fixed real estate.';
-            }
-            action(OpenInsurancePolicies)
-            {
-                Caption = 'Insurance Policies';
-                Image = Insurance;
-                RunObject = Page "RE Insurance Policy Assets";
-                RunPageLink = "Fixed Real Estate No." = FIELD("No.");
-            }
-            action("Related Contats")
-            {
-                Caption = 'Related Contats';
-                Image = ContactReference;
-                RunObject = Page "REF Related Contactos";
-                RunPageLink = "Entity Type" = CONST("Fixed Real Estate"),
-                            "Source No." = FIELD("No.");
-            }
-            action("Precios Indices de referencia")
-            {
-                Caption = 'Precios Indices de referencia';
-                Image = PriceWorksheet;
-                RunObject = Page "Reference Index Rental Prices";
-                RunPageLink = "Fixed Real Estate No." = FIELD("No.");
-                RunPageView = SORTING("Fixed Real Estate No.", "Line No.");
-            }
-            action("Equipamientos")
-            {
-                Caption = 'Equipamientos';
-                Image = FixedAssets;
-                RunObject = Page "FRE Equipments";
-                RunPageLink = "FRE No." = FIELD("No.");
-                RunPageView = SORTING("FRE No.", "Line No.");
-            }
-            action(Attachments)
-            {
-                Caption = 'Attachments';
-                Image = Attach;
-                ToolTip = 'Add a file as an attachment. You can attach images as well as documents.';
+                    trigger OnAction()
+                    var
+                        CatastroServiceMgt: Codeunit "Catastro Service Mgt.";
+                    begin
+                        CatastroServiceMgt.UpdateFixedRealEstateFromCatastro(Rec);
+                        CurrPage.Update(true);
+                    end;
+                }
+                action(OpenSerpaviReferencePrice)
+                {
+                    Caption = 'Consultar índice alquiler MIVAU';
+                    Image = PriceWorksheet;
+                    Promoted = true;
+                    ToolTip = 'Abre el portal oficial SERPAVI para consultar el rango de precio de alquiler de referencia del inmueble.';
 
-                trigger OnAction()
-                var
-                    DocumentAttachmentDetails: Page "Document Attachment Details";
-                    RecRef: RecordRef;
-                begin
-                    CurrPage.SAVERECORD;
-
-                    RecRef.GETTABLE(Rec);
-                    DocumentAttachmentDetails.OpenForRecRef(RecRef);
-                    DocumentAttachmentDetails.RUNMODAL;
-                end;
+                    trigger OnAction()
+                    var
+                        SerpaviServiceMgt: Codeunit "SERPAVI Service Mgt.";
+                        SearchText: Text;
+                    begin
+                        SearchText := SerpaviServiceMgt.GetSearchTextForFixedRealEstate(Rec);
+                        CurrPage.ClipboardHelper.CopyText(SearchText);
+                        SerpaviServiceMgt.OpenSerpaviForFixedRealEstate(Rec);
+                        CurrPage.Update(true);
+                    end;
+                }
             }
-            fileuploadaction(UploadAttachments)
+            group(Accounting)
             {
-                Caption = 'Upload files';
-                Image = Import;
-                ApplicationArea = Basic, Suite;
-                AllowMultipleFiles = true;
-                ToolTip = 'Upload one or more files and attach them to this Fixed Real Estate record.';
+                Caption = 'Contabilidad';
+                action(Dimensions)
+                {
+                    ApplicationArea = Dimensions;
+                    Caption = 'Dimensiones';
+                    Image = Dimensions;
+                    RunObject = Page 540;
+                    RunPageLink = "Table ID" = CONST(96000),
+                                "No." = FIELD("No.");
+                    ShortCutKey = 'Shift+Ctrl+D';
+                    ToolTip = 'Muestra o permite editar las dimensiones asociadas al activo inmobiliario.';
+                }
+                action(AllocationAccounts)
+                {
+                    Caption = 'Cuentas de reparto';
+                    Image = ChartOfAccounts;
+                    ToolTip = 'Muestra las cuentas de reparto relacionadas con este activo inmobiliario.';
 
-                trigger OnAction(files: List of [FileUpload])
-                var
-                    DocumentAttachment: Record "Document Attachment";
-                    RecRef: RecordRef;
-                begin
-                    CurrPage.SAVERECORD;
-
-                    RecRef.GETTABLE(Rec);
-                    DocumentAttachment.SaveAttachment(files, RecRef);
-
-                    CurrPage.UPDATE;
-                end;
-            }
-            action(Contratos)
-            {
-                Image = ContractPayment;
-                RunObject = Page "Lease Contract List";
-                Promoted = true;
-                RunPageLink = "Fixed Real Estate No." = FIELD("No.");
-                RunPageView = SORTING("Contract No.")
-                              WHERE(Status = CONST(Signed));
-            }
-            action("FacturasAlquiler")
-            {
-                Caption = 'Facturas alquiler';
-                Image = Invoice;
-                RunObject = Page "Posted Lease Invoices";
-                RunPageLink = "Fixed Real Estate No." = FIELD("No.");
-                ToolTip = 'View the posted lease invoices';
-                Promoted = true;
-            }
-            action(Avatar)
-            {
-                Image = Picture;
-                RunObject = Page "Fixed Real Estate Avatar";
-                RunPageLink = "No." = FIELD("No.");
-            }
-            group(History)
-            {
-                Caption = 'History';
-
+                    trigger OnAction()
+                    var
+                        AllocationAccount: Record "Allocation Account";
+                    begin
+                        Rec.TestField("No.");
+                        AllocationAccount.SetRange("No.", Rec."No.");
+                        Page.Run(0, AllocationAccount);
+                    end;
+                }
                 action(FRELedgerEntries)
                 {
                     ApplicationArea = Basic, Suite;
-                    Caption = 'FRE Movs.';
+                    Caption = 'Movimientos del activo';
                     Image = LedgerEntries;
-                    ToolTip = 'View FRE ledger entries for this real estate asset.';
+                    ToolTip = 'Muestra los movimientos contables del activo inmobiliario.';
 
                     trigger OnAction()
                     var
@@ -598,41 +646,86 @@ page 96000 "Fixed Real Estate Card"
                         Page.Run(Page::"Movs. FRE", FRELedgerEntry);
                     end;
                 }
+                action(CreateExclusiveFA)
+                {
+                    Caption = 'Crear Activo Fijo';
+
+                    trigger OnAction()
+                    var
+                        Mgt: Codeunit "OD RE FA Link Mgt.";
+                    begin
+                        Mgt.CreateExclusiveFAForRealEstate(Rec);
+                    end;
+                }
+            }
+            group(Documents)
+            {
+                Caption = 'Documentos';
+                action(Attachments)
+                {
+                    Caption = 'Adjuntos';
+                    Image = Attach;
+                    Promoted = true;
+
+                    trigger OnAction()
+                    var
+                        DocumentAttachmentDetails: Page "Document Attachment Details";
+                        RecRef: RecordRef;
+                    begin
+                        CurrPage.SAVERECORD;
+
+                        RecRef.GETTABLE(Rec);
+                        DocumentAttachmentDetails.OpenForRecRef(RecRef);
+                        DocumentAttachmentDetails.RUNMODAL;
+                    end;
+                }
+                fileuploadaction(UploadAttachments)
+                {
+                    Caption = 'Subir archivos';
+                    Image = Import;
+                    ApplicationArea = Basic, Suite;
+                    AllowMultipleFiles = true;
+                    ToolTip = 'Permite subir uno o varios archivos y adjuntarlos a este activo inmobiliario.';
+
+                    trigger OnAction(files: List of [FileUpload])
+                    var
+                        DocumentAttachment: Record "Document Attachment";
+                        RecRef: RecordRef;
+                    begin
+                        CurrPage.SAVERECORD;
+
+                        RecRef.GETTABLE(Rec);
+                        DocumentAttachment.SaveAttachment(files, RecRef);
+
+                        CurrPage.UPDATE;
+                    end;
+                }
+                action(Avatar)
+                {
+                    Caption = 'Avatar';
+                    Image = Picture;
+                    RunObject = Page "Fixed Real Estate Avatar";
+                    RunPageLink = "No." = FIELD("No.");
+                }
+            }
+            action(Attributes)
+            {
+                AccessByPermission = TableData 7500 = R;
+                ApplicationArea = Basic, Suite;
+                Caption = 'Atributos';
+                Image = Category;
+                ToolTip = 'Muestra o permite editar los atributos descriptivos del activo inmobiliario.';
+
+                trigger OnAction()
+                begin
+                    PAGE.RUNMODAL(PAGE::"Fixed RE Attribute Value Edit.", Rec);
+                    CurrPage.SAVERECORD;
+                    CurrPage.FixedREAttributesFactbox.PAGE.LoadItemAttributesData(rec."No.");
+                end;
             }
         }
         area(processing)
         {
-            action(OpenSerpaviReferencePrice)
-            {
-                Caption = 'Consultar indice alquiler MIVAU';
-                Image = PriceWorksheet;
-                ToolTip = 'Abrir el portal oficial SERPAVI para consultar el rango de precio de alquiler de referencia del inmueble.';
-
-                trigger OnAction()
-                var
-                    SerpaviServiceMgt: Codeunit "SERPAVI Service Mgt.";
-                    SearchText: Text;
-                begin
-                    SearchText := SerpaviServiceMgt.GetSearchTextForFixedRealEstate(Rec);
-                    CurrPage.ClipboardHelper.CopyText(SearchText);
-                    SerpaviServiceMgt.OpenSerpaviForFixedRealEstate(Rec);
-                    CurrPage.Update(true);
-                end;
-            }
-            action(UpdateFromCatastro)
-            {
-                Caption = 'Actualizar Catastro';
-                Image = UpdateDescription;
-                ToolTip = 'Consultar los servicios oficiales del Catastro para actualizar la referencia catastral y la URL oficial del inmueble.';
-
-                trigger OnAction()
-                var
-                    CatastroServiceMgt: Codeunit "Catastro Service Mgt.";
-                begin
-                    CatastroServiceMgt.UpdateFixedRealEstateFromCatastro(Rec);
-                    CurrPage.Update(true);
-                end;
-            }
             action("Calculate Totaling")
             {
                 Caption = 'Calcular sumatorio';
@@ -645,28 +738,16 @@ page 96000 "Fixed Real Estate Card"
                     CurrPage.UPDATE(TRUE);
                 end;
             }
-
             action(Publish)
             {
                 ApplicationArea = Basic, Suite;
-                Caption = 'Publish';
+                Caption = 'Publicar';
                 Image = ExportFile;
-                ToolTip = 'Export a file with the payment information on the lines.';
+                ToolTip = 'Publica la información del activo inmobiliario en la web.';
 
                 trigger OnAction()
                 begin
                     rec.PublicToWebSite;
-                end;
-            }
-            action(CreateExclusiveFA)
-            {
-                Caption = 'Crear Activo Fijo';
-
-                trigger OnAction()
-                var
-                    Mgt: Codeunit "OD RE FA Link Mgt.";
-                begin
-                    Mgt.CreateExclusiveFAForRealEstate(Rec);
                 end;
             }
         }
@@ -706,7 +787,6 @@ page 96000 "Fixed Real Estate Card"
         UpdatesEditableField();
 
         FAEDescription := rec.GetFREDescription;
-        EditableField := (rec.Type <> rec.Type::Propiedad);
         ShowAttachmentFactbox := IsRecordPersisted;
     end;
 
@@ -729,9 +809,9 @@ page 96000 "Fixed Real Estate Card"
         Acquirable: Boolean;
         FAEDescription: Text;
         ShowAttachmentFactbox: Boolean;
-        ShowMapLbl: Label 'Show on Map';
+        ShowMapLbl: Label 'Ver en mapa';
         VisiblePropertyNo: Boolean;
-        ShowURLLbl: Label 'Show on URL';
+        ShowURLLbl: Label 'Abrir Catastro';
         EditableField: Boolean;
         CopyToClipboardErr: Label 'No se ha podido copiar automáticamente el dato de búsqueda al portapapeles.\%1';
 
@@ -767,7 +847,6 @@ page 96000 "Fixed Real Estate Card"
 
     local procedure UpdatesEditableField()
     begin
-        EditableField := not (rec.Type <> rec.Type::Propiedad);
+        EditableField := (rec.Type <> rec.Type::Propiedad);
     end;
 }
-

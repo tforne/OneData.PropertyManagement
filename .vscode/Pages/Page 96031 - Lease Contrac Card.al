@@ -503,6 +503,29 @@ page 96031 "Lease Contract Card"
                         CurrPage.UPDATE
                     end;
                 }
+                action(CheckLeaseContract)
+                {
+                    Caption = 'Comprobar contrato';
+                    Image = CheckRulesSyntax;
+                    ToolTip = 'Revisa si el contrato tiene datos obligatorios, líneas válidas e importes coherentes antes de firmarlo o facturarlo.';
+
+                    trigger OnAction()
+                    var
+                        ValidationMgt: Codeunit 96986;
+                        TempValidationBuffer: Record 96044 temporary;
+                        ValidationResultsPage: Page 96074;
+                    begin
+                        CurrPage.SAVERECORD;
+                        ValidationMgt.BuildLeaseContractValidationBuffer(Rec, TempValidationBuffer);
+                        if TempValidationBuffer.IsEmpty() then begin
+                            Message(ContractValidationOkMsg, Rec."Contract No.");
+                            exit;
+                        end;
+
+                        ValidationResultsPage.LoadResults(TempValidationBuffer);
+                        ValidationResultsPage.RunModal();
+                    end;
+                }
                 action(LiquidarContrato)
                 {
                     Caption = 'Liquidar contrato';
@@ -654,6 +677,7 @@ page 96031 "Lease Contract Card"
         BailDescription: Text;
         Visible2Arrendador: Boolean;
         Obligar2Arrendador: Boolean;
+        ContractValidationOkMsg: Label 'El contrato %1 no presenta deficiencias de información en la comprobación actual.';
 
     local procedure LoadFixedRealEstateRentInfo()
     begin

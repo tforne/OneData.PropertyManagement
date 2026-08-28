@@ -424,11 +424,6 @@ report 96001 "Create Lease Contract Invoices"
                 VATPostingSetup.GET(
                     BillToCustomer."VAT Bus. Posting Group",
                     LeaseContractLine."VAT Prod. Posting Group");
-                IF LeaseContractLine.Type = LeaseContractLine.Type::"Allocation Account" THEN
-                    ERROR(
-                        'The lease contract line %1 uses type %2. Invoice generation only supports G/L Account lines.',
-                        LeaseContractLine."Line No.",
-                        FORMAT(LeaseContractLine.Type));
             UNTIL LeaseContractLine.NEXT() = 0;
     end;
 

@@ -46,6 +46,7 @@ table 96100 "Incident Assets Real Estate"
             Caption = 'Contract';
             Description = 'Choose the service contract that the case should be logged under to make sure the customer is eligible for support services.';
             TableRelation = "Lease Contract"."Contract No." where ("Fixed Real Estate No."=field("Fixed Real Estate No."));
+            ValidateTableRelation = false;
             trigger OnValidate()
             var
                 LeaseContract: Record "Lease Contract";              

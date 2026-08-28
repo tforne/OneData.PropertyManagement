@@ -1,6 +1,6 @@
 page 96001 "Fixed Real Estate List"
 {
-    Caption = 'Fixeds Real Estate';
+    Caption = 'Real Estate Assets';
     CardPageID = "Fixed Real Estate Card";
     PageType = List;
     PopulateAllFields = true;

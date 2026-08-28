@@ -1,5 +1,6 @@
 page 96790 "OD RE FA Link ListPart"
 {
+    Caption = 'Activos fijos vinculados';
     PageType = ListPart;
     SourceTable = "OD RE FA Link";
     ApplicationArea = All;
