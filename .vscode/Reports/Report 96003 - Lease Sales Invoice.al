@@ -916,6 +916,7 @@ report 96003 "Lease Sales - Invoice"
 
     var
         Text004: Label 'Lease - Sales Invoice %1', Comment = '%1 = Document No.';
+        DocumentCaptionTooLongErr: Label 'The invoice caption cannot exceed 250 characters.';
         PageCaptionCap: Label 'Page %1 of %2';
         gcodeLanguageSuffix: Code[10];
         grecLanguage: Record Language;
@@ -1146,7 +1147,10 @@ report 96003 "Lease Sales - Invoice"
 
     local procedure DocumentCaption(): Text[250]
     begin
-        EXIT(Text004);
+        if StrLen(Text004) > 250 then
+            Error(DocumentCaptionTooLongErr);
+
+        exit(CopyStr(Text004, 1, 250));
     end;
 
     procedure ShowCashAccountingCriteria(SalesInvoiceHeader: Record "Sales Invoice Header"): Text

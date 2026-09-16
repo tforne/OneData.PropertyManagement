@@ -48,7 +48,7 @@ codeunit 50501 GeneralManagementInstall
     begin
         if not ReportSelections.Get(
             Enum::"Report Selection Usage"::"Lease S.Invoice",
-            Report::"Standard Sales - Invoice")
+            Format(Report::"Standard Sales - Invoice"))
         then begin
             ReportSelections.Init();
             ReportSelections."Usage" := Enum::"Report Selection Usage"::"Lease S.Invoice";

@@ -122,6 +122,7 @@ codeunit 96994 "OD Lease Contract Import Mgt."
         WarningCount: Integer;
         ErrorCount: Integer;
         GroupLine: Record "OD Lease Contract Import";
+        CountedLine: Record "OD Lease Contract Import";
     begin
         ImportLine.SetRange("Import Batch ID", BatchId);
         if ImportLine.IsEmpty() then
@@ -142,26 +143,22 @@ codeunit 96994 "OD Lease Contract Import Mgt."
             until ImportLine.Next() = 0;
 
         GroupLine.SetRange("Import Batch ID", BatchId);
-        if GroupLine.FindSet() then
-            repeat
-                ValidateGroupConsistency(GroupLine);
-            until GroupLine.Next() = 0;
-
-        ImportLine.SetRange("Import Batch ID", BatchId);
         ValidCount := 0;
         WarningCount := 0;
         ErrorCount := 0;
-        if ImportLine.FindSet() then
+        if GroupLine.FindSet() then
             repeat
-                case ImportLine.Status of
-                    ImportLine.Status::Validated:
-                        ValidCount += 1;
-                    ImportLine.Status::Warning:
-                        WarningCount += 1;
-                    ImportLine.Status::Error:
-                        ErrorCount += 1;
-                end;
-            until ImportLine.Next() = 0;
+                ValidateGroupConsistency(GroupLine);
+                if CountedLine.Get(GroupLine."Import Batch ID", GroupLine."Excel Row No.") then
+                    case CountedLine.Status of
+                        CountedLine.Status::Validated:
+                            ValidCount += 1;
+                        CountedLine.Status::Warning:
+                            WarningCount += 1;
+                        CountedLine.Status::Error:
+                            ErrorCount += 1;
+                    end;
+            until GroupLine.Next() = 0;
 
         Message(ValidateFinishedLbl, ValidCount + WarningCount + ErrorCount, ValidCount, WarningCount, ErrorCount);
     end;
@@ -247,6 +244,7 @@ codeunit 96994 "OD Lease Contract Import Mgt."
         MissingLinkCount: Integer;
         MultipleLinkCount: Integer;
         ResolvedRealEstateNo: Code[20];
+        CachedResolvedRealEstateNos: Dictionary of [Code[20], Code[20]];
     begin
         ImportLine.SetRange("Import Batch ID", BatchId);
         if ImportLine.IsEmpty() then
@@ -260,7 +258,11 @@ codeunit 96994 "OD Lease Contract Import Mgt."
                 if FixedRealEstate.Get(ImportLine."Fixed Real Estate No.") then
                     continue;
 
-                ResolvedRealEstateNo := ResolveFixedRealEstateNoFromFALink(ImportLine."Fixed Real Estate No.");
+                if not CachedResolvedRealEstateNos.Get(ImportLine."Fixed Real Estate No.", ResolvedRealEstateNo) then begin
+                    ResolvedRealEstateNo := ResolveFixedRealEstateNoFromFALink(ImportLine."Fixed Real Estate No.");
+                    if (ResolvedRealEstateNo <> '') and (ResolvedRealEstateNo <> GetMultipleLinkMarker()) then
+                        CachedResolvedRealEstateNos.Add(ImportLine."Fixed Real Estate No.", ResolvedRealEstateNo);
+                end;
                 if ResolvedRealEstateNo = '' then
                     MissingLinkCount += 1
                 else
@@ -1101,6 +1103,7 @@ codeunit 96994 "OD Lease Contract Import Mgt."
     local procedure ResolveFixedRealEstateNoFromFALink(FANo: Code[20]): Code[20]
     var
         RealEstateLink: Record "OD RE FA Link";
+        FoundRealEstateNo: Code[20];
         PrimaryRealEstateNo: Code[20];
         MatchCount: Integer;
     begin
@@ -1114,6 +1117,8 @@ codeunit 96994 "OD Lease Contract Import Mgt."
 
         repeat
             MatchCount += 1;
+            if FoundRealEstateNo = '' then
+                FoundRealEstateNo := RealEstateLink."Real Estate No.";
             if RealEstateLink."Primary Link" then begin
                 if PrimaryRealEstateNo <> '' then
                     exit(GetMultipleLinkMarker());
@@ -1121,10 +1126,8 @@ codeunit 96994 "OD Lease Contract Import Mgt."
             end;
         until RealEstateLink.Next() = 0;
 
-        if MatchCount = 1 then begin
-            RealEstateLink.FindFirst();
-            exit(RealEstateLink."Real Estate No.");
-        end;
+        if MatchCount = 1 then
+            exit(FoundRealEstateNo);
 
         if PrimaryRealEstateNo <> '' then
             exit(PrimaryRealEstateNo);

@@ -32,6 +32,8 @@ permissionset 96852 "ODPM SETUP"
         tabledata "FRE Asset Suggestion Rule" = RIMD,
         table "FRE Import Suggestion Rule" = X,
         tabledata "FRE Import Suggestion Rule" = RIMD,
+        table "OD Lease Ctr. Val. Buffer" = X,
+        tabledata "OD Lease Ctr. Val. Buffer" = RIMD,
         page "Real Estate Fixed Setup" = X,
         page "ODPM Incident Agent Setup" = X,
         page "ODPM Incid. Agent Setup Wizard" = X,

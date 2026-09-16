@@ -25,8 +25,8 @@ using System.Reflection;
 table 96022 "Lease Invoice Line"
 {
     Caption = 'Service Invoice Line';
-    DrillDownPageID = 5951;
-    LookupPageID = 5951;
+    DrillDownPageID = "Posted Lease Invoices Lines";
+    LookupPageID = "Posted Lease Invoices Lines";
     PasteIsValid = false;
 
     fields

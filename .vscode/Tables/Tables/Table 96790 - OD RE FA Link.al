@@ -46,12 +46,14 @@ table 96790 "OD RE FA Link"
         field(100; "Real Estate Description"; Text[100])
         {
             Caption = 'Descripción inmueble';
+            Editable = false;
             FieldClass = FlowField;
             CalcFormula = lookup("Fixed Real Estate".Description where("No." = field("Real Estate No.")));
         }
         field(110; "FA Description"; Text[100])
         {
             Caption = 'Descripción activo fijo';
+            Editable = false;
             FieldClass = FlowField;
             CalcFormula = lookup("Fixed Asset".Description where("No." = field("FA No.")));
         }

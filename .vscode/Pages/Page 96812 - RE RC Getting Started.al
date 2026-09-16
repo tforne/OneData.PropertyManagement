@@ -118,7 +118,7 @@ page 96812 "RE RC Getting Started"
         end;
         TemplateStatusTxt := GetStatusText(TemplateReady);
 
-        JournalTemplateReady := FREJnlTemplate.Count > 0;
+        JournalTemplateReady := not FREJnlTemplate.IsEmpty();
         JournalTemplateStatusTxt := GetStatusText(JournalTemplateReady);
 
         IncidentAgentSetupReady := false;

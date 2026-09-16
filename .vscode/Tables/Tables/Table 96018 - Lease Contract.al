@@ -950,6 +950,7 @@ table 96018 "Lease Contract"
         SkipBillToContact: Boolean;
         ContactNo: Code[20];
         Text014: Label 'Do you want to change %1?';
+        MapSetupMissingMsg: Label 'Before you can use Online Map, you must fill in the Online Map Setup window.\\See Setting Up Online Map in Help.';
         Text045: Label 'Contact %1 %2 is related to a different company than customer %3.';
         Text044: Label 'Contact %1 %2 is not related to customer %3.';
         Text048: Label 'There are unposted invoices linked to this contract.\\Do you want to cancel the contract?';
@@ -1126,7 +1127,7 @@ table 96018 "Lease Contract"
         IF MapPoint.FINDFIRST THEN
           MapMgt.MakeSelection(DATABASE::"Fixed Real Estate",GETPOSITION)
         ELSE
-          MESSAGE(Text014);
+          MESSAGE(MapSetupMissingMsg);
     end;
 
     procedure SetBailDescription(NewWorkDescription: Text)

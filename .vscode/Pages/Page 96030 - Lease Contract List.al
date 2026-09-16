@@ -67,6 +67,16 @@ page 96030 "Lease Contract List"
         }
         area(factboxes)
         {
+            part(CustomerStatisticsFactBox; "Customer Statistics FactBox")
+            {
+                ApplicationArea = All;
+                SubPageLink = "No." = field("Customer No.");
+            }
+            part(CustomerDetailsFactBox; "Customer Details FactBox")
+            {
+                ApplicationArea = All;
+                SubPageLink = "No." = field("Customer No.");
+            }
             systempart(Outlook; Outlook)
             {
                 Visible = false;

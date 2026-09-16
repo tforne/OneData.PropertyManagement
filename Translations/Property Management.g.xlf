@@ -1998,6 +1998,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Lease Comment Line - Field Type - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Table 1105920040 - NamedType 3904611570" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Before you can use Online Map, you must fill in the Online Map Setup window.\\See Setting Up Online Map in Help.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Lease Contract - NamedType MapSetupMissingMsg</note>
+        </trans-unit>
         <trans-unit id="Table 1105920040 - NamedType 49602008" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot enter letters in this field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3202,6 +3207,11 @@
           <source>Código sitio web</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Rel. XML Elem. to Attrib. Item - Field Web Site Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4155820105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRE Publication Registers</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FRE Publication Registers - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3569260760 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description Documents Classified</source>
@@ -7488,6 +7498,51 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table OD Lease Ctr. Val. Buffer - Field Related Line No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3402485309 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OD PM Collection Cue</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OD PM Collection Cue - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402485309 - Field 2205029636 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Next 30 Days (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OD PM Collection Cue - Field Due Next 30 Days (LCY) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402485309 - Field 3220033944 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Next 7 Days (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OD PM Collection Cue - Field Due Next 7 Days (LCY) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402485309 - Field 1592234789 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open Bill Groups</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OD PM Collection Cue - Field Open Bill Groups - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402485309 - Field 1934187584 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pending Collection (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OD PM Collection Cue - Field Open Receivables (LCY) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402485309 - Field 861034958 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Overdue Collections (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OD PM Collection Cue - Field Overdue Receivables (LCY) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402485309 - Field 1663593181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OD PM Collection Cue - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402485309 - Field 966721939 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Receivables Cartera Documents</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OD PM Collection Cue - Field Receivables Cartera Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402485309 - Field 1456465524 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rejected Cartera Documents</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table OD PM Collection Cue - Field Rejected Cartera Documents - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2213052293 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>RE / FA Link</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8573,6 +8628,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Journals Management - NamedType Text003</note>
         </trans-unit>
+        <trans-unit id="Codeunit 135318348 - NamedType 2127484308" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 cannot exceed %2 characters.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FRE Journals Management - NamedType ValueTooLongErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1697908812 - NamedType 1026540972" size-unit="char" translate="yes" xml:space="preserve">
           <source>No se ha podido conectar con la URL del extracto.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8747,6 +8807,11 @@
           <source>A file name must be provided.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Management - Incident - Method ImportAttachment - NamedType EmptyFileNameErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3492970086 - NamedType 2328155591" size-unit="char" translate="yes" xml:space="preserve">
+          <source>La descripcion del activo supera los %1 caracteres permitidos.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit OD AM Asset Import Mgt. - NamedType AssetDescriptionTooLongErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3492970086 - NamedType 2550369379" size-unit="char" translate="yes" xml:space="preserve">
           <source>Se ha eliminado el lote %1.</source>
@@ -9512,6 +9577,11 @@
           <source>Pending configuration: %1</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit ODPM Incident Agent Setup Mgt. - NamedType ValidationPendingLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3042175890 - NamedType 2127484308" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 cannot exceed %2 characters.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ODPM Incident Agent Setup Mgt. - NamedType ValueTooLongErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 12978147 - NamedType 3577229803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quieres publicar el activo inmobiliario %1, en los webs configurados ?</source>
@@ -13833,6 +13903,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page OD AM New Asset - Control Asset Type - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 869659981 - Control 1304617788 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tipo de activo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OD AM New Asset - Control Asset Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 500026903 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ocupacion de activos</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15087,6 +15162,51 @@
           <source>Show Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page OD Lease Ctr. Val. Results - Action ShowLines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 120320357 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cobros</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OD PM Collection Activities - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 120320357 - Control 3122532503 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cobros</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OD PM Collection Activities - Control Collections - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 120320357 - Control 2629108305 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Próximos 30 días</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OD PM Collection Activities - Control DueNext30Days - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 120320357 - Control 1739528109 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Próximos 7 días</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OD PM Collection Activities - Control DueNext7Days - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 120320357 - Control 3379020781 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Grupos / remesas</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OD PM Collection Activities - Control OpenBillGroups - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 120320357 - Control 2382794061 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pendiente de cobro</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OD PM Collection Activities - Control OpenReceivables - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 120320357 - Control 2084605631 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cobros vencidos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OD PM Collection Activities - Control OverdueReceivables - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 120320357 - Control 3924396611 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Documentos en cartera</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OD PM Collection Activities - Control ReceivablesCarteraDocuments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 120320357 - Control 3028654484 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Impagados / devueltos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page OD PM Collection Activities - Control RejectedCarteraDocuments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3880165890 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Activos fijos vinculados</source>
@@ -16353,6 +16473,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3408061871 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir las cuentas bancarias de la empresa.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Bank Account List - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3408061871 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cuentas bancarias</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Bank Account List - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 586345089 - Action 722101725 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View a list of all your contacts.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16392,6 +16522,111 @@
           <source>Vendors</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Vendors - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3122532503 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cobros y Cartera</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Collections - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 2546640761 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir los grupos o remesas de efectos a cobrar.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Bill Groups - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 2546640761 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Grupos / remesas</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Bill Groups - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 1810564733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir el diario estándar de cartera.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Cartera Journal - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 1810564733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Diario de cartera</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Cartera Journal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3286564055 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir los grupos o remesas cerrados.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Closed Bill Groups - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3286564055 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Grupos / remesas cerrados</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Closed Bill Groups - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 250706608 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir los documentos de cartera cerrados.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Closed Cartera Documents - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 250706608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Documentos de cartera cerrados</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Closed Cartera Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 2571896166 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir el diario de cobros para registrar cobros de clientes.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Collection Cash Receipt Journal - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 2571896166 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Diario de cobros</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Collection Cash Receipt Journal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 2393537757 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir los movimientos de clientes para consultar deuda y vencimientos.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Customer Ledger Entries - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 2393537757 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Movimientos de clientes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Customer Ledger Entries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3442495625 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir el análisis estándar de vencimientos de cartera.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Documents Maturity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3442495625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Análisis de vencimientos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Documents Maturity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 681896546 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir los grupos o remesas registrados.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Posted Bill Groups - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 681896546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Grupos / remesas registrados</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Posted Bill Groups - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3112246761 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir los documentos de cartera registrados.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Posted Cartera Documents - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3112246761 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Documentos de cartera registrados</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Posted Cartera Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 165741626 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir los documentos de cartera a cobrar.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Receivables Cartera Docs - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 165741626 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Documentos a cobrar</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Receivables Cartera Docs - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 586345089 - Action 2398764227 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Compras</source>
@@ -16433,6 +16668,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Bank Statements Journal - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 586345089 - Action 1638686336 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir el diario de recibos efectivo para registrar cobros.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Cash Receipt Journal - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 1638686336 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Diario de recibos efectivo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Cash Receipt Journal - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 586345089 - Action 3372812512 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Abrir los diarios generales para registrar movimientos contables.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16447,6 +16692,16 @@
           <source>Journal property</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Journal property - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3196174509 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abrir los diarios de pagos para registrar pagos a proveedores.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Payment Journal - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Action 3196174509 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Diarios de pagos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Real Estate Role Center - Action Payment Journal - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 586345089 - Action 4137051400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>New</source>
@@ -17228,6 +17483,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType DocDateCaptionLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2652458214 - NamedType 358252902" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The invoice caption cannot exceed 250 characters.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Lease Sales - Invoice - NamedType DocumentCaptionTooLongErr</note>
+        </trans-unit>
         <trans-unit id="Report 2652458214 - NamedType 4092352280" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -17997,6 +18257,11 @@
           <source>OD FF Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension OD FF RE RC Ext - Action OD FF Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 586345089 - Control 3314943993 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 586345089">
+          <source>Balance comprobacion</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension OD FF RE RC Ext - Control ODTrialBalance - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3770755351 - Action 3921731913 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3277809738">
           <source>Contratos de alquiler</source>

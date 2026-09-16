@@ -1,0 +1,31 @@
+# AL build artifacts in repository root
+/OneData_Property Management_*.app
+/OneData_Property Management_*.app.zip
+/tmp*.app
+/.tmp*.app
+/tmp*.zip
+
+# Temporary build directories
+/.tmp_build/
+/.tmp-al-build/
+
+# AL cache
+/.vscode/.alcache/
+
+# Restored ALCops analyzer binaries
+/.alcops/
+
+# Temporary or backup files
+*.tmp
+*.bak
+*.old
+*.orig
+*.copy
+*.log
+
+# Known generated VS Code artifacts
+/.vscode/Tables.zip
+
+# OS noise
+Thumbs.db
+.DS_Store

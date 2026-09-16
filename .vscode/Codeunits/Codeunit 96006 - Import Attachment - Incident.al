@@ -32,20 +32,6 @@ codeunit 96006 "Management - Incident"
     //     exit(ImportAttachment(IncidentAttachment, FileName, TextEncoding::MSDos,TempBlob));
     // end;
 
-    internal procedure ImportAttachment(var IncidentAttachment: Record "Incident Attachment"; var FileName : Text; Encoding: TextEncoding; var TempBlob : Codeunit "Temp Blob"): Boolean
-    var
-        TempInStream: InStream;
-        TempOutStream: OutStream;
-    begin
-        // TempBlob.CreateInStream(TempInStream, Encoding);
-        // TempBlob.CreateOutStream(TempOutStream, Encoding);
-        // CopyStream(TempOutStream, TempInStream);
-
-        CheckFileContentBeforeUploadFile(IncidentAttachment);
-        IncidentAttachment.SetContentFromBlob(TempBlob);
-        exit(ImportAttachment(IncidentAttachment, FileName, TempBlob));
-    end;
-
     procedure UploadFileSaaS(var IncidentAttachment: Record "Incident Attachment"; var FileName: Text; var TempBlob: Codeunit "Temp Blob")
     var
         FileManagement: Codeunit "File Management";
@@ -139,7 +125,7 @@ codeunit 96006 "Management - Incident"
         //     exit(false);
         // end;
 
-        IncidentAttachment.Validate("File Extension", LowerCase(CopyStr(FileManagement.GetExtension(FileName), 1, MaxStrLen(IncidentAttachment."File Extension"))));
+        IncidentAttachment.Validate("File Extension", CopyStr(LowerCase(FileManagement.GetExtension(FileName)), 1, MaxStrLen(IncidentAttachment."File Extension")));
         if IncidentAttachment.Name = '' then
             IncidentAttachment.Name := CopyStr(FileManagement.GetFileNameWithoutExtension(FileName), 1, MaxStrLen(IncidentAttachment.Name));
 

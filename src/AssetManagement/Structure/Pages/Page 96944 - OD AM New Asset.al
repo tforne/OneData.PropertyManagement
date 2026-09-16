@@ -1,7 +1,6 @@
 page 96944 "OD AM New Asset"
 {
     PageType = StandardDialog;
-    SourceTable = "OD AM Asset Create Req.";
     Caption = 'Nuevo activo';
 
     layout
@@ -12,11 +11,26 @@ page 96944 "OD AM New Asset"
             {
                 Caption = 'General';
 
-                field("Asset Type"; Rec."Asset Type")
+                field("Asset Type"; SelectedAssetType)
                 {
+                    ApplicationArea = All;
+                    Caption = 'Tipo de activo';
                     ToolTip = 'Selecciona el tipo de activo que se va a crear.';
                 }
             }
         }
     }
+
+    var
+        SelectedAssetType: Enum "OD Asset Type";
+
+    procedure SetAssetType(AssetType: Enum "OD Asset Type")
+    begin
+        SelectedAssetType := AssetType;
+    end;
+
+    procedure GetAssetType(): Enum "OD Asset Type"
+    begin
+        exit(SelectedAssetType);
+    end;
 }

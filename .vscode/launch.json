@@ -6,14 +6,15 @@
             "request": "launch",
             "type": "al",
             "environmentType": "Sandbox",
-            "environmentName": "ALIPS",
+            "environmentName": "Beta",
             "startupObjectId": 96940,
             "startupObjectType": "Page",
+            "tenant": "a3cb78e7-4e51-4ae8-b3a7-fb64e2ed6424",
             // "breakOnError": "All",
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,
-            "schemaUpdateMode" : "Synchronize",
+            "schemaUpdateMode" : "Synchronize"
         }
     ] 
 }

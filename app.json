@@ -2,20 +2,20 @@
   "id": "88c7367c-5bbe-483c-996a-9b8206a8d923",
   "name": "Property Management",
   "publisher": "OneData",
-  "version": "4.0.26228.322",
+  "version": "4.0.26248.339",
   "brief": "",
   "description": "",
   "privacyStatement": "",
   "EULA": "",
   "help": "https://tforne.github.io/OneData.PropertyManagement/",
-  "url": "https://www.onedata.one/",
+  "url": "https://www.onedata.one/solutions/property-management/index.html",
   "logo": "./docs/images/One_Data_Partner.png",
   "dependencies": [
     {
     "id": "d79ca5b2-aa4a-43be-8437-d39ebf6a169b",
     "name": "Base Application",
     "publisher": "OneData",
-    "version": "5.0.0.0"
+    "version": "5.0.26240.187"
     }
   ],  
   "screenshots": [],

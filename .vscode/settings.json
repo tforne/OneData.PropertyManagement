@@ -1,3 +1,10 @@
 {
-    "al.useInteractiveLogin": false
+    "al.useInteractiveLogin": false,
+    "al.codeAnalyzers": [
+        "${workspaceFolder}/.alcops/Microsoft.Dynamics.Nav.Analyzers.Common.dll",
+        "${workspaceFolder}/.alcops/ALCops.Common.dll",
+        "${workspaceFolder}/.alcops/ALCops.ApplicationCop.dll",
+        "${workspaceFolder}/.alcops/ALCops.LinterCop.dll",
+        "${workspaceFolder}/.alcops/ALCops.PlatformCop.dll"
+    ]
 }

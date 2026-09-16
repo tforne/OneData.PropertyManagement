@@ -270,11 +270,13 @@ page 96153 "Incident Attach. FactBox"
 
     local procedure FindIncidentsFromFilters(var Incident: Record "Incident Assets Real Estate"): Boolean
     var
-        IncidentId: Text;
+        IncidentIdFilter: Text;
+        IncidentId: Guid;
     begin
-        IncidentId := Rec.GetFilter("Incident Id.");
-        if IncidentId <> '' then
-            exit(Incident.Get(IncidentId));
+        IncidentIdFilter := Rec.GetFilter("Incident Id.");
+        if IncidentIdFilter <> '' then
+            if Evaluate(IncidentId, IncidentIdFilter) then
+                exit(Incident.Get(IncidentId));
 
         // exit(Incident.FindByDocumentNoAndPostingDate(Incident, Rec.GetFilter("Document No."), Rec.GetFilter("Posting Date")));
         exit(false)

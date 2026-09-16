@@ -23,14 +23,14 @@ page 96704 "Create Payment Lease Invoice"
                     trigger OnLookup(var Text: Text): Boolean
                     var
                         FREJnlTemplate: Record "FRE Jnl. Template";
-                        GeneralJournalTemplates: Page "General Journal Templates";
+                        FREJnlTemplateList: Page "FRE Jnl. Template List";
                     begin
                         FREJnlTemplate.FilterGroup(2);
                         FREJnlTemplate.FilterGroup(0);
-                        GeneralJournalTemplates.SetTableView(FREJnlTemplate);
-                        GeneralJournalTemplates.LookupMode := true;
-                        if GeneralJournalTemplates.RunModal() = ACTION::LookupOK then begin
-                            GeneralJournalTemplates.GetRecord(FREJnlTemplate);
+                        FREJnlTemplateList.SetTableView(FREJnlTemplate);
+                        FREJnlTemplateList.LookupMode := true;
+                        if FREJnlTemplateList.RunModal() = ACTION::LookupOK then begin
+                            FREJnlTemplateList.GetRecord(FREJnlTemplate);
                             JournalTemplateName := FREJnlTemplate.Name;
                             BatchSelection(JournalTemplateName, JournalBatchName, false);
                         end;
@@ -126,20 +126,15 @@ page 96704 "Create Payment Lease Invoice"
 
     trigger OnOpenPage()
     var
-        GenJournalTemplate: Record "Gen. Journal Template";
-        GenJournalBatch: Record "Gen. Journal Batch";
-        GenJnlManagement: Codeunit GenJnlManagement;
+        FREJnlTemplate: Record "FRE Jnl. Template";
+        FREJnlBatch: Record "FRE Jnl. Batch";
     begin
         PostingDate := WorkDate();
 
-        if not GenJournalTemplate.Get(JournalTemplateName) then
+        if not FREJnlTemplate.Get(JournalTemplateName) then
             Clear(JournalTemplateName);
-        if not GenJournalBatch.Get(JournalTemplateName, JournalBatchName) then
+        if not FREJnlBatch.Get(JournalTemplateName, JournalBatchName) then
             Clear(JournalBatchName);
-
-        // if JournalTemplateName = '' then
-        //     if GenJnlManagement.TemplateSelectionSimple(GenJournalTemplate, GenJournalTemplate.Type::Payments, false) then
-        //         JournalTemplateName := GenJournalTemplate.Name;
 
         BatchSelection(JournalTemplateName, JournalBatchName, true);
     end;

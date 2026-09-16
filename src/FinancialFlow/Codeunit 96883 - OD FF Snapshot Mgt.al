@@ -236,7 +236,7 @@ codeunit 96983 "OD FF Snapshot Mgt"
         CurrentYearTxt: Text;
     begin
         CurrentYearTxt := Format(Date2DMY(Today, 3));
-        Header.SetFilter("Snapshot No.", 'FFM-%1-*', CurrentYearTxt);
+        Header.SetFilter("Snapshot No.", StrSubstNo('FFM-%1-*', CurrentYearTxt));
         CountForYear := Header.Count + 1;
         exit(CopyStr(StrSubstNo('FFM-%1-%2', Date2DMY(Today, 3), PadStr(Format(CountForYear), 6, '0')), 1, 20));
     end;

@@ -27,6 +27,18 @@ page 96031 "Lease Contract Card"
                     Caption = 'Activo inmobiliario';
                     field("Fixed Real Estate No."; rec."Fixed Real Estate No.")
                     {
+                        trigger OnLookup(var Text: Text): Boolean
+                        var
+                            FixedRealEstate: Record "Fixed Real Estate";
+                        begin
+                            FixedRealEstate.SetRange(Type, FixedRealEstate.Type::Activo);
+                            if Page.RunModal(Page::"Simple Fixed Real Estate List", FixedRealEstate) <> Action::LookupOK then
+                                exit(false);
+
+                            Rec.Validate("Fixed Real Estate No.", FixedRealEstate."No.");
+                            Text := Rec."Fixed Real Estate No.";
+                            exit(true);
+                        end;
                     }
                     field("Description Fixed Real Estate"; rec."Description Fixed Real Estate")
                     {

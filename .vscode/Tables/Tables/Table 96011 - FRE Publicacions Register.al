@@ -12,8 +12,8 @@ table 96011 "FRE Publicacions Register"
     Caption = 'Credit Transfer Register';
     DataCaptionFields = Identifier, "Created Date-Time";
     DataPerCompany = false;
-    DrillDownPageID = 1205;
-    LookupPageID = 1205;
+    DrillDownPageID = "FRE Publication Registers";
+    LookupPageID = "FRE Publication Registers";
 
     fields
     {
@@ -46,6 +46,7 @@ table 96011 "FRE Publicacions Register"
         {
             CalcFormula = Count ("Credit Transfer Entry" WHERE ("Credit Transfer Register No."=FIELD("No.")));
             Caption = 'No. of Transfers';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(9;"Exported File";BLOB)

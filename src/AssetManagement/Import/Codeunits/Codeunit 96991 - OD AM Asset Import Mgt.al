@@ -38,6 +38,7 @@ codeunit 96991 "OD AM Asset Import Mgt."
         MainPropertyLinkErrLbl: Label '[VINCULAR PROPIEDAD] Se ha creado la propiedad principal %1, pero no se ha podido vincular con el activo fijo %2.';
         MainPropertyChildCreateErrLbl: Label '[CREAR HIJO] Se ha creado la propiedad principal %1, pero no se ha podido crear el activo dependiente para el activo fijo %2.';
         MainPropertyChildLinkErrLbl: Label '[VINCULAR HIJO] Se han creado la propiedad principal %1 y el activo dependiente %2, pero no se ha podido vincular con el activo fijo %3.';
+        AssetDescriptionTooLongErr: Label 'La descripcion del activo supera los %1 caracteres permitidos.';
 
     procedure DownloadTemplate()
     var
@@ -374,7 +375,8 @@ codeunit 96991 "OD AM Asset Import Mgt."
         ParentFixedRealEstate.Get(ParentNo);
         CreatedAssetNo := AssetStructureMgt.CreateChildAsset(ParentFixedRealEstate, AssetType);
         if NewFixedRealEstate.Get(CreatedAssetNo) then begin
-            NewFixedRealEstate.Validate(Description, AssetDescription);
+            EnsureAssetDescriptionFits(AssetDescription, MaxStrLen(NewFixedRealEstate.Description));
+            NewFixedRealEstate.Validate(Description, CopyStr(AssetDescription, 1, MaxStrLen(NewFixedRealEstate.Description)));
             NewFixedRealEstate.Modify(true);
         end;
 
@@ -389,7 +391,8 @@ codeunit 96991 "OD AM Asset Import Mgt."
     begin
         NewFixedRealEstate.Init();
         NewFixedRealEstate.Validate(Type, NewFixedRealEstate.Type::Activo);
-        NewFixedRealEstate.Validate(Description, AssetDescription);
+        EnsureAssetDescriptionFits(AssetDescription, MaxStrLen(NewFixedRealEstate.Description));
+        NewFixedRealEstate.Validate(Description, CopyStr(AssetDescription, 1, MaxStrLen(NewFixedRealEstate.Description)));
         NewFixedRealEstate.Acquired := true;
         NewFixedRealEstate.Managed := true;
         NewFixedRealEstate.Insert(true);
@@ -885,6 +888,12 @@ codeunit 96991 "OD AM Asset Import Mgt."
         if CurrentText = '' then
             exit(CopyStr(NewText, 1, MaxLength));
         exit(CopyStr(CurrentText + ' | ' + NewText, 1, MaxLength));
+    end;
+
+    local procedure EnsureAssetDescriptionFits(AssetDescription: Text; MaxLength: Integer)
+    begin
+        if StrLen(AssetDescription) > MaxLength then
+            Error(AssetDescriptionTooLongErr, MaxLength);
     end;
 
     local procedure FinalizeStatus(var ImportLine: Record "OD AM Asset Import")

@@ -86,6 +86,7 @@ table 96006 "REF Related Contactos"
         {
             CalcFormula = Lookup(Contact."Post Code" WHERE ("No."=FIELD("Contact No.")));
             Caption = 'Post Code';
+            Editable = false;
             FieldClass = FlowField;
             TableRelation = "Post Code";
             ValidateTableRelation = false;

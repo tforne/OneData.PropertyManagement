@@ -16,6 +16,19 @@ page 96948 "OD AM Lease Contract Units"
                 field("Fixed Real Estate No."; Rec."Fixed Real Estate No.")
                 {
                     ToolTip = 'Muestra el activo inmobiliario vinculado al contrato.';
+
+                    trigger OnLookup(var Text: Text): Boolean
+                    var
+                        FixedRealEstate: Record "Fixed Real Estate";
+                    begin
+                        FixedRealEstate.SetRange(Type, FixedRealEstate.Type::Activo);
+                        if Page.RunModal(Page::"Simple Fixed Real Estate List", FixedRealEstate) <> Action::LookupOK then
+                            exit(false);
+
+                        Rec.Validate("Fixed Real Estate No.", FixedRealEstate."No.");
+                        Text := Rec."Fixed Real Estate No.";
+                        exit(true);
+                    end;
                 }
                 field(Description; Rec.Description)
                 {

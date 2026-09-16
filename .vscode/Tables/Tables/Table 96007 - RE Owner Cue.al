@@ -17,6 +17,7 @@ table 96007 "RE Owner Cue"
             CalcFormula = Count ("Sales Header" WHERE ("Document Type"=CONST(Quote),
                                                       Status=FILTER(Released)));
             Caption = 'Released Sales Quotes';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(3;"Open Sales Orders";Integer)
@@ -25,6 +26,7 @@ table 96007 "RE Owner Cue"
             CalcFormula = Count("Sales Header" WHERE ("Document Type"=CONST(Order),
                                                       Status=FILTER(Open)));
             Caption = 'Open Sales Orders';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(4;"Released Sales Orders";Integer)
@@ -33,6 +35,7 @@ table 96007 "RE Owner Cue"
             CalcFormula = Count("Sales Header" WHERE ("Document Type"=CONST(Order),
                                                       Status=FILTER(Released)));
             Caption = 'Released Sales Orders';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(5;"Released Purchase Orders";Integer)
@@ -41,6 +44,7 @@ table 96007 "RE Owner Cue"
             CalcFormula = Count("Purchase Header" WHERE ("Document Type"=CONST(Order),
                                                          Status=FILTER(Released)));
             Caption = 'Released Purchase Orders';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(6;"Overdue Sales Documents";Integer)
@@ -49,6 +53,7 @@ table 96007 "RE Owner Cue"
                                                             "Due Date"=FIELD("Overdue Date Filter"),
                                                             Open=CONST(true)));
             Caption = 'Overdue Sales Documents';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(7;"Shipped Not Invoiced";Integer)
@@ -58,12 +63,14 @@ table 96007 "RE Owner Cue"
                                                       "Completely Shipped"=CONST(true),
                                                       "Shipped Not Invoiced"=CONST(true)));
             Caption = 'SOs Shipped Not Invoiced';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(8;"Customers - Blocked";Integer)
         {
             CalcFormula = Count(Customer WHERE (Blocked=FILTER(<>' ')));
             Caption = 'Customers - Blocked';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(9;"Purchase Documents Due Today";Integer)
@@ -72,24 +79,28 @@ table 96007 "RE Owner Cue"
                                                              "Due Date"=FIELD("Due Date Filter"),
                                                              Open=CONST(false)));
             Caption = 'Purchase Documents Due Today';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(10;"Vendors - Payment on Hold";Integer)
         {
             CalcFormula = Count(Vendor WHERE (Blocked=FILTER(Payment)));
             Caption = 'Vendors - Payment on Hold';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(11;"Sales Invoices";Integer)
         {
             CalcFormula = Count("Sales Header" WHERE ("Document Type"=FILTER(Invoice)));
             Caption = 'Sales Invoices';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(12;"Unpaid Sales Invoices";Integer)
         {
             CalcFormula = Count("Sales Invoice Header" WHERE (Closed=FILTER(false)));
             Caption = 'Unpaid Sales Invoices';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(13;"Overdue Sales Invoices";Integer)
@@ -97,12 +108,14 @@ table 96007 "RE Owner Cue"
             CalcFormula = Count("Sales Invoice Header" WHERE ("Due Date"=FIELD("Overdue Date Filter"),
                                                               Closed=FILTER('false')));
             Caption = 'Overdue Sales Invoices';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(14;"Sales Quotes";Integer)
         {
             CalcFormula = Count("Sales Header" WHERE ("Document Type"=FILTER(Quote)));
             Caption = 'Sales Quotes';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(20;"Due Date Filter";Date)
@@ -120,12 +133,14 @@ table 96007 "RE Owner Cue"
         {
             CalcFormula = Count("Purchase Header" WHERE ("Document Type"=FILTER(Invoice)));
             Caption = 'Purchase Invoices';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(31;"Unpaid Purchase Invoices";Integer)
         {
             CalcFormula = Count("Purch. Inv. Header" WHERE (Closed=FILTER('false')));
             Caption = 'Unpaid Purchase Invoices';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(32;"Overdue Purchase Invoices";Integer)
@@ -133,6 +148,7 @@ table 96007 "RE Owner Cue"
             CalcFormula = Count("Purch. Inv. Header" WHERE ("Due Date"=FIELD("Overdue Date Filter"),
                                                             Closed=FILTER('False')));
             Caption = 'Overdue Purchase Invoices';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(33;"User ID Filter";Code[50])
@@ -145,6 +161,7 @@ table 96007 "RE Owner Cue"
             CalcFormula = Count("User Task" WHERE ("Assigned To User Name"=FIELD("User ID Filter"),
                                                    "Percent Complete"=FILTER('<>100')));
             Caption = 'Pending Tasks';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(96000;"Fixed Real Estate";Integer)
@@ -166,6 +183,7 @@ table 96007 "RE Owner Cue"
             CalcFormula = Count("Lease Contract" WHERE (Status=CONST(Signed),
                                                         "Expiration Date"=FIELD("Due Date Filter")));
             Caption = 'Contratos de alquiler caducados';
+            Editable = false;
             FieldClass = FlowField;
         }
         // field(96003;"Builded surface";Decimal)
@@ -222,6 +240,7 @@ table 96007 "RE Owner Cue"
             CalcFormula = Count("Cartera Doc." WHERE (Type=CONST(Receivable),
                                                       "Bill Gr./Pmt. Order No."=CONST()));
             Caption = 'Receivable Documents';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(7000001;"Payable Documents";Integer)
@@ -229,6 +248,7 @@ table 96007 "RE Owner Cue"
             CalcFormula = Count("Cartera Doc." WHERE (Type=CONST(Payable),
                                                       "Bill Gr./Pmt. Order No."=CONST()));
             Caption = 'Payable Documents';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(7000002;"Posted Receivable Documents";Integer)
@@ -236,6 +256,7 @@ table 96007 "RE Owner Cue"
             CalcFormula = Count("Posted Cartera Doc." WHERE (Type=CONST(Receivable),
                                                              "Bill Gr./Pmt. Order No."=CONST()));
             Caption = 'Posted Receivable Documents';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(7000003;"Posted Payable Documents";Integer)
@@ -243,6 +264,7 @@ table 96007 "RE Owner Cue"
             CalcFormula = Count("Posted Cartera Doc." WHERE (Type=CONST(Payable),
                                                              "Bill Gr./Pmt. Order No."=CONST()));
             Caption = 'Posted Payable Documents';
+            Editable = false;
             FieldClass = FlowField;
         }
     }

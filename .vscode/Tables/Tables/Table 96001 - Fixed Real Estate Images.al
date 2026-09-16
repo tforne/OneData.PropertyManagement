@@ -28,7 +28,7 @@ table 96001 "Fixed Real Estate Images"
         {
             Caption = 'No.';
         }
-        field(3; Description; Text[50])
+        field(3; Description; Text[80])
         {
             DataClassification = ToBeClassified;
             Editable = true;

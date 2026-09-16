@@ -17,6 +17,9 @@ page 96015 "Real Estate Role Center"
             part("Real Estate"; 96014)
             {
             }
+            part(CollectionActivities; "OD PM Collection Activities")
+            {
+            }
             // part(GettingStarted; "RE RC Getting Started")
             // {
             // }
@@ -123,6 +126,13 @@ page 96015 "Real Estate Role Center"
                 Caption = 'Vendors';
                 RunObject = Page 27;
             }
+            action("Bank Account List")
+            {
+                Caption = 'Cuentas bancarias';
+                Image = Bank;
+                RunObject = Page "Bank Account List";
+                ToolTip = 'Abrir las cuentas bancarias de la empresa.';
+            }
             action("Fixed Real Estate List")
             {
                 Caption = 'Activos inmobiliarios';
@@ -170,6 +180,89 @@ page 96015 "Real Estate Role Center"
                     RunObject = page 96500;
                 }
             }
+            group(Collections)
+            {
+                Caption = 'Cobros y Cartera';
+                Image = Documents;
+                action("Receivables Cartera Docs")
+                {
+                    Caption = 'Documentos a cobrar';
+                    Image = Documents;
+                    RunObject = Page "Receivables Cartera Docs";
+                    AccessByPermission = TableData "Cartera Doc." = R;
+                    ToolTip = 'Abrir los documentos de cartera a cobrar.';
+                }
+                action("Customer Ledger Entries")
+                {
+                    Caption = 'Movimientos de clientes';
+                    Image = LedgerEntries;
+                    RunObject = Page "Customer Ledger Entries";
+                    ToolTip = 'Abrir los movimientos de clientes para consultar deuda y vencimientos.';
+                }
+                action("Collection Cash Receipt Journal")
+                {
+                    Caption = 'Diario de cobros';
+                    Image = Journal;
+                    RunObject = Page "Cash Receipt Journal";
+                    ToolTip = 'Abrir el diario de cobros para registrar cobros de clientes.';
+                }
+                action("Bill Groups")
+                {
+                    Caption = 'Grupos / remesas';
+                    Image = VoucherGroup;
+                    RunObject = Page "Bill Groups";
+                    AccessByPermission = TableData "Bill Group" = R;
+                    ToolTip = 'Abrir los grupos o remesas de efectos a cobrar.';
+                }
+                action("Cartera Journal")
+                {
+                    Caption = 'Diario de cartera';
+                    Image = Journal;
+                    RunObject = Page "Cartera Journal";
+                    AccessByPermission = TableData "Cartera Doc." = R;
+                    ToolTip = 'Abrir el diario estándar de cartera.';
+                }
+                action("Posted Cartera Documents")
+                {
+                    Caption = 'Documentos de cartera registrados';
+                    Image = FiledPosted;
+                    RunObject = Page "Posted Cartera Documents";
+                    AccessByPermission = TableData "Posted Cartera Doc." = R;
+                    ToolTip = 'Abrir los documentos de cartera registrados.';
+                }
+                action("Closed Cartera Documents")
+                {
+                    Caption = 'Documentos de cartera cerrados';
+                    Image = Documents;
+                    RunObject = Page "Closed Cartera Documents";
+                    AccessByPermission = TableData "Closed Cartera Doc." = R;
+                    ToolTip = 'Abrir los documentos de cartera cerrados.';
+                }
+                action("Posted Bill Groups")
+                {
+                    Caption = 'Grupos / remesas registrados';
+                    Image = FiledPosted;
+                    RunObject = Page "Posted Bill Groups";
+                    AccessByPermission = TableData "Posted Bill Group" = R;
+                    ToolTip = 'Abrir los grupos o remesas registrados.';
+                }
+                action("Closed Bill Groups")
+                {
+                    Caption = 'Grupos / remesas cerrados';
+                    Image = Documents;
+                    RunObject = Page "Closed Bill Groups";
+                    AccessByPermission = TableData "Closed Bill Group" = R;
+                    ToolTip = 'Abrir los grupos o remesas cerrados.';
+                }
+                action("Documents Maturity")
+                {
+                    Caption = 'Análisis de vencimientos';
+                    Image = DocumentsMaturity;
+                    RunObject = Page "Documents Maturity";
+                    AccessByPermission = TableData "Cartera Doc." = R;
+                    ToolTip = 'Abrir el análisis estándar de vencimientos de cartera.';
+                }
+            }
             group(Compras)
             {
                 Caption = 'Compras';
@@ -202,6 +295,20 @@ page 96015 "Real Estate Role Center"
                     Image = Journal;
                     RunObject = Page "General Journal";
                     ToolTip = 'Abrir los diarios generales para registrar movimientos contables.';
+                }
+                action("Payment Journal")
+                {
+                    Caption = 'Diarios de pagos';
+                    Image = Journal;
+                    RunObject = Page "Payment Journal";
+                    ToolTip = 'Abrir los diarios de pagos para registrar pagos a proveedores.';
+                }
+                action("Cash Receipt Journal")
+                {
+                    Caption = 'Diario de recibos efectivo';
+                    Image = Journal;
+                    RunObject = Page "Cash Receipt Journal";
+                    ToolTip = 'Abrir el diario de recibos efectivo para registrar cobros.';
                 }
             }
             group(Setup)

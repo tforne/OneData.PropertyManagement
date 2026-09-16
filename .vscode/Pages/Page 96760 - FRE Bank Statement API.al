@@ -20,7 +20,6 @@ page 96761 "FRE Bank Statement API"
 
     Permissions =
         tabledata "FRE Bank Statement" = RIMD;
-    ApplicationArea = All;
 
     layout
     {
@@ -28,8 +27,10 @@ page 96761 "FRE Bank Statement API"
         {
             repeater(Group)
             {
-                // 🔑 clave estándar
+                field(id; Rec.SystemId) { }
+                field(lastModifiedDateTime; Rec.SystemModifiedAt) { }
 
+                // Kept for backward compatibility with existing v1 consumers.
                 field(systemId; Rec.SystemId) { }
                 field(company; Rec.Company) { }
                 field(year; Rec.Year) { }

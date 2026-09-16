@@ -92,6 +92,7 @@ table 96167 "FRE Attribute Value"
         {
             CalcFormula = lookup("FRE Attribute".Name where(ID = field("Attribute ID")));
             Caption = 'Attribute Name';
+            Editable = false;
             FieldClass = FlowField;
         }
         field(11; "Comment"; Text[50])

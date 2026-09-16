@@ -60,6 +60,10 @@ permissionset 96853 "ODPM USER"
         tabledata "RE Insurance Policy Asset" = RIMD,
         table "OD RE FA Link" = X,
         tabledata "OD RE FA Link" = R,
+        table "OD Lease Ctr. Val. Buffer" = X,
+        tabledata "OD Lease Ctr. Val. Buffer" = RIMD,
+        table "OD PM Collection Cue" = X,
+        tabledata "OD PM Collection Cue" = RIMD,
         table "REF Setup" = X,
         tabledata "REF Setup" = R,
         table "REF Income & Expense Template" = X,
@@ -71,6 +75,8 @@ permissionset 96853 "ODPM USER"
         page "Fixed Real Estate List" = X,
         page "Lease Contract Card" = X,
         page "Lease Contract List" = X,
+        page "OD Lease Ctr. Val. Results" = X,
+        page "OD PM Collection Activities" = X,
         page "Posted Lease Invoices" = X,
         page "Posted Lease Invoice" = X,
         page "Reference Index Rental Prices" = X,
@@ -101,6 +107,9 @@ permissionset 96853 "ODPM USER"
         codeunit "Preview Load Mgt." = X,
         codeunit "INE Rental Index Mgt." = X,
         codeunit "RE Incident Management" = X,
+        codeunit "OD Lease Ctr. Val. Mgt." = X,
+        codeunit "OD Import Lease Contracts" = X,
+        codeunit "RE Incident Contract Mgt." = X,
         codeunit "RE Insurance Notify Mgt" = X,
         codeunit "AI Incident Intake Mgt." = X,
         codeunit "FRE Journal Integration Mgt." = X,
@@ -109,5 +118,7 @@ permissionset 96853 "ODPM USER"
         report "Lease Sales - Invoice" = X,
         report "Generate FRE Movs." = X,
         report "RE Contract-Detail" = X,
-        report "Sugg. Incr. Prices Refer Index" = X;
+        report "Sugg. Incr. Prices Refer Index" = X,
+        page "RE Incident Contract Lookup" = X,
+        table "RE Incident Contract Lookup" = X;
 }

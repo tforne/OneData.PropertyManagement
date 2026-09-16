@@ -10,6 +10,7 @@ codeunit 96007 "FRE Journals Management"
         Text001	 :Label 'Diario FRE';
         Text002	: label 'GENERICO';
         Text003	: label 'Diario genérico';
+        ValueTooLongErr: Label '%1 cannot exceed %2 characters.';
 
 
     procedure OpenJnlBatch(var FREJnlBatch: Record "FRE Jnl. Batch")
@@ -82,8 +83,10 @@ codeunit 96007 "FRE Journals Management"
             0:
                 BEGIN
                     FREJnlTemplate.INIT;
-                    FREJnlTemplate.Name := Text000;
-                    FREJnlTemplate.Description := Text001;
+                    EnsureTextFits(Text000, MaxStrLen(FREJnlTemplate.Name), FREJnlTemplate.FieldCaption(Name));
+                    FREJnlTemplate.Name := CopyStr(Text000, 1, MaxStrLen(FREJnlTemplate.Name));
+                    EnsureTextFits(Text001, MaxStrLen(FREJnlTemplate.Description), FREJnlTemplate.FieldCaption(Description));
+                    FREJnlTemplate.Description := CopyStr(Text001, 1, MaxStrLen(FREJnlTemplate.Description));
                     FREJnlTemplate.VALIDATE("Page ID");
                     if FREJnlTemplate.INSERT then;
                     COMMIT;
@@ -114,8 +117,10 @@ codeunit 96007 "FRE Journals Management"
                 FREJnlTemplate.GET(CurrentJnlTemplateName);
                 FREJnlBatch.INIT;
                 FREJnlBatch."Journal Template Name" := FREJnlTemplate.Name;
-                FREJnlBatch.Name := Text002;
-                FREJnlBatch.Description := Text003;
+                EnsureTextFits(Text002, MaxStrLen(FREJnlBatch.Name), FREJnlBatch.FieldCaption(Name));
+                FREJnlBatch.Name := CopyStr(Text002, 1, MaxStrLen(FREJnlBatch.Name));
+                EnsureTextFits(Text003, MaxStrLen(FREJnlBatch.Description), FREJnlBatch.FieldCaption(Description));
+                FREJnlBatch.Description := CopyStr(Text003, 1, MaxStrLen(FREJnlBatch.Description));
                 FREJnlBatch.INSERT;
                 COMMIT;
             END;
@@ -157,6 +162,12 @@ codeunit 96007 "FRE Journals Management"
         FREJnlLine.FILTERGROUP(2);
         FREJnlLine.SETRANGE("Journal Batch Name", CurrentJnlBatchName);
         FREJnlLine.FILTERGROUP(0);
+    end;
+
+    local procedure EnsureTextFits(Value: Text; MaxLength: Integer; FieldDescription: Text)
+    begin
+        if StrLen(Value) > MaxLength then
+            Error(ValueTooLongErr, FieldDescription, MaxLength);
     end;
 
 }

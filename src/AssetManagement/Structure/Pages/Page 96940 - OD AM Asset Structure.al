@@ -366,28 +366,23 @@ page 96940 "OD AM Asset Structure"
 
     local procedure CreateGenericAsset()
     var
-        AssetCreateRequest: Record "OD AM Asset Create Req." temporary;
         NewAssetDialog: Page "OD AM New Asset";
         ParentFixedRealEstate: Record "Fixed Real Estate";
+        AssetType: Enum "OD Asset Type";
     begin
-        AssetCreateRequest.Init();
-        AssetCreateRequest."Entry No." := 1;
-        AssetCreateRequest."Asset Type" := AssetCreateRequest."Asset Type"::Undefined;
-        AssetCreateRequest.Insert();
-
-        NewAssetDialog.SetRecord(AssetCreateRequest);
+        NewAssetDialog.SetAssetType(AssetType::Undefined);
         NewAssetDialog.LookupMode(true);
         if NewAssetDialog.RunModal() <> Action::LookupOK then
             exit;
 
-        NewAssetDialog.GetRecord(AssetCreateRequest);
+        AssetType := NewAssetDialog.GetAssetType();
 
         if Rec."Fixed Real Estate No." <> '' then
             ParentFixedRealEstate.Get(Rec."Fixed Real Estate No.")
         else
             ParentFixedRealEstate := GetRootPropertyRecord();
 
-        OpenCreatedAssetCard(AssetStructureMgt.CreateChildAsset(ParentFixedRealEstate, AssetCreateRequest."Asset Type"));
+        OpenCreatedAssetCard(AssetStructureMgt.CreateChildAsset(ParentFixedRealEstate, AssetType));
     end;
 
     local procedure GetRootPropertyRecord(): Record "Fixed Real Estate"

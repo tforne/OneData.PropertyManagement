@@ -74,9 +74,12 @@ page 96014 "Small Real Estate Act."
 
                     trigger OnDrillDown()
                     var
+                        PurchaseHeader: Record "Purchase Header";
                         PurchaseList: Page "Purchase List";
                     begin
-                        PurchaseList.RUNMODAL;
+                        PurchaseHeader.SetRange("Document Type", PurchaseHeader."Document Type"::Invoice);
+                        PurchaseList.SetTableView(PurchaseHeader);
+                        PurchaseList.Run();
                     end;
                 }
 

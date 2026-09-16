@@ -46,8 +46,8 @@ page 96019 "RE Analisis Ingresos y Gastos"
         Rec.Initialize();
 
         Rec.SetXAxis('Mes', Rec."Data Type"::String);
-        Rec.AddDecimalMeasure('Ventas', 0, Rec."Chart Type"::Column);
-        Rec.AddDecimalMeasure('Gastos', 0, Rec."Chart Type"::Column);
+        Rec.AddDecimalMeasure('Ventas', 0, Rec."Chart Type"::Area);
+        Rec.AddDecimalMeasure('Gastos', 0, Rec."Chart Type"::Area);
 
         XAxisIndex := 0;
 

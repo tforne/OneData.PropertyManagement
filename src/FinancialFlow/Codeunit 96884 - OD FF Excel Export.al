@@ -62,8 +62,8 @@ codeunit 96984 "OD FF Excel Export"
     local procedure AddCell(var ExcelBuffer: Record "Excel Buffer" temporary; RowNo: Integer; ColNo: Integer; CellValue: Variant)
     begin
         ExcelBuffer.Init();
-        ExcelBuffer.Validate("Row No.", RowNo);
-        ExcelBuffer.Validate("Column No.", ColNo);
+        ExcelBuffer."Row No." := RowNo;
+        ExcelBuffer."Column No." := ColNo;
         ExcelBuffer."Cell Value as Text" := CopyStr(Format(CellValue), 1, MaxStrLen(ExcelBuffer."Cell Value as Text"));
         ExcelBuffer.Insert();
     end;

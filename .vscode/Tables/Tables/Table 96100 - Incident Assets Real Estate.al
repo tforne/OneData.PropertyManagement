@@ -195,7 +195,7 @@ table 96100 "Incident Assets Real Estate"
             Caption = 'Description';
             Description = 'Type additional information to describe the case, such as the customer''s issue or request.';
         }
-        field(33; "Capture Medium Code"; Code[10])
+        field(33; "Capture Medium Code"; Code[20])
         {
             Caption = 'Capture Medium';
             Description = 'Indicates the medium through which the case was captured.';

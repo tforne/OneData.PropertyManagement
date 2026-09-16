@@ -10,6 +10,7 @@ codeunit 96104 "ODPM Incident Agent Setup Mgt."
         ThresholdMissingLbl: Label 'confidence threshold';
         ValidationOkLbl: Label 'Configuration validated successfully.';
         ValidationPendingLbl: Label 'Pending configuration: %1';
+        ValueTooLongErr: Label '%1 cannot exceed %2 characters.';
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Guided Experience", 'OnRegisterAssistedSetup', '', true, true)]
     local procedure RegisterAssistedSetup()
@@ -63,7 +64,8 @@ codeunit 96104 "ODPM Incident Agent Setup Mgt."
         AgentSetup."Incoming Mail Folder" := 'Inbox';
         AgentSetup."Use AI" := true;
         AgentSetup."Confidence Threshold" := 0.85;
-        AgentSetup."Help URL" := SetupHelpUrlLbl;
+        EnsureTextFits(SetupHelpUrlLbl, MaxStrLen(AgentSetup."Help URL"), AgentSetup.FieldCaption("Help URL"));
+        AgentSetup."Help URL" := CopyStr(SetupHelpUrlLbl, 1, MaxStrLen(AgentSetup."Help URL"));
         AgentSetup.Insert(true);
     end;
 
@@ -75,8 +77,10 @@ codeunit 96104 "ODPM Incident Agent Setup Mgt."
         MissingItems := GetMissingConfigurationText(AgentSetup);
         AgentSetup."Last Validation At" := CurrentDateTime();
 
-        if MissingItems = '' then
-            AgentSetup."Last Validation Result" := ValidationOkLbl
+        if MissingItems = '' then begin
+            EnsureTextFits(ValidationOkLbl, MaxStrLen(AgentSetup."Last Validation Result"), AgentSetup.FieldCaption("Last Validation Result"));
+            AgentSetup."Last Validation Result" := CopyStr(ValidationOkLbl, 1, MaxStrLen(AgentSetup."Last Validation Result"));
+        end
         else
             AgentSetup."Last Validation Result" :=
                 CopyStr(StrSubstNo(ValidationPendingLbl, MissingItems), 1, MaxStrLen(AgentSetup."Last Validation Result"));
@@ -143,7 +147,8 @@ codeunit 96104 "ODPM Incident Agent Setup Mgt."
         end;
 
         if AgentSetup."Help URL" = '' then begin
-            AgentSetup."Help URL" := SetupHelpUrlLbl;
+            EnsureTextFits(SetupHelpUrlLbl, MaxStrLen(AgentSetup."Help URL"), AgentSetup.FieldCaption("Help URL"));
+            AgentSetup."Help URL" := CopyStr(SetupHelpUrlLbl, 1, MaxStrLen(AgentSetup."Help URL"));
             IsModified := true;
         end;
 
@@ -173,5 +178,11 @@ codeunit 96104 "ODPM Incident Agent Setup Mgt."
             MissingItems += ', ';
 
         MissingItems += MissingItem;
+    end;
+
+    local procedure EnsureTextFits(Value: Text; MaxLength: Integer; FieldDescription: Text)
+    begin
+        if StrLen(Value) > MaxLength then
+            Error(ValueTooLongErr, FieldDescription, MaxLength);
     end;
 }

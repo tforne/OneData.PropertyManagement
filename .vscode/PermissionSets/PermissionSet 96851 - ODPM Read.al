@@ -44,6 +44,10 @@ permissionset 96851 "ODPM READ"
         tabledata "RE Insurance Policy Asset" = R,
         table "OD RE FA Link" = X,
         tabledata "OD RE FA Link" = R,
+        table "OD Lease Ctr. Val. Buffer" = X,
+        tabledata "OD Lease Ctr. Val. Buffer" = R,
+        table "OD PM Collection Cue" = X,
+        tabledata "OD PM Collection Cue" = R,
         table "REF Setup" = X,
         tabledata "REF Setup" = R,
         table "REF Income & Expense Template" = X,
@@ -75,6 +79,8 @@ permissionset 96851 "ODPM READ"
         page "Fixed Real Estate List" = X,
         page "Lease Contract Card" = X,
         page "Lease Contract List" = X,
+        page "OD Lease Ctr. Val. Results" = X,
+        page "OD PM Collection Activities" = X,
         page "Posted Lease Invoices" = X,
         page "Reference Index Rental Prices" = X,
         page "Rentals Deposit" = X,
@@ -98,6 +104,7 @@ permissionset 96851 "ODPM READ"
         report "Lease Sales - Invoice" = X,
         report "RE Contract-Detail" = X,
         report "Fixed Real Estate - Label" = X,
-        codeunit "FRE Tenant Notice Mgt." = X;
+        codeunit "FRE Tenant Notice Mgt." = X,
+        codeunit "OD Lease Ctr. Val. Mgt." = X;
 
 }
